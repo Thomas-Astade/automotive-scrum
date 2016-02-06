@@ -11,24 +11,6 @@
 #include <boost/bind.hpp>
 #include <boost/spirit/include/qi_action.hpp>
 
-#include "OutText.h"
-#include "NoneAction.h"
-#include "FailAction.h"
-#include "Section.h"
-#include "Action.h"
-#include "Test.h"
-#include "Trigger.h"
-#include "TextTrigger.h"
-#include "AnyTrigger.h"
-#include "TimeoutTrigger.h"
-#include "TcpRunner.h"
-#include "Trace2UML.h"
-#include "ReportAction.h"
-#include "ExitAction.h"
-#include "GotoAction.h"
-#include "ShellTrigger.h"
-#include "ShellAction.h"
-
 namespace classic = boost::spirit::classic;
 namespace qi = boost::spirit::qi;
 namespace ascii = boost::spirit::ascii;
@@ -46,135 +28,6 @@ struct Arguments
 };
 
 Arguments arguments;
-
-bool watchMode = true;
-tr::Section ast(0);  // root section
-tr::Section* currentSection = &ast;
-tr::Trigger* currentTrigger = 0;
-
-void newSection(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
-{
-    if (currentSection->findSection(name))
-    {
-        pass = false;
-        return;
-    }
-    tr::Section* lSection = new tr::Section(currentSection);
-    boost::shared_ptr<tr::Section> aSection(lSection);
-    currentSection->add(name,aSection);
-    currentSection = lSection;
-}
-
-void newTest(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
-{
-    if (currentSection->findSection(name))
-    {
-        pass = false;
-        return;
-    }
-    tr::Section* lSection = new tr::Test(currentSection,name);
-    boost::shared_ptr<tr::Section> aSection(lSection);
-    currentSection->add(name,aSection);
-    currentSection = lSection;
-}
-
-void endSection()
-{
-    currentSection = currentSection->getParent();
-    watchMode = true;
-}
-
-void addTextTrigger(const std::string& triggerText, const boost::spirit::unused_type& it, bool& pass)
-{
-    if (triggerText.empty())
-    {
-        pass = false;
-        return;
-    }
-    currentTrigger = new tr::TextTrigger(triggerText);
-    if (watchMode)
-        currentSection->addWatch(boost::shared_ptr<tr::Trigger>(currentTrigger));
-    else
-        currentSection->addLine(boost::shared_ptr<tr::Trigger>(currentTrigger));
-}
-
-void addShellTrigger(const std::string& command, const boost::spirit::unused_type& it, bool& pass)
-{
-    if (watchMode)
-    {
-        pass = false;
-        return;
-    }
-    currentTrigger = new tr::ShellTrigger(command);
-    currentSection->addLine(boost::shared_ptr<tr::Trigger>(currentTrigger));
-}
-
-void addAnyTrigger(boost::spirit::unused_type& t, const boost::spirit::unused_type& it, bool& pass)
-{
-    currentTrigger = new tr::AnyTrigger();
-    if (watchMode)
-        pass = false;
-    else
-        currentSection->addLine(boost::shared_ptr<tr::Trigger>(currentTrigger));
-}
-
-void addTimeoutTrigger(boost::spirit::unused_type& t, const boost::spirit::unused_type& it, bool& pass)
-{
-    currentTrigger = new tr::TimeoutTrigger();
-    if (watchMode)
-        currentSection->addWatch(boost::shared_ptr<tr::Trigger>(currentTrigger));
-    else
-        currentSection->addLine(boost::shared_ptr<tr::Trigger>(currentTrigger));
-}
-
-void newTextAction(const std::string& triggerText)
-{
-    currentTrigger->addAction(boost::shared_ptr<tr::Action>(new tr::OutText(triggerText)));
-}
-
-void newShellAction(const std::string& command)
-{
-    currentTrigger->addAction(boost::shared_ptr<tr::Action>(new tr::ShellAction(command)));
-}
-
-void newGotoAction(const std::string& target, const boost::spirit::unused_type& it, bool& pass)
-{
-    currentTrigger->addAction(boost::shared_ptr<tr::Action>(new tr::GotoAction(target)));
-}
-
-void newNoneAction()
-{
-    currentTrigger->addAction(boost::shared_ptr<tr::Action>(new tr::NoneAction()));
-}
-
-void newFailAction()
-{
-    currentTrigger->addAction(boost::shared_ptr<tr::Action>(new tr::FailAction()));
-}
-
-void newExitAction()
-{
-    currentTrigger->addAction(boost::shared_ptr<tr::Action>(new tr::ExitAction()));
-}
-
-void newReportAction(const std::string& ReportText)
-{
-    currentTrigger->addAction(boost::shared_ptr<tr::Action>(new tr::ReportAction(ReportText)));
-}
-
-void startSequence(int t, const boost::spirit::unused_type& it, bool& pass)
-{
-    if ((t < 10) || (t > 120000))
-        pass = false;
-    else
-        currentSection->setTimeout(t);
-    watchMode = false;
-}
-
-void setTestNumber(const std::string& text)
-{
-    currentSection->addNumber(text);
-}
 
 template <typename Iterator>
 struct testscript
@@ -196,9 +49,9 @@ struct testscript
 
         section         = (section_begin | test_begin) > watchlist > sectionContent > section_end;
         sectionContent  = +(section) | omit[sequence];
-        test_begin      = space >> lit("test") > space > identifier[newTest] > space > -testNumber > space > OB;
-        section_begin   = space >> lit("section") > space > identifier[newSection] > space > OB;
-        section_end     = (space > CB > space > SC)[endSection];
+        test_begin      = space >> lit("test") > space > identifier > space > -testNumber > space > OB;
+        section_begin   = space >> lit("section") > space > identifier > space > OB;
+        section_end     = (space > CB > space > SC);
 
 
         watchlist       = *(watch);
@@ -207,26 +60,26 @@ struct testscript
 
 
         trigger         = omit[textTrigger] | omit[shellTrigger] | anyTrigger | timeoutTrigger;
-        textTrigger     = space >> unesc_str[addTextTrigger] ;
-        shellTrigger    = space >> lit("shell") > space > lit("(") > space > unesc_str[addShellTrigger] > space > lit(")");
-        shellAction     = space >> lit("shell") > space > lit("(") > space > unesc_str[newShellAction] > space > lit(")");
-        anyTrigger      = space >> lit("always")[addAnyTrigger];
-        timeoutTrigger  = space >> lit("timeout")[addTimeoutTrigger];
+        textTrigger     = space >> unesc_str;
+        shellTrigger    = space >> lit("shell") > space > lit("(") > space > unesc_str > space > lit(")");
+        shellAction     = space >> lit("shell") > space > lit("(") > space > unesc_str > space > lit(")");
+        anyTrigger      = space >> lit("always");
+        timeoutTrigger  = space >> lit("timeout");
 
         actionlist      = action >> *(space >> lit(',') > action);
         action          = omit[textAction] | noneAction | omit[reportAction] | exitAction | failAction | gotoAction | shellAction;
-        textAction      = space >> unesc_str[newTextAction];
-        gotoAction      = space >> lit("goto") > space > lit("(") > space > identifier[newGotoAction] > space > lit(")");
-        noneAction      = space >> lit("none")[newNoneAction];
-        failAction      = space >> lit("fail")[newFailAction];
-        exitAction      = space >> lit("exit")[newExitAction];
-        reportAction    = space >> lit("report") > space > lit("(") > space > unesc_str[newReportAction] > space > lit(")");
+        textAction      = space >> unesc_str;
+        gotoAction      = space >> lit("goto") > space > lit("(") > space > identifier > space > lit(")");
+        noneAction      = space >> lit("none");
+        failAction      = space >> lit("fail");
+        exitAction      = space >> lit("exit");
+        reportAction    = space >> lit("report") > space > lit("(") > space > unesc_str > space > lit(")");
 
         sequence        = space > lit("timeout") > Ob > space > timeout > space > Cb > space > CN > lineList;
         lineList        = *line;
         line            = trigger > space > ARROW > space > actionlist > space > SC;
 
-        testNumber      = (qi::lit("[") >> (number1 | number2) >> lit("]")) [setTestNumber];
+        testNumber      = (qi::lit("[") >> (number1 | number2) >> lit("]"));
 
         identifier      =  qi::char_("a-zA-Z_") > *qi::char_("a-zA-Z_0-9");
         number1         =  qi::lit('\"') > *qi::char_("a-zA-Z_0-9") > qi::lit('\"') ;
@@ -239,7 +92,7 @@ struct testscript
         SC              = lit(";");
         CN              = lit(":");
         ARROW           = lit("->");
-        timeout         = uint_[startSequence];
+        timeout         = uint_;
 
         unesc_str = unesc_str1 | unesc_str2;
 
@@ -318,10 +171,10 @@ struct testscript
 };
 
 const char *argp_program_version =
-"testrunner 0.1";
+"genproc 0.1";
 
 const char *argp_program_bug_address =
-"<dev@astade.tigris.org>";
+"<thomas@automotive-scrum.org>";
 
 static struct argp_option options[] =
 {
@@ -359,9 +212,6 @@ static error_t parse_opt (int key, char *arg, struct argp_state *state)
     case 'p':
         arguments->port = atoi(arg);
         break;
-    case 't':
-        Trace2UML::ms_ofile.open("Trace2UML.seq");
-        break;
 
     default:
         return ARGP_ERR_UNKNOWN;
@@ -370,7 +220,7 @@ static error_t parse_opt (int key, char *arg, struct argp_state *state)
 }
 
 static char doc[] =
-"testrunner -- A program to run testscripts.";
+"genproc -- A program to generate process descriptions.";
 
 static struct argp argp = {options, parse_opt, 0, doc};
 
@@ -436,41 +286,6 @@ int main (int argc, char **argv)
                     << e
                     << std::endl;
         return -1;
-    }
-
-    if (arguments.beautify)
-    {
-        ast.beautify(0);
-    } else {
-    
-        if (!arguments.host)
-        {
-            printf("you must specify a host name\n");
-            exit(2);
-        }
-
-        if (!arguments.port)
-        {
-            printf("you must specify a port\n");
-            exit(3);
-        }
-
-        tr::TcpRunner runner(arguments.verbose);
-
-        std::ofstream myReportFile;
-        if (arguments.xmlfile)
-        {
-            myReportFile.open(arguments.xmlfile);
-
-            if (myReportFile.is_open())
-                runner.setReportFile(myReportFile);
-        }
-
-        tr::Action::setRunnerInterface(&runner);
-        tr::Test::setRunnerInterface(&runner);
-        runner.setCurrentSection(&ast);
-        runner.connect(arguments.host, arguments.port);
-        runner.run();
     }
 
     return 0;
