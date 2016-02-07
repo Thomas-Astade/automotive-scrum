@@ -31,142 +31,17 @@ Arguments arguments;
 
 template <typename Iterator>
 struct testscript
-  : qi::grammar<Iterator, std::vector<std::string>()>
+  : qi::grammar<Iterator, std::list<std::string>()>
 {
     testscript()
-      : testscript::base_type(rootSections)
+      : testscript::base_type(rootElements)
     {
-        using qi::lit;
-        using boost::spirit::qi::omit;
-        using boost::spirit::uint_;
 
-        unesc_char.add("\\a", '\a')("\\b", '\b')("\\f", '\f')("\\n", '\n')
-                      ("\\r", '\r')("\\t", '\t')("\\v", '\v')
-                      ("\\\\", '\\')("\\\'", '\'')("\\\"", '\"')("-", '-')("*",'*')
-        ;
-        
-        rootSections    = *(section);
+        rootElements    = *(qi::alnum);
 
-        section         = (section_begin | test_begin) > watchlist > sectionContent > section_end;
-        sectionContent  = +(section) | omit[sequence];
-        test_begin      = space >> lit("test") > space > identifier > space > -testNumber > space > OB;
-        section_begin   = space >> lit("section") > space > identifier > space > OB;
-        section_end     = (space > CB > space > SC);
-
-
-        watchlist       = *(watch);
-        watch           = watch_begin > trigger > space > ARROW > space > actionlist > space > SC;
-        watch_begin     = space >> lit("watch") > space > CN;
-
-
-        trigger         = omit[textTrigger] | omit[shellTrigger] | anyTrigger | timeoutTrigger;
-        textTrigger     = space >> unesc_str;
-        shellTrigger    = space >> lit("shell") > space > lit("(") > space > unesc_str > space > lit(")");
-        shellAction     = space >> lit("shell") > space > lit("(") > space > unesc_str > space > lit(")");
-        anyTrigger      = space >> lit("always");
-        timeoutTrigger  = space >> lit("timeout");
-
-        actionlist      = action >> *(space >> lit(',') > action);
-        action          = omit[textAction] | noneAction | omit[reportAction] | exitAction | failAction | gotoAction | shellAction;
-        textAction      = space >> unesc_str;
-        gotoAction      = space >> lit("goto") > space > lit("(") > space > identifier > space > lit(")");
-        noneAction      = space >> lit("none");
-        failAction      = space >> lit("fail");
-        exitAction      = space >> lit("exit");
-        reportAction    = space >> lit("report") > space > lit("(") > space > unesc_str > space > lit(")");
-
-        sequence        = space > lit("timeout") > Ob > space > timeout > space > Cb > space > CN > lineList;
-        lineList        = *line;
-        line            = trigger > space > ARROW > space > actionlist > space > SC;
-
-        testNumber      = (qi::lit("[") >> (number1 | number2) >> lit("]"));
-
-        identifier      =  qi::char_("a-zA-Z_") > *qi::char_("a-zA-Z_0-9");
-        number1         =  qi::lit('\"') > *qi::char_("a-zA-Z_0-9") > qi::lit('\"') ;
-        number2         =  *qi::char_("0-9");
-        space           = *(qi::lit(' ') | qi::lit('\n') | qi::lit('\t'));
-        OB              = lit("{");
-        CB              = lit("}");
-        Ob              = lit("(");
-        Cb              = lit(")");
-        SC              = lit(";");
-        CN              = lit(":");
-        ARROW           = lit("->");
-        timeout         = uint_;
-
-        unesc_str = unesc_str1 | unesc_str2;
-
-        unesc_str1 = qi::lit('"')
-                > *(unesc_char | qi::alnum | qi::char_(" ,.;:_<>|~!§$%&/()=?{[]}") | "\\x" >> qi::hex)
-                >  qi::lit('"')
-        ;
-        
-        unesc_str2 = qi::lit('`')
-                > *(unesc_char | qi::alnum | qi::char_("\" ,.;:_<>|~!§$%&/()=?{[]}") | "\\x" >> qi::hex)
-                >  qi::lit('`')
-        ;
-
-        actionlist.name("Expected a list of valid actions.");
-        action.name("Expected a valid action.");
-        identifier.name("Expected a valid (non dublicate) identifier.");
-        trigger.name("Expected a valid trigger.");
-        sequence.name("'timeout' expected");
-        timeout.name("timeout must be between 10..120000 mSec.");
-
-        OB.name("Expected '{'");
-        CB.name("Expected '}'");
-        Ob.name("Expected '('");
-        Cb.name("Expected ')'");
-        SC.name("Expected ';'");
-        CN.name("Expected ':'");
-        ARROW.name("Expected '->'");
     }
 
-    qi::rule<Iterator, std::string()> identifier;
-    qi::rule<Iterator, std::string()> number1;
-    qi::rule<Iterator, std::string()> number2;
-    qi::rule<Iterator, std::string()> testNumber;
-    qi::rule<Iterator> space;
-    qi::rule<Iterator,std::string()> section_begin;
-    qi::rule<Iterator,std::string()> test_begin;
-    qi::rule<Iterator> section;
-    qi::rule<Iterator> section_end;
-    qi::rule<Iterator> watch_begin;
-    qi::rule<Iterator> watch;
-    qi::rule<Iterator> trigger;
-    qi::rule<Iterator,std::string()> textTrigger;
-    qi::rule<Iterator,std::string()> shellTrigger;
-    qi::rule<Iterator> anyTrigger;
-    qi::rule<Iterator> timeoutTrigger;
-    qi::rule<Iterator> actionlist;
-    qi::rule<Iterator> watchlist;
-    qi::rule<Iterator> noneAction;
-    qi::rule<Iterator> failAction;
-    qi::rule<Iterator> exitAction;
-    qi::rule<Iterator> action;
-    qi::rule<Iterator> sectionContent;
-    qi::rule<Iterator,std::string()> textAction;
-    qi::rule<Iterator,std::string()> gotoAction;
-    qi::rule<Iterator,std::string()> reportAction;
-    qi::rule<Iterator,std::string()> shellAction;
-    qi::rule<Iterator,std::vector<std::string>()> rootSections;
-    qi::rule<Iterator, unsigned int> sequence;
-    qi::rule<Iterator, unsigned int> timeout;
-    qi::rule<Iterator> line;
-    qi::rule<Iterator> lineList;
-
-    qi::rule<Iterator> OB;
-    qi::rule<Iterator> CB;
-    qi::rule<Iterator> Ob;
-    qi::rule<Iterator> Cb;
-    qi::rule<Iterator> SC;
-    qi::rule<Iterator> CN;
-    qi::rule<Iterator> ARROW;
-
-    qi::rule<Iterator, std::string()> unesc_str1;
-    qi::rule<Iterator, std::string()> unesc_str2;
-    qi::rule<Iterator, std::string()> unesc_str;
-    qi::symbols<char const, char const> unesc_char;
+    qi::rule<Iterator,std::list<std::string>()> rootElements;
 
 };
 
