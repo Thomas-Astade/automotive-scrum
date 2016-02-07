@@ -11,6 +11,8 @@
 #include <boost/bind.hpp>
 #include <boost/spirit/include/qi_action.hpp>
 
+#include "root_element.h"
+
 namespace classic = boost::spirit::classic;
 namespace qi = boost::spirit::qi;
 namespace ascii = boost::spirit::ascii;
@@ -31,7 +33,7 @@ Arguments arguments;
 
 template <typename Iterator>
 struct testscript
-  : qi::grammar<Iterator, std::list<std::string>()>
+  : qi::grammar<Iterator, std::list<ast::root_element>()>
 {
     testscript()
       : testscript::base_type(rootElements)
@@ -41,7 +43,7 @@ struct testscript
 
     }
 
-    qi::rule<Iterator,std::list<std::string>()> rootElements;
+    qi::rule<Iterator,std::list<ast::root_element>()> rootElements;
 
 };
 
@@ -129,8 +131,8 @@ int main (int argc, char **argv)
 
     try
     {
-        std::vector<std::string> s;
-        qi::phrase_parse(position_begin, position_end, p, qi::space, s);
+        std::vector<ast::root_element> ast;
+        qi::phrase_parse(position_begin, position_end, p, qi::space, ast);
         if (position_begin != position_end)
             throw qi::expectation_failure<pos_iterator_type>(position_begin, position_end,boost::spirit::info("general error"));
     }
