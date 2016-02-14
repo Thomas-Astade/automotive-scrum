@@ -35,13 +35,19 @@ struct testscript
     testscript()
       : testscript::base_type(rootElements)
     {
+//        identifier.name("Expected a valid identifier.");
 
-        rootElements    = *(qi::alnum);
+        rootElements    = *(rootElement);
+        rootElement     = identifier > space;
+        identifier      =  qi::char_("a-zA-Z_") > *qi::char_("a-zA-Z_0-9");
+        space           = *(qi::lit(' ') | qi::lit('\n') | qi::lit('\t'));
 
     }
 
+    qi::rule<Iterator,ast::root_element> rootElement;
     qi::rule<Iterator,std::list<ast::root_element>()> rootElements;
-
+    qi::rule<Iterator, std::string()> identifier;
+    qi::rule<Iterator> space;
 };
 
 const char *argp_program_version =
@@ -148,6 +154,14 @@ int main (int argc, char **argv)
                         << e
                         << std::endl;
             return -1;
+        }
+    }
+
+    if (arguments.beautify)
+    {
+        for (std::vector<ast::root_element>::iterator it = ast.begin(); it != ast.end(); it++)
+        {
+            (*it).dump();
         }
     }
 
