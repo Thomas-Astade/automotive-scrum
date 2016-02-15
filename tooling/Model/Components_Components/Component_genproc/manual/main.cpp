@@ -12,6 +12,7 @@
 #include <boost/spirit/include/qi_action.hpp>
 
 #include "root_element.h"
+#include "home_element.h"
 
 namespace classic = boost::spirit::classic;
 namespace qi = boost::spirit::qi;
@@ -35,17 +36,22 @@ struct testscript
     testscript()
       : testscript::base_type(rootElements)
     {
-        rootElements    = space > *(rootElement);
-        rootElement     = identifier > space;
-        identifier      =  qi::char_("a-zA-Z_") > *qi::char_("a-zA-Z_0-9");
+        rootElements    = *(rootElement);
+        rootElement     = qi::lit("@home") > space > homeElement;
+        homeElement     = qi::lit('{')
+                        > space
+                        > qi::lit('}')
+                        > space;
+        //identifier      =  qi::char_("a-zA-Z_") > *qi::char_("a-zA-Z_0-9");
         space           = *(qi::lit(' ') | qi::lit('\n') | qi::lit('\t'));
 
-        identifier.name("Expected a valid identifier.");
+        //identifier.name("Expected a valid identifier.");
     }
 
     qi::rule<Iterator,ast::root_element()> rootElement;
+    qi::rule<Iterator,ast::home_element()> homeElement;
     qi::rule<Iterator,std::list<ast::root_element>()> rootElements;
-    qi::rule<Iterator, std::string()> identifier;
+    //qi::rule<Iterator, std::string()> identifier;
     qi::rule<Iterator> space;
 };
 
