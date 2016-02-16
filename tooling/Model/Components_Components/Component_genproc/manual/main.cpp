@@ -13,6 +13,7 @@
 
 #include "root_element.h"
 #include "home_element.h"
+#include "page_element.h"
 
 namespace classic = boost::spirit::classic;
 namespace qi = boost::spirit::qi;
@@ -30,28 +31,37 @@ struct Arguments
 Arguments arguments;
 
 template <typename Iterator>
-struct testscript
+struct process_description
   : qi::grammar<Iterator, std::list<ast::root_element>()>
 {
-    testscript()
-      : testscript::base_type(rootElements)
+    process_description()
+      : process_description::base_type(rootElements)
     {
-        rootElements    = *(rootElement);
-        rootElement     = qi::lit("@home") > space > homeElement;
+        rootElements    = *(rootElement > space);
+        rootElement     = (qi::lit("@home") > space > homeElement) |
+                          (qi::lit("page") >  space > pageElement);
+        
         homeElement     = qi::lit('{')
                         > space
-                        > qi::lit('}')
-                        > space;
-        //identifier      =  qi::char_("a-zA-Z_") > *qi::char_("a-zA-Z_0-9");
+                        > qi::lit('}');
+        
+        pageElement     = identifier
+                        > space
+                        > qi::lit('{')
+                        > space
+                        > qi::lit('}');
+        
+        identifier      =  qi::char_("a-zA-Z_") > *qi::char_("a-zA-Z_0-9");
         space           = *(qi::lit(' ') | qi::lit('\n') | qi::lit('\t'));
 
-        //identifier.name("Expected a valid identifier.");
+        identifier.name("Expected a valid identifier.");
     }
 
     qi::rule<Iterator,ast::root_element()> rootElement;
     qi::rule<Iterator,ast::home_element()> homeElement;
     qi::rule<Iterator,std::list<ast::root_element>()> rootElements;
-    //qi::rule<Iterator, std::string()> identifier;
+    qi::rule<Iterator,ast::page_element()> pageElement;
+    qi::rule<Iterator, std::string()> identifier;
     qi::rule<Iterator> space;
 };
 
@@ -126,7 +136,7 @@ int main (int argc, char **argv)
             pos_iterator_type position_begin(begin, end, *it);
             pos_iterator_type position_end;
 
-            testscript<pos_iterator_type> p;       // create instance of parser
+            process_description<pos_iterator_type> p;       // create instance of parser
 
             qi::phrase_parse(position_begin, position_end, p, qi::space, ast);
             if (position_begin != position_end)
