@@ -10,7 +10,7 @@ else
 	LDFLAGS  := -Wl,-s
 endif
 
-TARGET ?= testrunner
+TARGET ?= genproc
 
 # include path
 INCLUDE	:= -I../manual -I../auto

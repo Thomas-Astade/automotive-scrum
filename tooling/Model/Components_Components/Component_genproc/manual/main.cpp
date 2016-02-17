@@ -30,6 +30,12 @@ struct Arguments
 
 Arguments arguments;
 
+void check_duplicate(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
+{
+    pass = false;
+}
+
+
 template <typename Iterator>
 struct process_description
   : qi::grammar<Iterator, std::list<ast::root_element>()>
@@ -45,7 +51,7 @@ struct process_description
                         > space
                         > qi::lit('}');
         
-        pageElement     = identifier
+        pageElement     = identifier[check_duplicate]
                         > space
                         > qi::lit('{')
                         > space
@@ -55,6 +61,7 @@ struct process_description
         space           = *(qi::lit(' ') | qi::lit('\n') | qi::lit('\t'));
 
         identifier.name("Expected a valid identifier.");
+        pageElement.name("Duplicate identifier");
     }
 
     qi::rule<Iterator,ast::root_element()> rootElement;
@@ -115,7 +122,7 @@ int main (int argc, char **argv)
     // wrap forward iterator with position iterator, to record the position
     typedef classic::position_iterator2<boost::spirit::istream_iterator>
         pos_iterator_type;
-
+       
     if (arguments.file_names.empty())
     {
         printf("you must specify a process file\n");
@@ -133,39 +140,27 @@ int main (int argc, char **argv)
             boost::spirit::istream_iterator begin(in);
             boost::spirit::istream_iterator end;
 
-            pos_iterator_type position_begin(begin, end, *it);
+            pos_iterator_type position_begin(begin, end, (*it).c_str());
             pos_iterator_type position_end;
 
             process_description<pos_iterator_type> p;       // create instance of parser
 
             qi::phrase_parse(position_begin, position_end, p, qi::space, ast);
+
             if (position_begin != position_end)
                 throw qi::expectation_failure<pos_iterator_type>(position_begin, position_end,boost::spirit::info("general error"));
         }
         catch(const qi::expectation_failure<pos_iterator_type> e)
         {
             const classic::file_position_base<std::string>& pos = e.first.get_position();
-            std::cout   << "parse error at file "
-                        << pos.file 
-                        << " line " 
-                        << pos.line 
-                        << " column " 
-                        << pos.column 
-                        << std::endl
-                        << e.what_
-                        << std::endl
-                        << "'"
-                        << e.first.get_currentline() 
-                        << "'" << std::endl 
-                        << std::setw(pos.column) 
-                        << " " 
-                        << "^- here" 
-                        << std::endl;
+            std::cerr   << pos.file << ':'
+                        << pos.line << ": error: "
+                        << e.what_  << std::endl;
             return -1;    
         }
         catch(std::string e)
         {
-            std::cout   << "logical error: "
+            std::cerr   << "logical error: "
                         << e
                         << std::endl;
             return -1;
