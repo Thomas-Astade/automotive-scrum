@@ -16,6 +16,7 @@
 #include "root_element.h"
 #include "home_element.h"
 #include "page_element.h"
+#include "generator.h"
 
 namespace classic = boost::spirit::classic;
 namespace qi = boost::spirit::qi;
@@ -63,6 +64,8 @@ struct process_description
         pageElement     = identifier[check_duplicate]
                         > space
                         > OB
+                        > space
+                        > -childlist
                         > space
                         > CB;
         
@@ -208,6 +211,20 @@ int main (int argc, char **argv)
         for (std::vector<ast::root_element>::iterator it = ast.begin(); it != ast.end(); it++)
         {
             (*it).dump();
+        }
+    }
+    else
+    {
+        try {
+            generator g;
+            g.generate();
+        }
+        catch(std::string e)
+        {
+            std::cerr   << "logical error: "
+                        << e
+                        << std::endl;
+            return -1;
         }
     }
 
