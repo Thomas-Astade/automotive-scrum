@@ -39,9 +39,9 @@ void check_duplicate(const std::string& name, const boost::spirit::unused_type& 
     ast::I_element::get_last().set_identifier(name);
 }
 
-void add_child(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
+void add_subpage(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
 {
-    ast::I_element::get_last().add_child(name);
+    ast::I_element::get_last().add_subpage_ID(name);
 }
 
 template <typename Iterator>
@@ -57,7 +57,7 @@ struct process_description
         
         homeElement     = OB
                         > space
-                        > childlist
+                        > subpagelist
                         > space
                         > CB;
         
@@ -65,16 +65,16 @@ struct process_description
                         > space
                         > OB
                         > space
-                        > -childlist
+                        > -subpagelist
                         > space
                         > CB;
         
 
-        childlist       = qi::lit("childs")
+        subpagelist     = qi::lit("subpages")
                         > space
-                        > identifier[add_child]
+                        > identifier[add_subpage]
                         > space
-                        > *(qi::lit(',') > space > identifier)[add_child]
+                        > *(qi::lit(',') > space > identifier)[add_subpage]
                         > qi::lit(';');
                         
         identifier      = qi::char_("a-zA-Z_") > *qi::char_("a-zA-Z_0-9");
@@ -82,7 +82,7 @@ struct process_description
 
         identifier.name("Expected a valid identifier.");
         pageElement.name("Duplicate identifier");
-        childlist.name("childs expected");
+        subpagelist.name("subpages expected");
         
         OB              = qi::lit("{");
         CB              = qi::lit("}");
@@ -93,7 +93,7 @@ struct process_description
         ARROW           = qi::lit("->");
     }
 
-    qi::rule<Iterator> childlist;
+    qi::rule<Iterator> subpagelist;
     qi::rule<Iterator,ast::root_element()> rootElement;
     qi::rule<Iterator,ast::home_element()> homeElement;
     qi::rule<Iterator,std::list<ast::root_element>()> rootElements;

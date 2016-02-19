@@ -1,5 +1,5 @@
 @home {
-childs asdf,a,s,d,f,g,h,j,k;
+subpages asdf,a,s,d,f,g,h,j,k;
 }
 page test {
 }

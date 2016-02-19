@@ -1,2 +1,2 @@
-//~~ void set_idetifier() [I_element] ~~
+//~~ void set_identifier(const std::string& identifier) [I_element] ~~
 object_list[identifier] = this;

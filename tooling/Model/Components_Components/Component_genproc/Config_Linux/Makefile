@@ -43,8 +43,10 @@ clean:
 	rm -f $(TARGET) *.o .depend
 
 run:	$(TARGET)
-#	./$(TARGET) -b -v -i test.txt
 	./$(TARGET) -i test.txt
+
+beautify:	$(TARGET)
+	./$(TARGET) -b -i test.txt
 
 rebuild:	clean build
 

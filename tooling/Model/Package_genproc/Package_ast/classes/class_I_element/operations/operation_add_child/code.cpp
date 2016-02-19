@@ -1,2 +1,1 @@
-//~~ void add_chield(const std::string& identifier) [I_element] ~~
-childs.push_back(identifier);
+//~~ void add_subpage_ID(const std::string& identifier) [I_element] ~~
