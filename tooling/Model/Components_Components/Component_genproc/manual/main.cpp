@@ -3,6 +3,7 @@
 #include <fstream>
 #include <map>
 #include <vector>
+#include <string>
 #include <iomanip>
 #include <boost/spirit/include/qi.hpp>
 #include <boost/spirit/include/classic_position_iterator.hpp>
@@ -37,6 +38,11 @@ void check_duplicate(const std::string& name, const boost::spirit::unused_type& 
     ast::I_element::get_last().set_identifier(name);
 }
 
+void add_child(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
+{
+    ast::I_element::get_last().add_child(name);
+}
+
 template <typename Iterator>
 struct process_description
   : qi::grammar<Iterator, std::list<ast::root_element>()>
@@ -48,29 +54,58 @@ struct process_description
         rootElement     = (qi::lit("@home") > space > homeElement) |
                           (qi::lit("page") >  space > pageElement);
         
-        homeElement     = qi::lit('{')
+        homeElement     = OB
                         > space
-                        > qi::lit('}');
+                        > childlist
+                        > space
+                        > CB;
         
-        pageElement     %= identifier[check_duplicate]
+        pageElement     = identifier[check_duplicate]
                         > space
-                        > qi::lit('{')
+                        > OB
                         > space
-                        > qi::lit('}');
+                        > CB;
         
-        identifier      =  qi::char_("a-zA-Z_") > *qi::char_("a-zA-Z_0-9");
+
+        childlist       = qi::lit("childs")
+                        > space
+                        > identifier[add_child]
+                        > space
+                        > *(qi::lit(',') > space > identifier)[add_child]
+                        > qi::lit(';');
+                        
+        identifier      = qi::char_("a-zA-Z_") > *qi::char_("a-zA-Z_0-9");
         space           = *(qi::lit(' ') | qi::lit('\n') | qi::lit('\t'));
 
         identifier.name("Expected a valid identifier.");
         pageElement.name("Duplicate identifier");
+        childlist.name("childs expected");
+        
+        OB              = qi::lit("{");
+        CB              = qi::lit("}");
+        Ob              = qi::lit("(");
+        Cb              = qi::lit(")");
+        SC              = qi::lit(";");
+        CN              = qi::lit(":");
+        ARROW           = qi::lit("->");
     }
 
+    qi::rule<Iterator> childlist;
     qi::rule<Iterator,ast::root_element()> rootElement;
     qi::rule<Iterator,ast::home_element()> homeElement;
     qi::rule<Iterator,std::list<ast::root_element>()> rootElements;
     qi::rule<Iterator,ast::page_element()> pageElement;
     qi::rule<Iterator, std::string()> identifier;
     qi::rule<Iterator> space;
+
+    qi::rule<Iterator> OB;
+    qi::rule<Iterator> CB;
+    qi::rule<Iterator> Ob;
+    qi::rule<Iterator> Cb;
+    qi::rule<Iterator> SC;
+    qi::rule<Iterator> CN;
+    qi::rule<Iterator> ARROW;
+
 };
 
 const char *argp_program_version =

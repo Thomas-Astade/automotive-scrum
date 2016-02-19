@@ -1,11 +1,9 @@
-@home{
+@home {
+childs asdf,a,s,d,f,g,h,j,k;
 }
-
-page test{
+page test {
 }
-
 page test3 {
 }
-
-page test4{
+page test4 {
 }
