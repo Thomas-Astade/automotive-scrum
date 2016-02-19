@@ -6,3 +6,6 @@ page test{
 
 page test3 {
 }
+
+page test4{
+}

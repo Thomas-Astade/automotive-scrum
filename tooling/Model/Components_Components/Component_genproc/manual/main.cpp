@@ -11,6 +11,7 @@
 #include <boost/bind.hpp>
 #include <boost/spirit/include/qi_action.hpp>
 
+#include "I_element.h"
 #include "root_element.h"
 #include "home_element.h"
 #include "page_element.h"
@@ -32,9 +33,9 @@ Arguments arguments;
 
 void check_duplicate(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
 {
-    pass = false;
+    pass = !ast::I_element::identifier_exists(name);
+    ast::I_element::get_last().set_identifier(name);
 }
-
 
 template <typename Iterator>
 struct process_description
@@ -51,7 +52,7 @@ struct process_description
                         > space
                         > qi::lit('}');
         
-        pageElement     = identifier[check_duplicate]
+        pageElement     %= identifier[check_duplicate]
                         > space
                         > qi::lit('{')
                         > space
