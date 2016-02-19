@@ -1,4 +1,4 @@
-//~~ void dump_childs() [I_element] ~~
+//~~ void dump_subpages() [page_element] ~~
 if (subpage_IDs.empty())
     return;
 std::vector<std::string>::iterator it = subpage_IDs.begin();

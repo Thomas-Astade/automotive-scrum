@@ -1,9 +1,11 @@
-@home {
-subpages asdf,a,s,d,f,g,h,j,k;
-}
 page test {
+subpages test, test3, k;
+}
+@home {
+subpages test, test3;
 }
 page test3 {
 }
 page test4 {
+subpages test4, test3;
 }

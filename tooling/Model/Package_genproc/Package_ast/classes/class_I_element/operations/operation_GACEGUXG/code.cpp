@@ -1,5 +1,6 @@
-//~~ I_element* find_element(const std::string& identifier) [I_element] ~~
-if (object_list.find(identifier) != object_list.end())
-    return object_list[identifier];
+//~~ ast::I_element* find_element(const std::string& identifier) [I_element] ~~
+std::map<std::string,I_element*>::iterator it = object_list.find(identifier);
+if (it != object_list.end())
+    return ((*it).second);
 else
     return 0;
