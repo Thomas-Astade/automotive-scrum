@@ -12,3 +12,9 @@ file << "  <header>" << std::endl;
 
 file << "  <div id=\"my_logo\"><img src=\"automotive_scrum_logo_small.png\"></div>" << std::endl;
 
+if (my_parent)
+    my_parent->generate_navigation_bar(file);
+    
+generate_navigation_bar(file);
+
+file << "  </header>" << std::endl;
