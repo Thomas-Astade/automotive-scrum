@@ -1,1 +1,1 @@
-//~~ void generate_navigation_items(std::ofstream& file) [I_element] ~~
+//~~ void generate_navigation_items(I_element* selected, std::ofstream& file) [I_element] ~~

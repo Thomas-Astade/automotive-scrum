@@ -1,11 +1,32 @@
-page test {
-subpages test, test3, k;
-}
 @home {
-subpages test, test3;
+subpages L1a, L1b, L1c;
 }
-page test3 {
+
+page L1a {
 }
-page test4 {
-subpages test4, test3;
+
+page L1b {
+subpages L2a, L2b, L2c;
+}
+
+page L1c {
+}
+
+page L2a {
+}
+
+page L2b {
+}
+
+page L2c {
+subpages L3a, L3b, L3c;
+}
+
+page L3a {
+}
+
+page L3b {
+}
+
+page L3c {
 }
