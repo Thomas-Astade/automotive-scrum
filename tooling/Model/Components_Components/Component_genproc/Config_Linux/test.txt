@@ -1,5 +1,8 @@
 @home {
-subpages L1a, L1b, L1c;
+subpages home,L1a, L1b, L1c;
+}
+
+page home {
 }
 
 page L1a {

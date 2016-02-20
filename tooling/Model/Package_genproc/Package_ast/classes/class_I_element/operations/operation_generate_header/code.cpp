@@ -2,7 +2,7 @@
 file << "<!DOCTYPE html>" << std::endl;
 file << "<html lang=\"en\">" << std::endl;
 file << "<head>" << std::endl;
-file << "<title>Under Construction</title>" << std::endl;
+file << "<title>" << getType() << " " << getLabel() << "</title>" << std::endl;
 file << "<link rel=\"stylesheet\" href=\"style.css\">" << std::endl;
 file << "<META HTTP-EQUIV=\"Content-Type\" content=\"text/html; charset=utf-8\">" << std::endl;
 file << "</head>" << std::endl;
