@@ -217,7 +217,7 @@ int main (int argc, char **argv)
     {
         try {
             generator g;
-            g.generate();
+            g.generate("/srv/automotive-scrum");
         }
         catch(std::string e)
         {
