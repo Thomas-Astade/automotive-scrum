@@ -1,8 +1,8 @@
 @home {
-subpages test;
-text dbg.md;
+  subpages test;
+  text md/dbg.md, md/dbg.md;
 }
 
 page test {
-text dbg.md;
+  text md/dbg.md, md/dbg.md;
 }

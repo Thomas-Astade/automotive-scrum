@@ -1,4 +1,4 @@
-//~~ void dump_text() [home_element] ~~
+//~~ void dump_text() [page_element] ~~
 if (textfiles.empty())
     return;
 std::vector<std::string>::iterator it = textfiles.begin();

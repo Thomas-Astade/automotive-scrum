@@ -10,6 +10,10 @@ cultu atque humanitate provinciae longissime absunt, minimeque ad eos mercatores
 saepe commeant atque ea quae ad effeminandos animos pertinent important, proximique sunt Germanis, 
 qui trans Rhenum incolunt, quibuscum continenter bellum gerunt. 
 
+1. qui
+1. quae
+1. quod
+
 Qua de causa Helvetii quoque reliquos Gallos virtute praecedunt, quod fere cotidianis proeliis cum 
 Germanis contendunt, cum aut suis finibus eos prohibent aut ipsi in eorum finibus bellum gerunt. 
 Eorum una, pars, quam Gallos obtinere dictum est, initium capit a flumine Rhodano, 
