@@ -44,6 +44,11 @@ void add_subpage(const std::string& name, const boost::spirit::unused_type& it, 
     ast::I_element::get_last().add_subpage_ID(name);
 }
 
+void add_text(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
+{
+    ast::I_element::get_last().add_text_file_name(name);
+}
+
 template <typename Iterator>
 struct process_description
   : qi::grammar<Iterator, std::list<ast::root_element>()>
@@ -59,6 +64,8 @@ struct process_description
                         > space
                         > subpagelist
                         > space
+                        > textfilelist
+                        > space
                         > CB;
         
         pageElement     = identifier[check_duplicate]
@@ -66,6 +73,8 @@ struct process_description
                         > OB
                         > space
                         > -subpagelist
+                        > space
+                        > textfilelist
                         > space
                         > CB;
         
@@ -77,12 +86,22 @@ struct process_description
                         > *(qi::lit(',') > space > identifier)[add_subpage]
                         > qi::lit(';');
                         
+        textfilelist    = qi::lit("text")
+                        > space
+                        > filename[add_text]
+                        > space
+                        > *(qi::lit(',') > space > filename)[add_text]
+                        > qi::lit(';');
+                        
         identifier      = qi::char_("a-zA-Z_") > *qi::char_("a-zA-Z_0-9");
+        filename        = +qi::char_("a-zA-Z_/.0-9");
         space           = *(qi::lit(' ') | qi::lit('\n') | qi::lit('\t'));
 
         identifier.name("Expected a valid identifier.");
+        filename.name("Expected a valid filename.");
+        textfilelist.name("\"text\" expected.");
         pageElement.name("Duplicate identifier");
-        subpagelist.name("subpages expected");
+        subpagelist.name("\"subpages\" expected");
         
         OB              = qi::lit("{");
         CB              = qi::lit("}");
@@ -94,11 +113,13 @@ struct process_description
     }
 
     qi::rule<Iterator> subpagelist;
+    qi::rule<Iterator> textfilelist;
     qi::rule<Iterator,ast::root_element()> rootElement;
     qi::rule<Iterator,ast::home_element()> homeElement;
     qi::rule<Iterator,std::list<ast::root_element>()> rootElements;
     qi::rule<Iterator,ast::page_element()> pageElement;
     qi::rule<Iterator, std::string()> identifier;
+    qi::rule<Iterator, std::string()> filename;
     qi::rule<Iterator> space;
 
     qi::rule<Iterator> OB;

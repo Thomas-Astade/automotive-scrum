@@ -1,35 +1,8 @@
 @home {
-subpages home,L1a, L1b, L1c;
+subpages test;
+text dbg.md;
 }
 
-page home {
-}
-
-page L1a {
-}
-
-page L1b {
-subpages L2a, L2b, L2c;
-}
-
-page L1c {
-}
-
-page L2a {
-}
-
-page L2b {
-}
-
-page L2c {
-subpages L3a, L3b, L3c;
-}
-
-page L3a {
-}
-
-page L3b {
-}
-
-page L3c {
+page test {
+text dbg.md;
 }
