@@ -18,6 +18,7 @@
 #include "page_element.h"
 #include "generator.h"
 #include "text_owner.h"
+#include "subpage_owner.h"
 
 namespace classic = boost::spirit::classic;
 namespace qi = boost::spirit::qi;
@@ -42,7 +43,9 @@ void check_duplicate(const std::string& name, const boost::spirit::unused_type& 
 
 void add_subpage(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
 {
-    ast::I_element::get_last().add_subpage_ID(name);
+    ast::subpage_owner* e = dynamic_cast<ast::subpage_owner*>(&ast::I_element::get_last());
+    if (e)
+        e->add_subpage_ID(name);
 }
 
 void add_text(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
