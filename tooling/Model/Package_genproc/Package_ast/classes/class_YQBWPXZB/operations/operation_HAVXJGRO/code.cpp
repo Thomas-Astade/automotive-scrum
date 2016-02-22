@@ -1,7 +1,7 @@
-//~~ void dump_text() [page_element] ~~
+//~~ void dump_text() [home_element] ~~
 if (textfiles.empty())
     return;
-std::vector<std::string>::iterator it = textfiles.begin();
+std::vector<std::string>::const_iterator it = textfiles.begin();
 std::cout << "\ttext " << (*it);
 it++;
 while(it != textfiles.end())

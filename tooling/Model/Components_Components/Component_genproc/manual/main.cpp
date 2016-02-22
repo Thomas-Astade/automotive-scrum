@@ -17,6 +17,7 @@
 #include "home_element.h"
 #include "page_element.h"
 #include "generator.h"
+#include "text_owner.h"
 
 namespace classic = boost::spirit::classic;
 namespace qi = boost::spirit::qi;
@@ -46,7 +47,9 @@ void add_subpage(const std::string& name, const boost::spirit::unused_type& it, 
 
 void add_text(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
 {
-    ast::I_element::get_last().add_text_file_name(name);
+    ast::text_owner* e = dynamic_cast<ast::text_owner*>(&ast::I_element::get_last());
+    if (e)
+        e->add_text_file_name(name);
 }
 
 template <typename Iterator>
