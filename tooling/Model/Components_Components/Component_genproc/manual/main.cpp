@@ -16,7 +16,6 @@
 #include "root_element.h"
 #include "home_element.h"
 #include "page_element.h"
-#include "generator.h"
 #include "text_owner.h"
 #include "subpage_owner.h"
 
@@ -243,8 +242,8 @@ int main (int argc, char **argv)
     else
     {
         try {
-            generator g;
-            g.generate("/srv/automotive-scrum");
+            ast::I_element::init_link_all();
+            ast::I_element::generate_all("/srv/automotive-scrum");
         }
         catch(std::string e)
         {
