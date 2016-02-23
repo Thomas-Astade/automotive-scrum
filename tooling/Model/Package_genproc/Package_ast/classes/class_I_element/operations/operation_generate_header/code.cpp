@@ -12,6 +12,5 @@ file << "  <header>" << std::endl;
 
 file << "  <div id=\"my_logo\"><img src=\"automotive_scrum_logo_small.png\"></div>" << std::endl;
 
-generate_navigation_history(0,file);
 
 file << "  </header>" << std::endl;

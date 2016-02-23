@@ -1,4 +1,4 @@
-//~~ void dump_text() [home_element] ~~
+//~~ void dump_text() [text_owner] ~~
 if (textfiles.empty())
     return;
 std::vector<std::string>::const_iterator it = textfiles.begin();
