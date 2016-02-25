@@ -1,4 +1,5 @@
 //~~ void generate_footer(std::ofstream& file) [I_element] ~~
+file << "</div>" << std::endl;
 file << "</td>" << std::endl;
 file << "</tr>" << std::endl;
 file << "<tr class=\"footer\">" << std::endl;

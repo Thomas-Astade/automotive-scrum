@@ -34,3 +34,4 @@ file << "</tr>" << std::endl;
 
 file << "<tr class=\"body\">" << std::endl;
 file << "<td>" << std::endl;
+file << "<div class=\"body\">" << std::endl;
