@@ -1,17 +1,39 @@
 @home {
-  subpages test,test1,test2,test5;
-  text md/dbg.md, md/dbg.md;
-}
-
-page test {
+  subpages test,test1,test2,test3,test4,test5;
   text md/dbg.md, md/dbg.md;
 }
 
 page test1 {
-  subpages test,test3;
+  text md/dbg.md, md/dbg.md;
+}
+page test2 {
+  text md/dbg.md, md/dbg.md;
+}
+page test3 {
+  subpages testa1,testa2,testa3,testa4,testa5;
+  text md/dbg.md, md/dbg.md;
+}
+page test4 {
+  text md/dbg.md, md/dbg.md;
+}
+page test5 {
   text md/dbg.md, md/dbg.md;
 }
 
-page test3 {
+page testa1 {
   text md/dbg.md, md/dbg.md;
 }
+page testa2 {
+  text md/dbg.md, md/dbg.md;
+}
+page testa3 {
+  text md/dbg.md, md/dbg.md;
+}
+page testa4 {
+  text md/dbg.md, md/dbg.md;
+}
+page testa5 {
+  text md/dbg.md, md/dbg.md;
+}
+
+
