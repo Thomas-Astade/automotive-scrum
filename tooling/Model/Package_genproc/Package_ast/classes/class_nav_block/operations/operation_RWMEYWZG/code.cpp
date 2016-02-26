@@ -3,7 +3,7 @@ if (!my_nav_entrys.empty())
 {
     file << "<tr class=\"header\">" << std::endl;
     file << "<td>" << std::endl;
-    file << "<table border=\"3\" cellpadding=\"0\" cellspacing=\"0\" >" << std::endl;
+    file << "<table border=\"1\" cellpadding=\"0\" cellspacing=\"0\" >" << std::endl;
     for (unsigned int i = 0; i < linecount; i++)
     {
         file << "<tr>" << std::endl;
@@ -14,14 +14,23 @@ if (!my_nav_entrys.empty())
             std::string c = "<td class=\"nav\">";
             if ((*it).subpage_PTR.size() > i)
             {
-                label = "<a href=\""
-                      + (*it).subpage_PTR[i]->getHtmlFilename()
-                      + "\">"
-                      + (*it).subpage_PTR[i]->getLabel()
-                      + "</a>"; 
-
                 if ((*it).subpage_PTR[i] == (*it).m_selected)
+                {
                     c = "<td class=\"nav_sel\">";
+                    label = "<a href=\""
+                          + (*it).subpage_PTR[i]->getHtmlFilename()
+                          + "\" class=\"link_sel\">"
+                          + (*it).subpage_PTR[i]->getLabel()
+                          + "</a>"; 
+                }
+                else
+                {
+                    label = "<a href=\""
+                          + (*it).subpage_PTR[i]->getHtmlFilename()
+                          + "\" class=\"link_nav\">"
+                          + (*it).subpage_PTR[i]->getLabel()
+                          + "</a>"; 
+                }
             }
 
             if (it != my_nav_entrys.begin())

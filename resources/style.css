@@ -56,6 +56,29 @@
 	background-color: #7B4E00; /*color-complement-4*/
 }
 
+a.link_sel:link,a.link_sel:visited,a.link_sel:active {
+	color:#FCDBA2;
+	text-decoration:none;
+	font-weight:bold;
+}
+a.link_sel:hover {
+	color:#FFF1D9;
+	text-decoration: none;
+	font-weight:bold;
+}
+
+a.link_nav:link,a.link_nav:visited,a.link_nav:active {
+	color:#7B4E00;
+	text-decoration:none;
+	font-weight:bold;
+}
+
+a.link_nav:hover {
+	color:#A57521;
+	text-decoration: none;
+	font-weight:bold;
+}
+
 .body {
   font-family:verdana,arial,helvetica,sans-serif;
 	color: #072551;            /*color-primary-4*/
