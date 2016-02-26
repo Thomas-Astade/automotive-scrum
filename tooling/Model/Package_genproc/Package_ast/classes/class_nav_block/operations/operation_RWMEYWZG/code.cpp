@@ -3,7 +3,7 @@ if (!my_nav_entrys.empty())
 {
     file << "<tr class=\"header\">" << std::endl;
     file << "<td>" << std::endl;
-    file << "<table border=\"1\" cellpadding=\"0\" cellspacing=\"0\" >" << std::endl;
+    file << "<table border=\"10\" cellpadding=\"0\" cellspacing=\"0\" >" << std::endl;
     for (unsigned int i = 0; i < linecount; i++)
     {
         file << "<tr>" << std::endl;
