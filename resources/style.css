@@ -57,23 +57,41 @@
 }
 
 a.link_sel:link,a.link_sel:visited,a.link_sel:active {
+	font-family:verdana,arial,helvetica,sans-serif;
 	color:#FCDBA2;
 	text-decoration:none;
 	font-weight:bold;
 }
 a.link_sel:hover {
+	font-family:verdana,arial,helvetica,sans-serif;
 	color:#FFF1D9;
 	text-decoration: none;
 	font-weight:bold;
 }
 
 a.link_nav:link,a.link_nav:visited,a.link_nav:active {
+	font-family:verdana,arial,helvetica,sans-serif;
 	color:#7B4E00;
 	text-decoration:none;
 	font-weight:bold;
 }
 
 a.link_nav:hover {
+	font-family:verdana,arial,helvetica,sans-serif;
+	color:#A57521;
+	text-decoration: none;
+	font-weight:bold;
+}
+
+a:link,a:visited,a:active {
+	font-family:verdana,arial,helvetica,sans-serif;
+	color:#7B4E00;
+	text-decoration:none;
+	font-weight:bold;
+}
+
+a:hover {
+	font-family:verdana,arial,helvetica,sans-serif;
 	color:#A57521;
 	text-decoration: none;
 	font-weight:bold;
