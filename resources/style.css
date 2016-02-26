@@ -81,20 +81,8 @@ a.link_nav:hover {
 
 
 .body {
-  font-family:verdana,arial,helvetica,sans-serif;
-	color: #072551;            /*color-primary-4*/
-	-webkit-column-count: 2;   /* Chrome, Safari, Opera */
-	-moz-column-count: 2;      /* Firefox */
-	column-count: 2;
-	-webkit-column-gap: 40px;  /* Chrome, Safari, Opera */
-	-moz-column-gap: 40px;     /* Firefox */
-	column-gap: 40px;
-	-webkit-column-rule-style: dashed; /* Chrome, Safari, Opera */
-	-moz-column-rule-style: dashed;    /* Firefox */
-	column-rule-style: dashed;
-	-webkit-column-rule-width: 1px; /* Chrome, Safari, Opera */
-	-moz-column-rule-width: 1px;    /* Firefox */
-	column-rule-width: 1px;
+	font-family:verdana,arial,helvetica,sans-serif;
+ 	color: #072551;            /*color-primary-4*/
 }
 
 h1.chapter {

@@ -1,8 +1,17 @@
 @home {
-  subpages test,test1,test2,test3,test4,test5;
-  text md/dbg.md, md/dbg.md;
+  subpages Impressum, test;
+  text md/home.md;
 }
 
+page Impressum {
+  text md/impressum.md;
+}
+
+page test {
+  subpages test1,test2,test3,test4,test5;
+  text md/dbg.md;
+}
+ 
 page test1 {
   text md/dbg.md, md/dbg.md;
 }

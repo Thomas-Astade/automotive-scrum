@@ -17,7 +17,7 @@ file << "<td>" << std::endl;
 file << "<div><img src=\"automotive_scrum_logo_small.png\"></div>" << std::endl;
 file << "</td>" << std::endl;
 file << "<td>" << std::endl;
-file << "<p class=\"header\">Lorem ipsum.</p>" << std::endl;
+file << "<p class=\"header\"> </p>" << std::endl;
 file << "</td>" << std::endl;
 file << "</tr>" << std::endl;
 file << "</table>" << std::endl;
