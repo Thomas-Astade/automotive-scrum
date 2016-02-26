@@ -7,6 +7,7 @@ if (!my_nav_entrys.empty())
     for (unsigned int i = 0; i < linecount; i++)
     {
         file << "<tr>" << std::endl;
+        std::vector<nav_entry>::iterator old = my_nav_entrys.begin();
         for (std::vector<nav_entry>::iterator it=my_nav_entrys.begin(); it!=my_nav_entrys.end(); it++)
         {
             std::string label(" ");
@@ -23,9 +24,30 @@ if (!my_nav_entrys.empty())
                     c = "<td class=\"nav_sel\">";
             }
 
+            if (it != my_nav_entrys.begin())
+            {
+                if (((*it).selno >= 0) &&
+                    ((*old).selno >= 0 &&
+                    ((*old).selno >= (*it).selno) &&
+                    ((int)i <= (*old).selno) &&
+                    ((int)i >= (*it).selno)))
+                        file << "<td class=\"nav_line\"> </td>";
+                else
+                if (((*it).selno >= 0) &&
+                    ((*old).selno >= 0 &&
+                    ((*old).selno <= (*it).selno) &&
+                    ((int)i >= (*old).selno) &&
+                    ((int)i <= (*it).selno)))
+                        file << "<td class=\"nav_line\"> </td>";
+                else
+                    file << "<td class=\"nav_none\"> </td>";
+            }
+
             file << c 
                  << label
                  << "</td>" << std::endl;
+            
+            old = it;
         }
         file << "</tr>" << std::endl;
     }

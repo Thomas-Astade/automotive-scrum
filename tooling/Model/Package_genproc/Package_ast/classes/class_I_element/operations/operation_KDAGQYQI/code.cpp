@@ -11,5 +11,5 @@ else
         block.add_level(this,h);
     }
 
-if (s)
+if (s && !s->getSubpages().empty())
     block.add_level(selected,s->getSubpages());

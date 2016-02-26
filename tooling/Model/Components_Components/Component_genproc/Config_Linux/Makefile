@@ -43,6 +43,7 @@ clean:
 	rm -f $(TARGET) *.o .depend
 
 run:	$(TARGET)
+	cp ../../../../../resources/style.css /srv/automotive-scrum
 	./$(TARGET) -i test.txt
 
 beautify:	$(TARGET)
