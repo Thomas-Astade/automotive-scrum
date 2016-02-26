@@ -10,10 +10,20 @@ if (!my_nav_entrys.empty())
         for (std::vector<nav_entry>::iterator it=my_nav_entrys.begin(); it!=my_nav_entrys.end(); it++)
         {
             std::string label(" ");
+            std::string c = "<td class=\"nav\">";
             if ((*it).subpage_PTR.size() > i)
-                label = (*it).subpage_PTR[i]->getLabel();
-                
-            file << "<td class=\"nav_sel\">"
+            {
+                label = "<a href=\""
+                      + (*it).subpage_PTR[i]->getHtmlFilename()
+                      + "\">"
+                      + (*it).subpage_PTR[i]->getLabel()
+                      + "</a>"; 
+
+                if ((*it).subpage_PTR[i] == (*it).m_selected)
+                    c = "<td class=\"nav_sel\">";
+            }
+
+            file << c 
                  << label
                  << "</td>" << std::endl;
         }

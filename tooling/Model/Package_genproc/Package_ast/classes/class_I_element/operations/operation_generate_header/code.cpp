@@ -27,7 +27,7 @@ file << "</tr>" << std::endl;
 file << "<tr class=\"header\">" << std::endl;
 file << "<td>" << std::endl;
 nav_block t;
-insert_nav(t);
+insert_nav(0,t);
 t.generate(file);
 file << "</td>" << std::endl;
 file << "</tr>" << std::endl;

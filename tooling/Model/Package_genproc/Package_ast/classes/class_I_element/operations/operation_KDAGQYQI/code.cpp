@@ -1,11 +1,15 @@
-//~~ void insert_nav(nav_block& block) [I_element] ~~
+//~~ void insert_nav(I_element* selected, nav_block& block) [I_element] ~~
 subpage_owner* s = dynamic_cast<subpage_owner*>(this);
 parent_owner* p = dynamic_cast<parent_owner*>(this);
 
 if (p)
-    p->getParent()->insert_nav(block);
+    p->getParent()->insert_nav(this,block);
+else
+    {
+        std::vector<ast::I_element*> h;
+        h.push_back(this);
+        block.add_level(this,h);
+    }
 
 if (s)
-    block.add_level(this,s->getSubpages());
-else
-    block.add_level(this,std::vector<ast::I_element*>());
+    block.add_level(selected,s->getSubpages());
