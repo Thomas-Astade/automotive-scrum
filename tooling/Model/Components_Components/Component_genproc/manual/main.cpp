@@ -103,11 +103,20 @@ struct process_description
                         > space
                         > -label[set_label]
                         > space
+                        > mainActivities
+                        > space
                         > textfilelist
                         > space
                         > CB;
 
         subpagelist     = qi::lit("subpages")
+                        > space
+                        > identifier[add_subpage]
+                        > space
+                        > *(qi::lit(',') > space > identifier)[add_subpage]
+                        > qi::lit(';');
+                        
+        mainActivities  = qi::lit("subactivities")
                         > space
                         > identifier[add_subpage]
                         > space
@@ -136,9 +145,10 @@ struct process_description
         identifier.name("Expected a valid identifier.");
         filename.name("Expected a valid filename.");
         textfilelist.name("\"text\" expected.");
-        pageElement.name("Duplicate identifier");
-        subpagelist.name("\"subpages\" expected");
-        SC.name("';' expected");
+        pageElement.name("Duplicate identifier.");
+        subpagelist.name("\"subpages\" expected.");
+        SC.name("';' expected.");
+        mainActivities.name("\"subactivities\" expected.");
         
         OB              = qi::lit("{");
         CB              = qi::lit("}");
@@ -150,6 +160,7 @@ struct process_description
     }
 
     qi::rule<Iterator> subpagelist;
+    qi::rule<Iterator> mainActivities;
     qi::rule<Iterator> textfilelist;
     qi::rule<Iterator,ast::root_element()> rootElement;
     qi::rule<Iterator,ast::home_element()> homeElement;

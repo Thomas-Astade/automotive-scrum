@@ -16,7 +16,12 @@ page processes {
 
 process demo {
   label "Demo";
+  subactivities dummy;
   text md/demo/process.md;
+}
+
+page dummy {
+  text md/dbg.md;
 }
 
 page test {
