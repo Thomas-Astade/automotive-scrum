@@ -1,4 +1,4 @@
-//~~ void generate_text(std::ofstream& file) [text_owner] ~~
+//~~ void generate(std::ofstream& file) [text_owner] ~~
 FILE *in;
 char buff[512];
 
