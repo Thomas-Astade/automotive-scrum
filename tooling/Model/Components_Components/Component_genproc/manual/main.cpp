@@ -18,6 +18,7 @@
 #include "page_element.h"
 #include "text_owner.h"
 #include "subpage_owner.h"
+#include "label_owner.h"
 
 namespace classic = boost::spirit::classic;
 namespace qi = boost::spirit::qi;
@@ -37,12 +38,16 @@ Arguments arguments;
 void check_duplicate(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
 {
     pass = !ast::I_element::identifier_exists(name);
-    ast::I_element::get_last().set_identifier(name);
+    ast::label_owner* e = dynamic_cast<ast::label_owner*>(&ast::I_element::get_last());
+    if (e)
+        e->set_identifier(name);
 }
 
 void set_label(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
 {
-    ast::I_element::get_last().set_label(name);
+    ast::label_owner* e = dynamic_cast<ast::label_owner*>(&ast::I_element::get_last());
+    if (e)
+        e->set_label(name);
 }
 
 void add_subpage(const std::string& name, const boost::spirit::unused_type& it, bool& pass)

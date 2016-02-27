@@ -1,7 +1,6 @@
 //~~ void dump() [page_element] ~~
-std::cout << "page " << m_identifier << " {" << std::endl;
-if (m_identifier != m_label)
-    std::cout << "\tlabel \"" << m_label << "\";" << std::endl;
+std::cout << "page " << label_owner::getIdentifier() << " {" << std::endl;
+label_owner::dump();
 subpage_owner::dump();
 dump_text();
 std::cout << "}" << std::endl;
