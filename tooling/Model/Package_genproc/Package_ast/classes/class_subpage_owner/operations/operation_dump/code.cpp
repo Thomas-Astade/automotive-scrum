@@ -1,7 +1,7 @@
 //~~ void dump() [subpage_owner] ~~
 if (subpage_IDs.empty())
     return;
-std::vector<std::string>::iterator it = subpage_IDs.begin();
+std::vector<std::string>::const_iterator it = subpage_IDs.begin();
 std::cout << "\tsubpages " << (*it);
 it++;
 while(it != subpage_IDs.end())

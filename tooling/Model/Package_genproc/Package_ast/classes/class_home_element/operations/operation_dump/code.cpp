@@ -1,5 +1,5 @@
 //~~ void dump() [home_element] ~~
 std::cout << "@home {" << std::endl;
 subpage_owner::dump();
-dump_text();
+text_owner::dump();
 std::cout << "}" << std::endl;
