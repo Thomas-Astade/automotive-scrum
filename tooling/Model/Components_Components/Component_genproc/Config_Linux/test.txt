@@ -1,11 +1,22 @@
 @home {
-  subpages Impressum, test;
+  subpages Impressum, processes, test;
   text md/home.md;
 }
 
 page Impressum {
   label "Legal Disclosure";
   text md/impressum.md;
+}
+
+page processes {
+  label "Processes";
+  subpages demo;
+  text md/processes.md;
+}
+
+process demo {
+  label "Demo";
+  text md/demo/process.md;
 }
 
 page test {
