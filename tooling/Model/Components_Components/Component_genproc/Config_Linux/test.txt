@@ -1,9 +1,9 @@
 @home {
-  subpages Impressum, processes, test;
+  subpages processes, impressum, test;
   text md/home.md;
 }
 
-page Impressum {
+page impressum {
   label "Legal Disclosure";
   text md/impressum.md;
 }
