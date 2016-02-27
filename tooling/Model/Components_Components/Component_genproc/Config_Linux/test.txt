@@ -4,6 +4,7 @@
 }
 
 page Impressum {
+  label "Legal Disclosure";
   text md/impressum.md;
 }
 

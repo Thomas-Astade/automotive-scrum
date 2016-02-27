@@ -40,6 +40,11 @@ void check_duplicate(const std::string& name, const boost::spirit::unused_type& 
     ast::I_element::get_last().set_identifier(name);
 }
 
+void set_label(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
+{
+    ast::I_element::get_last().set_label(name);
+}
+
 void add_subpage(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
 {
     ast::subpage_owner* e = dynamic_cast<ast::subpage_owner*>(&ast::I_element::get_last());
@@ -77,6 +82,8 @@ struct process_description
                         > space
                         > OB
                         > space
+                        > -label[set_label]
+                        > space
                         > -subpagelist
                         > space
                         > textfilelist
@@ -96,9 +103,17 @@ struct process_description
                         > filename[add_text]
                         > space
                         > *(qi::lit(',') > space > filename)[add_text]
+                        > space
                         > qi::lit(';');
                         
         identifier      = qi::char_("a-zA-Z_") > *qi::char_("a-zA-Z_0-9");
+        
+        label           = qi::lit("label") > space > qi::lit('"')
+                        > *(qi::alnum | qi::char_(" ,.;:_<>|~!§$%&/()=?{[]}"))
+                        >  qi::lit('"')
+                        > space
+                        > SC;
+                        
         filename        = +qi::char_("a-zA-Z_/.0-9");
         space           = *(qi::lit(' ') | qi::lit('\n') | qi::lit('\t'));
 
@@ -107,6 +122,7 @@ struct process_description
         textfilelist.name("\"text\" expected.");
         pageElement.name("Duplicate identifier");
         subpagelist.name("\"subpages\" expected");
+        SC.name("';' expected");
         
         OB              = qi::lit("{");
         CB              = qi::lit("}");
@@ -125,6 +141,7 @@ struct process_description
     qi::rule<Iterator,ast::page_element()> pageElement;
     qi::rule<Iterator, std::string()> identifier;
     qi::rule<Iterator, std::string()> filename;
+    qi::rule<Iterator, std::string()> label;
     qi::rule<Iterator> space;
 
     qi::rule<Iterator> OB;
