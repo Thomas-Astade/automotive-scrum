@@ -103,8 +103,6 @@ struct process_description
                         > space
                         > -label[set_label]
                         > space
-                        > -subpagelist
-                        > space
                         > textfilelist
                         > space
                         > CB;
