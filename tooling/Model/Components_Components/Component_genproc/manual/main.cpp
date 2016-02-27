@@ -19,6 +19,7 @@
 #include "text_owner.h"
 #include "subpage_owner.h"
 #include "label_owner.h"
+#include "process_element.h"
 
 namespace classic = boost::spirit::classic;
 namespace qi = boost::spirit::qi;
@@ -73,7 +74,8 @@ struct process_description
     {
         rootElements    = *(rootElement > space);
         rootElement     = (qi::lit("@home") > space > homeElement) |
-                          (qi::lit("page") >  space > pageElement);
+                          (qi::lit("page") >  space > pageElement) |
+                          (qi::lit("process") >  space > processElement);
         
         homeElement     = OB
                         > space
@@ -95,6 +97,17 @@ struct process_description
                         > space
                         > CB;
         
+        processElement  = identifier[check_duplicate]
+                        > space
+                        > OB
+                        > space
+                        > -label[set_label]
+                        > space
+                        > -subpagelist
+                        > space
+                        > textfilelist
+                        > space
+                        > CB;
 
         subpagelist     = qi::lit("subpages")
                         > space
@@ -144,6 +157,7 @@ struct process_description
     qi::rule<Iterator,ast::home_element()> homeElement;
     qi::rule<Iterator,std::list<ast::root_element>()> rootElements;
     qi::rule<Iterator,ast::page_element()> pageElement;
+    qi::rule<Iterator,ast::process_element()> processElement;
     qi::rule<Iterator, std::string()> identifier;
     qi::rule<Iterator, std::string()> filename;
     qi::rule<Iterator, std::string()> label;
