@@ -20,7 +20,7 @@ process demo {
   text md/demo/process.md;
 }
 
-page dummy {
+activity dummy {
   text md/dbg.md;
 }
 
