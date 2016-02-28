@@ -9,7 +9,7 @@ const std::vector<ast::I_element*>& c = p->getSubpages();
 
 for (std::vector<ast::I_element*>::const_iterator it = c.begin(); it != c.end(); it++)
 {
-    fputs((*it)->get_graph_node().c_str(),gfile);
+    fputs((*it)->get_graph_node(false).c_str(),gfile);
     std::string connection;
     connection = e->getIdentifier()
                + " -> "

@@ -21,13 +21,11 @@ if (p)
     if (g)
     {
         g->insert_child_nodes(gfile);
-        fputs(p->getParent()->get_graph_node().c_str(),gfile);
+        fputs(p->getParent()->get_graph_node(false).c_str(),gfile);
     }
-    else
-        fputs(e->get_graph_node().c_str(),gfile);
 }
-else
-    fputs(e->get_graph_node().c_str(),gfile);
+
+fputs(e->get_graph_node(true).c_str(),gfile);
     
 insert_child_nodes(gfile);
 fputs("}\n",gfile);

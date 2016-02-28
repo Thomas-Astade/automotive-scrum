@@ -12,7 +12,7 @@ if(!(gfile = popen(command.c_str(), "w")))
     throw(command);
 
 fputs("digraph process_overview {\n", gfile);
-fputs(e->get_graph_node().c_str(),gfile);
+fputs(e->get_graph_node(true).c_str(),gfile);
 fputs("}\n",gfile);
 
 create_headline(outfile, "Process overview");

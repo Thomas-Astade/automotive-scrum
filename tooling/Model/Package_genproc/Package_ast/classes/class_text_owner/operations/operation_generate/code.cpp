@@ -1,4 +1,7 @@
 //~~ void generate(std::ofstream& file) [text_owner] ~~
+if (textfiles.empty())
+    return;
+    
 FILE *in;
 char buff[512];
 

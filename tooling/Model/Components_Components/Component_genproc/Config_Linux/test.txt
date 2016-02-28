@@ -16,25 +16,36 @@ page processes {
 
 process demo {
   label "Demo";
-  subactivities dummy;
+  subactivities project_management,
+    requitements_management,
+    system_engineering,
+    software_development,
+    software_test;
   text md/demo/process.md;
 }
 
-activity dummy {
-  subactivities dummya1,dummyb1,dummyc1;
-  text md/dbg.md;
+activity project_management {
 }
 
-activity dummya1 {
-  text md/dbg.md;
+activity requitements_management {
+label "Requirement Management";
+  subactivities review_custpmer_requirements,
+    create_system_requirements;
 }
 
-activity dummyb1 {
-  text md/dbg.md;
+activity system_engineering {
 }
 
-activity dummyc1 {
-  text md/dbg.md;
+activity software_development {
+}
+
+activity software_test {
+}
+
+activity review_custpmer_requirements {
+}
+
+activity create_system_requirements {
 }
 
 page d1 {
