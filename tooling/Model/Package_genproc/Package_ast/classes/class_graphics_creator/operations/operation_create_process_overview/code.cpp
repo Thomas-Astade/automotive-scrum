@@ -15,7 +15,7 @@ fputs("digraph process_overview {\n", gfile);
 fputs(e->get_graph_node().c_str(),gfile);
 fputs("}\n",gfile);
 
-outfile << "<h1 class=\"chapter\">Process Overview</h1>" << std::endl;
+create_headline(outfile, "Process overview");
 
 outfile << "<IMG SRC=\""
         << linkname

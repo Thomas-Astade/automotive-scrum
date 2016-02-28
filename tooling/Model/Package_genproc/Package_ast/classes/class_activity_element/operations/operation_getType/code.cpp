@@ -1,2 +1,2 @@
-//~~ std::string getType() [process_element] ~~
-return "process";
+//~~ std::string getType() [activity_element] ~~
+return "activity";

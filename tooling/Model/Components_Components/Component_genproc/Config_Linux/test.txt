@@ -21,6 +21,19 @@ process demo {
 }
 
 activity dummy {
+  subactivities dummya1,dummyb1,dummyc1;
+  text md/dbg.md;
+}
+
+activity dummya1 {
+  text md/dbg.md;
+}
+
+activity dummyb1 {
+  text md/dbg.md;
+}
+
+activity dummyc1 {
   text md/dbg.md;
 }
 
