@@ -29,7 +29,7 @@ activity project_management {
 
 activity requitements_management {
 label "Requirement Management";
-  subactivities review_custpmer_requirements,
+  subactivities review_customer_requirements,
     create_system_requirements;
 }
 
@@ -42,10 +42,18 @@ activity software_development {
 activity software_test {
 }
 
-activity review_custpmer_requirements {
+activity review_customer_requirements {
 }
 
 activity create_system_requirements {
+  subactivities create_hardware_requirements,
+    create_software_requirements;
+}
+
+activity create_hardware_requirements {
+}
+
+activity create_software_requirements {
 }
 
 page d1 {
