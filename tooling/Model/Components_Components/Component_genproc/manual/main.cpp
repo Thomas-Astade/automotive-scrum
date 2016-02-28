@@ -75,6 +75,7 @@ struct process_description
         rootElements    = *(rootElement > space);
         rootElement     = (qi::lit("@home") > space > homeElement) |
                           (qi::lit("page") >  space > pageElement) |
+                          (qi::lit("activity") >  space > activityElement) |
                           (qi::lit("process") >  space > processElement);
         
         homeElement     = OB
@@ -97,13 +98,25 @@ struct process_description
                         > space
                         > CB;
         
+        activityElement = identifier[check_duplicate]
+                        > space
+                        > OB
+                        > space
+                        > -label[set_label]
+                        > space
+                        > -subActivities
+                        > space
+                        > -textfilelist
+                        > space
+                        > CB;
+
         processElement  = identifier[check_duplicate]
                         > space
                         > OB
                         > space
                         > -label[set_label]
                         > space
-                        > mainActivities
+                        > subActivities
                         > space
                         > textfilelist
                         > space
@@ -116,7 +129,7 @@ struct process_description
                         > *(qi::lit(',') > space > identifier)[add_subpage]
                         > qi::lit(';');
                         
-        mainActivities  = qi::lit("subactivities")
+        subActivities   = qi::lit("subactivities")
                         > space
                         > identifier[add_subpage]
                         > space
@@ -148,7 +161,7 @@ struct process_description
         pageElement.name("Duplicate identifier.");
         subpagelist.name("\"subpages\" expected.");
         SC.name("';' expected.");
-        mainActivities.name("\"subactivities\" expected.");
+        subActivities.name("\"subactivities\" expected.");
         
         OB              = qi::lit("{");
         CB              = qi::lit("}");
@@ -160,12 +173,13 @@ struct process_description
     }
 
     qi::rule<Iterator> subpagelist;
-    qi::rule<Iterator> mainActivities;
+    qi::rule<Iterator> subActivities;
     qi::rule<Iterator> textfilelist;
     qi::rule<Iterator,ast::root_element()> rootElement;
     qi::rule<Iterator,ast::home_element()> homeElement;
     qi::rule<Iterator,std::list<ast::root_element>()> rootElements;
     qi::rule<Iterator,ast::page_element()> pageElement;
+    qi::rule<Iterator,ast::activity_element()> activityElement;
     qi::rule<Iterator,ast::process_element()> processElement;
     qi::rule<Iterator, std::string()> identifier;
     qi::rule<Iterator, std::string()> filename;
