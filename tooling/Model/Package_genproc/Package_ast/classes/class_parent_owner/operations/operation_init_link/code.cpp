@@ -1,4 +1,4 @@
-//~~ void init_link(I_element* parent) [parent_owner] ~~
+//~~ void init_link(I_element* parent, int depth) [parent_owner] ~~
 if (my_parent != 0)
 {
     warn_dublicate_parent(parent);
