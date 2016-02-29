@@ -25,25 +25,30 @@ process demo {
 }
 
 activity project_management {
+  label "project management";
 }
 
 activity requitements_management {
-  label "Requirement Management";
+  label "requirements management";
   brief "some detaild description which can be shown in the tooltip";
   subactivities review_customer_requirements,
     create_system_requirements;
 }
 
 activity system_engineering {
+  label "system engineering";
 }
 
 activity software_development {
+  label "software development";
 }
 
 activity software_test {
+  label "software test";
 }
 
 activity review_customer_requirements {
+  label "review customer requirements";
 }
 
 activity create_system_requirements {
@@ -53,9 +58,11 @@ activity create_system_requirements {
 }
 
 activity create_hardware_requirements {
+  label "create hardware requirements";
 }
 
 activity create_software_requirements {
+  label "create software requirements";
 }
 
 page d1 {
