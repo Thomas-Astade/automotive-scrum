@@ -13,7 +13,10 @@ ret += label_owner::getIdentifier()
     + "shape=house, orientation=270, style=filled, color=\"#A57521\", fillcolor=\""
     + fc
     + "\", fontcolor=\"#7B4E00\", label=\""
-    + label_owner::getLabel()
+    + breakApart(label_owner::getLabel())
+    + "\", "
+    + "tooltip=\""
+    + label_owner::getBrief()
     + "\", URL=\""
     + getHtmlFilename()
     + "\"];";

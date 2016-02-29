@@ -51,6 +51,13 @@ void set_label(const std::string& name, const boost::spirit::unused_type& it, bo
         e->set_label(name);
 }
 
+void set_brief(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
+{
+    ast::label_owner* e = dynamic_cast<ast::label_owner*>(&ast::I_element::get_last());
+    if (e)
+        e->set_brief(name);
+}
+
 void add_subpage(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
 {
     ast::subpage_owner* e = dynamic_cast<ast::subpage_owner*>(&ast::I_element::get_last());
@@ -104,6 +111,8 @@ struct process_description
                         > space
                         > -label[set_label]
                         > space
+                        > -brief[set_brief]
+                        > space
                         > -subActivities
                         > space
                         > -textfilelist
@@ -152,6 +161,12 @@ struct process_description
                         > space
                         > SC;
                         
+        brief           = qi::lit("brief") > space > qi::lit('"')
+                        > *(qi::alnum | qi::char_(" ,.;:_<>|~!§$%&/()=?{[]}"))
+                        >  qi::lit('"')
+                        > space
+                        > SC;
+                        
         filename        = +qi::char_("a-zA-Z_/.0-9");
         space           = *(qi::lit(' ') | qi::lit('\n') | qi::lit('\t'));
 
@@ -184,6 +199,7 @@ struct process_description
     qi::rule<Iterator, std::string()> identifier;
     qi::rule<Iterator, std::string()> filename;
     qi::rule<Iterator, std::string()> label;
+    qi::rule<Iterator, std::string()> brief;
     qi::rule<Iterator> space;
 
     qi::rule<Iterator> OB;

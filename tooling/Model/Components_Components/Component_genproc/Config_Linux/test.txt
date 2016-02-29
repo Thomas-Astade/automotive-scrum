@@ -28,7 +28,8 @@ activity project_management {
 }
 
 activity requitements_management {
-label "Requirement Management";
+  label "Requirement Management";
+  brief "some detaild description which can be shown in the tooltip";
   subactivities review_customer_requirements,
     create_system_requirements;
 }
@@ -46,6 +47,7 @@ activity review_customer_requirements {
 }
 
 activity create_system_requirements {
+  label "create system requirements";
   subactivities create_hardware_requirements,
     create_software_requirements;
 }
