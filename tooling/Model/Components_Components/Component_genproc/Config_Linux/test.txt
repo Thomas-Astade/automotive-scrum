@@ -1,5 +1,5 @@
 @home {
-  subpages processes, impressum, test;
+  subpages processes, impressum;
   text md/home.md;
 }
 
@@ -64,85 +64,4 @@ activity create_hardware_requirements {
 activity create_software_requirements {
   label "create software requirements";
 }
-
-page d1 {
-  subpages d2;
-  text md/dbg.md;
-}
- 
-page d2 {
-  subpages d3;
-  text md/dbg.md;
-}
- 
-page d3 {
-  subpages d4;
-  text md/dbg.md;
-}
- 
-page d4 {
-  subpages d5;
-  text md/dbg.md;
-}
- 
-page d5 {
-  subpages d6;
-  text md/dbg.md;
-}
-
-page d6 {
-  subpages d7;
-  text md/dbg.md;
-}
-
-page d7 {
-  subpages d8;
-  text md/dbg.md;
-}
-page d8 {
-  subpages d9;
-  text md/dbg.md;
-}
-page d9 {
-  text md/dbg.md;
-}
- 
-page test {
-  subpages test1,test2,test3,test4,test5;
-  text md/dbg.md;
-}
- 
-page test1 {
-  text md/dbg.md, md/dbg.md;
-}
-page test2 {
-  text md/dbg.md, md/dbg.md;
-}
-page test3 {
-  subpages d1,testa1,testa2,testa3,testa4,testa5;
-  text md/dbg.md, md/dbg.md;
-}
-page test4 {
-  text md/dbg.md, md/dbg.md;
-}
-page test5 {
-  text md/dbg.md, md/dbg.md;
-}
-
-page testa1 {
-  text md/dbg.md, md/dbg.md;
-}
-page testa2 {
-  text md/dbg.md, md/dbg.md;
-}
-page testa3 {
-  text md/dbg.md, md/dbg.md;
-}
-page testa4 {
-  text md/dbg.md, md/dbg.md;
-}
-page testa5 {
-  text md/dbg.md, md/dbg.md;
-}
-
 

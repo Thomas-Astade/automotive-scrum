@@ -29,7 +29,6 @@
 }
 
 .nav {
-	width:80px;
 	height:20px;
 	color: #7B4E00;            /*color-complement-4*/
 	background-color: #FFF1D9; /*color-complement-1*/
@@ -37,7 +36,6 @@
 }
 
 .nav_sel {
-	width:80px;
 	height:20px;
 	color: #FFF1D9;            /*color-complement-1*/
 	background-color: #7B4E00; /*color-complement-4*/
