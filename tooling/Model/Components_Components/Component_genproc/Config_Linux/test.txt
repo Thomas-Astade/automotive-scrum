@@ -45,6 +45,7 @@ activity software_development {
 
 activity software_test {
   label "software test";
+  text md/dbg.md;
 }
 
 activity review_customer_requirements {

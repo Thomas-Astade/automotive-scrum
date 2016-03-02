@@ -3,7 +3,7 @@ const I_element* e = dynamic_cast<const I_element*>(this);
 
 outfile << "<h1 class=\"chapter\">"
         << name
-        << " for "
+        << " of "
         << e->getType()
         << " \""
         << e->getLabel()
