@@ -14,6 +14,7 @@ if(!(gfile = popen(command.c_str(), "w")))
 
 fputs("digraph activity_overview {\n", gfile);
 
+insert_process(gfile);
 fputs(e->get_graph_node(true).c_str(),gfile);
 
 fputs("}\n",gfile);
