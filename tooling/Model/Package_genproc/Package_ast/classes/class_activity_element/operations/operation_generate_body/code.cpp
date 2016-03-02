@@ -9,7 +9,7 @@ if (hasBriefDescription())
          << "\"</h1>" << std::endl;
     file << "<p>"
          << getBrief()
-         << "\"</p>" << std::endl;
+         << "</p>" << std::endl;
 }
 if (hasText())
     file << "<h1 class=\"chapter\">Detailed description of "

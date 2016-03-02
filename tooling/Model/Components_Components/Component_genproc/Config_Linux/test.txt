@@ -41,6 +41,8 @@ activity system_engineering {
 
 activity software_development {
   label "software development";
+  brief "some detaild description which can be shown in the tooltip";
+  text md/dbg.md;
 }
 
 activity software_test {
