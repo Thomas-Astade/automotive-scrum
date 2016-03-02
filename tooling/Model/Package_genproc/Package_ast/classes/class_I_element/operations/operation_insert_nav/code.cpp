@@ -2,7 +2,7 @@
 subpage_owner* s = dynamic_cast<subpage_owner*>(this);
 parent_owner* p = dynamic_cast<parent_owner*>(this);
 
-if (p)
+if (p && p->getParent())
 {
     p->getParent()->insert_nav(this,block);
 }
