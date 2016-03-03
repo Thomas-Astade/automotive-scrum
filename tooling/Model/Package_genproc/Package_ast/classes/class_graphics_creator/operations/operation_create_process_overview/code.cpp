@@ -13,6 +13,7 @@ if(!(gfile = popen(command.c_str(), "w")))
 
 fputs("digraph process_overview {\n", gfile);
 fputs(e->get_graph_node(true).c_str(),gfile);
+insert_role(gfile);
 fputs("}\n",gfile);
 
 create_headline(outfile, "Process overview");

@@ -27,7 +27,7 @@ std::string h;
 
 while (!words.empty())
 {
-    if (h.size() + words.front().size() < 20)
+    if (h.size() + words.front().size() < getMaxChar())
     {
         if (h.empty())
             h += words.front();

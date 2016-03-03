@@ -20,6 +20,7 @@
 #include "subpage_owner.h"
 #include "label_owner.h"
 #include "process_element.h"
+#include "role_element.h"
 
 namespace classic = boost::spirit::classic;
 namespace qi = boost::spirit::qi;
@@ -49,6 +50,13 @@ void set_label(const std::string& name, const boost::spirit::unused_type& it, bo
     ast::label_owner* e = dynamic_cast<ast::label_owner*>(&ast::I_element::get_last());
     if (e)
         e->set_label(name);
+}
+
+void set_role(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
+{
+    ast::role_owner* e = dynamic_cast<ast::role_owner*>(&ast::I_element::get_last());
+    if (e)
+        e->set_role(name);
 }
 
 void set_brief(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
@@ -83,6 +91,7 @@ struct process_description
         rootElement     = (qi::lit("@home") > space > homeElement) |
                           (qi::lit("page") >  space > pageElement) |
                           (qi::lit("activity") >  space > activityElement) |
+                          (qi::lit("role") >  space > roleElement) |
                           (qi::lit("process") >  space > processElement);
         
         homeElement     = OB
@@ -113,7 +122,21 @@ struct process_description
                         > space
                         > -brief[set_brief]
                         > space
+                        > -responsibleRole[set_role]
+                        > space
                         > -subActivities
+                        > space
+                        > -textfilelist
+                        > space
+                        > CB;
+
+            roleElement = identifier[check_duplicate]
+                        > space
+                        > OB
+                        > space
+                        > -label[set_label]
+                        > space
+                        > -brief[set_brief]
                         > space
                         > -textfilelist
                         > space
@@ -124,6 +147,8 @@ struct process_description
                         > OB
                         > space
                         > -label[set_label]
+                        > space
+                        > responsibleRole[set_role]
                         > space
                         > subActivities
                         > space
@@ -161,6 +186,12 @@ struct process_description
                         > space
                         > SC;
                         
+        responsibleRole = qi::lit("responsible") 
+                        > space
+                        > identifier
+                        > space
+                        > SC;
+                        
         brief           = qi::lit("brief") > space > qi::lit('"')
                         > *(qi::alnum | qi::char_(" ,.;:_<>|~!§$%&/()=?{[]}"))
                         >  qi::lit('"')
@@ -177,6 +208,7 @@ struct process_description
         subpagelist.name("\"subpages\" expected.");
         SC.name("';' expected.");
         subActivities.name("\"subactivities\" expected.");
+        responsibleRole.name("\"responsible\" expected.");
         
         OB              = qi::lit("{");
         CB              = qi::lit("}");
@@ -195,10 +227,12 @@ struct process_description
     qi::rule<Iterator,std::list<ast::root_element>()> rootElements;
     qi::rule<Iterator,ast::page_element()> pageElement;
     qi::rule<Iterator,ast::activity_element()> activityElement;
+    qi::rule<Iterator,ast::role_element()> roleElement;
     qi::rule<Iterator,ast::process_element()> processElement;
     qi::rule<Iterator, std::string()> identifier;
     qi::rule<Iterator, std::string()> filename;
     qi::rule<Iterator, std::string()> label;
+    qi::rule<Iterator, std::string()> responsibleRole;
     qi::rule<Iterator, std::string()> brief;
     qi::rule<Iterator> space;
 

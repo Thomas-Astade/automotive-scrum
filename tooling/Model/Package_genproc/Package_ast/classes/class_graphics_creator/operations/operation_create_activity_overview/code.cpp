@@ -16,7 +16,7 @@ fputs("digraph activity_overview {\n", gfile);
 
 insert_process(gfile);
 fputs(e->get_graph_node(true).c_str(),gfile);
-
+insert_role(gfile);
 fputs("}\n",gfile);
 
 create_headline(outfile, "Activity overview");

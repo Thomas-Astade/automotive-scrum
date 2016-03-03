@@ -16,6 +16,7 @@ page processes {
 
 process demo {
   label "Demo";
+  responsible project_manager;
   subactivities project_management,
     requitements_management,
     system_engineering,
@@ -62,13 +63,23 @@ activity create_system_requirements {
 
 activity create_hardware_requirements {
   label "create hardware requirements";
+  responsible requirements_engineer;
 }
 
 activity create_software_requirements {
   label "create software requirements";
 }
 
-activity test {
+role project_manager {
+  label "project manager";
+  brief "the process manager is the overall responsible for a project";
+  text md/project_manager.md;
 }
+
+role requirements_engineer {
+  label "requirements engineer";
+  text md/dbg.md;
+}
+
 
 
