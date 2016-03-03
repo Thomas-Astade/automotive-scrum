@@ -12,7 +12,7 @@ ret += label_owner::getIdentifier()
     + graphics_creator::text_standards
     + "shape=house, orientation=270, style=filled, color=\"#A57521\", fillcolor=\""
     + fc
-    + "\", fontcolor=\"#7B4E00\", margin=\"0.1\", label=\""
+    + "\", fontcolor=\"#7B4E00\", label=\""
     + breakApart(label_owner::getLabel())
     + "\", "
     + "tooltip=\""
