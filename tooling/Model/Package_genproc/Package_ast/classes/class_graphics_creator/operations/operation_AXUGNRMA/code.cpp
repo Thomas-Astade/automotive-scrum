@@ -12,7 +12,7 @@ connection = p->getProcess(&isDirect)->getIdentifier()
            + " -> "
            + e->getIdentifier();
 if (isDirect)
-    connection += "[arrowhead=\"none\", arrowtail=\"diamond\", dir=\"both\", color=\"#7B1E00\"];";
+    connection += "[arrowhead=\"none\", arrowtail=\"diamond\", dir=\"both\", color=\"#072551\"];";
 else
     connection += "[arrowhead=\"none\", arrowtail=\"diamond\", dir=\"both\", style=dashed, color=\"#072551\"];";
     
