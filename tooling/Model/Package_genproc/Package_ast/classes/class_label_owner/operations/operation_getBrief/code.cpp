@@ -1,2 +1,5 @@
 //~~ std::string getBrief() [label_owner] ~~
-return m_brief;
+if (m_brief.empty())
+    return " ";
+else
+    return m_brief;
