@@ -32,6 +32,7 @@ activity project_management {
 activity requitements_management {
   label "requirements management";
   brief "some detaild description which can be shown in the tooltip";
+  responsible requirements_engineer;
   subactivities review_customer_requirements,
     create_system_requirements;
 }
@@ -63,7 +64,6 @@ activity create_system_requirements {
 
 activity create_hardware_requirements {
   label "create hardware requirements";
-  responsible requirements_engineer;
 }
 
 activity create_software_requirements {
