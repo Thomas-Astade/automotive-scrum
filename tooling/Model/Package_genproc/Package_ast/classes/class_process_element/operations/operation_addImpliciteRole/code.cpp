@@ -4,6 +4,5 @@ if ((role != getRole()) &&
     )
 {
     implicite_roles.insert(role);
-    add_subpage(role);
     role->init_link(this);
 }
