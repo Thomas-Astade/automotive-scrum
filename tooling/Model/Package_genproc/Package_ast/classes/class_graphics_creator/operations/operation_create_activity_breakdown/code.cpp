@@ -14,6 +14,7 @@ if(!(gfile = popen(command.c_str(), "w")))
     throw(command);
 
 fputs("digraph activity_breakdown {\n", gfile);
+fputs("rankdir=\"LR\";\n", gfile);
 
 if (p)
 {

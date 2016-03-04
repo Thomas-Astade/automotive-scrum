@@ -13,6 +13,7 @@ if(!(gfile = popen(command.c_str(), "w")))
     throw(command);
 
 fputs("digraph activity_overview {\n", gfile);
+fputs("rankdir=\"LR\";\n", gfile);
 
 insert_process(gfile);
 fputs(e->get_graph_node(true).c_str(),gfile);
