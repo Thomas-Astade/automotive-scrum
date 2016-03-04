@@ -1,4 +1,6 @@
 //~~ void generate_body(std::ofstream& file, const std::string& outpath) [role_element] ~~
+create_role_overview(file, outpath);
+
 if (hasBriefDescription())
 {
     file << "<h1 class=\"chapter\">Brief description of "
