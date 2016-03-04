@@ -9,11 +9,14 @@ const std::vector<ast::I_element*>& c = p->getSubpages();
 
 for (std::vector<ast::I_element*>::const_iterator it = c.begin(); it != c.end(); it++)
 {
-    fputs((*it)->get_graph_node(false).c_str(),gfile);
-    std::string connection;
-    connection = e->getIdentifier()
-               + " -> "
-               + (*it)->getIdentifier()
-               + "[arrowhead=\"none\", arrowtail=\"diamond\", dir=\"both\", color=\"#072551\"];";
-    fputs(connection.c_str(),gfile);
+    if (dynamic_cast<role_element*>(*it) == 0)
+    {
+        fputs((*it)->get_graph_node(false).c_str(),gfile);
+        std::string connection;
+        connection = e->getIdentifier()
+                   + " -> "
+                   + (*it)->getIdentifier()
+                   + "[arrowhead=\"none\", arrowtail=\"diamond\", dir=\"both\", color=\"#072551\"];";
+        fputs(connection.c_str(),gfile);
+    }
 }
