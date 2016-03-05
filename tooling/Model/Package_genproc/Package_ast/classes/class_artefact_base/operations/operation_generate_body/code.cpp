@@ -1,6 +1,5 @@
-//~~ void generate_body(std::ofstream& file, const std::string& outpath) [activity_element] ~~
-create_activity_overview(file,outpath);
-create_activity_breakdown(file,outpath);
+//~~ void generate_body(std::ofstream& file, const std::string& outpath) [artefact_base] ~~
+create_artefact_breakdown(file,outpath);
 if (hasBriefDescription())
 {
     file << "<h1 class=\"chapter\">Brief description of "

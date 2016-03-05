@@ -97,7 +97,7 @@ artefact testlist2 {
 
 
 artefact testlist3 {
-	label "test list 3 bla bla blubb rabarber gedoensrat";
+	label "test list 3";
 	brief "just for a tooltip test";
 	text md/dbg.md;
 }

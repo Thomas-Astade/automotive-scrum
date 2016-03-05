@@ -4,9 +4,12 @@ std::string fc;
 
 ret += label_owner::getIdentifier()
     + "["
-    + graphics_creator::text_standards
-    + "shape=box, image=\"repository.png\", imagescale=width, color=white, fontcolor=\"#7B4E00\", label=\""
-    + breakApart(label_owner::getLabel())
+    + graphics_creator::text_standards;
+    if (isSelected)
+        ret += "shape=box, image=\"repository_selected.png\", imagescale=width, color=white, fontcolor=\"#072551\", label=\"";
+    else
+        ret += "shape=box, image=\"repository.png\", imagescale=width, color=white, fontcolor=\"#072551\", label=\"";
+    ret += breakApart(label_owner::getLabel())
     + "\", "
     + "tooltip=\""
     + label_owner::getBrief()

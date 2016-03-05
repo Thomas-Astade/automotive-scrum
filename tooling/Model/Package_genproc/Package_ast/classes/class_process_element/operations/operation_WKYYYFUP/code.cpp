@@ -1,4 +1,4 @@
-//~~ void create_process_overview(std::ofstream& outfile, const std::string& outpath) [graphics_creator] ~~
+//~~ void create_process_overview(std::ofstream& outfile, const std::string& outpath) [process_element] ~~
 const I_element* e = dynamic_cast<const I_element*>(this);
 FILE *gfile;
 std::string linkname = e->getIdentifier() + "_process_overview";
@@ -12,9 +12,11 @@ if(!(gfile = popen(command.c_str(), "w")))
     throw(command);
 
 fputs("digraph process_overview {\n", gfile);
-fputs("rankdir=\"LR\";\n", gfile);
+fputs("rankdir=\"UD\";\n", gfile);
 fputs(e->get_graph_node(true).c_str(),gfile);
 insert_role(gfile);
+insert_repositories(gfile);
+
 fputs("}\n",gfile);
 
 create_headline(outfile, "Process overview");
