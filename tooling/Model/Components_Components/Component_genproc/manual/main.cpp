@@ -21,6 +21,7 @@
 #include "label_owner.h"
 #include "process_element.h"
 #include "role_element.h"
+#include "artefact_element.h"
 
 namespace classic = boost::spirit::classic;
 namespace qi = boost::spirit::qi;
@@ -92,6 +93,7 @@ struct process_description
                           (qi::lit("page") >  space > pageElement) |
                           (qi::lit("activity") >  space > activityElement) |
                           (qi::lit("role") >  space > roleElement) |
+                          (qi::lit("artefact") >  space > artefactElement) |
                           (qi::lit("process") >  space > processElement);
         
         homeElement     = OB
@@ -125,6 +127,18 @@ struct process_description
                         > -responsibleRole[set_role]
                         > space
                         > -subActivities
+                        > space
+                        > -textfilelist
+                        > space
+                        > CB;
+
+        artefactElement = identifier[check_duplicate]
+                        > space
+                        > OB
+                        > space
+                        > -label[set_label]
+                        > space
+                        > -brief[set_brief]
                         > space
                         > -textfilelist
                         > space
@@ -227,6 +241,7 @@ struct process_description
     qi::rule<Iterator,std::list<ast::root_element>()> rootElements;
     qi::rule<Iterator,ast::page_element()> pageElement;
     qi::rule<Iterator,ast::activity_element()> activityElement;
+    qi::rule<Iterator,ast::artefact_element()> artefactElement;
     qi::rule<Iterator,ast::role_element()> roleElement;
     qi::rule<Iterator,ast::process_element()> processElement;
     qi::rule<Iterator, std::string()> identifier;

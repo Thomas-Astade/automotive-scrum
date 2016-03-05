@@ -1,18 +1,18 @@
-//~~ std::string get_graph_node(bool isSelected) [activity_element] ~~
+//~~ std::string get_graph_node(bool isSelected) [artefact_element] ~~
 std::string ret;
 std::string fc;
 
 if (isSelected)
-    fc = "#FFF1D9";
+    fc = "#ABB6C7";
 else
-    fc = "#FCDBA2";
+    fc = "#7086A6";
     
 ret += label_owner::getIdentifier()
     + "["
     + graphics_creator::text_standards
-    + "shape=house, orientation=270, style=filled, color=\"#A57521\", fillcolor=\""
+    + "shape=note, style=filled, color=\"#072551\", fillcolor=\""
     + fc
-    + "\", fontcolor=\"#7B4E00\", label=\""
+    + "\", fontcolor=\"#072551\", label=\""
     + breakApart(label_owner::getLabel())
     + "\", "
     + "tooltip=\""

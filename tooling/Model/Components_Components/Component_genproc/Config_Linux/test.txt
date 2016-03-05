@@ -81,3 +81,8 @@ role requirements_engineer {
 	label "requirements engineer";
 	text md/dbg.md;
 }
+
+artefact testlist {
+	label "test list";
+	text md/dbg.md;
+}
