@@ -7,7 +7,7 @@ for (std::vector<std::string>::iterator it = subpage_IDs.begin(); it != subpage_
     if (element == 0)
         warn_not_found("subpage",*it);
     else if (!me->allow_child(element))
-        warn_not_allowed(element);
+        warn_not_allowed(element, "child");
     else
         subpage_PTR.push_back(element);
 }

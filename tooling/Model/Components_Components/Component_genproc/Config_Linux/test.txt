@@ -50,7 +50,7 @@ activity software_development {
 
 activity software_test {
 	label "software test";
-	create testlist1, create_system_requirements, testlist3;
+	create testlist1, testlist3;
 	text md/dbg.md;
 }
 

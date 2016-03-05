@@ -12,7 +12,7 @@ for (std::vector<std::string>::iterator it = m_create_IDs.begin(); it != m_creat
     {
         artefact_base* a = dynamic_cast<artefact_base*>(element);
         if (a == 0)
-            warn_not_allowed(element);
+            warn_not_allowed(element, "create target");
         else
             m_create.push_back(a);
     }

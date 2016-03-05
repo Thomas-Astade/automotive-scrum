@@ -12,8 +12,10 @@ for (std::vector<artefact_base*>::const_iterator it = c.begin(); it != c.end(); 
     std::string connection;
     connection = a->label_owner::getIdentifier()
         + " -> "
-        + (*it)->label_owner::getIdentifier();
-    connection += "[arrowhead=\"vee\", arrowtail=\"none\", dir=\"both\", color=\"#7B1E00\", label=\"create\"];";
+        + (*it)->label_owner::getIdentifier()
+        + "[arrowhead=\"vee\", arrowtail=\"none\", dir=\"both\", "
+        +  text_standards
+        + "fontcolor=\"#072551\", color=\"#7B1E00\", label=\"create\"];";
     
     fputs(connection.c_str(),gfile);
 }
