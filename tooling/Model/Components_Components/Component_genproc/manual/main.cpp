@@ -82,6 +82,13 @@ void add_text(const std::string& name, const boost::spirit::unused_type& it, boo
         e->add_text_file_name(name);
 }
 
+void add_repository(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
+{
+    ast::process_element* e = dynamic_cast<ast::process_element*>(&ast::I_element::get_last());
+    if (e)
+        e->add_repository_ID(name);
+}
+
 void add_create(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
 {
     ast::activity_element* e = dynamic_cast<ast::activity_element*>(&ast::I_element::get_last());
@@ -187,6 +194,8 @@ struct process_description
                         > space
                         > responsibleRole[set_role]
                         > space
+                        > -repositories
+                        > space
                         > subActivities
                         > space
                         > textfilelist
@@ -198,6 +207,13 @@ struct process_description
                         > identifier[add_subpage]
                         > space
                         > *(qi::lit(',') > space > identifier)[add_subpage]
+                        > qi::lit(';');
+                        
+        repositories    = qi::lit("repository")
+                        > space
+                        > identifier[add_repository]
+                        > space
+                        > *(qi::lit(',') > space > identifier)[add_repository]
                         > qi::lit(';');
                         
         subActivities   = qi::lit("subactivities")
@@ -266,6 +282,7 @@ struct process_description
 
     qi::rule<Iterator> subpagelist;
     qi::rule<Iterator> subActivities;
+    qi::rule<Iterator> repositories;
     qi::rule<Iterator> textfilelist;
     qi::rule<Iterator> createlist;
     qi::rule<Iterator,ast::root_element()> rootElement;

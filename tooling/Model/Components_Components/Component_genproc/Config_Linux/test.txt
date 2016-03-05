@@ -18,6 +18,7 @@ page processes {
 process demo {
 	label "Demo";
 	responsible project_manager;
+	repository git,jenkins,mantis;
 	subactivities project_management,
 		requitements_management,
 		system_engineering,
