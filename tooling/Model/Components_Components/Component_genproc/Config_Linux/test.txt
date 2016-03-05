@@ -100,3 +100,13 @@ artefact testlist3 {
 	brief "just for a tooltip test";
 	text md/dbg.md;
 }
+
+repository git {
+  label "git";
+}
+
+repository mantis {
+}
+
+repository jenkins {
+}
