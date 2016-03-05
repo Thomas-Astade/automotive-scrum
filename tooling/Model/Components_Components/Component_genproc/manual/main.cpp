@@ -156,6 +156,8 @@ struct process_description
                         > space
                         > -label[set_label]
                         > space
+                        > -subArtifacts
+                        > space
                         > -brief[set_brief]
                         > space
                         > -textfilelist
@@ -167,6 +169,8 @@ struct process_description
                         > OB
                         > space
                         > -label[set_label]
+                        > space
+                        > -subArtifacts
                         > space
                         > -brief[set_brief]
                         > space
@@ -217,6 +221,13 @@ struct process_description
                         > qi::lit(';');
                         
         subActivities   = qi::lit("subactivities")
+                        > space
+                        > identifier[add_subpage]
+                        > space
+                        > *(qi::lit(',') > space > identifier)[add_subpage]
+                        > qi::lit(';');
+                        
+        subArtifacts    = qi::lit("contains")
                         > space
                         > identifier[add_subpage]
                         > space
@@ -282,6 +293,7 @@ struct process_description
 
     qi::rule<Iterator> subpagelist;
     qi::rule<Iterator> subActivities;
+    qi::rule<Iterator> subArtifacts;
     qi::rule<Iterator> repositories;
     qi::rule<Iterator> textfilelist;
     qi::rule<Iterator> createlist;

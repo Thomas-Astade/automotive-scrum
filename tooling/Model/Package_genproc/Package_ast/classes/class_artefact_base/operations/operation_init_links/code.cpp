@@ -1,4 +1,4 @@
-//~~ void init_links() [activity_element] ~~
+//~~ void init_links() [artefact_base] ~~
 subpage_owner::init_links();
 const std::vector<I_element*>& s = getSubpages();
 for (std::vector<I_element*>::const_iterator it = s.begin(); it != s.end(); it++)

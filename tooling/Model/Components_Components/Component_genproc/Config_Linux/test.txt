@@ -92,6 +92,7 @@ artefact testlist1 {
 
 artefact testlist2 {
 	label "test list 2";
+	contains testlist3;
 	text md/dbg.md;
 }
 
@@ -104,6 +105,7 @@ artefact testlist3 {
 
 repository git {
   label "git";
+  contains testlist1, testlist2;
 }
 
 repository mantis {
