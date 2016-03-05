@@ -81,6 +81,13 @@ void add_text(const std::string& name, const boost::spirit::unused_type& it, boo
         e->add_text_file_name(name);
 }
 
+void add_create(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
+{
+    ast::activity_element* e = dynamic_cast<ast::activity_element*>(&ast::I_element::get_last());
+    if (e)
+        e->add_create_ID(name);
+}
+
 template <typename Iterator>
 struct process_description
   : qi::grammar<Iterator, std::list<ast::root_element>()>
@@ -125,6 +132,8 @@ struct process_description
                         > -brief[set_brief]
                         > space
                         > -responsibleRole[set_role]
+                        > space
+                        > -createlist
                         > space
                         > -subActivities
                         > space
@@ -192,6 +201,14 @@ struct process_description
                         > space
                         > qi::lit(';');
                         
+        createlist      = qi::lit("create")
+                        > space
+                        > identifier[add_create]
+                        > space
+                        > *(qi::lit(',') > space > identifier)[add_create]
+                        > space
+                        > qi::lit(';');
+                        
         identifier      = qi::char_("a-zA-Z_") > *qi::char_("a-zA-Z_0-9");
         
         label           = qi::lit("label") > space > qi::lit('"')
@@ -236,6 +253,7 @@ struct process_description
     qi::rule<Iterator> subpagelist;
     qi::rule<Iterator> subActivities;
     qi::rule<Iterator> textfilelist;
+    qi::rule<Iterator> createlist;
     qi::rule<Iterator,ast::root_element()> rootElement;
     qi::rule<Iterator,ast::home_element()> homeElement;
     qi::rule<Iterator,std::list<ast::root_element>()> rootElements;

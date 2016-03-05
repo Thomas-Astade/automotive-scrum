@@ -1,6 +1,23 @@
 //~~ void init_links() [activity_element] ~~
 subpage_owner::init_links();
 role_owner::init_links();
+
+for (std::vector<std::string>::iterator it = m_create_IDs.begin(); it != m_create_IDs.end(); it++)
+{
+    ast::I_element* element = ast::I_element::find_element(*it);
+
+    if (element == 0)
+        subpage_owner::warn_not_found("create",*it);
+    else
+    {
+        artefact_base* a = dynamic_cast<artefact_base*>(element);
+        if (a == 0)
+            warn_not_allowed(element);
+        else
+            m_create.push_back(a);
+    }
+}
+
 const std::vector<I_element*>& s = getSubpages();
 for (std::vector<I_element*>::const_iterator it = s.begin(); it != s.end(); it++)
 {

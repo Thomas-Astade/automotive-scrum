@@ -50,6 +50,7 @@ activity software_development {
 
 activity software_test {
 	label "software test";
+	create testlist1, create_system_requirements, testlist3;
 	text md/dbg.md;
 }
 
@@ -82,7 +83,20 @@ role requirements_engineer {
 	text md/dbg.md;
 }
 
-artefact testlist {
-	label "test list";
+
+artefact testlist1 {
+	label "test list 1";
+	text md/dbg.md;
+}
+
+artefact testlist2 {
+	label "test list 2";
+	text md/dbg.md;
+}
+
+
+artefact testlist3 {
+	label "test list 3 bla bla blubb rabarber gedoensrat";
+	brief "just for a tooltip test";
 	text md/dbg.md;
 }
