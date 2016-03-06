@@ -1,7 +1,12 @@
 @home {
 	subpages processes,
-		impressum;
+		impressum, example;
 	text md/home.md;
+}
+
+page example {
+	label "how it is done";
+	text md/example_begin.md, test.txt, md/example_end.md;
 }
 
 page impressum {
