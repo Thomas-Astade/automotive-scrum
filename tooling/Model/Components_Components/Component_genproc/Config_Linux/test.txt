@@ -132,6 +132,7 @@ repository mantis {
 }
 
 repository jenkins {
+    label "Jenkins";
 }
 
 folder requirements_folder {
