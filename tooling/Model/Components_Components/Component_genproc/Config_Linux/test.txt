@@ -18,6 +18,8 @@ page processes {
 process demo {
 	label "Demo";
 	responsible project_manager;
+	transform customer_requirements;
+	create delivery;
 	repository git,jenkins,mantis;
 	subactivities project_management,
 		requitements_management,
@@ -106,6 +108,9 @@ artefact testlist3 {
 
 artefact customer_requirements {
 	label "customer requirements";
+}
+
+artefact delivery {
 }
 
 repository git {

@@ -91,14 +91,14 @@ void add_repository(const std::string& name, const boost::spirit::unused_type& i
 
 void add_create(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
 {
-    ast::activity_element* e = dynamic_cast<ast::activity_element*>(&ast::I_element::get_last());
+    ast::transformer* e = dynamic_cast<ast::transformer*>(&ast::I_element::get_last());
     if (e)
         e->add_create_ID(name);
 }
 
 void add_transform(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
 {
-    ast::activity_element* e = dynamic_cast<ast::activity_element*>(&ast::I_element::get_last());
+    ast::transformer* e = dynamic_cast<ast::transformer*>(&ast::I_element::get_last());
     if (e)
         e->add_transform_ID(name);
 }
@@ -206,6 +206,10 @@ struct process_description
                         > -label[set_label]
                         > space
                         > responsibleRole[set_role]
+                        > space
+                        > -transformlist
+                        > space
+                        > -createlist
                         > space
                         > -repositories
                         > space
