@@ -1,126 +1,130 @@
 @home {
-	subpages processes,
-		impressum, example;
-	text md/home.md;
+    subpages processes,
+        impressum, 
+        example;
+    text md/home.md;
 }
 
 page example {
-	label "how it is done";
-	text md/example_begin.md, test.txt, md/example_end.md;
+    label "how it is done";
+    text md/example_begin.md, 
+        test.txt, 
+        md/example_end.md;
 }
 
 page impressum {
-	label "Legal Disclosure";
-	text md/impressum.md;
+    label "Legal Disclosure";
+    text md/impressum.md;
 }
 
 page processes {
-	label "Processes";
-	subpages demo;
-	text md/processes.md;
+    label "Processes";
+    subpages demo;
+    text md/processes.md;
 }
 
 process demo {
-	label "Demo";
-	responsible project_manager;
-	transform customer_requirements;
-	create delivery;
-	repository git,jenkins,mantis;
-	subactivities project_management,
-		requitements_management,
-		system_engineering,
-		software_development,
-		software_test;
-	text md/demo/process.md;
+    label "Demo";
+    responsible project_manager;
+    transform customer_requirements;
+    create delivery;
+    repository git,
+        jenkins,
+        mantis;
+    subactivities project_management,
+        requitements_management,
+        system_engineering,
+        software_development,
+        software_test;
+    text md/demo/process.md;
 }
 
 activity project_management {
-	label "project management";
+    label "project management";
 }
 
 activity requitements_management {
-	label "requirements management";
-	brief "some detaild description which can be shown in the tooltip";
-	responsible requirements_engineer;
-	subactivities review_customer_requirements,
-		create_system_requirements;
+    label "requirements management";
+    brief "some detaild description which can be shown in the tooltip";
+    responsible requirements_engineer;
+    subactivities review_customer_requirements,
+        create_system_requirements;
 }
 
 activity system_engineering {
-	label "system engineering";
+    label "system engineering";
 }
 
 activity software_development {
-	label "software development";
-	brief "some detaild description which can be shown in the tooltip";
-	text md/dbg.md;
+    label "software development";
+    brief "some detaild description which can be shown in the tooltip";
+    text md/dbg.md;
 }
 
 activity software_test {
-	label "software test";
-	transform customer_requirements;
-	create testlist1, testlist3;
-	text md/dbg.md;
+    label "software test";
+    transform customer_requirements;
+    create testlist1, testlist3;
+    text md/dbg.md;
 }
 
 activity review_customer_requirements {
-	label "review customer requirements";
+    label "review customer requirements";
 }
 
 activity create_system_requirements {
-	label "create system requirements";
-	subactivities create_hardware_requirements,
-		create_software_requirements;
+    label "create system requirements";
+    subactivities create_hardware_requirements,
+        create_software_requirements;
 }
 
 activity create_hardware_requirements {
-	label "create hardware requirements";
+    label "create hardware requirements";
 }
 
 activity create_software_requirements {
-	label "create software requirements";
+    label "create software requirements";
 }
 
 role project_manager {
-	label "project manager";
-	brief "the process manager is the overall responsible for a project";
-	text md/project_manager.md;
+    label "project manager";
+    brief "the process manager is the overall responsible for a project";
+    text md/project_manager.md;
 }
 
 role requirements_engineer {
-	label "requirements engineer";
-	text md/dbg.md;
+    label "requirements engineer";
+    text md/dbg.md;
 }
 
-
 artefact testlist1 {
-	label "test list 1";
-	text md/dbg.md;
+    label "test list 1";
+    text md/dbg.md;
 }
 
 artefact testlist2 {
-	label "test list 2";
-	contains testlist3;
-	text md/dbg.md;
+    label "test list 2";
+    contains testlist3;
+    text md/dbg.md;
 }
 
 
 artefact testlist3 {
-	label "test list 3";
-	brief "just for a tooltip test";
-	text md/dbg.md;
+    label "test list 3";
+    brief "just for a tooltip test";
+    text md/dbg.md;
 }
 
 artefact customer_requirements {
-	label "customer requirements";
+    label "customer requirements";
 }
 
 artefact delivery {
 }
 
 repository git {
-  label "git";
-  contains testlist1, testlist2,customer_requirements;
+    label "git";
+    contains testlist1, testlist2,customer_requirements;
 }
 
 repository mantis {
