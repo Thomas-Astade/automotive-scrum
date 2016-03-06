@@ -105,11 +105,12 @@ artefact testlist3 {
 }
 
 artefact customer_requirements {
+	label "customer requirements";
 }
 
 repository git {
   label "git";
-  contains testlist1, testlist2;
+  contains testlist1, testlist2,customer_requirements;
 }
 
 repository mantis {
