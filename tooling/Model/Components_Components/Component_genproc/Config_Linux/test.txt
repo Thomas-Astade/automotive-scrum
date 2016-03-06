@@ -51,6 +51,7 @@ activity software_development {
 
 activity software_test {
 	label "software test";
+	transform customer_requirements;
 	create testlist1, testlist3;
 	text md/dbg.md;
 }
@@ -101,6 +102,9 @@ artefact testlist3 {
 	label "test list 3";
 	brief "just for a tooltip test";
 	text md/dbg.md;
+}
+
+artefact customer_requirements {
 }
 
 repository git {

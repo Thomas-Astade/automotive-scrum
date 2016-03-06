@@ -96,6 +96,13 @@ void add_create(const std::string& name, const boost::spirit::unused_type& it, b
         e->add_create_ID(name);
 }
 
+void add_transform(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
+{
+    ast::activity_element* e = dynamic_cast<ast::activity_element*>(&ast::I_element::get_last());
+    if (e)
+        e->add_transform_ID(name);
+}
+
 template <typename Iterator>
 struct process_description
   : qi::grammar<Iterator, std::list<ast::root_element>()>
@@ -141,6 +148,8 @@ struct process_description
                         > -brief[set_brief]
                         > space
                         > -responsibleRole[set_role]
+                        > space
+                        > -transformlist
                         > space
                         > -createlist
                         > space
@@ -250,6 +259,14 @@ struct process_description
                         > space
                         > qi::lit(';');
                         
+        transformlist   = qi::lit("transform")
+                        > space
+                        > identifier[add_transform]
+                        > space
+                        > *(qi::lit(',') > space > identifier)[add_transform]
+                        > space
+                        > qi::lit(';');
+                        
         identifier      = qi::char_("a-zA-Z_") > *qi::char_("a-zA-Z_0-9");
         
         label           = qi::lit("label") > space > qi::lit('"')
@@ -297,6 +314,7 @@ struct process_description
     qi::rule<Iterator> repositories;
     qi::rule<Iterator> textfilelist;
     qi::rule<Iterator> createlist;
+    qi::rule<Iterator> transformlist;
     qi::rule<Iterator,ast::root_element()> rootElement;
     qi::rule<Iterator,ast::home_element()> homeElement;
     qi::rule<Iterator,std::list<ast::root_element>()> rootElements;
