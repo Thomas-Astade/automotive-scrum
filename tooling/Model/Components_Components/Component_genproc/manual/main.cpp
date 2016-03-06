@@ -116,6 +116,7 @@ struct process_description
                           (qi::lit("activity") >  space > activityElement) |
                           (qi::lit("role") >  space > roleElement) |
                           (qi::lit("artefact") >  space > artefactElement) |
+                          (qi::lit("folder") >  space > folderElement) |
                           (qi::lit("repository") >  space > repositoryElement) |
                           (qi::lit("process") >  space > processElement);
         
@@ -160,6 +161,20 @@ struct process_description
                         > CB;
 
         artefactElement = identifier[check_duplicate]
+                        > space
+                        > OB
+                        > space
+                        > -label[set_label]
+                        > space
+                        > -subArtifacts
+                        > space
+                        > -brief[set_brief]
+                        > space
+                        > -textfilelist
+                        > space
+                        > CB;
+
+          folderElement = identifier[check_duplicate]
                         > space
                         > OB
                         > space
@@ -320,6 +335,7 @@ struct process_description
     qi::rule<Iterator> createlist;
     qi::rule<Iterator> transformlist;
     qi::rule<Iterator,ast::root_element()> rootElement;
+    qi::rule<Iterator,ast::folder_element()> folderElement;
     qi::rule<Iterator,ast::home_element()> homeElement;
     qi::rule<Iterator,std::list<ast::root_element>()> rootElements;
     qi::rule<Iterator,ast::page_element()> pageElement;

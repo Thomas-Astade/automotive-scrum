@@ -1,6 +1,5 @@
 //~~ std::string get_graph_node(bool isSelected) [role_element] ~~
 std::string ret;
-std::string fc = "#FCB7A2";
     
 ret += label_owner::getIdentifier()
     + "["

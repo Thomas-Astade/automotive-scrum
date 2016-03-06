@@ -1,6 +1,5 @@
 //~~ std::string get_graph_node(bool isSelected) [repository_element] ~~
 std::string ret;
-std::string fc;
 
 ret += label_owner::getIdentifier()
     + "["

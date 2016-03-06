@@ -124,11 +124,40 @@ artefact delivery {
 
 repository git {
     label "git";
-    contains testlist1, testlist2,customer_requirements;
+    contains testlist1, testlist2,requirements_folder;
 }
 
 repository mantis {
+    label "Mantis";
 }
 
 repository jenkins {
 }
+
+folder requirements_folder {
+    label "requirements";
+    contains customer_requirements_folder,
+        system_requirements_folder,
+        hardware_requirements_folder,
+        software_requirements_folder;
+}
+
+folder customer_requirements_folder {
+    label "customer requirements";
+    contains customer_requirements;
+}
+
+folder system_requirements_folder {
+    label "system requirements";
+}
+
+folder hardware_requirements_folder {
+    label "hardware requirements";
+}
+
+folder software_requirements_folder {
+    label "software requirements";
+}
+
+
+
