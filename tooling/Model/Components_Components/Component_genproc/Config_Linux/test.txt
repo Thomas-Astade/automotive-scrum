@@ -1,3 +1,95 @@
+process mi_manual_integration {
+    label "manual integration";    
+    responsible mi_project_manager;
+    transform mi_customer_requirements;
+    create mi_customer_binary;
+    repository mi_shared_folder, mi_git;
+    subactivities mi_develop;
+    text md/mi/process.md;
+}
+
+artefact mi_customer_requirements {
+    label "customer requirements";
+}
+
+artefact mi_customer_binary {
+    label "customer binary";
+}
+
+repository mi_shared_folder {
+    label "shared folder";
+    contains mi_customer_requirements;
+}
+
+repository mi_git {
+    label "git";
+    contains mi_masterbranch, mi_developmentbranch;
+}
+
+folder mi_masterbranch {
+    label "master branch";
+    contains mi_integrated_source;
+    brief "the master branch for all code changes";
+}
+
+folder mi_developmentbranch {
+    label "development branch";
+    contains mi_unintegrated_source;
+    brief "the master branch for all code changes";
+}
+
+role mi_project_manager {
+    label "process manager";
+    brief "the over all responsible for this project";
+}
+
+activity mi_develop {
+    label "develop";
+    responsible mi_developer;
+    transform mi_customer_requirements;
+    subactivities mi_write_code, mi_commit;
+}
+
+activity mi_write_code {
+    label "write code";
+    transform mi_customer_requirements;
+    create mi_sourcecode;
+}
+
+
+role mi_developer {
+    label "developer";
+    brief "In this process thes role does all the technical work";
+}
+
+artefact mi_sourcecode {
+    label "source code";
+}
+
+artefact mi_unintegrated_source {
+    label "unintegrated source code";
+}
+
+artefact mi_integrated_source {
+    label "integrated source code";
+}
+
+activity mi_commit {
+    label "commit";
+    transform mi_sourcecode;
+    create mi_unintegrated_source;
+}
+
+
+
+
+
+
+
+
+
+
+
 @home {
     subpages processes,
         impressum, 
@@ -19,7 +111,7 @@ page impressum {
 
 page processes {
     label "Processes";
-    subpages demo;
+    subpages demo,mi_manual_integration;
     text md/processes.md;
 }
 
