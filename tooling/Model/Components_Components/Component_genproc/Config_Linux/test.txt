@@ -80,15 +80,86 @@ activity mi_commit {
     create mi_unintegrated_source;
 }
 
+process ai_automatic_integration {
+    label "continious integration";    
+    responsible ai_project_manager;
+    transform ai_customer_requirements;
+    create ai_customer_binary;
+    repository ai_shared_folder, ai_git;
+    subactivities ai_develop;
+    text md/mi/process.md;
+}
 
+artefact ai_customer_requirements {
+    label "customer requirements";
+}
 
+artefact ai_customer_binary {
+    label "customer binary";
+}
 
+repository ai_shared_folder {
+    label "shared folder";
+    contains ai_customer_requirements;
+}
 
+repository ai_git {
+    label "git";
+    contains ai_masterbranch, ai_developmentbranch;
+}
 
+folder ai_masterbranch {
+    label "master branch";
+    contains ai_integrated_source;
+    brief "the master branch for all code changes";
+}
 
+folder ai_developmentbranch {
+    label "development branch";
+    contains ai_unintegrated_source;
+    brief "the master branch for all code changes";
+}
 
+role ai_project_manager {
+    label "process manager";
+    brief "the over all responsible for this project";
+}
 
+activity ai_develop {
+    label "develop";
+    responsible ai_developer;
+    transform ai_customer_requirements;
+    subactivities ai_write_code, ai_commit;
+}
 
+activity ai_write_code {
+    label "write code";
+    transform ai_customer_requirements;
+    create ai_sourcecode;
+}
+
+role ai_developer {
+    label "developer";
+    brief "In this process thes role does all the technical work";
+}
+
+artefact ai_sourcecode {
+    label "source code";
+}
+
+artefact ai_unintegrated_source {
+    label "unintegrated source code";
+}
+
+artefact ai_integrated_source {
+    label "integrated source code";
+}
+
+activity ai_commit {
+    label "commit";
+    transform ai_sourcecode;
+    create ai_unintegrated_source;
+}
 
 @home {
     subpages processes,
@@ -111,7 +182,7 @@ page impressum {
 
 page processes {
     label "Processes";
-    subpages demo,mi_manual_integration;
+    subpages demo,mi_manual_integration,ai_automatic_integration;
     text md/processes.md;
 }
 
