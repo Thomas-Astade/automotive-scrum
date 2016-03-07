@@ -31,6 +31,20 @@ for (std::set<const I_element*>::const_iterator it = m_creator.begin(); it != m_
     fputs(connection.c_str(),gfile);
 }
     
+for (std::set<const I_element*>::const_iterator it = m_user.begin(); it != m_user.end(); it++)
+{
+    fputs((*it)->get_graph_node(false).c_str(),gfile);
+    std::string connection;
+    connection = e->getIdentifier()
+        + " -> "
+        + (*it)->getIdentifier()
+        + "[arrowhead=\"vee\", arrowtail=\"none\", dir=\"both\", "
+        +  text_standards
+        + "fontcolor=\"#072551\", color=\"#7B1E00\", label=\"transform\"];";
+    
+    fputs(connection.c_str(),gfile);
+}
+
 fputs("}\n",gfile);
 
 create_headline(outfile, "Artefact overview");

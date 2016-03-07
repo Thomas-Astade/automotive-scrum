@@ -30,6 +30,9 @@ for (std::vector<std::string>::iterator it = m_transform_IDs.begin(); it != m_tr
         if (a == 0)
             warn_not_allowed(element, "transform target");
         else
+        {
             m_transform.push_back(a);
+            a->addUser(dynamic_cast<I_element*>(this));
+        }
     }
 }
