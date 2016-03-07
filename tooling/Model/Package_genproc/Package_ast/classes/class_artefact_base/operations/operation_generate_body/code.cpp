@@ -1,4 +1,5 @@
 //~~ void generate_body(std::ofstream& file, const std::string& outpath) [artefact_base] ~~
+create_artefact_overview(file,outpath);
 create_artefact_breakdown(file,outpath);
 if (hasBriefDescription())
 {

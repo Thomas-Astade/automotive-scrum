@@ -11,7 +11,10 @@ for (std::vector<std::string>::iterator it = m_create_IDs.begin(); it != m_creat
         if (a == 0)
             warn_not_allowed(element, "create target");
         else
+        {
             m_create.push_back(a);
+            a->addCreator(dynamic_cast<I_element*>(this));
+        }
     }
 }
 
