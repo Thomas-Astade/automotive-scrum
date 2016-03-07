@@ -47,7 +47,8 @@ activity mi_develop {
     label "develop";
     responsible mi_developer;
     transform mi_customer_requirements;
-    subactivities mi_write_code, mi_commit;
+    subactivities mi_write_code, mi_commit, 
+        mi_integrate, mi_build_binary;
 }
 
 activity mi_write_code {
@@ -55,7 +56,6 @@ activity mi_write_code {
     transform mi_customer_requirements;
     create mi_sourcecode;
 }
-
 
 role mi_developer {
     label "developer";
@@ -80,6 +80,24 @@ activity mi_commit {
     create mi_unintegrated_source;
 }
 
+activity mi_integrate {
+    label "integrate";
+    responsible mi_integrator;
+    transform mi_unintegrated_source;
+    create mi_integrated_source;
+}
+
+activity mi_build_binary {
+    label "build binary";
+    responsible mi_integrator;
+    transform mi_integrated_source;
+    create mi_customer_binary;
+}
+
+role mi_integrator {
+    label "integrator";
+}
+
 process ai_automatic_integration {
     label "continious integration";    
     responsible ai_project_manager;
@@ -100,7 +118,7 @@ artefact ai_customer_binary {
 
 repository ai_shared_folder {
     label "shared folder";
-    contains ai_customer_requirements;
+    contains ai_customer_requirements, mi_customer_binary;
 }
 
 repository ai_git {
