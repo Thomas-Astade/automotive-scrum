@@ -2,6 +2,7 @@
 create_artefact_overview(file,outpath);
 create_artefact_breakdown(file,outpath);
 create_artefact_dependency(file,outpath);
+create_artefact_statechart(file,outpath);
 if (hasBriefDescription())
 {
     file << "<h1 class=\"chapter\">Brief description of "
