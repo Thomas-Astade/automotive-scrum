@@ -100,13 +100,29 @@ role mi_integrator {
 
 
 
+artefact ping_pong {
+    label "ping pong";
+}
+
+activity create_ping_pong {
+    label "create ping pong";
+    create ping_pong;
+    set ping_pong(null,ping);
+}
+
+activity play {
+    subactivities create_ping_pong;
+}
+
+
+
 process ai_automatic_integration {
     label "continious integration";    
     responsible ai_project_manager;
     transform ai_customer_requirements;
     create ai_customer_binary;
     repository ai_shared_folder, ai_git, ai_jenkins;
-    subactivities ai_develop,ai_automated_builds;
+    subactivities ai_develop,ai_automated_builds,play;
     text md/mi/process.md;
 }
 

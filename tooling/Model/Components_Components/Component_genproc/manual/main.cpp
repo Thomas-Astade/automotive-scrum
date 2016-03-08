@@ -23,6 +23,7 @@
 #include "role_element.h"
 #include "artefact_element.h"
 #include "repository_element.h"
+#include "transition.h"
 
 namespace classic = boost::spirit::classic;
 namespace qi = boost::spirit::qi;
@@ -103,6 +104,16 @@ void add_transform(const std::string& name, const boost::spirit::unused_type& it
         e->add_transform_ID(name);
 }
 
+void add_source(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
+{
+    ast::transition::setSource(name);
+}
+
+void add_destination(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
+{
+    ast::transition::setDestination(name);
+}
+
 template <typename Iterator>
 struct process_description
   : qi::grammar<Iterator, std::list<ast::root_element>()>
@@ -153,6 +164,8 @@ struct process_description
                         > -transformlist
                         > space
                         > -createlist
+                        > space
+                        > *(transition)
                         > space
                         > -subActivities
                         > space
@@ -306,6 +319,22 @@ struct process_description
                         > space
                         > SC;
                         
+        statePair       = Ob
+                        > space
+                        > identifier[add_source]
+                        > C
+                        > identifier[add_destination]
+                        > space
+                        > Cb;
+                        
+        transition      = qi::lit("set")
+                        > space
+                        > identifier
+                        > space
+                        > statePair
+                        > space
+                        > SC;
+        
         filename        = +qi::char_("a-zA-Z_/.0-9");
         space           = *(qi::lit(' ') | qi::lit('\n') | qi::lit('\t'));
 
@@ -315,8 +344,12 @@ struct process_description
         pageElement.name("Duplicate identifier.");
         subpagelist.name("\"subpages\" expected.");
         SC.name("';' expected.");
+        C.name("',' expected.");
+        Ob.name("'(' expected.");
+        Cb.name("')' expected.");
         subActivities.name("\"subactivities\" expected.");
         responsibleRole.name("\"responsible\" expected.");
+        statePair.name("\"state pair\" expected.");
         
         OB              = qi::lit("{");
         CB              = qi::lit("}");
@@ -324,9 +357,12 @@ struct process_description
         Cb              = qi::lit(")");
         SC              = qi::lit(";");
         CN              = qi::lit(":");
+        C               = qi::lit(",");
         ARROW           = qi::lit("->");
     }
 
+    qi::rule<Iterator, ast::transition()> transition;
+    qi::rule<Iterator> statePair;
     qi::rule<Iterator> subpagelist;
     qi::rule<Iterator> subActivities;
     qi::rule<Iterator> subArtifacts;
@@ -357,6 +393,7 @@ struct process_description
     qi::rule<Iterator> Cb;
     qi::rule<Iterator> SC;
     qi::rule<Iterator> CN;
+    qi::rule<Iterator> C;
     qi::rule<Iterator> ARROW;
 
 };
