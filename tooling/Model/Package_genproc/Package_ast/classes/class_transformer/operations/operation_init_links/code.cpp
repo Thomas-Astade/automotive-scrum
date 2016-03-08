@@ -36,3 +36,14 @@ for (std::vector<std::string>::iterator it = m_transform_IDs.begin(); it != m_tr
         }
     }
 }
+
+// artefact dependency
+
+for (std::vector<artefact_base*>::iterator it_create = m_create.begin(); it_create != m_create.end(); it_create++)
+{
+    for (std::vector<artefact_base*>::iterator it_trans = m_transform.begin(); it_trans != m_transform.end(); it_trans++)
+    {
+        (*it_create)->add_needed(dynamic_cast<const I_element*>(*it_trans));
+        (*it_trans)->add_dependency(dynamic_cast<const I_element*>(*it_create));
+    }
+}
