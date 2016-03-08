@@ -61,6 +61,7 @@ for (std::vector<transition>::iterator it = m_transitions.begin(); it != m_trans
             warn_not_allowed(element, "state transition");
         else
         {
+            (*it).setElement(element);
             a->addTransition(dynamic_cast<I_element*>(this),
                 (*it).getSource(),(*it).getDestination());
         }
