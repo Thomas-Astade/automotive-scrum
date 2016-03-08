@@ -47,11 +47,13 @@ for (std::vector<artefact_transition>::const_iterator it = state_changes.begin()
     connection = (*it).getSource()
         + " -> "
         + (*it).getDestination()
-        + "[label=\""
+        + "["
+        +  text_standards
+        + "label=\""
         + (*it).getElement()->getLabel()
         + "\", URL=\""
         + (*it).getElement()->getHtmlFilename()
-        + "\", fontlolor=\"#177445\"];";
+        + "\", fontcolor=\"#177445\", color=\"#177445\"];";
     
     fputs(connection.c_str(),gfile);
 }
