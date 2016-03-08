@@ -33,9 +33,14 @@ for (std::set<std::string>::iterator it = nodes.begin(); it != nodes.end(); it++
     if ((*it)=="null")
         node += "shape=circle width=0.2, label=\"\"";
     else
-        node = node + "shape=Mrecord, label=\"" + (*it) + "\", ";
+        node = node + "shape=Mrecord, label=\"{" 
+             + getType()
+             + ":\n"
+             + label_owner::getLabel()
+             + "|"
+             + (*it) + "}\", ";
 
-    node += std::string("style=filled, color=\"#177445\", fillcolor=\"#177445\", ")
+    node += std::string("style=filled, color=\"#AFCEBE\", fillcolor=\"#177445\", ")
          += "fontcolor=\"#AFCEBE\"];";
 
     fputs(node.c_str(),gfile);
