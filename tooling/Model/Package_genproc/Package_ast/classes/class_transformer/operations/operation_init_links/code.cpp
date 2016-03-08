@@ -47,3 +47,22 @@ for (std::vector<artefact_base*>::iterator it_create = m_create.begin(); it_crea
         (*it_trans)->add_dependency(dynamic_cast<const I_element*>(*it_create));
     }
 }
+
+for (std::vector<transition>::iterator it = m_transitions.begin(); it != m_transitions.end(); it++)
+{
+    ast::I_element* element = ast::I_element::find_element((*it).getID());
+
+    if (element == 0)
+        warn_not_found("transform",(*it).getID());
+    else
+    {
+        artefact_base* a = dynamic_cast<artefact_base*>(element);
+        if (a == 0)
+            warn_not_allowed(element, "state transition");
+        else
+        {
+            a->addTransition(dynamic_cast<I_element*>(this),
+                (*it).getSource(),(*it).getDestination());
+        }
+    }
+}

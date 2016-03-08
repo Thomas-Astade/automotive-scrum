@@ -24,6 +24,7 @@
 #include "artefact_element.h"
 #include "repository_element.h"
 #include "transition.h"
+#include "artefact_transition.h"
 
 namespace classic = boost::spirit::classic;
 namespace qi = boost::spirit::qi;
