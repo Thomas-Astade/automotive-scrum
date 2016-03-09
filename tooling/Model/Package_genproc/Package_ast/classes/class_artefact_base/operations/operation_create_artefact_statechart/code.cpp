@@ -34,7 +34,7 @@ for (std::set<std::string>::iterator it = nodes.begin(); it != nodes.end(); it++
         node += "shape=circle width=0.2, label=\"\"";
     else
         node = node + "shape=Mrecord, label=\"{" 
-             + label_owner::getLabel()
+             + breakApart(label_owner::getLabel())
              + "|"
              + (*it) + "}\", ";
 
@@ -53,7 +53,7 @@ for (std::vector<artefact_transition>::const_iterator it = state_changes.begin()
         + "["
         +  text_standards
         + "label=\""
-        + (*it).getElement()->getLabel()
+        + (*it).getElement()->breakApart((*it).getElement()->getLabel())
         + "\", URL=\""
         + (*it).getElement()->getHtmlFilename()
         + "\", fontcolor=\"#177445\", color=\"#177445\"];";

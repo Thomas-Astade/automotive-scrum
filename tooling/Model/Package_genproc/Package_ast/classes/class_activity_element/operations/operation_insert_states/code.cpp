@@ -10,7 +10,7 @@ if((*it).getElement())
     node +=  " ["
          + graphics_creator::text_standards
          + "shape=Mrecord, label=\"" 
-         + (*it).getElement()->getLabel()
+         + (*it).getElement()->breakApart((*it).getElement()->getLabel())
          + "|"
          + (*it).getDestination()
          + "\", tooltip=\""
@@ -28,7 +28,7 @@ if((*it).getElement())
         node +=  " ["
              + graphics_creator::text_standards
              + "shape=Mrecord, label=\"" 
-             + (*it).getElement()->getLabel()
+             + (*it).getElement()->breakApart((*it).getElement()->getLabel())
              + "|"
              + (*it).getSource()
              + "\", tooltip=\""

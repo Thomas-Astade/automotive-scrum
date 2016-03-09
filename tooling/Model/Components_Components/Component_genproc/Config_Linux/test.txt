@@ -115,6 +115,7 @@ activity play {
 }
 
 activity do_ping {
+    label "do ping";
     set ping_pong(pong,ping);
 }
 
