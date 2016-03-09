@@ -115,6 +115,11 @@ void add_destination(const std::string& name, const boost::spirit::unused_type& 
     ast::transition::setDestination(name);
 }
 
+void setNamespace(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
+{
+    ast::I_element::setCurrentNamespace(name);
+}
+
 template <typename Iterator>
 struct process_description
   : qi::grammar<Iterator, std::list<ast::root_element>()>
@@ -130,6 +135,7 @@ struct process_description
                           (qi::lit("artefact") >  space > artefactElement) |
                           (qi::lit("folder") >  space > folderElement) |
                           (qi::lit("repository") >  space > repositoryElement) |
+                          name_space |
                           (qi::lit("process") >  space > processElement);
         
         homeElement     = OB
@@ -302,6 +308,10 @@ struct process_description
                         
         identifier      = qi::char_("a-zA-Z_") > *qi::char_("a-zA-Z_0-9");
         
+        name_space      = qi::lit('[')
+                        > identifier[setNamespace]
+                        > qi::lit(']');
+        
         label           = qi::lit("label") > space > qi::lit('"')
                         > *(qi::alnum | qi::char_(" ,.;:_<>|~!§$%&/()=?{[]}"))
                         >  qi::lit('"')
@@ -363,6 +373,7 @@ struct process_description
     }
 
     qi::rule<Iterator, ast::transition()> transition;
+    qi::rule<Iterator> name_space;
     qi::rule<Iterator> statePair;
     qi::rule<Iterator> subpagelist;
     qi::rule<Iterator> subActivities;

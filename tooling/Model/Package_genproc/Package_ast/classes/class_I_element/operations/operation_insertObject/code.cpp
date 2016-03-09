@@ -1,2 +1,2 @@
 //~~ void insertObject() [I_element] ~~
-object_list[getIdentifier()] = this;
+object_list[m_namespace + "_" + getIdentifier()] = this;
