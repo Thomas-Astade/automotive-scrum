@@ -2,7 +2,9 @@
 if (roleID.empty())
     return;
 
-ast::I_element* element = ast::I_element::find_element(roleID);
+const I_element* e = dynamic_cast<const I_element*>(this);
+
+ast::I_element* element = e->find_element(roleID);
 
 if (element == 0)
     warn_not_found("role",roleID);

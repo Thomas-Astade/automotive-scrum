@@ -1,7 +1,8 @@
 //~~ void init_links() [transformer] ~~
+const I_element* me = dynamic_cast<const I_element*>(this);
 for (std::vector<std::string>::iterator it = m_create_IDs.begin(); it != m_create_IDs.end(); it++)
 {
-    ast::I_element* element = ast::I_element::find_element(*it);
+    ast::I_element* element = me->find_element(*it);
 
     if (element == 0)
         warn_not_found("create",*it);
@@ -20,7 +21,7 @@ for (std::vector<std::string>::iterator it = m_create_IDs.begin(); it != m_creat
 
 for (std::vector<std::string>::iterator it = m_transform_IDs.begin(); it != m_transform_IDs.end(); it++)
 {
-    ast::I_element* element = ast::I_element::find_element(*it);
+    ast::I_element* element = me->find_element(*it);
 
     if (element == 0)
         warn_not_found("transform",*it);
@@ -50,7 +51,7 @@ for (std::vector<artefact_base*>::iterator it_create = m_create.begin(); it_crea
 
 for (std::vector<transition>::iterator it = m_transitions.begin(); it != m_transitions.end(); it++)
 {
-    ast::I_element* element = ast::I_element::find_element((*it).getID());
+    ast::I_element* element = me->find_element((*it).getID());
 
     if (element == 0)
         warn_not_found("transform",(*it).getID());
