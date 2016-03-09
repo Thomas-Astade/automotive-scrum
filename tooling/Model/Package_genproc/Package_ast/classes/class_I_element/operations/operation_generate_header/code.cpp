@@ -1,6 +1,6 @@
 //~~ void generate_header(std::ofstream& file) [I_element] ~~
 file << "<!DOCTYPE>" << std::endl;
-file << "<html lang=\"en\" manifest=\"automotive-scrum.appcache\">" << std::endl;
+file << "<html lang=\"en\">" << std::endl;
 file << "<head>" << std::endl;
 file << "<title>" << getType() << " " << getLabel() << "</title>" << std::endl;
 file << "<link rel=\"stylesheet\" href=\"style.css\">" << std::endl;

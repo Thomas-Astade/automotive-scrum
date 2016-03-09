@@ -34,8 +34,6 @@ for (std::set<std::string>::iterator it = nodes.begin(); it != nodes.end(); it++
         node += "shape=circle width=0.2, label=\"\"";
     else
         node = node + "shape=Mrecord, label=\"{" 
-             + getType()
-             + ":\n"
              + label_owner::getLabel()
              + "|"
              + (*it) + "}\", ";

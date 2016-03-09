@@ -8,8 +8,6 @@ if((*it).getElement())
 
     node = label_owner::getIdentifier() + "_" + (*it).getDestination();
     node +=  " [shape=Mrecord, label=\"" 
-         + (*it).getElement()->getType()
-         + ":\n"
          + (*it).getElement()->getLabel()
          + "|"
          + (*it).getDestination()
@@ -26,8 +24,6 @@ if((*it).getElement())
     {
         node = label_owner::getIdentifier() + "_" + (*it).getSource();
         node +=  " [shape=Mrecord, label=\"" 
-             + (*it).getElement()->getType()
-             + ":\n"
              + (*it).getElement()->getLabel()
              + "|"
              + (*it).getSource()
