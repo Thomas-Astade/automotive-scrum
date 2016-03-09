@@ -315,7 +315,7 @@ struct process_description
                         > SC;
                         
         brief           = qi::lit("brief") > space > qi::lit('"')
-                        > *(qi::alnum | qi::char_(" ,.;:_<>|~!§$%&/()=?{[]}"))
+                        > *(qi::alnum | qi::char_(" ,.;:_<>|~!§$%&/()=?{[]}'"))
                         >  qi::lit('"')
                         > space
                         > SC;

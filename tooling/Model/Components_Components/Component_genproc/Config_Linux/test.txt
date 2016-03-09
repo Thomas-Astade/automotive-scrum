@@ -102,6 +102,7 @@ role mi_integrator {
 
 artefact ping_pong {
     label "ping pong";
+    brief "just some brief description of this node, which cannot make any sense, because it's only an example.";
 }
 
 activity create_ping_pong {
@@ -330,6 +331,7 @@ repository git {
 
 repository mantis {
     label "Mantis";
+    contains ping_pong;
 }
 
 repository jenkins {
