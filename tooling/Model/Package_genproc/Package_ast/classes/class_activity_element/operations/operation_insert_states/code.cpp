@@ -7,7 +7,9 @@ if((*it).getElement())
     std::string node;
 
     node = label_owner::getIdentifier() + "_" + (*it).getDestination();
-    node +=  " [shape=Mrecord, label=\"" 
+    node +=  " ["
+         + graphics_creator::text_standards
+         + "shape=Mrecord, label=\"" 
          + (*it).getElement()->getLabel()
          + "|"
          + (*it).getDestination()
@@ -23,7 +25,9 @@ if((*it).getElement())
     if ((*it).getSource()!="null")
     {
         node = label_owner::getIdentifier() + "_" + (*it).getSource();
-        node +=  " [shape=Mrecord, label=\"" 
+        node +=  " ["
+             + graphics_creator::text_standards
+             + "shape=Mrecord, label=\"" 
              + (*it).getElement()->getLabel()
              + "|"
              + (*it).getSource()

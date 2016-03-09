@@ -1,4 +1,7 @@
 //~~ void create_artefact_overview(std::ofstream& outfile, const std::string& outpath) [artefact_base] ~~
+if (m_creator.empty() && m_user.empty())
+    return;
+
 const I_element* e = dynamic_cast<const I_element*>(this);
 
 FILE *gfile;

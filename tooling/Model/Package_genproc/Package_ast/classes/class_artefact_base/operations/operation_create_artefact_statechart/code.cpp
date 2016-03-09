@@ -38,7 +38,7 @@ for (std::set<std::string>::iterator it = nodes.begin(); it != nodes.end(); it++
              + "|"
              + (*it) + "}\", ";
 
-    node += std::string("style=filled, color=\"#AFCEBE\", fillcolor=\"#177445\", ")
+    node += std::string("style=filled, color=\"#AFCEBE\", fillcolor=\"#177445\", ") + graphics_creator::text_standards
          += "fontcolor=\"#AFCEBE\"];";
 
     fputs(node.c_str(),gfile);
