@@ -9,7 +9,7 @@ if (hasBriefDescription())
          << label_owner::getLabel()
          << "\"</h1>" << std::endl;
     file << "<p>"
-         << getBrief()
+         << label_owner::getBrief()
          << "</p>" << std::endl;
 }
 if (hasText())

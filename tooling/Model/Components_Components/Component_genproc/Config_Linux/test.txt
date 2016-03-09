@@ -106,7 +106,6 @@ artefact ping_pong {
 
 activity create_ping_pong {
     label "create ping pong";
-    create ping_pong;
     set ping_pong(null,ping);
 }
 

@@ -13,8 +13,11 @@ if((*it).getElement())
          + (*it).getElement()->getLabel()
          + "|"
          + (*it).getDestination()
-         + "\", "
-         + std::string("style=filled, color=\"#AFCEBE\", fillcolor=\"#177445\", ")
+         + "\", tooltip=\""
+         + (*it).getElement()->getBrief()
+         + "\", URL=\""
+         + (*it).getElement()->getHtmlFilename()
+         + std::string("\", style=filled, color=\"#AFCEBE\", fillcolor=\"#177445\", ")
          + "fontcolor=\"#AFCEBE\"];";
          
     fputs(node.c_str(),gfile);
@@ -28,8 +31,11 @@ if((*it).getElement())
              + (*it).getElement()->getLabel()
              + "|"
              + (*it).getSource()
-             + "\", "
-             + std::string("style=filled, color=\"#AFCEBE\", fillcolor=\"#177445\", ")
+             + "\", tooltip=\""
+             + (*it).getElement()->getBrief()
+             + "\", URL=\""
+             + (*it).getElement()->getHtmlFilename()
+             + std::string("\", style=filled, color=\"#AFCEBE\", fillcolor=\"#177445\", ")
              + "fontcolor=\"#AFCEBE\"];";
              
         fputs(node.c_str(),gfile);
