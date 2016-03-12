@@ -115,9 +115,14 @@ void add_destination(const std::string& name, const boost::spirit::unused_type& 
     ast::transition::setDestination(name);
 }
 
-void setNamespace(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
+void addNamespace(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
 {
-    ast::I_element::setCurrentNamespace(name);
+    ast::I_element::addNamespace(name);
+}
+
+void removeNamespace(const boost::spirit::unused_type& name, const boost::spirit::unused_type& it, bool& pass)
+{
+    pass = ast::I_element::removeNamespace();
 }
 
 template <typename Iterator>
@@ -135,7 +140,7 @@ struct process_description
                           (qi::lit("artefact") >  space > artefactElement) |
                           (qi::lit("folder") >  space > folderElement) |
                           (qi::lit("repository") >  space > repositoryElement) |
-                          name_space |
+                          name_space_begin | name_space_end |
                           (qi::lit("process") >  space > processElement);
         
         homeElement     = OB
@@ -288,7 +293,7 @@ struct process_description
                         > space
                         > *(qi::lit(',') > space > filename)[add_text]
                         > space
-                        > qi::lit(';');
+                        > SC;
                         
         createlist      = qi::lit("create")
                         > space
@@ -296,7 +301,7 @@ struct process_description
                         > space
                         > *(qi::lit(',') > space > identifier)[add_create]
                         > space
-                        > qi::lit(';');
+                        > SC;
                         
         transformlist   = qi::lit("transform")
                         > space
@@ -308,9 +313,13 @@ struct process_description
                         
         identifier      = qi::char_("a-zA-Z_") > *qi::char_("a-zA-Z_0-9");
         
-        name_space      = qi::lit('[')
-                        > identifier[setNamespace]
-                        > qi::lit(']');
+       name_space_begin = qi::lit("namespace")
+                        > space
+                        > identifier[addNamespace]
+                        > space
+                        > OB;
+        
+        name_space_end  = CB[removeNamespace];
         
         label           = qi::lit("label") > space > qi::lit('"')
                         > *(qi::alnum | qi::char_(" ,.;:_<>|~!§$%&/()=?{[]}"))
@@ -358,6 +367,8 @@ struct process_description
         C.name("',' expected.");
         Ob.name("'(' expected.");
         Cb.name("')' expected.");
+        OB.name("'{' expected.");
+        CB.name("'}' expected.");
         subActivities.name("\"subactivities\" expected.");
         responsibleRole.name("\"responsible\" expected.");
         statePair.name("\"state pair\" expected.");
@@ -373,7 +384,8 @@ struct process_description
     }
 
     qi::rule<Iterator, ast::transition()> transition;
-    qi::rule<Iterator> name_space;
+    qi::rule<Iterator> name_space_begin;
+    qi::rule<Iterator> name_space_end;
     qi::rule<Iterator> statePair;
     qi::rule<Iterator> subpagelist;
     qi::rule<Iterator> subActivities;

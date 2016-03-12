@@ -1,2 +1,5 @@
 //~~ void insertObject() [I_element] ~~
-object_list[m_namespace + "_" + getIdentifier()] = this;
+std::cout << "enter insertObject" << std::endl;
+std::cout << getFullPath()+getIdentifier() << "...";
+object_list[getFullPath()+getIdentifier()] = this;
+std::cout << "done" << std::endl;

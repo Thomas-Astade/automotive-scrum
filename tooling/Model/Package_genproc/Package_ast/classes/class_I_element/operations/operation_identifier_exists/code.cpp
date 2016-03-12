@@ -1,7 +1,9 @@
 //~~ bool identifier_exists(const std::string& identifier) [I_element] ~~
-if (object_list.find(current_namespace+"_"+identifier) != object_list.end())
-    return true;
-if (object_list.find(identifier) != object_list.end())
-    return true;
-    
-return false;
+std::string h;
+
+for (std::vector<std::string>::iterator it = current_namespace.begin(); it != current_namespace.end(); it++)
+    h += (*it) + "_";
+
+h += identifier;
+
+return ((object_list.find(h) != object_list.end()));

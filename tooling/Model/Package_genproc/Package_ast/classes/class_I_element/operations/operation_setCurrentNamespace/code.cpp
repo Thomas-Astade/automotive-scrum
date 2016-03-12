@@ -1,2 +1,2 @@
-//~~ void setCurrentNamespace(const std::string& newNamespace) [I_element] ~~
-current_namespace = newNamespace;
+//~~ void addNamespace(const std::string& newNamespace) [I_element] ~~
+current_namespace.push_back(newNamespace);
