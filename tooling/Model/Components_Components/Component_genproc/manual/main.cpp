@@ -422,6 +422,31 @@ struct process_description
 
 };
 
+std::vector<ast::root_element> ast_data;
+// wrap forward iterator with position iterator, to record the position
+typedef classic::position_iterator2<boost::spirit::istream_iterator> pos_iterator_type;
+
+void load(std::string filename)
+{
+    // open file, disable skipping of whitespace
+    std::ifstream in(filename.c_str());
+    in.unsetf(std::ios::skipws);
+
+    // wrap istream into iterator
+    boost::spirit::istream_iterator begin(in);
+    boost::spirit::istream_iterator end;
+
+    pos_iterator_type position_begin(begin, end, filename.c_str());
+    pos_iterator_type position_end;
+
+    process_description<pos_iterator_type> p;       // create instance of parser
+
+    qi::phrase_parse(position_begin, position_end, p, qi::space, ast_data);
+
+    if (position_begin != position_end)
+        throw qi::expectation_failure<pos_iterator_type>(position_begin, position_end,boost::spirit::info("general error"));
+}
+
 const char *argp_program_version =
 "genproc 0.1";
 
@@ -467,12 +492,7 @@ int main (int argc, char **argv)
 {
     /* Where the magic happens */
     argp_parse (&argp, argc, argv, 0, 0, &arguments);
-    std::vector<ast::root_element> ast;
 
-    // wrap forward iterator with position iterator, to record the position
-    typedef classic::position_iterator2<boost::spirit::istream_iterator>
-        pos_iterator_type;
-       
     if (arguments.file_names.empty())
     {
         printf("you must specify a process file\n");
@@ -482,23 +502,7 @@ int main (int argc, char **argv)
     {
         try
         {
-            // open file, disable skipping of whitespace
-            std::ifstream in((*it).c_str());
-            in.unsetf(std::ios::skipws);
-
-            // wrap istream into iterator
-            boost::spirit::istream_iterator begin(in);
-            boost::spirit::istream_iterator end;
-
-            pos_iterator_type position_begin(begin, end, (*it).c_str());
-            pos_iterator_type position_end;
-
-            process_description<pos_iterator_type> p;       // create instance of parser
-
-            qi::phrase_parse(position_begin, position_end, p, qi::space, ast);
-
-            if (position_begin != position_end)
-                throw qi::expectation_failure<pos_iterator_type>(position_begin, position_end,boost::spirit::info("general error"));
+            load(*it);
         }
         catch(const qi::expectation_failure<pos_iterator_type> e)
         {
@@ -519,7 +523,7 @@ int main (int argc, char **argv)
 
     if (arguments.beautify)
     {
-        for (std::vector<ast::root_element>::iterator it = ast.begin(); it != ast.end(); it++)
+        for (std::vector<ast::root_element>::iterator it = ast_data.begin(); it != ast_data.end(); it++)
         {
             (*it).dump();
         }
