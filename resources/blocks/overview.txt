@@ -1,7 +1,8 @@
 namespace overview {
     include resources/blocks/git.txt;
+    include resources/blocks/mantis.txt;
     page buildingBlocks {
         label "building blocks";
-        subpages git_workWithGit;
+        subpages git_workWithGit, mantis_workWithMantis;
     }
 }

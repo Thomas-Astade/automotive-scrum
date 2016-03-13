@@ -1,0 +1,5 @@
+namespace mantis {
+    activity workWithMantis {
+        label "work with Mantis";
+    }
+}
