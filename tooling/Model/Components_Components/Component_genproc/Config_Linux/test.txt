@@ -62,8 +62,8 @@ role mi_developer {
     brief "In this process thes role does all the technical work";
 }
 
-artefact mi_sourcecode {
-    label "source code";
+namespace mi {
+    include resources/blocks/dev_basic.txt;
 }
 
 artefact mi_unintegrated_source {
@@ -190,8 +190,8 @@ role ai_developer {
     brief "In this process thes role does all the technical work";
 }
 
-artefact ai_sourcecode {
-    label "source code";
+namespace ai {
+    include resources/blocks/dev_basic.txt;
 }
 
 artefact ai_integrated_source {
