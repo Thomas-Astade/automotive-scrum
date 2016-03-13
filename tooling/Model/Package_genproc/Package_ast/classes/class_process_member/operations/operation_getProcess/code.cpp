@@ -20,4 +20,7 @@ if (e == 0) // no parent
 
 const process_member* pe = dynamic_cast<const process_member*>(e);
 
+if (pe == 0)
+    return 0;
+
 return pe->getProcess();

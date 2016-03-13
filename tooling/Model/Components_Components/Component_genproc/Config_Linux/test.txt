@@ -1,3 +1,11 @@
+page buildingBlocks {
+    label "building blocks";
+    subpages allerlei;
+}
+
+activity allerlei {
+}
+
 process mi_manual_integration {
     label "manual integration";    
     responsible mi_project_manager;
@@ -224,6 +232,7 @@ role ai_jenkins_server {
 
 page example {
     label "how it is done";
+    subpages buildingBlocks;
     text md/example_begin.md, 
         test.txt, 
         md/example_end.md;

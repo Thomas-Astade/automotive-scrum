@@ -161,7 +161,7 @@ struct process_description
                         > space
                         > -subpagelist
                         > space
-                        > textfilelist
+                        > -textfilelist
                         > space
                         > CB;
         
