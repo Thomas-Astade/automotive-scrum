@@ -125,6 +125,8 @@ void removeNamespace(const boost::spirit::unused_type& name, const boost::spirit
     pass = ast::I_element::removeNamespace();
 }
 
+void addFile(const std::string& name, const boost::spirit::unused_type& it, bool& pass);
+
 template <typename Iterator>
 struct process_description
   : qi::grammar<Iterator, std::list<ast::root_element>()>
@@ -140,7 +142,7 @@ struct process_description
                           (qi::lit("artefact") >  space > artefactElement) |
                           (qi::lit("folder") >  space > folderElement) |
                           (qi::lit("repository") >  space > repositoryElement) |
-                          name_space_begin | name_space_end |
+                          name_space_begin | name_space_end | do_include |
                           (qi::lit("process") >  space > processElement);
         
         homeElement     = OB
@@ -321,6 +323,12 @@ struct process_description
         
         name_space_end  = CB[removeNamespace];
         
+        do_include      = qi::lit("include")
+                        > space
+                        > filename[addFile]
+                        > space
+                        > SC;
+        
         label           = qi::lit("label") > space > qi::lit('"')
                         > *(qi::alnum | qi::char_(" ,.;:_<>|~!§$%&/()=?{[]}"))
                         >  qi::lit('"')
@@ -386,6 +394,7 @@ struct process_description
     qi::rule<Iterator, ast::transition()> transition;
     qi::rule<Iterator> name_space_begin;
     qi::rule<Iterator> name_space_end;
+    qi::rule<Iterator> do_include;
     qi::rule<Iterator> statePair;
     qi::rule<Iterator> subpagelist;
     qi::rule<Iterator> subActivities;
@@ -426,7 +435,7 @@ std::vector<ast::root_element> ast_data;
 // wrap forward iterator with position iterator, to record the position
 typedef classic::position_iterator2<boost::spirit::istream_iterator> pos_iterator_type;
 
-void load(std::string filename)
+void load(const std::string& filename)
 {
     // open file, disable skipping of whitespace
     std::ifstream in(filename.c_str());
@@ -445,6 +454,11 @@ void load(std::string filename)
 
     if (position_begin != position_end)
         throw qi::expectation_failure<pos_iterator_type>(position_begin, position_end,boost::spirit::info("general error"));
+}
+
+void addFile(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
+{
+    load(name);
 }
 
 const char *argp_program_version =
