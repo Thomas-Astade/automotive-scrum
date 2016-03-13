@@ -1,1 +1,1 @@
-//~~ void generate(const std::string& outpath) [I_element] ~~
+//~~ void generate(std::ofstream& outfile) [activity_element] ~~

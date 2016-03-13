@@ -142,6 +142,7 @@ struct process_description
                           (qi::lit("artefact") >  space > artefactElement) |
                           (qi::lit("folder") >  space > folderElement) |
                           (qi::lit("repository") >  space > repositoryElement) |
+                          (qi::lit("virtual") > space > qi::lit("artefact") > space > virtualArtefact) |
                           name_space_begin | name_space_end | do_include |
                           (qi::lit("process") >  space > processElement);
         
@@ -199,6 +200,13 @@ struct process_description
                         > space
                         > -textfilelist
                         > space
+                        > CB;
+        
+        virtualArtefact = identifier[check_duplicate]
+                        > space
+                        > OB
+                        > space
+                        > -label[set_label]
                         > CB;
 
           folderElement = identifier[check_duplicate]
@@ -410,6 +418,7 @@ struct process_description
     qi::rule<Iterator,ast::page_element()> pageElement;
     qi::rule<Iterator,ast::activity_element()> activityElement;
     qi::rule<Iterator,ast::artefact_element()> artefactElement;
+    qi::rule<Iterator,ast::virtual_artefact()> virtualArtefact;
     qi::rule<Iterator,ast::repository_element()> repositoryElement;
     qi::rule<Iterator,ast::role_element()> roleElement;
     qi::rule<Iterator,ast::process_element()> processElement;
