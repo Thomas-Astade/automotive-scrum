@@ -1,0 +1,7 @@
+namespace overview {
+    include resources/blocks/git.txt;
+    page buildingBlocks {
+        label "building blocks";
+        subpages git_workWithGit;
+    }
+}

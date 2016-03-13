@@ -1,0 +1,21 @@
+namespace git {
+    activity workWithGit {
+        label "work with git";
+        subactivities clone, push, pull, checkout, commit;
+    }
+
+    activity clone {
+    }
+
+    activity push {
+    }
+
+    activity pull {
+    }
+
+    activity checkout {
+    }
+
+    activity commit {
+    }
+}

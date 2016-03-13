@@ -1,14 +1,4 @@
-page buildingBlocks {
-    label "building blocks";
-    subpages allerlei;
-}
-
-activity allerlei {
-    transform aTest;
-}
-
-virtual artefact aTest {
-}
+include resources/blocks/overview.txt;
 
 process mi_manual_integration {
     label "manual integration";    
@@ -236,7 +226,7 @@ role ai_jenkins_server {
 
 page example {
     label "how it is done";
-    subpages buildingBlocks;
+    subpages overview_buildingBlocks;
     text md/example_begin.md, 
         test.txt, 
         md/example_end.md;
