@@ -154,7 +154,7 @@ struct process_description
                         > space
                         > CB;
         
-        pageElement     = identifier[check_duplicate]
+        pageElement     = name_identifier[check_duplicate]
                         > space
                         > OB
                         > space
@@ -166,7 +166,7 @@ struct process_description
                         > space
                         > CB;
         
-        activityElement = identifier[check_duplicate]
+        activityElement = name_identifier[check_duplicate]
                         > space
                         > OB
                         > space
@@ -188,7 +188,7 @@ struct process_description
                         > space
                         > CB;
 
-        artefactElement = identifier[check_duplicate]
+        artefactElement = name_identifier[check_duplicate]
                         > space
                         > OB
                         > space
@@ -202,28 +202,14 @@ struct process_description
                         > space
                         > CB;
         
-        virtualArtefact = identifier[check_duplicate]
+        virtualArtefact = name_identifier[check_duplicate]
                         > space
                         > OB
                         > space
                         > -label[set_label]
                         > CB;
 
-          folderElement = identifier[check_duplicate]
-                        > space
-                        > OB
-                        > space
-                        > -label[set_label]
-                        > space
-                        > -subArtifacts
-                        > space
-                        > -brief[set_brief]
-                        > space
-                        > -textfilelist
-                        > space
-                        > CB;
-
-      repositoryElement = identifier[check_duplicate]
+          folderElement = name_identifier[check_duplicate]
                         > space
                         > OB
                         > space
@@ -237,7 +223,21 @@ struct process_description
                         > space
                         > CB;
 
-            roleElement = identifier[check_duplicate]
+      repositoryElement = name_identifier[check_duplicate]
+                        > space
+                        > OB
+                        > space
+                        > -label[set_label]
+                        > space
+                        > -subArtifacts
+                        > space
+                        > -brief[set_brief]
+                        > space
+                        > -textfilelist
+                        > space
+                        > CB;
+
+            roleElement = name_identifier[check_duplicate]
                         > space
                         > OB
                         > space
@@ -249,7 +249,7 @@ struct process_description
                         > space
                         > CB;
 
-        processElement  = identifier[check_duplicate]
+        processElement  = name_identifier[check_duplicate]
                         > space
                         > OB
                         > space
@@ -271,30 +271,30 @@ struct process_description
 
         subpagelist     = qi::lit("subpages")
                         > space
-                        > identifier[add_subpage]
+                        > ref_identifier[add_subpage]
                         > space
-                        > *(qi::lit(',') > space > identifier)[add_subpage]
+                        > *(qi::lit(',') > space > ref_identifier)[add_subpage]
                         > qi::lit(';');
                         
         repositories    = qi::lit("repository")
                         > space
-                        > identifier[add_repository]
+                        > ref_identifier[add_repository]
                         > space
-                        > *(qi::lit(',') > space > identifier)[add_repository]
+                        > *(qi::lit(',') > space > ref_identifier)[add_repository]
                         > qi::lit(';');
                         
         subActivities   = qi::lit("subactivities")
                         > space
-                        > identifier[add_subpage]
+                        > ref_identifier[add_subpage]
                         > space
-                        > *(qi::lit(',') > space > identifier)[add_subpage]
+                        > *(qi::lit(',') > space > ref_identifier)[add_subpage]
                         > qi::lit(';');
                         
         subArtifacts    = qi::lit("contains")
                         > space
-                        > identifier[add_subpage]
+                        > ref_identifier[add_subpage]
                         > space
-                        > *(qi::lit(',') > space > identifier)[add_subpage]
+                        > *(qi::lit(',') > space > ref_identifier)[add_subpage]
                         > qi::lit(';');
                         
         textfilelist    = qi::lit("text")
@@ -307,25 +307,26 @@ struct process_description
                         
         createlist      = qi::lit("create")
                         > space
-                        > identifier[add_create]
+                        > ref_identifier[add_create]
                         > space
-                        > *(qi::lit(',') > space > identifier)[add_create]
+                        > *(qi::lit(',') > space > ref_identifier)[add_create]
                         > space
                         > SC;
                         
         transformlist   = qi::lit("transform")
                         > space
-                        > identifier[add_transform]
+                        > ref_identifier[add_transform]
                         > space
-                        > *(qi::lit(',') > space > identifier)[add_transform]
+                        > *(qi::lit(',') > space > ref_identifier)[add_transform]
                         > space
                         > qi::lit(';');
                         
-        identifier      = qi::char_("a-zA-Z_") > *qi::char_("a-zA-Z_0-9");
+        name_identifier = qi::char_("a-zA-Z_") > *qi::char_("a-zA-Z_0-9");
+        ref_identifier  = qi::char_("a-zA-Z_") > *qi::char_("a-zA-Z_0-9-");
         
        name_space_begin = qi::lit("namespace")
                         > space
-                        > identifier[addNamespace]
+                        > name_identifier[addNamespace]
                         > space
                         > OB;
         
@@ -345,7 +346,7 @@ struct process_description
                         
         responsibleRole = qi::lit("responsible") 
                         > space
-                        > identifier
+                        > ref_identifier
                         > space
                         > SC;
                         
@@ -357,15 +358,15 @@ struct process_description
                         
         statePair       = Ob
                         > space
-                        > identifier[add_source]
+                        > ref_identifier[add_source]
                         > C
-                        > identifier[add_destination]
+                        > ref_identifier[add_destination]
                         > space
                         > Cb;
                         
         transition      = qi::lit("set")
                         > space
-                        > identifier
+                        > ref_identifier
                         > space
                         > statePair
                         > space
@@ -374,7 +375,8 @@ struct process_description
         filename        = +qi::char_("a-zA-Z_/.0-9");
         space           = *(qi::lit(' ') | qi::lit('\n') | qi::lit('\t'));
 
-        identifier.name("Expected a valid identifier.");
+        name_identifier.name("Expected a valid identifier name.");
+        ref_identifier.name("Expected a valid identifier reference.");
         filename.name("Expected a valid filename.");
         textfilelist.name("\"text\" expected.");
         pageElement.name("Duplicate identifier.");
@@ -422,7 +424,8 @@ struct process_description
     qi::rule<Iterator,ast::repository_element()> repositoryElement;
     qi::rule<Iterator,ast::role_element()> roleElement;
     qi::rule<Iterator,ast::process_element()> processElement;
-    qi::rule<Iterator, std::string()> identifier;
+    qi::rule<Iterator, std::string()> ref_identifier;
+    qi::rule<Iterator, std::string()> name_identifier;
     qi::rule<Iterator, std::string()> filename;
     qi::rule<Iterator, std::string()> label;
     qi::rule<Iterator, std::string()> responsibleRole;

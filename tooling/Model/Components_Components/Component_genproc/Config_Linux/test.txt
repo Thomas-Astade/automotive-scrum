@@ -56,7 +56,7 @@ activity mi_develop {
 activity mi_write_code {
     label "write code";
     transform mi_customer_requirements;
-    create mi_sourcecode;
+    create mi-sourcecode;
 }
 
 role mi_developer {
@@ -78,7 +78,7 @@ artefact mi_integrated_source {
 
 activity mi_commit {
     label "commit";
-    transform mi_sourcecode;
+    transform mi-sourcecode;
     create mi_unintegrated_source;
 }
 
@@ -184,7 +184,7 @@ activity ai_develop {
 activity ai_write_code {
     label "write code";
     transform ai_customer_requirements;
-    create ai_sourcecode;
+    create ai-sourcecode;
 }
 
 role ai_developer {
@@ -202,7 +202,7 @@ artefact ai_integrated_source {
 
 activity ai_commit {
     label "commit";
-    transform ai_sourcecode;
+    transform ai-sourcecode;
     create ai_integrated_source;
 }
 
@@ -226,7 +226,7 @@ role ai_jenkins_server {
 
 page example {
     label "how it is done";
-    subpages overview_buildingBlocks;
+    subpages overview-buildingBlocks;
     text md/example_begin.md, 
         test.txt, 
         md/example_end.md;
