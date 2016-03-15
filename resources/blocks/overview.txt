@@ -5,4 +5,8 @@ namespace overview {
         label "building blocks";
         subpages git-workWithGit, mantis-workWithMantis;
     }
+
+    page links {
+        text md/info_links.md;    
+    }
 }

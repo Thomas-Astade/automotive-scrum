@@ -226,7 +226,7 @@ role ai_jenkins_server {
 
 page example {
     label "how it is done";
-    subpages overview-buildingBlocks;
+    subpages overview-buildingBlocks, overview-links;
     text md/example_begin.md, 
         test.txt, 
         md/example_end.md;
