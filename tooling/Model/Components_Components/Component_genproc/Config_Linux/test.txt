@@ -280,7 +280,16 @@ activity system_engineering {
 activity software_development {
     label "software development";
     brief "some detaild description which can be shown in the tooltip";
+    responsible software_developer;
+    tool gcc;
     text md/dbg.md;
+}
+
+tool gcc {
+}
+
+role software_developer {
+    label "software developer";
 }
 
 activity software_test {

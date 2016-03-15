@@ -25,6 +25,7 @@
 #include "repository_element.h"
 #include "transition.h"
 #include "artefact_transition.h"
+#include "tool_element.h"
 
 namespace classic = boost::spirit::classic;
 namespace qi = boost::spirit::qi;
@@ -61,6 +62,13 @@ void set_role(const std::string& name, const boost::spirit::unused_type& it, boo
     ast::role_owner* e = dynamic_cast<ast::role_owner*>(&ast::I_element::get_last());
     if (e)
         e->set_role(name);
+}
+
+void set_tool(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
+{
+    ast::role_owner* e = dynamic_cast<ast::role_owner*>(&ast::I_element::get_last());
+    if (e)
+        e->set_tool(name);
 }
 
 void set_brief(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
@@ -139,6 +147,7 @@ struct process_description
                           (qi::lit("page") >  space > pageElement) |
                           (qi::lit("activity") >  space > activityElement) |
                           (qi::lit("role") >  space > roleElement) |
+                          (qi::lit("tool") >  space > toolElement) |
                           (qi::lit("artefact") >  space > artefactElement) |
                           (qi::lit("folder") >  space > folderElement) |
                           (qi::lit("repository") >  space > repositoryElement) |
@@ -175,6 +184,8 @@ struct process_description
                         > -brief[set_brief]
                         > space
                         > -responsibleRole[set_role]
+                        > space
+                        > -usedTool[set_tool]
                         > space
                         > -transformlist
                         > space
@@ -238,6 +249,18 @@ struct process_description
                         > CB;
 
             roleElement = name_identifier[check_duplicate]
+                        > space
+                        > OB
+                        > space
+                        > -label[set_label]
+                        > space
+                        > -brief[set_brief]
+                        > space
+                        > -textfilelist
+                        > space
+                        > CB;
+
+            toolElement = name_identifier[check_duplicate]
                         > space
                         > OB
                         > space
@@ -350,6 +373,12 @@ struct process_description
                         > space
                         > SC;
                         
+        usedTool        = qi::lit("tool") 
+                        > space
+                        > ref_identifier
+                        > space
+                        > SC;
+                        
         brief           = qi::lit("brief") > space > qi::lit('"')
                         > *(qi::alnum | qi::char_(" ,.;:_<>|~!§$%&/()=?{[]}'"))
                         >  qi::lit('"')
@@ -423,12 +452,14 @@ struct process_description
     qi::rule<Iterator,ast::virtual_artefact()> virtualArtefact;
     qi::rule<Iterator,ast::repository_element()> repositoryElement;
     qi::rule<Iterator,ast::role_element()> roleElement;
+    qi::rule<Iterator,ast::tool_element()> toolElement;
     qi::rule<Iterator,ast::process_element()> processElement;
     qi::rule<Iterator, std::string()> ref_identifier;
     qi::rule<Iterator, std::string()> name_identifier;
     qi::rule<Iterator, std::string()> filename;
     qi::rule<Iterator, std::string()> label;
     qi::rule<Iterator, std::string()> responsibleRole;
+    qi::rule<Iterator, std::string()> usedTool;
     qi::rule<Iterator, std::string()> brief;
     qi::rule<Iterator> space;
 
