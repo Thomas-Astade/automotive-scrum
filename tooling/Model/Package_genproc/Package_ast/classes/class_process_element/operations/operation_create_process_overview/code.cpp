@@ -17,6 +17,7 @@ fputs(e->get_graph_node(true).c_str(),gfile);
 insert_role(gfile);
 insert_transform(gfile);
 insert_repositories(gfile);
+insert_tool(gfile);
 insert_create(gfile);
 
 fputs("}\n",gfile);
