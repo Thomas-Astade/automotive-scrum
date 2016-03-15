@@ -294,6 +294,7 @@ role software_developer {
 
 activity software_test {
     label "software test";
+    tool gcc;
     text md/dbg.md;
 }
 
