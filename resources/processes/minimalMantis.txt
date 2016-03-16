@@ -1,2 +1,14 @@
+namespace minimalMantis {
+
 process minimalMantis {
+    label "minimal Mantis";    
+    brief "a very basic process which has only the intention to demonstrate Mantis usage.";
+    responsible project_manager;
+}
+
+role project_manager {
+    label "project manager";
+    brief "the over all responsible for this project";
+}
+
 }
