@@ -13,4 +13,19 @@ for (std::vector<artefact_base*>::const_iterator it = c.begin(); it != c.end(); 
         + "fontcolor=\"#072551\", color=\"#7B1E00\", label=\"create\"];";
     
     fputs(connection.c_str(),gfile);
+    
+    const parent_owner* p = dynamic_cast<const parent_owner*>(*it);
+    if (p)
+    {
+        if (p->getParent())
+        {
+            fputs(p->getParent()->get_graph_node(false).c_str(),gfile);
+            connection = (*it)->label_owner::getIdentifier()
+                       + " -> "
+                       + p->getParent()->getIdentifier()
+                       + "[arrowhead=\"diamond\", arrowtail=\"none\", dir=\"both\", color=\"#072551\"];";
+            
+            fputs(connection.c_str(),gfile);
+        }
+    }
 }
