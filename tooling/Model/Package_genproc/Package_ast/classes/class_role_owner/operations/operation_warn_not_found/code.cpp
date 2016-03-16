@@ -5,6 +5,6 @@ std::cerr   << "Warning: you try to add \""
             << "\" as "
             << reason
             << " in \""
-            << me->getIdentifier()
+            << me->getFullIdentifier()
             << "\" but it does not exist and is ignored."
             << std::endl;

@@ -3,9 +3,9 @@ for (std::set<tool_element*>::iterator it = implicite_tools.begin(); it != impli
 {
     fputs((*it)->get_graph_node(false).c_str(),gfile);
     std::string connection;
-    connection = label_owner::getIdentifier()
+    connection = getFullIdentifier()
            + " -> "
-           + (*it)->label_owner::getIdentifier()
+           + (*it)->getFullIdentifier()
            + "[arrowhead=\"none\", arrowtail=\"none\", dir=\"both\", style=dashed, color=\"#71B191\"];";
     
     fputs(connection.c_str(),gfile);

@@ -8,9 +8,9 @@ if (!r || !r->getRole())
 fputs(r->getRole()->get_graph_node(false).c_str(),gfile);
 std::string connection;
 bool isDirect;
-connection = r->getRole(&isDirect)->getIdentifier()
+connection = r->getRole(&isDirect)->getFullIdentifier()
            + " -> "
-           + e->getIdentifier();
+           + e->getFullIdentifier();
 if (isDirect)
     connection += "[arrowhead=\"none\", arrowtail=\"none\", dir=\"both\", color=\"#7B1E00\"];";
 else

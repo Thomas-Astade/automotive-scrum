@@ -1,7 +1,7 @@
 //~~ std::string get_graph_node(bool isSelected) [folder_element] ~~
 std::string ret;
 
-ret += label_owner::getIdentifier()
+ret += getFullIdentifier()
     + "["
     + graphics_creator::text_standards;
     if (isSelected)

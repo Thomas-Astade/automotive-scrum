@@ -5,9 +5,9 @@ for (std::vector<artefact_base*>::const_iterator it = c.begin(); it != c.end(); 
 {
     fputs((*it)->get_graph_node(false).c_str(),gfile);
     std::string connection;
-    connection = label_owner::getIdentifier()
+    connection = getFullIdentifier()
         + " -> "
-        + (*it)->label_owner::getIdentifier()
+        + (*it)->getFullIdentifier()
         + "[arrowhead=\"none\", arrowtail=\"vee\", dir=\"both\", "
         +  text_standards
         + "fontcolor=\"#072551\", color=\"#7B1E00\", label=\"transform\"];";

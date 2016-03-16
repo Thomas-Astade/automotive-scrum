@@ -13,9 +13,9 @@ for (std::vector<ast::I_element*>::const_iterator it = c.begin(); it != c.end();
     {
         fputs((*it)->get_graph_node(false).c_str(),gfile);
         std::string connection;
-        connection = e->getIdentifier()
+        connection = e->getFullIdentifier()
                    + " -> "
-                   + (*it)->getIdentifier()
+                   + (*it)->getFullIdentifier()
                    + "[arrowhead=\"none\", arrowtail=\"diamond\", dir=\"both\", color=\"#072551\"];";
         fputs(connection.c_str(),gfile);
     }

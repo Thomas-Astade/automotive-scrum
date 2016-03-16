@@ -5,9 +5,9 @@ for (std::set<role_element*>::iterator it = implicite_roles.begin(); it != impli
 {
     fputs((*it)->get_graph_node(false).c_str(),gfile);
     std::string connection;
-    connection = (*it)->label_owner::getIdentifier()
+    connection = (*it)->getFullIdentifier()
            + " -> "
-           + label_owner::getIdentifier()
+           + getFullIdentifier()
            + "[arrowhead=\"none\", arrowtail=\"none\", dir=\"both\", style=dashed, color=\"#7B1E00\"];";
     
     fputs(connection.c_str(),gfile);

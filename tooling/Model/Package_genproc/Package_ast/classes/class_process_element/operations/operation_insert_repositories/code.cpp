@@ -3,9 +3,9 @@ for (std::vector<repository_element*>::const_iterator it = repository_PTR.begin(
 {
     fputs((*it)->get_graph_node(false).c_str(),gfile);
     std::string connection;
-    connection = label_owner::getIdentifier()
+    connection = getFullIdentifier()
            + " -> "
-           + (*it)->label_owner::getIdentifier()
+           + (*it)->getFullIdentifier()
            + "[arrowhead=\"none\", arrowtail=\"none\", dir=\"both\", style=dashed, color=\"#072551\"];";
     
     fputs(connection.c_str(),gfile);

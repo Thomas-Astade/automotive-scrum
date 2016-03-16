@@ -5,9 +5,9 @@ for (std::set<const I_element*>::const_iterator it = m_neededFor.begin(); it != 
 {
     fputs((*it)->get_graph_node(false).c_str(),gfile);
     std::string connection;
-    connection = (*it)->getIdentifier()
+    connection = (*it)->getFullIdentifier()
                + " -> "
-               + e->getIdentifier()
+               + e->getFullIdentifier()
                + "[arrowhead=\"none\", arrowtail=\"normal\", style=dashed, dir=\"both\", color=\"#072551\"];";
         
     fputs(connection.c_str(),gfile);
@@ -17,9 +17,9 @@ for (std::set<const I_element*>::const_iterator it = m_dependsOn.begin(); it != 
 {
     fputs((*it)->get_graph_node(false).c_str(),gfile);
     std::string connection;
-    connection = e->getIdentifier()
+    connection = e->getFullIdentifier()
                + " -> "
-               + (*it)->getIdentifier()
+               + (*it)->getFullIdentifier()
                + "[arrowhead=\"none\", arrowtail=\"normal\", style=dashed, dir=\"both\", color=\"#072551\"];";
         
     fputs(connection.c_str(),gfile);

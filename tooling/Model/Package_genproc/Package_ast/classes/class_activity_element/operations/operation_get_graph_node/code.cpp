@@ -7,7 +7,7 @@ if (isSelected)
 else
     fc = "#FCDBA2";
     
-ret += label_owner::getIdentifier()
+ret += getFullIdentifier()
     + "["
     + graphics_creator::text_standards
     + "shape=house, orientation=270, margin=\"0\", style=filled, color=\"#A57521\", fillcolor=\""

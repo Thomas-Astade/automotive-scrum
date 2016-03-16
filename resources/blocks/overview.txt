@@ -3,7 +3,7 @@ namespace overview {
     include resources/blocks/mantis.txt;
     page buildingBlocks {
         label "building blocks";
-        subpages git-workWithGit, mantis-workWithMantis;
+        subpages git_workWithGit, mantis_workWithMantis;
     }
 
     page links {

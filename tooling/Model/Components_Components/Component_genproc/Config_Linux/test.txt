@@ -1,27 +1,27 @@
 include resources/blocks/overview.txt;
 include resources/processes/minimalMantis.txt;
 
-artefact ping_pong {
+artefact pingPong {
     label "ping pong";
     brief "just some brief description of this node, which cannot make any sense, because it's only an example.";
 }
 
-activity create_ping_pong {
+activity createPingPong {
     label "create ping pong";
-    set ping_pong(null,ping);
+    set pingPong(null,ping);
 }
 
 activity play {
-    subactivities create_ping_pong, do_ping, do_pong;
+    subactivities createPingPong, doPing, doPong;
 }
 
-activity do_ping {
+activity doPing {
     label "do ping";
-    set ping_pong(pong,ping);
+    set pingPong(pong,ping);
 }
 
-activity do_pong {
-    set ping_pong(ping,pong);
+activity doPong {
+    set pingPong(ping,pong);
 }
 
 @home {
@@ -33,7 +33,7 @@ activity do_pong {
 
 page example {
     label "how it is done";
-    subpages overview-buildingBlocks, overview-links;
+    subpages overview_buildingBlocks, overview_links;
     text md/example_begin.md, 
         test.txt, 
         md/example_end.md;
@@ -46,48 +46,48 @@ page impressum {
 
 page processes {
     label "Processes";
-    subpages demo,minimalMantis-minimalMantis;
+    subpages demo,minimalMantis_minimalMantis;
     text md/processes.md;
 }
 
 process demo {
     label "Demo";
-    responsible project_manager;
-    transform customer_requirements;
+    responsible projectManager;
+    transform customerRequirements;
     create delivery;
     repository git,
         jenkins,
         mantis;
-    subactivities project_management,
-        requitements_management,
-        system_engineering,
-        software_development,
-        software_test, play;
+    subactivities projectManagement,
+        requitementsManagement,
+        systemEngineering,
+        softwareDevelopment,
+        softwareTest, play;
     text md/demo/process.md;
 }
 
-activity project_management {
+activity projectManagement {
     label "project management";
 }
 
-activity requitements_management {
+activity requitementsManagement {
     label "requirements management";
     brief "some detaild description which can be shown in the tooltip";
-    responsible requirements_engineer;
-    subactivities review_customer_requirements,
-        create_system_requirements,
-        create_hardware_requirements,
-        create_software_requirements;
+    responsible requirementsEngineer;
+    subactivities reviewCustomerRequirements,
+        createSystemRequirements,
+        createHardwareRequirements,
+        createSoftwareRequirements;
 }
 
-activity system_engineering {
+activity systemEngineering {
     label "system engineering";
 }
 
-activity software_development {
+activity softwareDevelopment {
     label "software development";
     brief "some detaild description which can be shown in the tooltip";
-    responsible software_developer;
+    responsible softwareDeveloper;
     tool gcc;
     text md/dbg.md;
 }
@@ -95,50 +95,50 @@ activity software_development {
 tool gcc {
 }
 
-role software_developer {
+role softwareDeveloper {
     label "software developer";
 }
 
-activity software_test {
+activity softwareTest {
     label "software test";
     tool gcc;
     text md/dbg.md;
 }
 
-activity review_customer_requirements {
+activity reviewCustomerRequirements {
     label "review customer requirements";
 }
 
-activity create_system_requirements {
+activity createSystemRequirements {
     label "create system requirements";
-    transform customer_requirements;
-    create system_requirements;
+    transform customerRequirements;
+    create systemRequirements;
 }
 
-activity create_hardware_requirements {
+activity createHardwareRequirements {
     label "create hardware requirements";
 }
 
-activity create_software_requirements {
+activity createSoftwareRequirements {
     label "create software requirements";
 }
 
-role project_manager {
+role projectManager {
     label "project manager";
     brief "the process manager is the overall responsible for a project";
     text md/project_manager.md;
 }
 
-role requirements_engineer {
+role requirementsEngineer {
     label "requirements engineer";
     text md/dbg.md;
 }
 
-artefact customer_requirements {
+artefact customerRequirements {
     label "customer requirements";
 }
 
-artefact system_requirements {
+artefact systemRequirements {
     label "system requirements";
 }
 
@@ -147,41 +147,41 @@ artefact delivery {
 
 repository git {
     label "git";
-    contains requirements_folder;
+    contains requirementsFolder;
 }
 
 repository mantis {
     label "Mantis";
-    contains ping_pong;
+    contains pingPong;
 }
 
 repository jenkins {
     label "Jenkins";
 }
 
-folder requirements_folder {
+folder requirementsFolder {
     label "requirements";
-    contains customer_requirements_folder,
-        system_requirements_folder,
-        hardware_requirements_folder,
-        software_requirements_folder;
+    contains customerRequirementsFolder,
+        systemRequirementsFolder,
+        hardwareRequirementsFolder,
+        softwareRequirementsFolder;
 }
 
-folder customer_requirements_folder {
+folder customerRequirementsFolder {
     label "customer requirements";
-    contains customer_requirements;
+    contains customerRequirements;
 }
 
-folder system_requirements_folder {
+folder systemRequirementsFolder {
     label "system requirements";
-    contains system_requirements;
+    contains systemRequirements;
 }
 
-folder hardware_requirements_folder {
+folder hardwareRequirementsFolder {
     label "hardware requirements";
 }
 
-folder software_requirements_folder {
+folder softwareRequirementsFolder {
     label "software requirements";
 }
 

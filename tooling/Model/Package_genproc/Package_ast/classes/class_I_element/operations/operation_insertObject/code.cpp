@@ -1,2 +1,2 @@
 //~~ void insertObject() [I_element] ~~
-object_list[getFullPath()+getIdentifier()] = this;
+object_list[getFullIdentifier()] = this;

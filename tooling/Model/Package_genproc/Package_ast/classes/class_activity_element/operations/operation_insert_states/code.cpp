@@ -6,7 +6,7 @@ if((*it).getElement())
     std::string connection;
     std::string node;
 
-    node = label_owner::getIdentifier() + "_" + (*it).getDestination();
+    node = getFullIdentifier() + "_" + (*it).getDestination();
     node +=  " ["
          + graphics_creator::text_standards
          + "shape=Mrecord, label=\"" 
@@ -24,7 +24,7 @@ if((*it).getElement())
 
     if ((*it).getSource()!="null")
     {
-        node = label_owner::getIdentifier() + "_" + (*it).getSource();
+        node = getFullIdentifier() + "_" + (*it).getSource();
         node +=  " ["
              + graphics_creator::text_standards
              + "shape=Mrecord, label=\"" 
@@ -41,9 +41,9 @@ if((*it).getElement())
         fputs(node.c_str(),gfile);
     }
 
-    connection = label_owner::getIdentifier()
+    connection = getFullIdentifier()
         + " -> "
-        + label_owner::getIdentifier() + "_" + (*it).getDestination()
+        + getFullIdentifier() + "_" + (*it).getDestination()
         + "["
         +  text_standards
         + "fontcolor=\"#177445\", color=\"#177445\"];";
@@ -52,9 +52,9 @@ if((*it).getElement())
 
     if ((*it).getSource()!="null")
     {
-        connection = label_owner::getIdentifier() + "_" + (*it).getSource()
+        connection = getFullIdentifier() + "_" + (*it).getSource()
             + " -> "
-            + label_owner::getIdentifier()
+            + getFullIdentifier()
         + "["
             + text_standards
             + "fontcolor=\"#177445\", color=\"#177445\"];";

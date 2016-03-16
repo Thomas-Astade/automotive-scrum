@@ -1,5 +1,5 @@
 //~~ void dump() [activity_element] ~~
-std::cout << "\nactivity " << label_owner::getIdentifier() << " {" << std::endl;
+std::cout << "\nactivity " << getFullIdentifier() << " {" << std::endl;
 label_owner::dump();
 role_owner::dump();
 transformer::dump();

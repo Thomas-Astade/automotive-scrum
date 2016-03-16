@@ -6,7 +6,7 @@ std::string ret;
 
 for (int i = getNamespaceLevel()-1; level > 0; i--, level--)
 {
-    ret = m_namespace[i] + "-" + ret;
+    ret = m_namespace[i] + "_" + ret;
 }
 
 return ret;

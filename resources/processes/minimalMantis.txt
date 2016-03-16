@@ -2,12 +2,12 @@ namespace minimalMantis {
 
 process minimalMantis {
     label "minimal Mantis";    
-    responsible project_manager;
+    responsible projectManager;
     subactivities dummy;
     text  md/minimalMantis/process.md;
 }
 
-role project_manager {
+role projectManager {
     label "project manager";
     brief "the over all responsible for this project";
     text md/project_manager.md; 

@@ -7,7 +7,7 @@ if (isSelected)
 else
     fc = "#7086A6";
     
-ret += label_owner::getIdentifier()
+ret += getFullIdentifier()
     + "["
     + graphics_creator::text_standards
     + "shape=note, style=filled, color=\"#072551\", fillcolor=\""

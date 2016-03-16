@@ -8,9 +8,9 @@ if (!p || !p->getProcess())
 fputs(p->getProcess()->get_graph_node(false).c_str(),gfile);
 std::string connection;
 bool isDirect;
-connection = p->getProcess(&isDirect)->getIdentifier()
+connection = p->getProcess(&isDirect)->getFullIdentifier()
            + " -> "
-           + e->getIdentifier();
+           + e->getFullIdentifier();
 if (isDirect)
     connection += "[arrowhead=\"none\", arrowtail=\"diamond\", dir=\"both\", color=\"#072551\"];";
 else

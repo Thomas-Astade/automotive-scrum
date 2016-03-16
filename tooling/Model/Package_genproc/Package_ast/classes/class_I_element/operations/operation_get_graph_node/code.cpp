@@ -1,6 +1,6 @@
-//~~ std::string get_graph_node() [I_element] ~~
+//~~ std::string get_graph_node(bool isSelected) [I_element] ~~
 std::string ret;
-ret += getIdentifier()
+ret += getFullIdentifier()
     + "[label=\""
     + getLabel()
     + "\", URL=\""

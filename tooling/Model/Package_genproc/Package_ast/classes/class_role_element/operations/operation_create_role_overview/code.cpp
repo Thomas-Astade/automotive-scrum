@@ -19,9 +19,9 @@ for (std::set<activity_element*>::iterator it = direct_activities.begin(); it !=
 {
     fputs((*it)->get_graph_node(false).c_str(),gfile);
     std::string connection;
-    connection = label_owner::getIdentifier()
+    connection = getFullIdentifier()
                + " -> "
-               + (*it)->label_owner::getIdentifier()
+               + (*it)->getFullIdentifier()
                + "[arrowhead=\"none\", arrowtail=\"none\", dir=\"both\", color=\"#072551\"];";
     fputs(connection.c_str(),gfile);
 }
@@ -30,9 +30,9 @@ for (std::set<activity_element*>::iterator it = indirect_activities.begin(); it 
 {
     fputs((*it)->get_graph_node(false).c_str(),gfile);
     std::string connection;
-    connection = label_owner::getIdentifier()
+    connection = getFullIdentifier()
                + " -> "
-               + (*it)->label_owner::getIdentifier()
+               + (*it)->getFullIdentifier()
                + "[arrowhead=\"none\", arrowtail=\"none\", dir=\"both\", style=dashed, color=\"#072551\"];";
     fputs(connection.c_str(),gfile);
 }

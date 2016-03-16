@@ -344,8 +344,8 @@ struct process_description
                         > space
                         > qi::lit(';');
                         
-        name_identifier = qi::char_("a-zA-Z_") > *qi::char_("a-zA-Z_0-9");
-        ref_identifier  = qi::char_("a-zA-Z_") > *qi::char_("a-zA-Z_0-9-");
+        name_identifier = qi::char_("a-zA-Z") > *qi::char_("a-zA-Z0-9");
+        ref_identifier  = qi::char_("a-zA-Z_") > *qi::char_("a-zA-Z_0-9");
         
        name_space_begin = qi::lit("namespace")
                         > space

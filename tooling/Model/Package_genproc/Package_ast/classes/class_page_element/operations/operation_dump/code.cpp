@@ -1,5 +1,5 @@
 //~~ void dump() [page_element] ~~
-std::cout << "\npage " << label_owner::getIdentifier() << " {" << std::endl;
+std::cout << "\npage " << getFullIdentifier() << " {" << std::endl;
 label_owner::dump();
 subpage_owner::dump("subpages");
 text_owner::dump();
