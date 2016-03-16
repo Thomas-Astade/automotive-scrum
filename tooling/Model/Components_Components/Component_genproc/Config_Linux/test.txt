@@ -240,7 +240,7 @@ page impressum {
 
 page processes {
     label "Processes";
-    subpages demo,mi_manual_integration,ai_automatic_integration;
+    subpages demo,mi_manual_integration,ai_automatic_integration,minimalMantis-minimalMantis;
     text md/processes.md;
 }
 
