@@ -4,7 +4,7 @@ process minimalMantis {
     label "minimal Mantis";    
     responsible project_manager;
     subactivities dummy;
-    text dbg.md;
+    text  md/minimalMantis/process.md;
 }
 
 role project_manager {
