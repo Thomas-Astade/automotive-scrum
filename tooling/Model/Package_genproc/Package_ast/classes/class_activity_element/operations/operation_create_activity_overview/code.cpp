@@ -2,7 +2,7 @@
 const I_element* e = dynamic_cast<const I_element*>(this);
 
 FILE *gfile;
-std::string linkname = e->getIdentifier() + "_activity_overview";
+std::string linkname = e->getFullIdentifier() + "_activity_overview";
 std::string filename = outpath + "/" + linkname;
 
 std::string command("dot ");

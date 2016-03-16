@@ -5,7 +5,7 @@ if (m_neededFor.empty() && m_dependsOn.empty())
 const I_element* e = dynamic_cast<const I_element*>(this);
 
 FILE *gfile;
-std::string linkname = e->getIdentifier() + "_artefact_dependency";
+std::string linkname = e->getFullIdentifier() + "_artefact_dependency";
 std::string filename = outpath + "/" + linkname;
 
 std::string command("dot ");

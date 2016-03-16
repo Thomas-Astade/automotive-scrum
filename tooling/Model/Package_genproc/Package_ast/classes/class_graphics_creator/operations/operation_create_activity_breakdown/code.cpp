@@ -3,7 +3,7 @@ const I_element* e = dynamic_cast<const I_element*>(this);
 const parent_owner* p = dynamic_cast<const parent_owner*>(this);
 
 FILE *gfile;
-std::string linkname = e->getIdentifier() + "_activity_breakdown";
+std::string linkname = e->getFullIdentifier() + "_activity_breakdown";
 std::string filename = outpath + "/" + linkname;
 
 std::string command("dot ");

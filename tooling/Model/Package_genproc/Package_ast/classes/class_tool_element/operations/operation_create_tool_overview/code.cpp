@@ -1,6 +1,6 @@
 //~~ void create_tool_overview(std::ofstream& outfile, const std::string& outpath) [tool_element] ~~
 FILE *gfile;
-std::string linkname = label_owner::getIdentifier() + "_tool_overview";
+std::string linkname = getFullIdentifier() + "_tool_overview";
 std::string filename = outpath + "/" + linkname;
 
 std::string command("neato ");

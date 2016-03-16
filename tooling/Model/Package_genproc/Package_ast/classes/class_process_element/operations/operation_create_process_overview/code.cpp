@@ -1,7 +1,7 @@
 //~~ void create_process_overview(std::ofstream& outfile, const std::string& outpath) [process_element] ~~
 const I_element* e = dynamic_cast<const I_element*>(this);
 FILE *gfile;
-std::string linkname = e->getIdentifier() + "_process_overview";
+std::string linkname = e->getFullIdentifier() + "_process_overview";
 std::string filename = outpath + "/" + linkname;
 
 std::string command("dot ");

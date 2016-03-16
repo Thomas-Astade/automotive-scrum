@@ -1,6 +1,6 @@
 //~~ void create_role_overview(std::ofstream& outfile, const std::string& outpath) [role_element] ~~
 FILE *gfile;
-std::string linkname = label_owner::getIdentifier() + "_role_overview";
+std::string linkname = getFullIdentifier() + "_role_overview";
 std::string filename = outpath + "/" + linkname;
 
 std::string command("neato ");

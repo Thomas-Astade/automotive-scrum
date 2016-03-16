@@ -5,7 +5,7 @@ if (state_changes.empty())
 const I_element* e = dynamic_cast<const I_element*>(this);
 
 FILE *gfile;
-std::string linkname = e->getIdentifier() + "_artefact_states";
+std::string linkname = e->getFullIdentifier() + "_artefact_states";
 std::string filename = outpath + "/" + linkname;
 
 std::string command("dot ");
