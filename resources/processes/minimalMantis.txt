@@ -3,7 +3,6 @@ namespace minimalMantis {
 process minimalMantis {
     label "minimal Mantis";    
     responsible project_manager;
-    brief "a very basic process which has only the intention to demonstrate Mantis usage.";
     subactivities dummy;
 }
 
