@@ -10,6 +10,7 @@ process minimalMantis {
 role project_manager {
     label "project manager";
     brief "the over all responsible for this project";
+    text md/project_manager.md; 
 }
 
 activity dummy {
