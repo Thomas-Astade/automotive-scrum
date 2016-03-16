@@ -1,4 +1,5 @@
 include resources/blocks/overview.txt;
+include resources/processes/minimalMantis.txt;
 
 process mi_manual_integration {
     label "manual integration";    
