@@ -37,11 +37,13 @@ namespace mantis {
     activity createBugReport {
         label "create bug report";
         tool tool;
+        set bugTicket(null,new);
     }
     
     activity createFeatureRequest {
         label "create feature request";
         tool tool;
+        set featureTicket(null,new);
     }
     
 }
