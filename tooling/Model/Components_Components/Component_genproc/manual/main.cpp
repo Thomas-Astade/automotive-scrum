@@ -399,7 +399,7 @@ struct process_description
                         > Cb;
                         
         transitionGuard = qi::lit('[')
-                        > (qi::alnum | qi::char_(" ,.;:_<>|~!§$%&/()=?{}'"))
+                        > *(qi::alnum | qi::char_(" ,.;:_<>|~!§$%&/()=?{}'"))
                         > qi::lit(']');
                         
         transition      = qi::lit("set")

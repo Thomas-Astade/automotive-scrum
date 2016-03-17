@@ -64,7 +64,7 @@ for (std::vector<transition>::iterator it = m_transitions.begin(); it != m_trans
         {
             (*it).setElement(element);
             a->addTransition(dynamic_cast<I_element*>(this),
-                (*it).getSource(),(*it).getDestination());
+                (*it).getSource(),(*it).getDestination(),(*it).getGuard());
         }
     }
 }

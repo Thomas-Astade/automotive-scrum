@@ -17,7 +17,7 @@ activity play {
 
 activity doPing {
     label "do ping";
-    set pingPong(pong,ping);
+    set pingPong(pong,ping)[if hit];
 }
 
 activity doPong {

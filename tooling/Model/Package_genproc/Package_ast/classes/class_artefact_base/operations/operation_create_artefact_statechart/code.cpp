@@ -53,10 +53,12 @@ for (std::vector<artefact_transition>::const_iterator it = state_changes.begin()
         + "["
         +  text_standards
         + "label=\""
-        + (*it).getElement()->breakApart((*it).getElement()->getLabel())
-        + "\", URL=\""
+        + (*it).getElement()->breakApart((*it).getElement()->getLabel());
+        if (!(*it).getGuard().empty())
+            connection += std::string("\\n[") + (*it).getGuard() + "]";
+        connection += "\", URL=\""
         + (*it).getElement()->getHtmlFilename()
-        + "\", fontcolor=\"#177445\", color=\"#177445\"];";
+        + "\", fontcolor=\"#177445\", color=\"#177445 \"];";
     
     fputs(connection.c_str(),gfile);
 }
