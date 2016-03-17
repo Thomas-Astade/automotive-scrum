@@ -45,8 +45,14 @@ if((*it).getElement())
         + " -> "
         + getFullIdentifier() + "_" + (*it).getDestination()
         + "["
-        +  text_standards
-        + "fontcolor=\"#177445\", color=\"#177445\"];";
+        +  text_standards;
+        if (!(*it).getGuard().empty())
+        {
+            connection += "label=\"[";
+            connection += (*it).getGuard();
+            connection += "]\", ";
+        }
+        connection += "fontcolor=\"#177445\", color=\"#177445\"];";
     
     fputs(connection.c_str(),gfile);
 

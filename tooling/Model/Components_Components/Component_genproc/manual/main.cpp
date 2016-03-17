@@ -196,8 +196,7 @@ struct process_description
                         > space
                         > -createlist
                         > space
-                        > *(transition)
-                        > space
+                        > *(transition > space)
                         > -subActivities
                         > space
                         > -textfilelist
