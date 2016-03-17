@@ -2,8 +2,8 @@ namespace mantis {
 
     repository repository {
         label "Mantis database";
-        text md/mantis_tool.md; 
         contains pojects;
+        text md/mantis_tool.md; 
     }
     
     folder pojects {
