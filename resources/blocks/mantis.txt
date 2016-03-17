@@ -17,7 +17,7 @@ namespace mantis {
     }
     
     folder features {
-        label features;
+        label "features";
         contains featureTicket;
     }
     
