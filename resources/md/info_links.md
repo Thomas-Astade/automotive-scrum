@@ -7,6 +7,8 @@ Mantis
 ------
 * official site:
   <http://www.mantisbt.org/>
+* try Mantis
+  <http://mantisbt.org/bugs/my_view_page.php>
 * The Mantis forum:
   <http://www.mantisbt.org/forums/>
 * Mantis Bug Tracker Administration Guide:
