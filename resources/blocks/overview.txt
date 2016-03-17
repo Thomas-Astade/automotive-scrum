@@ -6,7 +6,14 @@ namespace overview {
         subpages git_workWithGit, mantis_workWithMantis;
     }
 
+    activity workWithMantis {
+        label "work with Mantis";
+        subactivities 
+            mantis_createBugReport,
+            mantis_createFeatureRequest;
+    }
+
     page links {
-        text md/info_links.md;    
+        text md/info_links.md;
     }
 }
