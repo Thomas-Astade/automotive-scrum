@@ -36,12 +36,12 @@ namespace mantis {
 
     activity createBugReport {
         label "create bug report";
-        tool Mantis;
+        tool tool;
     }
     
     activity createFeatureRequest {
         label "create feature request";
-        tool Mantis;
+        tool tool;
     }
     
 }
