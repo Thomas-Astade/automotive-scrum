@@ -1,11 +1,18 @@
 namespace mantis {
 
+    tool Mantis {
+        label "Mantis";
+         text md/mantis_tool.md; 
+    }
+
     activity createBugReport {
         label "create bug report";
+        tool Mantis;
     }
     
     activity createFeatureRequest {
         label "create feature request";
+        tool Mantis;
     }
     
 }
