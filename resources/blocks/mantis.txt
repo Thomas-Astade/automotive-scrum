@@ -1,5 +1,11 @@
 namespace mantis {
-    activity workWithMantis {
-        label "work with Mantis";
+
+    activity createBugReport {
+        label "create bug report";
     }
+    
+    activity createFeatureRequest {
+        label "create feature request";
+    }
+    
 }
