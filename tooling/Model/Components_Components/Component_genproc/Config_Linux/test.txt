@@ -17,11 +17,11 @@ activity play {
 
 activity doPing {
     label "do ping";
-    set pingPong(pong,ping)[if hit];
+    set pingPong(pong,ping);
 }
 
 activity doPong {
-    set pingPong(ping,pong);
+    set pingPong(ping,pong)[if hit];
 }
 
 @home {

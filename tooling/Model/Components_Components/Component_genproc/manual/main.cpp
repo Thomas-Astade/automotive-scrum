@@ -398,9 +398,12 @@ struct process_description
                         > space
                         > Cb;
                         
-        transitionGuard = qi::lit('[')
+        transitionGuardString
+                        = (qi::lit('[')
                         > *(qi::alnum | qi::char_(" ,.;:_<>|~!§$%&/()=?{}'"))
-                        > qi::lit(']');
+                        > qi::lit(']'));
+                        
+        transitionGuard = transitionGuardString[add_guard];
                         
         transition      = qi::lit("set")
                         > space
@@ -408,7 +411,7 @@ struct process_description
                         > space
                         > statePair
                         > space
-                        > -transitionGuard[add_guard]
+                        > -transitionGuard
                         > space
                         > SC;
         
@@ -472,7 +475,8 @@ struct process_description
     qi::rule<Iterator, std::string()> responsibleRole;
     qi::rule<Iterator, std::string()> usedTool;
     qi::rule<Iterator, std::string()> brief;
-    qi::rule<Iterator, std::string()> transitionGuard;
+    qi::rule<Iterator> transitionGuard;
+    qi::rule<Iterator, std::string()> transitionGuardString;
     qi::rule<Iterator> space;
 
     qi::rule<Iterator> OB;

@@ -54,7 +54,7 @@ for (std::vector<transition>::iterator it = m_transitions.begin(); it != m_trans
     ast::I_element* element = me->find_element((*it).getID());
 
     if (element == 0)
-        warn_not_found("transform",(*it).getID());
+        warn_not_found("transition",(*it).getID());
     else
     {
         artefact_base* a = dynamic_cast<artefact_base*>(element);
