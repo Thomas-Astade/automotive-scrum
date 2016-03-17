@@ -13,20 +13,20 @@ namespace mantis {
     
     folder bugs {
         label "bugs";
-        contains bugTicket;
+        contains bugIssue;
     }
     
     folder features {
         label "features";
-        contains featureTicket;
+        contains featureIssue;
     }
     
-    artefact bugTicket {
-        label "ticket";
+    artefact bugIssue {
+        label "issue";
     }
     
-    artefact featureTicket {
-        label "ticket";
+    artefact featureIssue {
+        label "issue";
     }
     
     tool tool {
@@ -37,13 +37,13 @@ namespace mantis {
     activity createBugReport {
         label "create bug report";
         tool tool;
-        set bugTicket(null,new);
+        set bugIssue(null,new);
     }
     
     activity createFeatureRequest {
         label "create feature request";
         tool tool;
-        set featureTicket(null,new);
+        set featureIssue(null,new);
     }
     
 }
