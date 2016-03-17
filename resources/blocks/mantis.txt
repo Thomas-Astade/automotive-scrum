@@ -1,6 +1,35 @@
 namespace mantis {
 
-    tool Mantis {
+    repository repository {
+        label "Mantis database";
+        text md/mantis_tool.md; 
+        contains pojects;
+    }
+    
+    folder pojects {
+        label "projects";
+        contains bugs,features;
+    }
+    
+    folder bugs {
+        label "bugs";
+        contains bugTicket;
+    }
+    
+    folder features {
+        label features;
+        contains featureTicket;
+    }
+    
+    artefact bugTicket {
+        label "ticket";
+    }
+    
+    artefact featureTicket {
+        label "ticket";
+    }
+    
+    tool tool {
         label "Mantis";
          text md/mantis_tool.md; 
     }
