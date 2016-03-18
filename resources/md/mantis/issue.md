@@ -1,7 +1,7 @@
 The "issue" in Mantis
 =====================
 
-the issue in Mantis can have 7 states:
+The issue in Mantis can have 7 states:
 
 * New
 * Feedback
