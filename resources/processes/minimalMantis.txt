@@ -22,6 +22,9 @@ role productManager {
 activity maintainCustomerRelation {
     label "maitain customer relation";
     brief "Get in contact with the customer(s) and fetch their requirements and bug reports";
+    subactivities  
+        mantis_createBugReport, 
+        mantis_createFeatureRequest;
 }
 
 }
