@@ -1,9 +1,11 @@
 namespace minimalMantis {
 
+include resources/blocks/mantis.txt;
+
 process minimalMantis {
     label "minimal Mantis";    
     responsible projectManager;
-    subactivities dummy;
+    subactivities maintainCustomerRelation;
     text  md/minimalMantis/process.md;
 }
 
@@ -13,7 +15,13 @@ role projectManager {
     text md/project_manager.md; 
 }
 
-activity dummy {
+role productManager {
+    label "product Manager";
+}
+
+activity maintainCustomerRelation {
+    label "maitain customer relation";
+    brief "Get in contact with the customer(s) and fetch their requirements and bug reports";
 }
 
 }
