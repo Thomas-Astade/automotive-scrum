@@ -10,7 +10,8 @@ namespace overview {
         label "work with Mantis";
         subactivities 
             mantis_createBugReport,
-            mantis_createFeatureRequest;
+            mantis_createFeatureRequest,
+            mantis_bugFrontDesk;
     }
 
     page links {

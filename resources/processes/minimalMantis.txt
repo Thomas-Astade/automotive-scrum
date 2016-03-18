@@ -6,7 +6,8 @@ process minimalMantis {
     label "minimal Mantis";    
     responsible projectManager;
     repository mantis_repository;
-    subactivities maintainCustomerRelation;
+    subactivities maintainCustomerRelation,
+        develop;
     text  md/minimalMantis/process.md;
 }
 
@@ -21,6 +22,11 @@ role productManager {
     brief "The product manager gets in contact with the customer(s) and fetch their requirements and bug reports";
 }
 
+role developer {
+    label "developer";
+    brief "the devoloper is the role in the project who has the technical skills.";
+}
+
 activity maintainCustomerRelation {
     label "maitain customer relation";
     brief "Get in contact with the customer(s) and fetch their requirements and bug reports";
@@ -28,6 +34,13 @@ activity maintainCustomerRelation {
     subactivities  
         mantis_createBugReport, 
         mantis_createFeatureRequest;
+}
+
+activity develop {
+    label "develop";
+    responsible developer;
+    subactivities
+        mantis_bugFrontDesk;
 }
 
 }
