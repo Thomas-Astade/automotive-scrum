@@ -17,7 +17,7 @@ The issue in Mantis can have 7 states:
 * __Resolved__
   In this state the issue is ready for testing by a tester or the issuer.
 * __Closed__
-  There will not be any further activity on that issue. This is Ether because it was successfully handled, or because it was never 
+  There will not be any further activity on that issue. This is ether because it was successfully handled, or because it was never 
   confirmed.
 
 Some guidelines for entering issues
