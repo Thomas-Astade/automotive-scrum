@@ -22,12 +22,12 @@ namespace mantis {
     }
     
     artefact bugIssue {
-        label "issue";
+        label "bug issue";
         text md/mantis/issue.md;
     }
     
     artefact featureIssue {
-        label "issue";
+        label "feature issue";
         text md/mantis/issue.md;
     }
     
