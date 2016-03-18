@@ -18,11 +18,13 @@ role projectManager {
 
 role productManager {
     label "product Manager";
+    brief "The product manager gets in contact with the customer(s) and fetch their requirements and bug reports";
 }
 
 activity maintainCustomerRelation {
     label "maitain customer relation";
     brief "Get in contact with the customer(s) and fetch their requirements and bug reports";
+    responsible productManager;
     subactivities  
         mantis_createBugReport, 
         mantis_createFeatureRequest;
