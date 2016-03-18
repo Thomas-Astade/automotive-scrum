@@ -7,7 +7,9 @@ process minimalMantis {
     responsible projectManager;
     repository mantis_repository;
     subactivities maintainCustomerRelation,
-        develop;
+        develop,
+        teamLeading,
+        testing;
     text  md/minimalMantis/process.md;
 }
 
@@ -27,20 +29,45 @@ role developer {
     brief "the devoloper is the role in the project who has the technical skills.";
 }
 
+role teamLead {
+    label "team leader";
+}
+
+role tester {
+    label "tester";
+}
+
+activity testing {
+    label "testing";
+    responsible tester;
+    subactivities
+        mantis_bugTest;
+}
+
+activity teamLeading {
+    label "team leading";
+    responsible teamLead;
+    subactivities
+        mantis_bugPlanning;
+}
+
 activity maintainCustomerRelation {
     label "maitain customer relation";
     brief "Get in contact with the customer(s) and fetch their requirements and bug reports";
     responsible productManager;
     subactivities  
         mantis_createBugReport, 
-        mantis_createFeatureRequest;
+        mantis_createFeatureRequest,
+        mantis_bugFeedback,
+        mantis_bugEffortReview;
 }
 
 activity develop {
     label "develop";
     responsible developer;
     subactivities
-        mantis_technicalPreview;
+        mantis_technicalPreview,
+        mantis_bugFix;
 }
 
 }
