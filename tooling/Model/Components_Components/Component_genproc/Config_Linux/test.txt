@@ -21,6 +21,8 @@ activity doPing {
 }
 
 activity doPong {
+    set pingPong(ping,dong)[else];
+    
     set pingPong(ping,pong)[if hit];
 }
 

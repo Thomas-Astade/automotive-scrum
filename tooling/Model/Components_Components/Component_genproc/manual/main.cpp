@@ -140,6 +140,12 @@ void removeNamespace(const boost::spirit::unused_type& name, const boost::spirit
 
 void addFile(const std::string& name, const boost::spirit::unused_type& it, bool& pass);
 
+void add_transition(const ast::transition& name, const boost::spirit::unused_type& it, bool& pass)
+{
+    ast::transformer::add_transition(name);
+}
+
+
 template <typename Iterator>
 struct process_description
   : qi::grammar<Iterator, std::list<ast::root_element>()>
@@ -196,7 +202,7 @@ struct process_description
                         > space
                         > -createlist
                         > space
-                        > *(transition > space)
+                        > *(transition[add_transition] > space)
                         > -subActivities
                         > space
                         > -textfilelist

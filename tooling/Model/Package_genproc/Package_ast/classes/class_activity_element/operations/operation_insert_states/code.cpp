@@ -1,5 +1,7 @@
 //~~ void insert_states(FILE* gfile) [activity_element] ~~
 
+std::set<std::string> duplicate;
+
 for (std::vector<transition>::const_iterator it = m_transitions.begin(); it != m_transitions.end(); it++)
 if((*it).getElement())
 {
@@ -65,7 +67,11 @@ if((*it).getElement())
             + text_standards
             + "fontcolor=\"#177445\", color=\"#177445\"];";
         
-        fputs(connection.c_str(),gfile);
+        if (duplicate.find(connection) == duplicate.end())
+        {
+            fputs(connection.c_str(),gfile);
+            duplicate.insert(connection);
+        }
     }
 
 }
