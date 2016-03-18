@@ -5,6 +5,7 @@ include resources/blocks/mantis.txt;
 process minimalMantis {
     label "minimal Mantis";    
     responsible projectManager;
+    repository mantis_repository;
     subactivities maintainCustomerRelation;
     text  md/minimalMantis/process.md;
 }
