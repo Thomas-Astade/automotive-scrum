@@ -40,7 +40,7 @@ activity develop {
     label "develop";
     responsible developer;
     subactivities
-        mantis_bugFrontDesk;
+        mantis_technicalPreview;
 }
 
 }

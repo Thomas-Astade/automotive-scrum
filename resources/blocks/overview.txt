@@ -11,7 +11,7 @@ namespace overview {
         subactivities 
             mantis_createBugReport,
             mantis_createFeatureRequest,
-            mantis_bugFrontDesk;
+            mantis_technicalPreview;
     }
 
     page links {

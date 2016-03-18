@@ -36,11 +36,12 @@ namespace mantis {
          text md/mantis_tool.md; 
     }
 
-    activity bugFrontDesk {
-        label "bug front desk";
-        brief "this activity is to check and preview entered bug issues";
-        set bugIssue(New,Acknowledged)[if info is formally ok];
-        set bugIssue(New,Feedback)[if info is missing];
+    activity technicalPreview {
+        label "technical preview";
+        brief "This activity is to check and preview entered bug issues. There should be also a first effort estimation.";
+        set bugIssue(New,Acknowledged)[info is formally ok];
+        set bugIssue(New,Feedback)[info is missing];
+        set bugIssue(New,Closed)[duplicate];
     }
 
     activity createBugReport {
