@@ -9,25 +9,14 @@ namespace overview {
     activity workWithMantis {
         label "work with Mantis";
         subactivities 
-            bugtrackingWithMantis,
-            featureTrackingWithMantis;
-    }
-
-    activity bugtrackingWithMantis {
-        label "bug tracking with Mantis";
-        subactivities 
             mantis_createBugReport,
             mantis_technicalPreview,
-            mantis_bugEffortReview,
-            mantis_bugPlanning,
-            mantis_bugFix,
-            mantis_bugTest;
-    }
-
-    activity featureTrackingWithMantis {
-        label "feature tracking with Mantis";    
-        subactivities 
-            mantis_createFeatureRequest;
+            mantis_effortReview,
+            mantis_planning,
+            mantis_reportIssueSolved,
+            mantis_createFeatureRequest,
+            mantis_issueTest,
+            mantis_getFeedback;
     }
 
     page links {

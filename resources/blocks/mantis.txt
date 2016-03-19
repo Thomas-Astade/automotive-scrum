@@ -2,32 +2,18 @@ namespace mantis {
 
     repository repository {
         label "Mantis database";
-        contains pojects;
+        contains issues;
         text md/mantis_tool.md; 
     }
     
-    folder pojects {
-        label "projects";
-        contains bugs,features;
-    }
     
-    folder bugs {
-        label "bugs";
-        contains bugIssue;
+    folder issues {
+        label "issues";
+        contains issue;
     }
-    
-    folder features {
-        label "features";
-        contains featureIssue;
-    }
-    
-    artefact bugIssue {
-        label "bug issue";
-        text md/mantis/issue.md;
-    }
-    
-    artefact featureIssue {
-        label "feature issue";
+        
+    artefact issue {
+        label "issue";
         text md/mantis/issue.md;
     }
     
@@ -40,56 +26,56 @@ namespace mantis {
         label "technical preview";
         brief "This activity is to check and preview entered bug issues. There should be also a first effort estimation.";
         tool tool;
-        set bugIssue(New,Acknowledged)[info is formally ok];
-        set bugIssue(New,Feedback)[info is missing];
-        set bugIssue(New,Closed)[duplicate];
+        set issue(New,Acknowledged)[info is formally ok];
+        set issue(New,Feedback)[info is missing];
+        set issue(New,Closed)[duplicate];
     }
 
-    activity bugEffortReview {
+    activity effortReview {
         label "effort review";
         brief "This activity is to decide, if the issue shall be considered to be done.";
         tool tool;
-        set bugIssue(Acknowledged,Confirmed)[spend the estimated effort];
-        set bugIssue(Acknowledged,Closed)[to much effort];
+        set issue(Acknowledged,Confirmed)[spend the estimated effort];
+        set issue(Acknowledged,Closed)[to much effort];
     }
 
-    activity bugPlanning {
-        label "bugfix planning";
+    activity planning {
+        label "planning";
         brief "This activity is during team planning, when an issue is assigned to a person";    
         tool tool;
-        set bugIssue(Confirmed,Assigned);
+        set issue(Confirmed,Assigned);
     }
 
-    activity bugFix {
-        label "bug fix";
+    activity reportIssueSolved {
+        label "report issue solved";
         tool tool;
-        set bugIssue(Assigned,Resolved);
+        set issue(Assigned,Resolved);
     }
 
     activity createBugReport {
         label "create bug report";
         tool tool;
-        set bugIssue(null,New);
+        set issue(null,New);
      }
     
-    activity bugTest {
-        label "bug test";    
-        tool tool;
-        set bugIssue(Resolved,Closed)[bug is solved];
-        set bugIssue(Resolved,Assigned)[bug is not solved];
-    }
-
-    activity bugFeedback {
-        label "get bug feedback";    
-        tool tool;
-        set bugIssue(Feedback,Closed)[no additional info];
-        set bugIssue(Feedback,New)[new info assigned];
-    }
-
     activity createFeatureRequest {
         label "create feature request";
         tool tool;
-        set featureIssue(null,New);
+        set issue(null,New);
+     }
+    
+    activity issueTest {
+        label "issue test";    
+        tool tool;
+        set issue(Resolved,Closed)[issue is solved];
+        set issue(Resolved,Assigned)[isue is not solved];
+    }
+
+    activity getFeedback {
+        label "get feedback";    
+        tool tool;
+        set issue(Feedback,Closed)[no additional info];
+        set issue(Feedback,New)[new info assigned];
     }
     
 }

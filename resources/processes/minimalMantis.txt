@@ -41,14 +41,14 @@ activity testing {
     label "testing";
     responsible tester;
     subactivities
-        mantis_bugTest;
+        mantis_issueTest;
 }
 
 activity teamLeading {
     label "team leading";
     responsible teamLead;
     subactivities
-        mantis_bugPlanning;
+        mantis_planning;
 }
 
 activity maintainCustomerRelation {
@@ -57,9 +57,9 @@ activity maintainCustomerRelation {
     responsible productManager;
     subactivities  
         mantis_createBugReport, 
-        mantis_createFeatureRequest,
-        mantis_bugFeedback,
-        mantis_bugEffortReview;
+        mantis_getFeedback,
+        mantis_effortReview,
+        mantis_createFeatureRequest;
 }
 
 activity develop {
@@ -67,7 +67,7 @@ activity develop {
     responsible developer;
     subactivities
         mantis_technicalPreview,
-        mantis_bugFix;
+        mantis_reportIssueSolved;
 }
 
 }
