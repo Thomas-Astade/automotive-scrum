@@ -19,7 +19,8 @@ namespace mantis {
     
     tool tool {
         label "Mantis";
-        text md/mantis/mantis_tool.md; 
+        text md/mantis/mantis_tool.md,
+            md/mantis/guidelines.md; 
     }
 
     activity technicalPreview {
@@ -60,14 +61,14 @@ namespace mantis {
         label "create bug report";
         tool tool;
         set issue(null,New);
-        text md/mantis/createBugReport.md;
+        text md/mantis/guidelines.md; 
      }
     
     activity createFeatureRequest {
         label "create feature request";
         tool tool;
         set issue(null,New);
-        text md/mantis/createFeatureRequest.md;
+        text md/mantis/guidelines.md; 
      }
     
     activity issueTest {
