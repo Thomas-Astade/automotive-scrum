@@ -3,7 +3,7 @@ namespace mantis {
     repository repository {
         label "Mantis database";
         contains issues;
-        text md/mantis_tool.md; 
+        text md/mantis/mantis_tool.md; 
     }
     
     
@@ -19,7 +19,7 @@ namespace mantis {
     
     tool tool {
         label "Mantis";
-        text md/mantis_tool.md; 
+        text md/mantis/mantis_tool.md; 
     }
 
     activity technicalPreview {
@@ -29,6 +29,7 @@ namespace mantis {
         set issue(New,Acknowledged)[info is formally ok];
         set issue(New,Feedback)[info is missing];
         set issue(New,Closed)[duplicate];
+        text md/mantis/technicalPreview.md;
     }
 
     activity effortReview {
@@ -37,31 +38,36 @@ namespace mantis {
         tool tool;
         set issue(Acknowledged,Confirmed)[spend the estimated effort];
         set issue(Acknowledged,Closed)[to much effort];
-    }
+        text md/mantis/effortReview.md;
+   }
 
     activity planning {
         label "planning";
         brief "This activity is during team planning, when an issue is assigned to a person";    
         tool tool;
         set issue(Confirmed,Assigned);
+        text md/mantis/planning.md;
     }
 
     activity reportIssueSolved {
         label "report issue solved";
         tool tool;
         set issue(Assigned,Resolved);
+        text md/mantis/reportIssueSolved.md;
     }
 
     activity createBugReport {
         label "create bug report";
         tool tool;
         set issue(null,New);
+        text md/mantis/createBugReport.md;
      }
     
     activity createFeatureRequest {
         label "create feature request";
         tool tool;
         set issue(null,New);
+        text md/mantis/createFeatureRequest.md;
      }
     
     activity issueTest {
@@ -69,6 +75,7 @@ namespace mantis {
         tool tool;
         set issue(Resolved,Closed)[issue is solved];
         set issue(Resolved,Assigned)[isue is not solved];
+        text md/mantis/issueTest.md;
     }
 
     activity getFeedback {
@@ -76,6 +83,7 @@ namespace mantis {
         tool tool;
         set issue(Feedback,Closed)[no additional info];
         set issue(Feedback,New)[new info assigned];
+        text md/mantis/getFeedback.md;
     }
     
 }
