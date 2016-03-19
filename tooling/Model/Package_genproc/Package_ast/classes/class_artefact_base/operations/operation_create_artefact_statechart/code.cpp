@@ -52,7 +52,9 @@ for (std::vector<artefact_transition>::const_iterator it = state_changes.begin()
         + (*it).getDestination()
         + "["
         +  text_standards
-        + "label=\""
+        + "tooltip=\""
+        + (*it).getElement()->getBrief()
+        + "\", label=\""
         + (*it).getElement()->breakApart((*it).getElement()->getLabel());
         if (!(*it).getGuard().empty())
             connection += std::string("\\n[") + (*it).getGuard() + "]";
