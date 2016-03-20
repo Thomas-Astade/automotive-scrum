@@ -157,6 +157,18 @@ void check_existing_activity(const std::string& name, const boost::spirit::unuse
     ast::I_element::set_last(a);
 }
 
+void check_existing_artefact(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
+{
+    ast::artefact_element* a = 
+        dynamic_cast<ast::artefact_element*>(ast::I_element::static_find_element(name));
+    if (a == 0)
+    {
+        pass = false;
+        return;
+    }
+    ast::I_element::set_last(a);
+}
+
 
 template <typename Iterator>
 struct process_description
@@ -170,6 +182,7 @@ struct process_description
                           (qi::lit("page") >  space > pageElement) |
                           (qi::lit("activity") >  space > activityElement) |
                           (qi::lit("extend activity") >  space > activityExtend) |
+                          (qi::lit("extend artefact") >  space > artefactExtend) |
                           (qi::lit("role") >  space > roleElement) |
                           (qi::lit("tool") >  space > toolElement) |
                           (qi::lit("artefact") >  space > artefactElement) |
@@ -245,6 +258,16 @@ struct process_description
                         > -subArtifacts
                         > space
                         > -brief[set_brief]
+                        > space
+                        > -textfilelist
+                        > space
+                        > CB;
+        
+        artefactExtend  = ref_identifier[check_existing_artefact]
+                        > space
+                        > OB
+                        > space
+                        > -subArtifacts
                         > space
                         > -textfilelist
                         > space
@@ -443,7 +466,8 @@ struct process_description
         filename        = +qi::char_("a-zA-Z_/.0-9");
         space           = *(qi::lit(' ') | qi::lit('\n') | qi::lit('\t'));
 
-        activityExtend.name("the requested acrivity is not found.");
+        artefactExtend.name("the requested artefact is not found.");
+        activityExtend.name("the requested activity is not found.");
         name_identifier.name("Expected a valid identifier name.");
         ref_identifier.name("Expected a valid identifier reference.");
         filename.name("Expected a valid filename.");
@@ -483,6 +507,7 @@ struct process_description
     qi::rule<Iterator> createlist;
     qi::rule<Iterator> transformlist;
     qi::rule<Iterator> activityExtend;
+    qi::rule<Iterator> artefactExtend;
     qi::rule<Iterator,ast::root_element()> rootElement;
     qi::rule<Iterator,ast::folder_element()> folderElement;
     qi::rule<Iterator,ast::home_element()> homeElement;

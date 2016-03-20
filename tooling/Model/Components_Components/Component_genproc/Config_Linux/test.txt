@@ -24,6 +24,10 @@ extend activity play {
     text md/dbg.md;
 }
 
+extend artefact pingPong {
+    text md/dbg.md;
+}
+
 activity doPong {
     set pingPong(ping,dong)[else];
     
