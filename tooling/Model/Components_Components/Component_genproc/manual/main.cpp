@@ -145,10 +145,10 @@ void add_transition(const ast::transition& name, const boost::spirit::unused_typ
     ast::transformer::add_transition(name);
 }
 
-void check_existing_activity(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
+template<typename T>
+void check_existing(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
 {
-    ast::activity_element* a = 
-        dynamic_cast<ast::activity_element*>(ast::I_element::static_find_element(name));
+    T* a = dynamic_cast<T*>(ast::I_element::static_find_element(name));
     if (a == 0)
     {
         pass = false;
@@ -156,19 +156,6 @@ void check_existing_activity(const std::string& name, const boost::spirit::unuse
     }
     ast::I_element::set_last(a);
 }
-
-void check_existing_artefact(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
-{
-    ast::artefact_element* a = 
-        dynamic_cast<ast::artefact_element*>(ast::I_element::static_find_element(name));
-    if (a == 0)
-    {
-        pass = false;
-        return;
-    }
-    ast::I_element::set_last(a);
-}
-
 
 template <typename Iterator>
 struct process_description
@@ -181,8 +168,8 @@ struct process_description
         rootElement     = (qi::lit("@home") > space > homeElement) |
                           (qi::lit("page") >  space > pageElement) |
                           (qi::lit("activity") >  space > activityElement) |
-                          (qi::lit("extend activity") >  space > activityExtend) |
-                          (qi::lit("extend artefact") >  space > artefactExtend) |
+                          (qi::lit("extend") >> space >> qi::lit("activity") > space > activityExtend) |
+                          (qi::lit("extend") >> space >> qi::lit("artefact") > space > artefactExtend) |
                           (qi::lit("role") >  space > roleElement) |
                           (qi::lit("tool") >  space > toolElement) |
                           (qi::lit("artefact") >  space > artefactElement) |
@@ -212,7 +199,12 @@ struct process_description
                         > CB;
         
         activityElement = name_identifier[check_duplicate]
-                        > space
+                        > activityContent;
+
+        activityExtend  = ref_identifier[check_existing<ast::activity_element>]
+                        > activityContent;
+
+        activityContent = space
                         > OB
                         > space
                         > -label[set_label]
@@ -234,23 +226,13 @@ struct process_description
                         > space
                         > CB;
 
-        activityExtend  = ref_identifier[check_existing_activity]
-                        > space
-                        > OB
-                        > space
-                        > -transformlist
-                        > space
-                        > -createlist
-                        > space
-                        > *(transition[add_transition] > space)
-                        > -subActivities
-                        > space
-                        > -textfilelist
-                        > space
-                        > CB;
-
         artefactElement = name_identifier[check_duplicate]
-                        > space
+                        > artefactContent;
+
+        artefactExtend  = ref_identifier[check_existing<ast::artefact_element>]
+                        > artefactContent;
+        
+        artefactContent = space
                         > OB
                         > space
                         > -label[set_label]
@@ -262,17 +244,7 @@ struct process_description
                         > -textfilelist
                         > space
                         > CB;
-        
-        artefactExtend  = ref_identifier[check_existing_artefact]
-                        > space
-                        > OB
-                        > space
-                        > -subArtifacts
-                        > space
-                        > -textfilelist
-                        > space
-                        > CB;
-        
+                
           folderElement = name_identifier[check_duplicate]
                         > space
                         > OB
@@ -507,7 +479,9 @@ struct process_description
     qi::rule<Iterator> createlist;
     qi::rule<Iterator> transformlist;
     qi::rule<Iterator> activityExtend;
+    qi::rule<Iterator> activityContent;
     qi::rule<Iterator> artefactExtend;
+    qi::rule<Iterator> artefactContent;
     qi::rule<Iterator,ast::root_element()> rootElement;
     qi::rule<Iterator,ast::folder_element()> folderElement;
     qi::rule<Iterator,ast::home_element()> homeElement;
