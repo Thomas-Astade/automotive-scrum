@@ -20,6 +20,10 @@ activity doPing {
     set pingPong(pong,ping);
 }
 
+extend activity play {
+    text md/dbg.md;
+}
+
 activity doPong {
     set pingPong(ping,dong)[else];
     

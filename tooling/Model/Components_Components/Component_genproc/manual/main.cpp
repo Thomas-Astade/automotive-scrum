@@ -145,6 +145,18 @@ void add_transition(const ast::transition& name, const boost::spirit::unused_typ
     ast::transformer::add_transition(name);
 }
 
+void check_existing_activity(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
+{
+    ast::activity_element* a = 
+        dynamic_cast<ast::activity_element*>(ast::I_element::static_find_element(name));
+    if (a == 0)
+    {
+        pass = false;
+        return;
+    }
+    ast::I_element::set_last(a);
+}
+
 
 template <typename Iterator>
 struct process_description
@@ -157,6 +169,7 @@ struct process_description
         rootElement     = (qi::lit("@home") > space > homeElement) |
                           (qi::lit("page") >  space > pageElement) |
                           (qi::lit("activity") >  space > activityElement) |
+                          (qi::lit("extend activity") >  space > activityExtend) |
                           (qi::lit("role") >  space > roleElement) |
                           (qi::lit("tool") >  space > toolElement) |
                           (qi::lit("artefact") >  space > artefactElement) |
@@ -196,6 +209,21 @@ struct process_description
                         > -responsibleRole[set_role]
                         > space
                         > -usedTool[set_tool]
+                        > space
+                        > -transformlist
+                        > space
+                        > -createlist
+                        > space
+                        > *(transition[add_transition] > space)
+                        > -subActivities
+                        > space
+                        > -textfilelist
+                        > space
+                        > CB;
+
+        activityExtend  = ref_identifier[check_existing_activity]
+                        > space
+                        > OB
                         > space
                         > -transformlist
                         > space
@@ -415,6 +443,7 @@ struct process_description
         filename        = +qi::char_("a-zA-Z_/.0-9");
         space           = *(qi::lit(' ') | qi::lit('\n') | qi::lit('\t'));
 
+        activityExtend.name("the requested acrivity is not found.");
         name_identifier.name("Expected a valid identifier name.");
         ref_identifier.name("Expected a valid identifier reference.");
         filename.name("Expected a valid filename.");
@@ -453,6 +482,7 @@ struct process_description
     qi::rule<Iterator> textfilelist;
     qi::rule<Iterator> createlist;
     qi::rule<Iterator> transformlist;
+    qi::rule<Iterator> activityExtend;
     qi::rule<Iterator,ast::root_element()> rootElement;
     qi::rule<Iterator,ast::folder_element()> folderElement;
     qi::rule<Iterator,ast::home_element()> homeElement;
