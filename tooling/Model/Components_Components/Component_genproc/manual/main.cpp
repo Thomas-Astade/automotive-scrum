@@ -237,9 +237,9 @@ struct process_description
                         > space
                         > -label[set_label]
                         > space
-                        > -subArtifacts
-                        > space
                         > -brief[set_brief]
+                        > space
+                        > -subArtifacts
                         > space
                         > -textfilelist
                         > space
@@ -251,9 +251,9 @@ struct process_description
                         > space
                         > -label[set_label]
                         > space
-                        > -subArtifacts
-                        > space
                         > -brief[set_brief]
+                        > space
+                        > -subArtifacts
                         > space
                         > -textfilelist
                         > space
