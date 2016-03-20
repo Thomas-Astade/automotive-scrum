@@ -170,12 +170,16 @@ struct process_description
                           (qi::lit("activity") >  space > activityElement) |
                           (qi::lit("extend") >> space >> qi::lit("activity") > space > activityExtend) |
                           (qi::lit("extend") >> space >> qi::lit("artefact") > space > artefactExtend) |
+                          (qi::lit("extend") >> space >> qi::lit("folder") > space > folderExtend) |
+                          (qi::lit("extend") >> space >> qi::lit("repository") > space > repositoryExtend) |
                           (qi::lit("role") >  space > roleElement) |
                           (qi::lit("tool") >  space > toolElement) |
                           (qi::lit("artefact") >  space > artefactElement) |
                           (qi::lit("folder") >  space > folderElement) |
                           (qi::lit("repository") >  space > repositoryElement) |
-                          name_space_begin | name_space_end | do_include |
+                          name_space_begin |
+                          name_space_end | 
+                          do_include |
                           (qi::lit("process") >  space > processElement);
         
         homeElement     = OB
@@ -246,7 +250,12 @@ struct process_description
                         > CB;
                 
           folderElement = name_identifier[check_duplicate]
-                        > space
+                        > folderContent;
+
+          folderExtend  = ref_identifier[check_existing<ast::folder_element>]
+                        > folderContent;
+
+          folderContent = space
                         > OB
                         > space
                         > -label[set_label]
@@ -260,7 +269,12 @@ struct process_description
                         > CB;
 
       repositoryElement = name_identifier[check_duplicate]
-                        > space
+                        > repositoryContent;
+
+       repositoryExtend = ref_identifier[check_existing<ast::repository_element>]
+                        > folderContent;
+
+      repositoryContent = space
                         > OB
                         > space
                         > -label[set_label]
@@ -482,6 +496,10 @@ struct process_description
     qi::rule<Iterator> activityContent;
     qi::rule<Iterator> artefactExtend;
     qi::rule<Iterator> artefactContent;
+    qi::rule<Iterator> folderExtend;
+    qi::rule<Iterator> folderContent;
+    qi::rule<Iterator> repositoryExtend;
+    qi::rule<Iterator> repositoryContent;
     qi::rule<Iterator,ast::root_element()> rootElement;
     qi::rule<Iterator,ast::folder_element()> folderElement;
     qi::rule<Iterator,ast::home_element()> homeElement;

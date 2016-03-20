@@ -182,6 +182,14 @@ folder customerRequirementsFolder {
     contains customerRequirements;
 }
 
+artefact dummy {
+}
+
+extend folder requirementsFolder {
+    contains dummy;
+    text md/dbg.md;
+}
+
 folder systemRequirementsFolder {
     label "system requirements";
     contains systemRequirements;
