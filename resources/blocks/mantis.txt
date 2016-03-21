@@ -23,7 +23,7 @@ namespace mantis {
             md/mantis/guidelines.md; 
     }
 
-    acktivity technicalPreview {
+    activity technicalPreview {
         label "technical preview";
         brief "This activity is to check and preview entered bug issues. There should be also a first effort estimation.";
         tool tool;

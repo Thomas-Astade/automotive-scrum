@@ -26,6 +26,7 @@
 #include "transition.h"
 #include "artefact_transition.h"
 #include "tool_element.h"
+#include "parameters.h"
 
 namespace classic = boost::spirit::classic;
 namespace qi = boost::spirit::qi;
@@ -148,6 +149,7 @@ void handleLoad(const boost::spirit::unused_type& name, const boost::spirit::unu
 
 void add_parameter(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
 {
+    ast::parameters::addParameter(name);
 }
 
 void add_transition(const ast::transition& name, const boost::spirit::unused_type& it, bool& pass)
@@ -394,7 +396,8 @@ struct process_description
                         > qi::lit(';');
                         
         name_identifier = qi::char_("a-zA-Z") > *qi::char_("a-zA-Z0-9");
-        ref_identifier  = qi::char_("a-zA-Z_") > *qi::char_("a-zA-Z_0-9");
+        ref_identifier  = (qi::char_("a-zA-Z_") > *qi::char_("a-zA-Z_0-9")) 
+                        | (qi::lit('$') > parameterUse);
         
        name_space_begin = qi::lit("namespace")
                         > space
@@ -419,6 +422,8 @@ struct process_description
                         > *(qi::lit(',') > space > ref_identifier)[add_parameter]
                         > space
                         > Cb;
+
+        parameterUse    = qi::uint_;
 
         label           = qi::lit("label") > space > qi::lit('"')
                         > *(qi::alnum | qi::char_(" ,.;:_<>|~!§$%&/()=?{[]}"))
@@ -501,6 +506,7 @@ struct process_description
     }
 
     qi::rule<Iterator, ast::transition()> transition;
+    qi::rule<Iterator, ast::parameters()> parameterUse;
     qi::rule<Iterator> name_space_begin;
     qi::rule<Iterator> parameterlist;
     qi::rule<Iterator> name_space_end;
@@ -593,7 +599,9 @@ bool load(const std::string& filename)
 
 void handleLoad(const boost::spirit::unused_type& name, const boost::spirit::unused_type& it, bool& pass)
 {
+    ast::parameters::activateParameters();
     pass = load(loadFileName);
+    ast::parameters::deactivateParameters();
 }
 
 const char *argp_program_version =
