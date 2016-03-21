@@ -138,7 +138,17 @@ void removeNamespace(const boost::spirit::unused_type& name, const boost::spirit
     pass = ast::I_element::removeNamespace();
 }
 
-void addFile(const std::string& name, const boost::spirit::unused_type& it, bool& pass);
+std::string loadFileName;
+void addFile(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
+{
+    loadFileName = name;
+}
+
+void handleLoad(const boost::spirit::unused_type& name, const boost::spirit::unused_type& it, bool& pass);
+
+void add_parameter(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
+{
+}
 
 void add_transition(const ast::transition& name, const boost::spirit::unused_type& it, bool& pass)
 {
@@ -398,8 +408,18 @@ struct process_description
                         > space
                         > filename[addFile]
                         > space
-                        > SC;
-        
+                        > -(parameterlist)
+                        > space
+                        > SC[handleLoad];
+
+        parameterlist   = Ob
+                        > space
+                        > ref_identifier[add_parameter]
+                        > space
+                        > *(qi::lit(',') > space > ref_identifier)[add_parameter]
+                        > space
+                        > Cb;
+
         label           = qi::lit("label") > space > qi::lit('"')
                         > *(qi::alnum | qi::char_(" ,.;:_<>|~!§$%&/()=?{[]}"))
                         >  qi::lit('"')
@@ -482,6 +502,7 @@ struct process_description
 
     qi::rule<Iterator, ast::transition()> transition;
     qi::rule<Iterator> name_space_begin;
+    qi::rule<Iterator> parameterlist;
     qi::rule<Iterator> name_space_end;
     qi::rule<Iterator> do_include;
     qi::rule<Iterator> statePair;
@@ -537,30 +558,42 @@ std::vector<ast::root_element> ast_data;
 // wrap forward iterator with position iterator, to record the position
 typedef classic::position_iterator2<boost::spirit::istream_iterator> pos_iterator_type;
 
-void load(const std::string& filename)
+bool load(const std::string& filename)
 {
-    // open file, disable skipping of whitespace
-    std::ifstream in(filename.c_str());
-    in.unsetf(std::ios::skipws);
+    try
+    {
+        // open file, disable skipping of whitespace
+        std::ifstream in(filename.c_str());
+        in.unsetf(std::ios::skipws);
 
-    // wrap istream into iterator
-    boost::spirit::istream_iterator begin(in);
-    boost::spirit::istream_iterator end;
+        // wrap istream into iterator
+        boost::spirit::istream_iterator begin(in);
+        boost::spirit::istream_iterator end;
 
-    pos_iterator_type position_begin(begin, end, filename.c_str());
-    pos_iterator_type position_end;
+        pos_iterator_type position_begin(begin, end, filename.c_str());
+        pos_iterator_type position_end;
 
-    process_description<pos_iterator_type> p;       // create instance of parser
+        process_description<pos_iterator_type> p;       // create instance of parser
 
-    qi::phrase_parse(position_begin, position_end, p, qi::space, ast_data);
+        qi::phrase_parse(position_begin, position_end, p, qi::space, ast_data);
 
-    if (position_begin != position_end)
-        throw qi::expectation_failure<pos_iterator_type>(position_begin, position_end,boost::spirit::info("general error"));
+        if (position_begin != position_end)
+            throw qi::expectation_failure<pos_iterator_type>(position_begin, position_end,boost::spirit::info("general error"));
+    }
+    catch(const qi::expectation_failure<pos_iterator_type> e)
+    {
+        const classic::file_position_base<std::string>& pos = e.first.get_position();
+        std::cerr   << pos.file << ':'
+                    << pos.line << ": error: "
+                    << e.what_  << std::endl;
+        return false;    
+    }
+    return true;
 }
 
-void addFile(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
+void handleLoad(const boost::spirit::unused_type& name, const boost::spirit::unused_type& it, bool& pass)
 {
-    load(name);
+    pass = load(loadFileName);
 }
 
 const char *argp_program_version =
