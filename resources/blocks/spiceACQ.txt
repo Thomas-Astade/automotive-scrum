@@ -25,7 +25,7 @@ namespace spice {
 
     activity ACQ3BP3 {
         label "Review contract/agreement for supplier capability monitoring";
-        brief Review and consider a mechanism for monitoring the capability and performance of the supplier for inclusion in the contract/agreement conditions.";
+        brief "Review and consider a mechanism for monitoring the capability and performance of the supplier for inclusion in the contract/agreement conditions.";
     }
 
     activity ACQ3BP4 {
