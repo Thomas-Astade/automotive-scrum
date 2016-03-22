@@ -6,7 +6,7 @@ namespace spice {
     }
 
     activity ACQ3BP2 {
-        label "Specify rights and duties.";
+        label "Specify rights and duties";
         brief "Unambiguously specify the expectations, responsibilities, work products/deliverables and liabilities of the parties in the contract/agreement.";
     }
 
