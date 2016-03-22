@@ -2,37 +2,37 @@ namespace spice {
     
     activity ACQ3BP1 {
         label "Negotiate the contract/agreement";
-        brief "Negotiate all relevant aspects of the contract/agreement with the supplier.";
+        brief "ACQ.3.BP1: Negotiate all relevant aspects of the contract/agreement with the supplier.";
     }
 
     activity ACQ3BP2 {
         label "Specify rights and duties";
-        brief "Unambiguously specify the expectations, responsibilities, work products/deliverables and liabilities of the parties in the contract/agreement.";
+        brief "ACQ.3.BP2: Unambiguously specify the expectations, responsibilities, work products/deliverables and liabilities of the parties in the contract/agreement.";
     }
 
     activity ACQ3BP3 {
         label "Review contract/agreement for supplier capability monitoring";
-        brief "Review and consider a mechanism for monitoring the capability and performance of the supplier for inclusion in the contract/agreement conditions.";
+        brief "ACQ.3.BP3: Review and consider a mechanism for monitoring the capability and performance of the supplier for inclusion in the contract/agreement conditions.";
     }
 
     activity ACQ3BP4 {
         label "Review contract/agreement for risk mitigation actions";
-        brief "Review and consider a mechanism for the mitigation of identified risk for inclusion in the contract/agreement conditions.";
+        brief "ACQ.3.BP4: Review and consider a mechanism for the mitigation of identified risk for inclusion in the contract/agreement conditions.";
     }
 
     activity ACQ3BP5 {
         label "Approve contract/agreement";
-        brief "The contract/agreement is approved by relevant stakeholders.";
+        brief "ACQ.3.BP5: The contract/agreement is approved by relevant stakeholders.";
     }
 
     activity ACQ3BP6 {
         label "Award contract/agreement";
-        brief "The contract/agreement is awarded to the successful proposer/tenderer.";
+        brief "ACQ.3.BP6: The contract/agreement is awarded to the successful proposer/tenderer.";
     }
 
     activity ACQ3BP7 {
         label "Communicate result to tenderers";
-        brief "Notify the result of the proposal/tender selection to proposers/tenders. After contract award inform all tenderers of the decision.";
+        brief "ACQ.3.BP7: Notify the result of the proposal/tender selection to proposers/tenders. After contract award inform all tenderers of the decision.";
     }
 
 }
