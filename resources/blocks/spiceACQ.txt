@@ -1,6 +1,6 @@
 namespace spice {
     
-    acticity ACQ {
+    activity ACQ {
         label "Acquisition Process Group";
          subactivities  
             ACQ.3; 
