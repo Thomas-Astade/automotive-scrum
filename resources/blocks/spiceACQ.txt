@@ -1,4 +1,4 @@
-include resources/blocks/spiceACQ3.txt;
+include resources/blocks/spice_ACQ3.txt;
 
 namespace spice {
     
