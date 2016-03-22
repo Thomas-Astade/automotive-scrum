@@ -396,8 +396,8 @@ struct process_description
                         > qi::lit(';');
                         
         name_identifier = qi::char_("a-zA-Z") > *qi::char_("a-zA-Z0-9");
-        ref_identifier  = (qi::char_("a-zA-Z_") > *qi::char_("a-zA-Z_0-9")) 
-                        | (qi::lit('$') > parameterUse);
+        ref_identifier  = parameterUse
+                        | (qi::char_("a-zA-Z_") > *qi::char_("a-zA-Z_0-9"));
         
        name_space_begin = qi::lit("namespace")
                         > space
@@ -423,7 +423,7 @@ struct process_description
                         > space
                         > Cb;
 
-        parameterUse    = qi::uint_;
+        parameterUse    = qi::lit('$') > qi::uint_;
 
         label           = qi::lit("label") > space > qi::lit('"')
                         > *(qi::alnum | qi::char_(" ,.;:_<>|~!§$%&/()=?{[]}"))
