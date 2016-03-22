@@ -10,14 +10,14 @@ namespace spice {
     
     activity ACQ3 {
         label "Contract Agreement";
-        brief "The purpose of Contract Agreement Process is to negotiate and approve a contract/agreement with the supplier.";
+        brief "ACQ.3: The purpose of Contract Agreement Process is to negotiate and approve a contract/agreement with the supplier.";
         subactivities 
             ACQ3BP1,ACQ3BP2,ACQ3BP3,ACQ3BP4,ACQ3BP5,ACQ3BP6,ACQ3BP7;
    }
 
     activity ACQ4 {
         label "Supplier Monitoring";
-        brief "The purpose of the Supplier Monitoring Process is to track and assess the performance of the supplier against agreed requirements.";
+        brief "ACQ.4: The purpose of the Supplier Monitoring Process is to track and assess the performance of the supplier against agreed requirements.";
    }
 
 }
