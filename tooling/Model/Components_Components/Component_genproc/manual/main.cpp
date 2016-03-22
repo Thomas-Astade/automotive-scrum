@@ -659,7 +659,8 @@ int main (int argc, char **argv)
     {
         try
         {
-            load(*it);
+            if (!load(*it))
+                return -1;
         }
         catch(const qi::expectation_failure<pos_iterator_type> e)
         {
