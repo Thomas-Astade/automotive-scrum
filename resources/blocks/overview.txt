@@ -3,7 +3,7 @@ namespace overview {
     include resources/blocks/mantis.txt;
     page buildingBlocks {
         label "building blocks";
-        subpages git_workWithGit, workWithMantis;
+        subpages git_workWithGit, workWithMantis, workWithSpice;
     }
 
     activity workWithMantis {
@@ -19,6 +19,12 @@ namespace overview {
             mantis_getFeedback;
     }
 
+    include resources/blocks/spiceACQ.txt;
+    
+    activity workWithSpice {
+        subactivities spice_ACQ;
+    }
+    
     page links {
         text md/info_links.md;
     }
