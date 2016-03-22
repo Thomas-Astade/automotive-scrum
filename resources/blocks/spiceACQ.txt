@@ -1,0 +1,4 @@
+namespace spice {
+    activity ACQ.3 {
+    }
+}
