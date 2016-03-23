@@ -1,6 +1,7 @@
 include resources/blocks/spice_ACQ3.txt;
 include resources/blocks/spice_ACQ4.txt;
 include resources/blocks/spice_ACQ11.txt;
+include resources/blocks/spice_ACQ12.txt;
 
 namespace spice {
     
@@ -29,6 +30,13 @@ namespace spice {
         brief "ACQ.11: The purpose of the Technical Requirements Process is to establish the technical requirements of the acquisition. This involves the elicitation of functional and non-functional requirements that consider the deployment life cycle of the products so as to establish a technical requirement baseline.";
         subactivities 
             ACQ11BP1,ACQ11BP2,ACQ11BP3,ACQ11BP4,ACQ11BP5,ACQ11BP6,ACQ11BP7,ACQ11BP8,ACQ11BP9,ACQ11BP10;
+   }
+
+    activity ACQ12 {
+        label "Legal and Administrative Requirements";
+        brief "ACQ.12: The purpose of the Legal and Administrative Requirements Process is to define the awarding aspects – expectations, liabilities, legal and other issues and which comply with national and international laws of contract.";
+        subactivities 
+            ACQ12BP1,ACQ12BP2,ACQ12BP3,ACQ12BP4,ACQ12BP5,ACQ12BP6,ACQ12BP7,ACQ12BP8,ACQ12BP9,ACQ12BP10;
    }
 
 }
