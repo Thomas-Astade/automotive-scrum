@@ -8,7 +8,7 @@ namespace spice {
     activity ACQ {
         label "Acquisition Process Group";
          subactivities  
-            ACQ3, ACQ4, ACQ11; 
+            ACQ3, ACQ4, ACQ11, ACQ12; 
     }
     
     activity ACQ3 {
@@ -34,7 +34,7 @@ namespace spice {
 
     activity ACQ12 {
         label "Legal and Administrative Requirements";
-        brief "ACQ.12: The purpose of the Legal and Administrative Requirements Process is to define the awarding aspects – expectations, liabilities, legal and other issues and which comply with national and international laws of contract.";
+        brief "ACQ.12: The purpose of the Legal and Administrative Requirements Process is to define the awarding aspects - expectations, liabilities, legal and other issues and which comply with national and international laws of contract.";
         subactivities 
             ACQ12BP1,ACQ12BP2,ACQ12BP3,ACQ12BP4,ACQ12BP5,ACQ12BP6,ACQ12BP7,ACQ12BP8,ACQ12BP9,ACQ12BP10;
    }
