@@ -1,0 +1,28 @@
+namespace spice {
+    
+    activity ACQ4BP1 {
+        label "Agree on and maintain joint processes";
+        brief "ACQ.4.BP1: Agree on and maintain joint processes, joint interfaces, and information to be exchanged. Establish and maintain an agreement on information to be exchanged and on joint processes and joint interfaces, responsibilities, type and frequency of joint activities, communications, meetings, status reports and reviews.";
+    }
+
+    activity ACQ4BP2 {
+        label "Exchange all agreed information";
+        brief "ACQ.4.BP2: Exchange all agreed information. Use the defined joint interfaces between customer and supplier for the exchange of all agreed information.";
+    }
+    
+    activity ACQ4BP3 {
+        label "Review technical development with the supplier";
+        brief "ACQ.4.BP3. Review technical development with the supplier. Review development with the supplier on the agreed regular basis, covering technical aspects, problems and risks and also track open items to closure.";
+    }
+
+    activity ACQ4BP4 {
+        label "Review progress of the supplier";
+        brief "ACQ.4.BP4: Review progress of the supplier. Review progress of the supplier regarding schedule, quality, and cost on the agreed regular basis. Track open items to closure and perform risk mitigation activities.";
+    }
+
+    activity ACQ4BP5 {
+        label "Review progress of the supplier";
+        brief "ACQ.4.BP5: Act to correct deviations. Take action when agreed objectives are not achieved to correct deviations from the agreed project plans and to prevent reoccurrence of problems identified. Negotiate changes to objectives and document them in the agreements.";
+    }
+
+}
