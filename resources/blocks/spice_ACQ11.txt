@@ -1,0 +1,53 @@
+namespace spice {
+    
+    activity ACQ11BP1 {
+        label "Elicit needs";
+        brief "ACQ.11.BP1: Elicit needs. Elicit the needs of all relevant user groups.";
+    }
+
+    activity ACQ11BP2 {
+        label "Define technical requirements";
+        brief "ACQ.11.BP2: Define technical requirements. Define and develop the technical requirements and potential solutions (where relevant), including environment effect evaluation, safety and security, performance, supportability requirements to match the needs and expectations of the relevant user groups.";
+    }
+
+    activity ACQ11BP3 {
+        label "Identify acquisition needs";
+        brief "ACQ.11.BP3. Identify acquisition needs. Gather and define the current and evolving acquisition needs.";
+    }
+
+    activity ACQ11BP4 {
+        label "Ensure consistency";
+        brief "ACQ.11.BP4: Ensure consistency. Ensure consistency of the technical requirements with the defined acquisition needs.";
+    }
+
+    activity ACQ11BP5 {
+        label "Identify affected groups";
+        brief "ACQ.11.BP5: Identify affected groups. Identify all groups to which the technical requirements and potential solutions should be communicated.";
+    }
+
+    activity ACQ11BP6 {
+        label "Communicate to affected groups";
+        brief "ACQ.11.BP6: Communicate to affected groups. Communicate the technical requirements and potential solutions to all affected groups.";
+    }
+
+    activity ACQ11BP7 {
+        label "Establish a change mechanism";
+        brief "ACQ.11.BP7: Establish a change mechanism. Establish a mechanism to incorporate changed or new technical requirements into the established baseline.";
+    }
+
+    activity ACQ11BP8 {
+        label "Track impact of changing technology";
+        brief "ACQ.11.BP8: Track impact of changing technology. Define a mechanism for identifying and managing the impact of changing technology to the technical requirements and integrate the resulting consequences into the technical requirements.";
+    }
+
+    activity ACQ11BP9 {
+        label "Identify constraints and standards";
+        brief "ACQ.11.BP9: Identify constraints and standards. Identify constraints and standards applicable to the technical requirements (e.g. open systems standards).";
+    }
+
+    activity ACQ11BP10 {
+        label "Ensure compliance of stated requirements";
+        brief "ACQ.11.BP10: Ensure compliance of stated requirements. Ensure that the technical requirements include compliance with identified relevant standards, including environment effect evaluation, safety and security standards where appropriate.";
+    }
+
+}
