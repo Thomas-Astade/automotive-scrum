@@ -1,0 +1,53 @@
+namespace spice {
+    
+    activity ACQ12BP1 {
+        label "Identify relevant regulations";
+        brief "ACQ.12.BP1: Identify relevant regulations. Identify relevant national, international and regulatory laws, guidance and policies.";
+    }
+
+    activity ACQ12BP2 {
+        label "Consider relevant regulations";
+        brief "ACQ.12.BP2: Consider relevant regulations. Consider identified relevant laws, guidance and policy when defining a contractual approach.";
+    }
+
+    activity ACQ12BP3 {
+        label "Agree on (contractual) terms and conditions";
+        brief "ACQ.12.BP3: Agree on (contractual) terms and conditions.";
+    }
+
+    activity ACQ12BP4 {
+        label "Ensure usage of agreed terms and conditions";
+        brief "ACQ.12.BP4: Ensure usage of agreed terms and conditions. Ensure the usage of agreed terms and conditions when describing how the supplier will meet the needs and expectations.";
+    }
+
+    activity ACQ12BP5 {
+        label "Establish acceptance criteria";
+        brief "ACQ.12.BP5: Establish acceptance criteria.";
+    }
+
+    activity ACQ12BP6 {
+        label "Establish escalation mechanisms";
+        brief "ACQ.12.BP6: Establish escalation mechanisms. Establish mechanisms for handling of breaches to the fulfillment of contract.";
+    }
+
+    activity ACQ12BP7 {
+        label "Establish management of intellectual property rights";
+        brief "Establish the rights of the acquirer to assume, modify or evaluate, directly or indirectly, Intellectual Property Rights.";
+    }
+
+    activity ACQ12BP8 {
+        label "Provide for warranties and service level agreements";
+        brief "ACQ.12.BP8: Provide for warranties and service level agreements. Provide for warranties and service level agreements where applicable.";
+    }
+
+    activity ACQ12BP9 {
+        label "Define provision for the suppliers";
+        brief "ACQ.12.BP9: Define provision for the suppliers. Define provision for the suppliers to deliver other requirements such as quality plan or escrow arrangements.";
+    }
+
+    activity ACQ12BP10 {
+        label "Establish criteria for liability issues";
+        brief "Establish recognized criteria for proprietary, regulatory and other product liability issues.";
+    }
+
+}
