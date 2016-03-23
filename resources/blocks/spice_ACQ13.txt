@@ -1,0 +1,78 @@
+namespace spice {
+    
+    activity ACQ13BP1 {
+        label "Identify relevant groups";
+        brief "ACQ.13.BP1: Identify relevant groups. Identify relevant parties/stakeholders and experts for financial, technical, contract and project issues.";
+    }
+    
+    activity ACQ13BP2 {
+        label "Communicate with relevant groups";
+        brief "ACQ.13.BP2: Communicate with relevant groups. Communicate with the relevant parties regarding the specification of financial, technical, contract and project requirements.";
+    }
+
+    activity ACQ13BP3 {
+        label "Define organizational requirements";
+        brief "ACQ.13.BP3. Define organizational requirements. Define requirements for the organizational aspect of the project.";
+    }
+
+    activity ACQ13BP4 {
+        label "Define management requirements";
+        brief "ACQ.13.BP4: Define management requirements. Define requirements for the management, controlling and reporting aspects of the project.";
+    }
+
+    activity ACQ13BP5 {
+        label "Identify required competency";
+        brief "ACQ.13.BP5: Identify required competency. Identify required competency (e.g. legal, contractual, technical and project competencies) for key resources.";
+    }
+
+    activity ACQ13BP6 {
+        label "Define responsibilities and goals";
+        brief "ACQ.13.BP6: Define responsibilities and goals. Define responsibilities and goals of the team members.";
+    }
+
+    activity ACQ13BP7 {
+        label "Identify information needs";
+        brief "ACQ.13.BP7: Identify information needs. Identify information needs of the relevant parties.";
+    }
+
+    activity ACQ13BP8 {
+        label "Define exchange of information";
+        brief "ACQ.13.BP8: Define exchange of information. Consider how exchange of information may be affected.";
+    }
+
+    activity ACQ13BP9 {
+        label "Establish criteria for interim work products";
+        brief "ACQ.13.BP9: Establish criteria for interim work products. Establish requirements for the completion and acceptance of interim work products.";
+    }
+
+    activity ACQ13BP10 {
+        label "Establish payment requirements";
+        brief "ACQ.13.BP10: Establish payment requirements. Establish requirements for the release of payments.";
+    }
+
+    activity ACQ13BP11 {
+        label "Identify risks";
+        brief "ACQ.13.BP11: Identify risks. Identify risks associated with project life cycle and with suppliers.";
+    }
+
+    activity ACQ13BP12 {
+        label "Communicate risks";
+        brief "ACQ.13.BP12: Communicate risks. Assure that all identified risks are communicated to the relevant parties.";
+    }
+
+    activity ACQ13BP13 {
+        label "Define ownership of relationships";
+        brief "ACQ.13.BP13: Define ownership of relationships. Define requirements for ownership of interactions and relationships with suppliers.";
+    }
+
+    activity ACQ13BP14 {
+        label "Define rights for use and distribution";
+        brief "ACQ.13.BP14: Define rights for use and distribution. Define rights for use and distribution of the product by the customer and supplier.";
+    }
+
+    activity ACQ13BP15 {
+        label "Establish support and maintenance requirements";
+        brief "ACQ.13.BP15: Establish support and maintenance requirements.";
+    }
+
+}
