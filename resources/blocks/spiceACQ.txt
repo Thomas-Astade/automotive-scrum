@@ -1,4 +1,5 @@
 include resources/blocks/spice_ACQ3.txt;
+include resources/blocks/spice_ACQ4.txt;
 
 namespace spice {
     
@@ -18,6 +19,8 @@ namespace spice {
     activity ACQ4 {
         label "Supplier Monitoring";
         brief "ACQ.4: The purpose of the Supplier Monitoring Process is to track and assess the performance of the supplier against agreed requirements.";
+        subactivities 
+            ACQ4BP1,ACQ4BP2,ACQ4BP3,ACQ4BP4,ACQ4BP5;
    }
 
 }
