@@ -21,7 +21,7 @@ namespace spice {
     }
 
     activity ACQ4BP5 {
-        label "Review progress of the supplier";
+        label "Act to correct deviations";
         brief "ACQ.4.BP5: Act to correct deviations. Take action when agreed objectives are not achieved to correct deviations from the agreed project plans and to prevent reoccurrence of problems identified. Negotiate changes to objectives and document them in the agreements.";
     }
 
