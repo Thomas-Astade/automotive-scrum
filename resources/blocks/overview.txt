@@ -19,7 +19,7 @@ namespace overview {
             mantis_getFeedback;
     }
 
-    include resources/blocks/spiceACQ.txt;
+    include resources/blocks/spice_ACQ.txt;
     include resources/blocks/spice_SPL.txt;
     
     activity workWithSpice {
