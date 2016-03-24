@@ -1,0 +1,28 @@
+namespace spice {
+    
+    activity ACQ15BP1 {
+        label "Establish qualification criteria";
+        brief "ACQ.15.BP1: Establish qualification criteria. Establish criteria for qualifying suppliers.";
+    }
+
+    activity ACQ15BP2 {
+        label "Evaluate supplier";
+        brief "ACQ15.BP2: Evaluate supplier. Perform supplier capability determination as necessary.";
+    }
+
+    activity ACQ15BP3 {
+        label "Short-list suppliers with required qualification";
+        brief "ACQ.15.BP3. Short-list suppliers with required qualification. Short-list the suppliers for tender solution(s) evaluation which possess required qualification.";
+    }
+
+    activity ACQ15BP4 {
+        label "Evaluate any shortfalls";
+        brief "ACQ.15.BP4: Evaluate any shortfalls. Identify and evaluate any shortfalls.";
+    }
+
+    activity ACQ15BP5 {
+        label "Perform corrective actions";
+        brief "ACQ.15.BP5: Perform corrective actions. Evaluate and perform corrective action required by the acquirer.";
+    }
+
+}
