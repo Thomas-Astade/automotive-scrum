@@ -4,13 +4,14 @@ include resources/blocks/spice_ACQ11.txt;
 include resources/blocks/spice_ACQ12.txt;
 include resources/blocks/spice_ACQ13.txt;
 include resources/blocks/spice_ACQ14.txt;
+include resources/blocks/spice_ACQ15.txt;
 
 namespace spice {
     
     activity ACQ {
         label "Acquisition Process Group";
          subactivities  
-            ACQ3, ACQ4, ACQ11, ACQ12, ACQ13, ACQ14; 
+            ACQ3, ACQ4, ACQ11, ACQ12, ACQ13, ACQ14, ACQ15; 
     }
     
     activity ACQ3 {
@@ -54,6 +55,13 @@ namespace spice {
         brief "ACQ.14: The purpose of the Request for Proposals Process is to prepare and issue the necessary acquisition requirements. The documentation will include, but not be limited to, the contract, project, finance and technical requirements to be provided for use in the Call For Proposals (CFP) / Invitation To Tender (ITT).";
         subactivities 
             ACQ14BP1,ACQ14BP2,ACQ14BP3,ACQ14BP4,ACQ14BP5,ACQ14BP6,ACQ14BP7,ACQ14BP8;
+   }
+
+activity ACQ15 {
+        label "Supplier Qualification";
+        brief "ACQ.15: The purpose of the Supplier Qualification Process is to evaluate and determine if the potential supplier(s) have the required qualification for entering the proposal/tender evaluation process. In this process, the technical background, quality system, servicing, user support capabilities etc. will be evaluated.";
+        subactivities 
+            ACQ15BP1,ACQ15BP2,ACQ15BP3,ACQ15BP4,ACQ15BP5;
    }
 
 }
