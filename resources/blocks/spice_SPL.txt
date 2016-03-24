@@ -1,11 +1,12 @@
 include resources/blocks/spice_SPL1.txt;
+include resources/blocks/spice_SPL2.txt;
 
 namespace spice {
     
     activity SPL {
         label "Supply Process Group";
          subactivities  
-            SPL1; 
+            SPL1,SPL2; 
     }
  
     activity SPL1 {
@@ -13,6 +14,13 @@ namespace spice {
         brief "SPL.1: The purpose of the Supplier Tendering Process is to establish an interface to respond to customer inquiries and requests for proposal, prepare and submit proposals, and confirm assignments through the establishment of a relevant agreement/contract.";
          subactivities  
             SPL1BP1,SPL1BP2,SPL1BP3,SPL1BP4,SPL1BP5,SPL1BP6,SPL1BP7,SPL1BP8; 
+    }
+    
+    activity SPL2 {
+        label "Product Release";
+        brief "SPL.2: The purpose of the Product Release Process is to control the release of a product to the intended customer.";
+         subactivities  
+            SPL2BP1,SPL2BP2,SPL2BP3,SPL2BP4,SPL2BP5,SPL2BP6,SPL2BP7,SPL2BP8,SPL2BP9,SPL2BP10,SPL2BP11,SPL2BP12,SPL2BP13; 
     }
  
 }
