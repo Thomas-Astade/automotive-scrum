@@ -426,7 +426,7 @@ struct process_description
         parameterUse    = qi::lit('$') > qi::uint_;
 
         label           = qi::lit("label") > space > qi::lit('"')
-                        > *(qi::alnum | qi::char_(" ,.;:_<>|~!§$%&/()=?{[]}"))
+                        > *(qi::alnum | qi::char_(" ,.;:_<>|~!§$%&/()=?{[]}'-"))
                         >  qi::lit('"')
                         > space
                         > SC;
