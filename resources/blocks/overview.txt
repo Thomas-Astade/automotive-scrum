@@ -20,9 +20,10 @@ namespace overview {
     }
 
     include resources/blocks/spiceACQ.txt;
+    include resources/blocks/spice_SPL.txt;
     
     activity workWithSpice {
-        subactivities spice_ACQ;
+        subactivities spice_ACQ, spice_SPL;
     }
     
     page links {
