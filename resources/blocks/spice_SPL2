@@ -1,0 +1,68 @@
+namespace spice {
+    
+    activity SPL2BP1 {
+        label "Define the functional content of releases";
+        brief "SPL.2.BP1: Define the functional content of releases. Establish a plan for releases that identifies the functionality to be included in each release.";
+    }
+
+    activity SPL2BP2 {
+        label "Define release products";
+        brief "SPL.2.BP2: Define release products. The products associated with the release are defined.";
+    }
+
+    activity SPL2BP3 {
+        label "Establish a product release classification and numbering scheme";
+        brief "SPL.2.BP3: Establish a product release classification and numbering scheme. A product release classification and numbering scheme are established based upon the intended purpose and expectations of the release(s).";
+    }
+
+    activity SPL2BP4 {
+        label "Define the build activities and build environment";
+        brief "SPL.2.BP4: Define the build activities and build environment. A consistent build process is established and maintained.";
+    }
+
+    activity SPL2BP5 {
+        label "Build the release from configured items";
+        brief "SPL.2.BP5: Build the release from configured items. The release is built from configured items to ensure integrity.";
+    }
+
+    activity SPL2BP6 {
+        label "Communicate the type, service level and duration of support for a release";
+        brief "SPL2.BP6: Communicate the type, service level and duration of support for a release. The type, service level and duration of support for a release are identified and communicated.";
+    }
+
+    activity SPL2BP7 {
+        label "Determine the delivery media type for the release";
+        brief "SPL.2.BP7: Determine the delivery media type for the release. The media type for product delivery is determined in accordance with the needs of the customer.";
+    }
+
+    activity SPL2BP8 {
+        label "Identify the packaging for the release media";
+        brief "SPL.2.BP8: Identify the packaging for the release media. The packaging for different types of media is identified.";
+    }
+
+    activity SPL2BP9 {
+        label "Define and produce the product release documentation/release notes";
+        brief "SPL.2.BP9: Define and produce the product release documentation/release notes. Ensure that all documentation to support the release is produced, reviewed, approved and available.";
+    }
+
+    activity SPL2BP10 {
+        label "Ensure product release approval before delivery";
+        brief "SPL.2.BP10: Ensure product release approval before delivery. Criteria for the product release are satisfied before release takes place.";
+    }
+
+    activity SPL2BP11 {
+        label "Ensure consistency";
+        brief "SPL.2.BP11: Ensure consistency. Ensure consistency between software release number, paper label and EPROM-Label (where relevant).";
+    }
+
+    activity SPL2BP12 {
+        label "Provide a release note";
+        brief "SPL.2.BP12: Provide a release note. A release is supported by information detailing key characteristics of the release.";
+    }
+
+    activity SPL2BP13 {
+        label "Deliver the release to the intended customer";
+        brief "SPL.2.BP13: Deliver the release to the intended customer. The product is delivered to the intended customer with positive confirmation of receipt.";
+    }
+
+}
