@@ -1,0 +1,44 @@
+namespace spice {
+    
+    activity ACQ14BP1 {
+        label "Define rules for CFP / ITT";
+        brief "ACQ.14.BP1: Define rules for CFP / ITT. Define rules for proposal/tender invitation and evaluation which comply with the acquisition policy and strategy.";
+    }
+
+    activity ACQ14BP2 {
+        label "Assemble requirements";
+        brief "ACQ.14.BP2: Assemble requirements. Assemble the baseline technical and non-technical requirements to accompany the CFP / ITT.";
+    }
+
+    activity ACQ14BP3 {
+        label "Establish terms and conditions for CFP / ITT";
+        brief "ACQ.14.BP3. Establish terms and conditions for CFP / ITT. Establish the agreement (contractual) terms of reference and conditions for CFP / ITT.";
+    }
+
+    activity ACQ14BP4 {
+        label "Define financial terms";
+        brief "ACQ.14.BP4: Define financial terms. Define the financial terms of reference for costs and payments for CFP / ITT.";
+    }
+
+    activity ACQ14BP5 {
+        label "Define project terms";
+        brief "ACQ.14.BP5: Define project terms. Define the project terms of reference for CFP / ITT.";
+    }
+
+    activity ACQ14BP6 {
+        label "Define technical terms";
+        brief "ACQ.14.BP6: Define technical terms. Define the technical terms of reference for CFP / ITT.";
+    }
+
+    activity ACQ14BP7 {
+        label "Identify relevant regulations";
+        brief "ACQ.14.BP7: Identify relevant regulations. Identify international and regulatory laws, requirements and policies which are relevant for CFP preparation.";
+    }
+
+    activity ACQ14BP8 {
+        label "Prepare and Issue a CFP / ITT";
+        brief "ACQ.14.BP8: Prepare and Issue a CFP / ITT. Prepare and issue a CFP / ITT in accordance with acquisition policies, which complies with relevant national, international and regulatory laws, requirements and policies.";
+    }
+
+
+}
