@@ -1,0 +1,43 @@
+namespace spice {
+    
+    activity SPL1BP1 {
+        label "Establish communication interface";
+        brief "SPL.1.BP1: Establish communication interface. A communication interface is established and maintained in order to respond to customer inquiries or requests for proposal.";
+    }
+    
+    activity SPL1BP2 {
+        label "Perform customer inquiry screening";
+        brief "SPL.1.BP2: Perform customer inquiry screening. Perform customer enquiry screening to ensure validity of contract, ensuring the right person is quickly identified to process the lead.";
+    }
+    
+    activity SPL1BP3 {
+        label "Establish customer proposal evaluation criteria";
+        brief "SPL.1.BP3: Establish customer proposal evaluation criteria. Establish evaluation criteria to determine whether or not to submit a proposal based on appropriate criteria.";
+    }
+    
+    activity SPL1BP4 {
+        label "Evaluate customer request for proposal";
+        brief "SPL.1.BP4: Evaluate customer request for proposal. Requests for proposal are evaluated according to appropriate criteria.";
+    }
+    
+    activity SPL1BP5 {
+        label "Determine need for preliminary pre-studies";
+        brief "SPL.1.BP5: Determine need for preliminary pre-studies. Determine need for preliminary pre-studies to ensure that a firm quotation can be made based on available requirements.";
+    }
+    
+    activity SPL1BP6 {
+        label "Identify and nominate staff";
+        brief "SPL.1.BP6: Identify and nominate staff. Identify and nominate staff with appropriate competence for the assignment.";
+    }
+    
+    activity SPL1BP7 {
+        label "Prepare supplier proposal response";
+        brief "SPL.1.BP7: Prepare supplier proposal response. A supplier proposal response is prepared in response to the customer request.";
+    }
+    
+    activity SPL1BP8 {
+        label "Establish confirmation of agreement";
+        brief "SPL.1.BP8: Establish confirmation of agreement. Formally confirm the agreement to protect the interests of customer and supplier.";
+    }
+    
+}
