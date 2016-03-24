@@ -1,3 +1,5 @@
+include resources/blocks/spice_SPL1.txt;
+
 namespace spice {
     
     activity SPL {
@@ -9,6 +11,8 @@ namespace spice {
     activity SPL1 {
         label "Supplier Tendering";
         brief "SPL.1: The purpose of the Supplier Tendering Process is to establish an interface to respond to customer inquiries and requests for proposal, prepare and submit proposals, and confirm assignments through the establishment of a relevant agreement/contract.";
+         subactivities  
+            SPL1BP1,SPL1BP2,SPL1BP3,SPL1BP4,SPL1BP5,SPL1BP6,SPL1BP7,SPL1BP8; 
     }
  
 }
