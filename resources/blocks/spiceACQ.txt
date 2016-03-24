@@ -53,7 +53,7 @@ namespace spice {
         label "Request for Proposals";
         brief "ACQ.14: The purpose of the Request for Proposals Process is to prepare and issue the necessary acquisition requirements. The documentation will include, but not be limited to, the contract, project, finance and technical requirements to be provided for use in the Call For Proposals (CFP) / Invitation To Tender (ITT).";
         subactivities 
-            ACQ13BP1,ACQ13BP2,ACQ13BP3,ACQ13BP4,ACQ13BP5,ACQ13BP6,ACQ13BP7,ACQ13BP8;
+            ACQ14BP1,ACQ14BP2,ACQ14BP3,ACQ14BP4,ACQ14BP5,ACQ14BP6,ACQ14BP7,ACQ14BP8;
    }
 
 }
