@@ -1,0 +1,14 @@
+namespace spice {
+    
+    activity SPL {
+        label "Supply Process Group";
+         subactivities  
+            SPL1; 
+    }
+ 
+    activity SPL1 {
+        label "Supplier Tendering";
+        brief "SPL.1: The purpose of the Supplier Tendering Process is to establish an interface to respond to customer inquiries and requests for proposal, prepare and submit proposals, and confirm assignments through the establishment of a relevant agreement/contract.";
+    }
+ 
+}
