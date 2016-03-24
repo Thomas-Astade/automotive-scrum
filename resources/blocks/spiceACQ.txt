@@ -3,13 +3,14 @@ include resources/blocks/spice_ACQ4.txt;
 include resources/blocks/spice_ACQ11.txt;
 include resources/blocks/spice_ACQ12.txt;
 include resources/blocks/spice_ACQ13.txt;
+include resources/blocks/spice_ACQ14.txt;
 
 namespace spice {
     
     activity ACQ {
         label "Acquisition Process Group";
          subactivities  
-            ACQ3, ACQ4, ACQ11, ACQ12, ACQ13; 
+            ACQ3, ACQ4, ACQ11, ACQ12, ACQ13, ACQ14; 
     }
     
     activity ACQ3 {
@@ -43,6 +44,14 @@ namespace spice {
  activity ACQ13 {
         label "Project Requirements";
         brief "ACQ.13: The purpose of the Project Requirements Process is to specify the requirements to ensure the acquisition project is performed with adequate planning, staffing, directing, organizing and control over project tasks and activities.";
+        subactivities 
+            ACQ13BP1,ACQ13BP2,ACQ13BP3,ACQ13BP4,ACQ13BP5,ACQ13BP6,ACQ13BP7,ACQ13BP8,
+            ACQ13BP9,ACQ13BP10,ACQ13BP11,ACQ13BP12,ACQ13BP13,ACQ13BP14,ACQ13BP15;
+   }
+
+ activity ACQ14 {
+        label "Request for Proposals";
+        brief "ACQ.14: The purpose of the Request for Proposals Process is to prepare and issue the necessary acquisition requirements. The documentation will include, but not be limited to, the contract, project, finance and technical requirements to be provided for use in the Call For Proposals (CFP) / Invitation To Tender (ITT).";
         subactivities 
             ACQ13BP1,ACQ13BP2,ACQ13BP3,ACQ13BP4,ACQ13BP5,ACQ13BP6,ACQ13BP7,ACQ13BP8,
             ACQ13BP9,ACQ13BP10,ACQ13BP11,ACQ13BP12,ACQ13BP13,ACQ13BP14,ACQ13BP15;
