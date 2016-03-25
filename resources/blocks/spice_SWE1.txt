@@ -1,0 +1,43 @@
+namespace spice {
+    
+    activity SWE1BP1 {
+        label "Specify software requirements";
+        brief "SWE.1.BP1: Specify software requirements. Use the system requirements and the system architecture and changes to system requirements and architecture to identify the required functions and capabilities of the software. Specify functional and non-functional software requirements in a software requirements specification.";
+    }
+
+    activity SWE1BP2 {
+        label "Structure software requirements";
+        brief "SWE.1.BP2: Structure software requirements. Structure the software requirements in the software requirements specification by e.g. grouping to project relevant clusters, sorting in a logical order for the project, categorizing based on relevant criteria for the project, prioritizing according to stakeholder needs.";
+    }
+
+    activity SWE1BP3 {
+        label "Analyze software requirements";
+        brief "SWE.1.BP3: Analyze software requirements. Analyze the specified software requirements including their interdependencies to ensure correctness, technical feasibility and verifiability, and to support risk identification. Analyze the impact on cost, schedule and the technical impact.";
+    }
+
+    activity SWE1BP4 {
+        label "analyze the impact on the operating environment";
+        brief "SWE.1.BP4: Analyze the impact on the operating environment. Analyze the impact that the software requirements will have on interfaces of system elements and the operating environment.";
+    }
+
+    activity SWE1BP5 {
+        label "Develop verification criteria";
+        brief "SWE.1.BP5: Develop verification criteria. Develop the verification criteria for each software requirement that define the qualitative and quantitative measures for the verification of a requirement.";
+    }
+
+    activity SWE1BP6 {
+        label "Establish bidirectional traceability";
+        brief "SWE.1.BP6: Establish bidirectional traceability. Establish bidirectional traceability between system requirements and software requirements. Establish bidirectional traceability between the system architecture and software requirements.";
+    }
+
+    activity SWE1BP7 {
+        label "Ensure consistency";
+        brief "SWE.1.BP7: Ensure consistency. Ensure consistency between system requirements and software requirements. Ensure consistency between the system architecture and software requirements.";
+    }
+
+    activity SWE1BP8 {
+        label "Communicate agreed software requirements";
+        brief "SWE.1.BP8: Communicate agreed software requirements. Communicate the agreed software requirements and updates to software requirements to all relevant parties.";
+    }
+
+}

@@ -1,0 +1,58 @@
+include resources/blocks/spice_SWE1.txt;
+include resources/blocks/spice_SWE2.txt;
+include resources/blocks/spice_SWE3.txt;
+include resources/blocks/spice_SWE4.txt;
+include resources/blocks/spice_SWE5.txt;
+include resources/blocks/spice_SWE6.txt;
+
+namespace spice {
+    
+    activity SWE {
+        label "Software Engineering Process Group";
+         subactivities  
+            SWE1,SWE2,SWE3,SWE4,SWE5,SWE6; 
+    }
+ 
+    activity SWE1 {
+        label "Software Requirements Analysis";
+        brief "SWE.1: The purpose of the Software Requirements Analysis Process is to transform the software related parts of the system requirements into a set of software requirements.";
+         subactivities  
+            SWE1BP1,SWE1BP2,SWE1BP3,SWE1BP4,SWE1BP5,SWE1BP6,SWE1BP7,SWE1BP8; 
+    }
+    
+    activity SWE2 {
+        label "Software Architectural Design";
+        brief "SWE.2: The purpose of the Software Architectural Design Process is to establish an architectural design and to identify which software requirements are to be allocated to which elements of the software, and to evaluate the software architectural design against defined criteria.";
+         subactivities  
+            SWE2BP1,SWE2BP2,SWE2BP3,SWE2BP4,SWE2BP5,SWE2BP6,SWE2BP7,SWE2BP8,SWE2BP9; 
+    }
+    
+    activity SWE3 {
+        label "Software Detailed Design and Unit Construction";
+        brief "SWE.3: The purpose of the Software Detailed Design and Unit Construction Process is to provide an evaluated detailed design for the software units and to produce the software units.";
+         subactivities  
+            SWE3BP1,SWE3BP2,SWE3BP3,SWE3BP4,SWE3BP5,SWE3BP6,SWE3BP7,SWE3BP8; 
+    }
+    
+    activity SWE4 {
+        label "Software Unit Verification";
+        brief "SWE.4: The purpose of the Software Unit Verification Process is to verify software units to provide evidence for compliance of the software units with the software detailed design and with the non-functional software requirements.";
+         subactivities  
+            SWE4BP1,SWE4BP2,SWE4BP3,SWE4BP4,SWE4BP5,SWE4BP6,SWE4BP7; 
+    }
+    
+    activity SWE5 {
+        label "Software Integration and Integration Test";
+        brief "SWE.5: The purpose of the Software Integration and Integration Test Process is to integrate the software units into larger software items up to a complete integrated software consistent with the software architectural design and to ensure that the software items are tested to provide evidence for compliance of the integrated software items with the software architectural design, including the interfaces between the software units and between the software items.";
+         subactivities  
+            SWE5BP1,SWE5BP2,SWE5BP3,SWE5BP4,SWE5BP5,SWE5BP6,SWE5BP7,SWE5BP8,SWE5BP9; 
+    }
+    
+    activity SWE6 {
+        label "Software Qualification Test";
+        brief "SWE.6: The purpose of the Software Qualification Test Process is to ensure that the integrated software is tested to provide evidence for compliance with the software requirements.";
+         subactivities  
+            SWE6BP1,SWE6BP2,SWE6BP3,SWE6BP4,SWE6BP5,SWE6BP6,SWE6BP7; 
+    }
+    
+}

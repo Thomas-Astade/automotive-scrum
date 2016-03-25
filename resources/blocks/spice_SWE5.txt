@@ -1,0 +1,48 @@
+namespace spice {
+    
+    activity SWE5BP1 {
+        label "Develop software integration strategy";
+        brief "SWE.5.BP1: Develop software integration strategy. Develop a strategy for integrating software items consistent with the project plan and release plan. Identify software items based on the software architectural design and define a sequence for integrating them.";
+    }
+
+    activity SWE5BP2 {
+        label "Develop software integration test strategy including regression test strategy";
+        brief "SWE.5.BP2: Develop software integration test strategy including regression test strategy. Develop a strategy for testing the integrated software items following the integration strategy. This includes a regression test strategy for re-testing integrated software items if a software item is changed.";
+    }
+
+    activity SWE5BP3 {
+        label "Develop specification for software integration test";
+        brief "SWE.5.BP3: Develop specification for software integration test. Develop the test specification for software integration test including the test cases according to the software integration test strategy for each integrated software item. The test specification shall be suitable to provide evidence for compliance of the integrated software items with the software architectural design.";
+    }
+
+    activity SWE5BP4 {
+        label "Integrate software units and software items";
+        brief "SWE.5.BP4: Integrate software units and software items. Integrate the software units to software items and software items to integrated software according to the software integration strategy.";
+    }
+
+    activity SWE5BP5 {
+        label "Select test cases";
+        brief "SWE.5.BP5: Select test cases. Select test cases from the software integration test specification. The selection of test cases shall have sufficient coverage according to the software integration test strategy and the release plan.";
+    }
+
+    activity SWE5BP6 {
+        label "Perform software integration test";
+        brief "SWE.5.BP6: Perform software integration test. Perform the software integration test using the selected test cases. Record the integration test results and logs.";
+    }
+
+    activity SWE5BP7 {
+        label "Establish bidirectional traceability";
+        brief "SWE.5.BP7: Establish bidirectional traceability. Establish bidirectional traceability between elements of the software architectural design and test cases included in the software integration test specification. Establish bidirectional traceability between test cases included in the software integration test specification and software integration test results.";
+    }
+
+    activity SWE5BP8 {
+        label "Ensure consistency";
+        brief "SWE.5.BP8: Ensure consistency. Ensure consistency between elements of the software architectural design and test cases included in the software integration test specification.";
+    }
+
+    activity SWE5BP9 {
+        label "Summarize and communicate results";
+        brief "SWE.5.BP9: Summarize and communicate results. Summarize the software integration test results and communicate them to all affected parties.";
+    }
+
+}

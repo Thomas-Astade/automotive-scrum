@@ -1,0 +1,48 @@
+namespace spice {
+    
+    activity SWE2BP1 {
+        label "Develop software architectural design";
+        brief "SWE.2.BP1: Develop software architectural design. Develop and document the software architectural design that specifies the elements of the software with respect to functional and non-functional software requirements.";
+    }
+
+    activity SWE2BP2 {
+        label "Allocate software requirements";
+        brief "SWE.2.BP2: Allocate software requirements. Allocate the software requirements to the elements of the software architectural design.";
+    }
+
+    activity SWE2BP3 {
+        label "Define interfaces of software elements";
+        brief "SWE.2.BP3: Define interfaces of software elements. Identify, develop and document the interfaces of each software element.";
+    }
+
+    activity SWE2BP4 {
+        label "Describe dynamic behavior";
+        brief "SWE.2.BP4: Describe dynamic behavior. Evaluate and document the timing and dynamic interaction of software elements to meet the required dynamic behavior of the system.";
+    }
+
+    activity SWE2BP5 {
+        label "Define resource consumption objectives";
+        brief "SWE.2.BP5: Define resource consumption objectives. Determine and document the resource consumption objectives for all relevant elements of the software architectural design on the appropriate hierarchical level.";
+    }
+
+    activity SWE2BP6 {
+        label "Evaluate alternative software architectures";
+        brief "SWE.2.BP6: Evaluate alternative software architectures. Define evaluation criteria for architecture design. Evaluate alternative software architectures according to the defined criteria. Record the rationale for the chosen software architecture.";
+    }
+
+    activity SWE2BP7 {
+        label "Establish bidirectional traceability";
+        brief "SWE.2.BP7: Establish bidirectional traceability. Establish bidirectional traceability between software requirements and elements of the software architectural design.";
+    }
+
+    activity SWE2BP8 {
+        label "Ensure consistency";
+        brief "SWE.2.BP8: Ensure consistency. Ensure consistency between software requirements and the software architectural design.";
+    }
+
+    activity SWE2BP9 {
+        label "Communicate agreed software architectural design";
+        brief "SWE.2.BP9: Communicate agreed software architectural design. Communicate the agreed software architectural design and updates to software architectural design to all relevant parties.";
+    }
+
+}

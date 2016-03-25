@@ -1,0 +1,38 @@
+namespace spice {
+    
+    activity SWE4BP1 {
+        label "Develop software unit verification strategy including regression strategy";
+        brief "SWE.4.BP1: Develop software unit verification strategy including regression strategy. Develop a strategy for verification of the software units including regression strategy for re-verification if a software unit is changed. The verification strategy shall define how to provide evidence for compliance of the software units with the software detailed design and with the non-functional requirements.";
+    }
+
+    activity SWE4BP2 {
+        label "Develop criteria for unit verification";
+        brief "SWE.4.BP2: Develop criteria for unit verification. Develop criteria for unit verification that are suitable to provide evidence for compliance of the software units with the software detailed design and with the non-functional requirements according to the verification strategy. For unit testing, criteria shall be defined in a unit test specification.";
+    }
+
+    activity SWE4BP3 {
+        label "Perform static verification of software units";
+        brief "SWE.4.BP3: Perform static verification of software units. Verify software units for correctness using the defined criteria for verification. Record the results of the static verification.";
+    }
+
+    activity SWE4BP4 {
+        label "Test software units";
+        brief "SWE.4.BP4: Test software units. Test software units using the unit test specification according to the software unit verification strategy. Record the test results and logs.";
+    }
+
+    activity SWE4BP5 {
+        label "Establish bidirectional traceability";
+        brief "SWE.4.BP5: Establish bidirectional traceability. Establish bidirectional traceability between software units and static verification results. Establish bidirectional traceability between the software detailed design and the unit test specification. Establish bidirectional traceability between the unit test specification and unit test results.";
+    }
+
+    activity SWE4BP6 {
+        label "Ensure consistency";
+        brief "SWE.4.BP6: Ensure consistency. Ensure consistency between the software detailed design and the unit test specification.";
+    }
+
+    activity SWE4BP7 {
+        label "Summarize and communicate results";
+        brief "SWE.4.BP7: Summarize and communicate results. Summarize the unit test results and static verification results and communicate them to all affected parties.";
+    }
+
+}

@@ -1,0 +1,38 @@
+namespace spice {
+    
+    activity SWE6BP1 {
+        label "Develop software qualification test strategy including regression test strategy";
+        brief "SWE.6.BP1: Develop software qualification test strategy including regression test strategy. Develop a strategy for software qualification testing consistent with the project plan and the release plan. This includes a regression test strategy for re-testing the integrated software if a software item is changed.";
+    }
+
+    activity SWE6BP2 {
+        label "Develop specification for software qualification test";
+        brief "SWE.6.BP2: Develop specification for software qualification test. Develop the specification for software qualification test including test cases based on the verification criteria, according to the software test strategy. The test specification shall be suitable to provide evidence for compliance of the integrated software with the software requirements.";
+    }
+
+    activity SWE6BP3 {
+        label "Select test cases";
+        brief "SWE.6.BP3: Select test cases. Select test cases from the software test specification. The selection of test cases shall have sufficient coverage according to the software test strategy and the release plan.";
+    }
+
+    activity SWE6BP4 {
+        label "Test integrated software";
+        brief "SWE.6.BP4: Test integrated software. Test the integrated software using the selected test cases. Record the software test results and logs.";
+    }
+
+    activity SWE6BP5 {
+        label "Establish bidirectional traceability";
+        brief "SWE.6.BP5: Establish bidirectional traceability. Establish bidirectional traceability between software requirements and test cases included in the software qualification test specification. Establish bidirectional traceability between test cases included in the software qualification test specification and software qualification test results.";
+    }
+
+    activity SWE6BP6 {
+        label "Ensure consistency";
+        brief "SWE.6.BP6: Ensure consistency. Ensure consistency between software requirements and test cases included in the software qualification test specification.";
+    }
+
+    activity SWE6BP7 {
+        label "Summarize and communicate results";
+        brief "SWE.6.BP7: Summarize and communicate results. Summarize the software qualification test results and communicate them to all affected parties.";
+    }
+
+}

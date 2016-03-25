@@ -1,0 +1,43 @@
+namespace spice {
+    
+    activity SWE3BP1 {
+        label "Develop software detailed design";
+        brief "SWE.3.BP1: Develop software detailed design. Develop a detailed design for each software component defined in the software architectural design that specifies all software units with respect to functional and non-functional software requirements.";
+    }
+
+    activity SWE3BP2 {
+        label "Define interfaces of software units";
+        brief "SWE.3.BP2: Define interfaces of software units. Identify, specify and document the interfaces of each software unit.";
+    }
+
+    activity SWE3BP3 {
+        label "Describe dynamic behavior";
+        brief "SWE.3.BP3: Describe dynamic behavior. Evaluate and document the dynamic behavior of and the interaction between relevant software units.";
+    }
+
+    activity SWE3BP4 {
+        label "Evaluate software detailed design";
+        brief "SWE.3.BP4: Evaluate software detailed design. Evaluate the software detailed design in terms of interoperability, interaction, criticality, technical complexity, risks and testability.";
+    }
+
+    activity SWE3BP5 {
+        label "Establish bidirectional traceability";
+        brief "SWE.3.BP5: Establish bidirectional traceability. Establish bidirectional traceability between software requirements and software units. Establish bidirectional traceability between the software architectural design and the software detailed design. Establish bidirectional traceability between the software detailed design and software units.";
+    }
+
+    activity SWE3BP6 {
+        label "Ensure consistency";
+        brief "SWE.3.BP6: Ensure consistency. Ensure consistency between software requirements and software units. Ensure consistency between the software architectural design, the software detailed design and software units.";
+    }
+
+    activity SWE3BP7 {
+        label "Communicate agreed software detailed design";
+        brief "SWE.3.BP7: Communicate agreed software detailed design. Communicate the agreed software detailed design and updates to the software detailed design to all relevant parties.";
+    }
+
+    activity SWE3BP8 {
+        label "Develop software units";
+        brief "SWE.3.BP8: Develop software units. Develop and document the executable representations of each software unit according to the software detailed design.";
+    }
+
+}
