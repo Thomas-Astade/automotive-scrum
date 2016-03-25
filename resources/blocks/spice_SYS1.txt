@@ -1,0 +1,33 @@
+namespace spice {
+    
+    activity SYS1BP1 {
+        label "Obtain stakeholder requirements and requests";
+        brief "SYS.1.BP1: Obtain stakeholder requirements and requests. Obtain and define stakeholder requirements and requests through direct solicitation of customer input and through review of customer business proposals (where relevant), target operating and hardware environment, and other documents bearing on customer requirements.";
+    }
+
+    activity SYS1BP2 {
+        label "";
+        brief "";
+    }
+
+    activity SYS1BP3 {
+        label "";
+        brief "";
+    }
+
+    activity SYS1BP4 {
+        label "";
+        brief "";
+    }
+
+    activity SYS1BP5 {
+        label "";
+        brief "";
+    }
+
+    activity SYS1BP6 {
+        label "";
+        brief "";
+    }
+
+}

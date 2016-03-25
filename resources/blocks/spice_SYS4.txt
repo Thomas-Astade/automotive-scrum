@@ -1,0 +1,8 @@
+namespace spice {
+    
+    activity SYS1BP1 {
+        label "";
+        brief "";
+    }
+
+}
