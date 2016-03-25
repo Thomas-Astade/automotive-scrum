@@ -1,8 +1,38 @@
 namespace spice {
     
-    activity SYS1BP1 {
-        label "";
-        brief "";
+    activity SYS5BP1 {
+        label "Develop system qualification test strategy including regression test strategy";
+        brief "SYS.5.BP1: Develop system qualification test strategy including regression test strategy. Develop a strategy for system qualification test consistent with the project plan and the release plan. This includes a regression test strategy for re-testing the integrated system if a system item is changed.";
+    }
+
+    activity SYS5BP2 {
+        label "Develop specification for system qualification test";
+        brief "SYS.5.BP2: Develop specification for system qualification test. Develop the specification for system qualification test including test cases based on the verification criteria according to the system test strategy. The test specification shall be suitable to provide evidence for compliance of the integrated system with the system requirements.";
+    }
+
+    activity SYS5BP3 {
+        label "Select test cases";
+        brief "SYS.5.BP3: Select test cases. Select test cases from the system qualification test specification. The selection of test cases shall have sufficient coverage according to the system test strategy and the release plan.";
+    }
+
+    activity SYS5BP4 {
+        label "Test integrated system";
+        brief "SYS.5.BP4: Test integrated system. Test the integrated system using the selected test cases. Record the system test results and logs.";
+    }
+
+    activity SYS5BP5 {
+        label "Establish bidirectional traceability";
+        brief "SYS.5.BP5: Establish bidirectional traceability. Establish bidirectional traceability between system requirements and test cases included in the system qualification test specification. Establish bidirectional traceability between test cases included in the system qualification test specification and system qualification test results.";
+    }
+
+    activity SYS5BP6 {
+        label "Ensure consistency";
+        brief "SYS.5.BP6: Ensure consistency. Ensure consistency between system requirements and test cases included in the system qualification test specification.";
+    }
+
+    activity SYS5BP7 {
+        label "Summarize and communicate results";
+        brief "SYS.5.BP7: Summarize and communicate results. Summarize the system qualification test results and communicate them to all affected parties.";
     }
 
 }

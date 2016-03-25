@@ -1,0 +1,51 @@
+include resources/blocks/spice_SYS1.txt;
+include resources/blocks/spice_SYS2.txt;
+include resources/blocks/spice_SYS3.txt;
+include resources/blocks/spice_SYS4.txt;
+include resources/blocks/spice_SYS5.txt;
+
+namespace spice {
+    
+    activity SYS {
+        label "System Engineering Process Group";
+         subactivities  
+            SYS1,SYS2,SYS3,SYS4,SYS5; 
+    }
+ 
+    activity SYS1 {
+        label "Requirements Elicitation";
+        brief "SYS.1: The purpose of the Requirements Elicitation Process is to gather, process, and track evolving stakeholder needs and requirements throughout the lifecycle of the product and/or service so as to establish a requirements baseline that serves as the basis for defining the needed work products.";
+         subactivities  
+            SYS1BP1,SYS1BP2,SYS1BP3,SYS1BP4,SYS1BP5,SYS1BP6; 
+    }
+    
+    activity SYS2 {
+        label "System Requirements Analysis";
+        brief "SYS.2: The purpose of the System Requirements Analysis Process is to transform the defined stakeholder requirements into a set of system requirements that will guide the design of the system.";
+         subactivities  
+            SYS2BP1,SYS2BP2,SYS2BP3,SYS2BP4,SYS2BP5,SYS2BP6,SYS2BP7,SYS2BP8; 
+    }
+    
+    activity SYS3 {
+        label "System Architectural Design";
+        brief "SYS.3: The purpose of the System Architectural Design Process is to establish a system architectural design and identify which system requirements are to be allocated to which elements of the system, and to evaluate the system architectural design against defined criteria.";
+         subactivities  
+            SYS3BP1,SYS3BP2,SYS3BP3,SYS3BP4,SYS3BP5,SYS3BP6,SYS3BP7,SYS3BP8; 
+    }
+    
+    activity SYS4 {
+        label "System Integration and Integration Test";
+        brief "SYS.4: The purpose of the System Integration and Integration Test Process is to integrate the system items to produce an integrated system consistent with the system architectural design and to ensure that the system items are tested to provide evidence for compliance of the integrated system items with the system architectural design, including the interfaces between system items.";
+         subactivities  
+            SYS4BP1,SYS4BP2,SYS4BP3,SYS4BP4,SYS4BP5,SYS4BP6,SYS4BP7,SYS4BP8,SYS4BP9; 
+    }
+    
+    activity SYS5 {
+        label "System Qualification Test";
+        brief "SYS.5: The purpose of the System Qualification Test Process is to ensure that the integrated system is tested to provide evidence for compliance with the system requirements and that the system is ready for delivery.";
+         subactivities  
+            SYS5BP1,SYS5BP2,SYS5BP3,SYS5BP4,SYS5BP5; 
+    }
+    
+ 
+}

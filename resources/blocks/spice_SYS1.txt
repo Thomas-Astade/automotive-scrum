@@ -6,28 +6,28 @@ namespace spice {
     }
 
     activity SYS1BP2 {
-        label "";
-        brief "";
+        label "Understand stakeholder expectations";
+        brief "SYS.1.BP2: Understand stakeholder expectations. Ensure that both supplier and customer understand each requirement in the same way.";
     }
 
     activity SYS1BP3 {
-        label "";
-        brief "";
+        label "Agree on requirements";
+        brief "SYS.1.BP3: Agree on requirements. Obtain an explicit agreement from all relevant parties to work on these requirements.";
     }
 
     activity SYS1BP4 {
-        label "";
-        brief "";
+        label "Establish stakeholder requirements baseline";
+        brief "SYS.1.BP4: Establish stakeholder requirements baseline. Formalize the stakeholder's requirements and establish them as a baseline for project use and monitoring against stakeholder needs. The supplier should determine the requirements not stated by the stakeholder but necessary for specified and intended use and include them in the baseline.";
     }
 
     activity SYS1BP5 {
-        label "";
-        brief "";
+        label "Manage stakeholder requirements changes";
+        brief "SYS.1.BP5: Manage stakeholder requirements changes. Manage all changes made to the stakeholder requirements against the stakeholder requirements baseline to ensure enhancements resulting from changing technology and stakeholder needs are identified and that those who are affected by the changes are able to assess the impact and risks and initiate appropriate change control and mitigation actions.";
     }
 
     activity SYS1BP6 {
-        label "";
-        brief "";
+        label "Establish customer-supplier query communication mechanism";
+        brief "SYS.1.BP6: Establish customer-supplier query communication mechanism. Provide means by which the customer can be aware of the status and disposition of their requirements changes and the supplier can have the ability to communicate necessary information, including data, in a customer-specified language and format.";
     }
 
 }

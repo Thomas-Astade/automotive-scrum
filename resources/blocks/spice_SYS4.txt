@@ -1,8 +1,48 @@
 namespace spice {
     
-    activity SYS1BP1 {
-        label "";
-        brief "";
+    activity SYS4BP1 {
+        label "Develop system integration strategy";
+        brief "SYS.4.BP1: Develop system integration strategy. Develop a strategy for integrating the system items consistent with the project plan and the release plan. Identify system items based on the system architectural design and define a sequence for integrating them.";
+    }
+
+    activity SYS4BP2 {
+        label "Develop system integration test strategy including regression test strategy";
+        brief "SYS.4.BP2: Develop system integration test strategy including regression test strategy. Develop a strategy for testing the integrated system items following the integration strategy. This includes a regression test strategy for re-testing integrated system items if a system item is changed.";
+    }
+
+    activity SYS4BP3 {
+        label "Develop specification for system integration test";
+        brief "SYS.4.BP3: Develop specification for system integration test. Develop the test specification for system integration test including the test cases for each integration step of a system item according to the system integration test strategy. The test specification shall be suitable to provide evidence for compliance of the integrated system items with the system architectural design.";
+    }
+
+    activity SYS4BP4 {
+        label "Integrate system items";
+        brief "SYS.4.BP4: Integrate system items. Integrate the system items to an integrated system according to the system integration strategy.";
+    }
+
+    activity SYS4BP5 {
+        label "Select test cases";
+        brief "SYS.4.BP5: Select test cases. Select test cases from the system integration test specification. The selection of test cases shall have sufficient coverage according to the system integration test strategy and the release plan.";
+    }
+
+    activity SYS4BP6 {
+        label "Perform system integration test";
+        brief "SYS.4.BP6: Perform system integration test. Perform the system integration test using the selected test cases. Record the integration test results and logs.";
+    }
+
+    activity SYS4BP7 {
+        label "Establish bidirectional traceability";
+        brief "SYS.4.BP7: Establish bidirectional traceability. Establish bidirectional traceability between elements of the system architectural design and test cases included in the system integration test specification. Establish bidirectional traceability between test cases included in the system integration test specification and system integration test results.";
+    }
+
+    activity SYS4BP8 {
+        label "Ensure consistency";
+        brief "SYS.4.BP8: Ensure consistency. Ensure consistency between elements of the system architectural design and test cases included in the system integration test specification.";
+    }
+
+    activity SYS4BP9 {
+        label "Summarize and communicate results";
+        brief "SYS.4.BP9: Summarize and communicate results. Summarize the system integration test results and communicate them to all affected parties.";
     }
 
 }

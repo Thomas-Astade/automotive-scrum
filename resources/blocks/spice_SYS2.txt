@@ -1,8 +1,43 @@
 namespace spice {
     
-    activity SYS1BP1 {
-        label "";
-        brief "";
+    activity SYS2BP1 {
+        label "Specify system requirements";
+        brief "SYS.2.BP1: Specify system requirements. Use the stakeholder requirements and changes to the stakeholder requirements to identify the required functions and capabilities of the system. Specify functional and non-functional system requirements in a system requirements specification.";
+    }
+
+    activity SYS2BP2 {
+        label "Structure system requirements";
+        brief "SYS.2.BP2: Structure system requirements. Structure the system requirements in the system requirements specification by e.g. grouping to project relevant clusters, sorting in a logical order for the project, categorizing based on relevant criteria for the project, prioritizing according to stakeholder needs.";
+    }
+
+    activity SYS2BP3 {
+        label "Analyze system requirements";
+        brief "SYS.2.BP3: Analyze system requirements. Analyze the specified system requirements including their interdependencies to ensure correctness, technical feasibility and verifiability, and to support risk identification. Analyze the impact on cost, schedule and the technical impact.";
+    }
+
+    activity SYS2BP4 {
+        label "Analyze the impact on the operating environment";
+        brief "SYS.2.BP4: Analyze the impact on the operating environment. Identify the interfaces between the specified system and other elements of the operating environment. Analyze the impact that the system requirements will have on these interfaces and the operating environment.";
+    }
+
+    activity SYS2BP5 {
+        label "Develop verification criteria";
+        brief "SYS.2.BP5: Develop verification criteria. Develop the verification criteria for each system requirement that define the qualitative and quantitative measures for the verification of a requirement.";
+    }
+
+    activity SYS2BP6 {
+        label "Establish bidirectional traceability";
+        brief "SYS.2.BP6: Establish bidirectional traceability. Establish bidirectional traceability between stakeholder requirements and system requirements.";
+    }
+
+    activity SYS2BP7 {
+        label "Ensure consistency";
+        brief "SYS.2.BP7: Ensure consistency. Ensure consistency betweenstakeholder requirements and system requirements.";
+    }
+
+    activity SYS2BP8 {
+        label "Communicate agreed system requirements";
+        brief "SYS.2.BP8: Communicate agreed system requirements. Communicate the agreed system requirements and updates to system requirements to all relevant parties.";
     }
 
 }

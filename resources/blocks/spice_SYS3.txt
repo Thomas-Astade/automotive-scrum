@@ -1,8 +1,43 @@
 namespace spice {
     
-    activity SYS1BP1 {
-        label "";
-        brief "";
+    activity SYS3BP1 {
+        label "Develop system architectural design";
+        brief "SYS.3.BP1: Develop system architectural design. Develop and document the system architectural design that specifies the elements of the system with respect to functional and non-functional system requirements.";
+    }
+
+    activity SYS3BP2 {
+        label "Allocate system requirements";
+        brief "SYS.3.BP2: Allocate system requirements. Allocate the system requirements to the elements of the system architectural design.";
+    }
+
+    activity SYS3BP3 {
+        label "Define interfaces of system elements";
+        brief "SYS.3.BP3: Define interfaces of system elements. Identify, develop and document the interfaces of each system element.";
+    }
+
+    activity SYS3BP4 {
+        label "Describe dynamic behavior";
+        brief "SYS.3.BP4: Describe dynamic behavior. Evaluate and document the dynamic behavior of the interaction between system elements.";
+    }
+
+    activity SYS3BP5 {
+        label "Evaluate alternative system architectures";
+        brief "SYS.3.BP5: Evaluate alternative system architectures. Define evaluation criteria for architecture design. Evaluate alternative system architectures according to the defined criteria. Record the rationale for the chosen system architecture.";
+    }
+
+    activity SYS3BP6 {
+        label "Establish bidirectional traceability";
+        brief "SYS.3.BP6: Establish bidirectional traceability. Establish bidirectional traceability between system requirements and elements of the system architectural design.";
+    }
+
+    activity SYS3BP7 {
+        label "Ensure consistency";
+        brief "SYS.3.BP7: Ensure consistency. Ensure consistency between system requirements and the system architectural design.";
+    }
+
+    activity SYS3BP8 {
+        label "Communicate agreed system architectural design";
+        brief "SYS.3.BP8: Communicate agreed system architectural design. Communicate the agreed system architectural design and updates to system architectural design to all relevant parties.";
     }
 
 }
