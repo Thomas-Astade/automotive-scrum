@@ -1,0 +1,33 @@
+namespace spice {
+    
+    activity SUP1BP1 {
+        label "Develop a project quality assurance strategy";
+        brief "SUP.1.BP1: Develop a project quality assurance strategy. Develop a strategy in order to ensure that work product and process quality assurance is performed at project level independently and objectively without conflicts of interest.";
+    }
+
+    activity SUP1BP2 {
+        label "Assure quality of work products";
+        brief "SUP.1.BP2: Assure quality of work products. Perform the activities according to the quality assurance strategy and the project schedule to ensure that the work products meet the defined work product requirements and document the results.";
+    }
+
+    activity SUP1BP3 {
+        label "Assure quality of process activities";
+        brief "SUP.1.BP3: Assure quality of process activities. Perform the activities according to the quality assurance strategy and the project schedule to ensure that the processes meet their defined goals and document the results.";
+    }
+
+    activity SUP1BP4 {
+        label "Summarize and communicate quality assurance activities and results";
+        brief "SUP.1.BP4: Summarize and communicate quality assurance activities and results. Regularly report performance, deviations, and trends of quality assurance activities to relevant parties for information and action according to the quality assurance strategy.";
+    }
+
+    activity SUP1BP5 {
+        label "Ensure resolution of non-conformances";
+        brief "SUP.1.BP5: Ensure resolution of non-conformances. Deviations or non-conformance found in process and product quality assurance activities should be analyzed, tracked, corrected, and further prevented.";
+    }
+
+    activity SUP1BP6 {
+        label "Implement an escalation mechanism";
+        brief "SUP.1.BP6: Implement an escalation mechanism. Establish and maintain an escalation mechanism according to the quality assurance strategy that ensures that quality assurance may escalate problems to appropriate levels of management and other relevant stakeholders to resolve them.";
+    }
+
+}

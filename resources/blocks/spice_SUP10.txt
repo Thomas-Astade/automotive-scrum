@@ -1,0 +1,8 @@
+namespace spice {
+    
+    activity SUP10BP1 {
+        label "";
+        brief "";
+    }
+
+}
