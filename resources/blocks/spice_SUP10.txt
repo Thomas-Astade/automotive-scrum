@@ -1,8 +1,43 @@
 namespace spice {
     
     activity SUP10BP1 {
-        label "";
-        brief "";
+        label "Develop a change request management strategy";
+        brief "SUP.10.BP1: Develop a change request management strategy. Develop a change request management strategy, including change request activities, a status model for the change requests, analysis criteria, and responsibilities for performing these activities. Interfaces to affected parties are defined and maintained.";
+    }
+
+    activity SUP10BP2 {
+        label "Identify and record the change requests";
+        brief "SUP.10.BP2: Identify and record the change requests. Each change request is uniquely identified, described, and recorded according to the strategy, including the initiator and reason of the change request.";
+    }
+
+    activity SUP10BP3 {
+        label "Record the status of change requests";
+        brief "SUP.10.BP3: Record the status of change requests. A status according to the status model is assigned to each change request to facilitate tracking.";
+    }
+
+    activity SUP10BP4 {
+        label "Analyze and assess change requests";
+        brief "SUP.10.BP4: Analyze and assess change requests. Change requests are analyzed according to the strategy including their dependencies to affected work products and other change requests. Assess the impact of the change requests and establish criteria for confirming implementation.";
+    }
+
+    activity SUP10BP5 {
+        label "Approve change requests before implementation";
+        brief "SUP.10.BP5: Approve change requests before implementation. Change requests are prioritized based on analysis results and availability of resources before implementation and approved according to the strategy.";
+    }
+
+    activity SUP10BP6 {
+        label "Review the implementation of change requests";
+        brief "SUP.10.BP6: Review the implementation of change requests. The implementation of change requests is reviewed before closure to ensure that their criteria for confirming implementation are satisfied, and that all relevant processes have been applied.";
+    }
+
+    activity SUP10BP7 {
+        label "Track change requests to closure";
+        brief "SUP.10.BP7: Track change requests to closure. Change requests are tracked until closure. Feedback to the initiator is provided.";
+    }
+
+    activity SUP10BP8 {
+        label "Establish bidirectional traceability";
+        brief "SUP.10.BP8: Establish bidirectional traceability. Establish bidirectional traceability between change requests and work products affected by the change requests. In case that the change request is initiated by a problem, establish bidirectional traceability between change requests and the corresponding problem reports.";
     }
 
 }

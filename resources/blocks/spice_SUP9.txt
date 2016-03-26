@@ -1,8 +1,48 @@
 namespace spice {
     
     activity SUP9BP1 {
-        label "";
-        brief "";
+        label "Develop a problem resolution management strategy";
+        brief "SUP.9.BP1: Develop a problem resolution management strategy. Develop a problem resolution management strategy, including problem resolution activities, a status model for the problems, alert notifications, responsibilities for performing these activities and an urgent resolution strategy. Interfaces to affected parties are defined and definitions are maintained.";
+    }
+
+    activity SUP9BP2 {
+        label "Identify and record the problem";
+        brief "SUP.9.BP2: Identify and record the problem. Each problem is uniquely identified, described and recorded. Supporting information should be provided to reproduce and diagnose the problem.";
+    }
+
+    activity SUP9BP3 {
+        label "Record the status of problems";
+        brief "SUP.9.BP3: Record the status of problems. A status according to the status model is assigned to each problem to facilitate tracking.";
+    }
+
+    activity SUP9BP4 {
+        label "Diagnose the cause and determine the impact of the problem";
+        brief "SUP.9.BP4: Diagnose the cause and determine the impact of the problem. Investigate the problem and determine its cause and impact in order to categorize the problem and to determine appropriate actions.";
+    }
+
+    activity SUP9BP5 {
+        label "Authorize urgent resolution action";
+        brief "SUP.9.BP5: Authorize urgent resolution action. If according to the strategy a problem requires an urgent resolution, authorization shall be obtained for immediate action also according to the strategy.";
+    }
+
+    activity SUP9BP6 {
+        label "Raise alert notifications";
+        brief "SUP.9.BP6: Raise alert notifications. If according to the strategy the problem has a high impact on other systems or other affected parties, an alert notification needs to be raised also according to the strategy.";
+    }
+
+    activity SUP9BP7 {
+        label "Initiate problem resolution";
+        brief "SUP.9.BP7: Initiate problem resolution. Initiate appropriate actions according to the strategy to resolve the problem including review of those actions, or initiate a change request.";
+    }
+
+    activity SUP9BP8 {
+        label "Track problems to closure";
+        brief "SUP.9.BP8: Track problems to closure. Track the status of problems to closure including all related change requests. A formal acceptance has to be authorized before closing the problem.";
+    }
+
+    activity SUP9BP9 {
+        label "Analyze problem trends";
+        brief "SUP.9.BP9: Analyze problem trends. Collect and analyze problem resolution management data, identify trends, and initiate project related actions, according to the strategy.";
     }
 
 }

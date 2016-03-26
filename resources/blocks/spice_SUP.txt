@@ -1,0 +1,66 @@
+include resources/blocks/spice_SUP1.txt;
+include resources/blocks/spice_SUP2.txt;
+include resources/blocks/spice_SUP4.txt;
+include resources/blocks/spice_SUP7.txt;
+include resources/blocks/spice_SUP8.txt;
+include resources/blocks/spice_SUP9.txt;
+include resources/blocks/spice_SUP10.txt;
+
+namespace spice {
+    
+    activity SUP {
+        label "Supporting Process Group";
+         subactivities  
+            SUP1,SUP2,SUP4,SUP7,SUP8,SUP9,SUP10; 
+    }
+ 
+    activity SUP1 {
+        label "Quality Assurance";
+        brief "SUP.1: The purpose of the Quality Assurance Process is to provide independent and objective assurance that work products and processes comply with predefined provisions and plans and that non-conformances are resolved and further prevented.";
+         subactivities  
+            SUP1BP1,SUP1BP2,SUP1BP3,SUP1BP4,SUP1BP5,SUP1BP6; 
+    }
+    
+    activity SUP2 {
+        label "Verification";
+        brief "SUP.2: The purpose of the Verification Process is to confirm that each work product of a process or project properly reflects the specified requirements.";
+         subactivities  
+            SUP2BP1,SUP2BP2,SUP2BP3,SUP2BP4,SUP2BP5; 
+    }
+    
+    activity SUP4 {
+        label "Joint Review";
+        brief "SUP.4: The purpose of the Joint review process is to maintain a common understanding with the stakeholders of the progress against the objectives of the agreement and what should be done to help ensure development of a product that satisfies the stakeholders. Joint reviews are at both project management and technical levels and are held throughout the life of the project.";
+         subactivities  
+            SUP4BP1,SUP4BP2,SUP4BP3,SUP4BP4,SUP4BP5,SUP4BP6,SUP4BP7,SUP4BP8; 
+    }
+    
+    activity SUP7 {
+        label "Documentation";
+        brief "SUP.7: The purpose of the Documentation Process is to develop and maintain the recorded information produced by a process.";
+         subactivities  
+            SUP7BP1,SUP7BP2,SUP7BP3,SUP7BP4,SUP7BP5,SUP7BP6,SUP7BP7,SUP7BP8; 
+    }
+    
+    activity SUP8 {
+        label "Configuration Management";
+        brief "SUP.8: The purpose of the Configuration Management Process is to establish and maintain the integrity of all work products of a process or project and make them available to concerned parties.";
+         subactivities  
+            SUP8BP1,SUP8BP2,SUP8BP3,SUP8BP4,SUP8BP5,SUP8BP6,SUP8BP7,SUP8BP8,SUP8BP9; 
+    }
+    
+    activity SUP9 {
+        label "Problem Resolution Management";
+        brief "SUP.9: The purpose of the Problem Resolution Management Process is to ensure that problems are identified, analyzed, managed and controlled to resolution.";
+         subactivities  
+            SUP9BP1,SUP9BP2,SUP9BP3,SUP9BP4,SUP9BP5,SUP9BP6,SUP9BP7,SUP9BP8,SUP9BP9; 
+    }
+    
+    activity SUP10 {
+        label "Change Request Management";
+        brief "SUP.10: The purpose of the Change Request Management Process is to ensure that change requests are managed, tracked and implemented.";
+         subactivities  
+            SUP10BP1,SUP10BP2,SUP10BP3,SUP10BP4,SUP10BP5,SUP10BP6,SUP10BP7,SUP10BP8; 
+    }
+       
+}

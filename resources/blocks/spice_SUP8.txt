@@ -1,8 +1,48 @@
 namespace spice {
     
     activity SUP8BP1 {
-        label "";
-        brief "";
+        label "Develop a configuration management strategy";
+        brief "SUP.8.BP1: Develop a configuration management strategy. Develop a configuration management strategy, including responsibilities and resources; tools and repositories; the identification of the configuration items and their naming conventions; access rights; the history of configuration items and baselines including required/optional baselines, naming conventions, methods for branching, merging and building baselines and procedures for their release/approval.";
+    }
+
+    activity SUP8BP2 {
+        label "Identify configuration items";
+        brief "SUP.8.BP2: Identify configuration items. Identify and document configuration items according to the configuration management strategy.";
+    }
+
+    activity SUP8BP3 {
+        label "Establish a configuration management system";
+        brief "SUP.8.BP3: Establish a configuration management system. Establish a configuration management system according to the configuration management strategy.";
+    }
+
+    activity SUP8BP4 {
+        label "Establish branch management strategy";
+        brief "SUP.8.BP4: Establish branch management strategy. Develop a branch management strategy where applicable for parallel developments that use the same base.";
+    }
+
+    activity SUP8BP5 {
+        label "Control modifications and releases";
+        brief "SUP.8.BP5: Control modifications and releases. Establish mechanisms for control of the configuration items according to the configuration management strategy, and control modifications and releases using these mechanisms.";
+    }
+
+    activity SUP8BP6 {
+        label "Establish baselines";
+        brief "SUP.8.BP6: Establish baselines. Establish baselines for internal purposes and for external delivery according to the configuration management strategy.";
+    }
+
+    activity SUP8BP7 {
+        label "Report configuration status";
+        brief "SUP.8.BP7: Report configuration status. Record and report status of configuration items to support project management and other relevant processes.";
+    }
+
+    activity SUP8BP8 {
+        label "Verify the information about configured items";
+        brief "SUP.8.BP8: Verify the information about configured items. Verify that the information about configured items, and their baselines is complete and ensure the consistency of baselines.";
+    }
+
+    activity SUP8BP9 {
+        label "Manage the storage of configuration items and baselines";
+        brief "SUP.8.BP9: Manage the storage of configuration items and baselines. Ensure the integrity and availability of configuration items and baselines through appropriate scheduling and resourcing of storage, archiving (long term storage) and backup of the used CM systems.";
     }
 
 }

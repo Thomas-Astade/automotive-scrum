@@ -1,8 +1,43 @@
 namespace spice {
     
     activity SUP4BP1 {
-        label "";
-        brief "";
+        label "Define review elements";
+        brief "SUP.4.BP1: Define review elements. Based on the needs of the project, identify the schedule, scope and participants of management and technical reviews, agree all resources required to conduct the reviews (this includes personnel, location and facilities) and establish review criteria for problem identification, resolution and agreement.";
+    }
+
+    activity SUP4BP2 {
+        label "Establish a mechanism to handle review outcomes";
+        brief "SUP.4.BP2: Establish a mechanism to handle review outcomes. Establish mechanisms to ensure that review results are made available to all affected parties that problems detected during the reviews are identified and recorded and that action items raised are recorded for action.";
+    }
+
+    activity SUP4BP3 {
+        label "Prepare joint review";
+        brief "SUP.4.BP3: Prepare joint review. Collect, plan, prepare and distribute review material as appropriate in preparation for the review.";
+    }
+
+    activity SUP4BP4 {
+        label "Conduct joint reviews";
+        brief "SUP.4.BP4: Conduct joint reviews. Conduct joint management and technical reviews as planned. Record the review results.";
+    }
+
+    activity SUP4BP5 {
+        label "Distribute the results";
+        brief "SUP.4.BP5: Distribute the results. Document and distribute the review results to all the affected parties.";
+    }
+
+    activity SUP4BP6 {
+        label "Determine actions for review results";
+        brief "SUP.4.BP6: Determine actions for review results. Analyze the review results, propose actions for resolution and determine the priority for actions.";
+    }
+
+    activity SUP4BP7 {
+        label "Track actions for review results";
+        brief "SUP.4.BP7: Track actions for review results. Track actions for resolution of identified problems in a review to closure.";
+    }
+
+    activity SUP4BP8 {
+        label "Identify and record problems";
+        brief "SUP.4.BP8: Identify and record problems. Identify and record the problems detected during the reviews according to the established mechanism.";
     }
 
 }

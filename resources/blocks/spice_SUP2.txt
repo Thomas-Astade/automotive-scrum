@@ -1,8 +1,28 @@
 namespace spice {
     
     activity SUP2BP1 {
-        label "";
-        brief "";
+        label "Develop a verification strategy";
+        brief "SUP.2.BP1: Develop a verification strategy. Develop and implement a verification strategy, including verification activities with associated methods, techniques, and tools; work product or processes under verification; degrees of independence for verification and schedule for performing these activities.";
+    }
+
+    activity SUP2BP2 {
+        label "Develop criteria for verification";
+        brief "SUP.2.BP2: Develop criteria for verification. Develop the criteria for verification of all required technical work products.";
+    }
+
+    activity SUP2BP3 {
+        label "Conduct verification";
+        brief "SUP.2.BP3: Conduct verification. Verify identified work products according to the specified strategy and to the developed criteria to confirm that the work products meet their specified requirements. The results of verification activities are recorded.";
+    }
+
+    activity SUP2BP4 {
+        label "Determine and track actions for verification results";
+        brief "SUP.2.BP4: Determine and track actions for verification results. Problems identified by the verification should be entered into the problem resolution management process (SUP.9) to describe, record, analyze, resolve, track to closure and prevent the problems.";
+    }
+
+    activity SUP2BP5 {
+        label "Report verification results";
+        brief "SUP.2.BP5: Report verification results. Verification results should be reported to all affected parties.";
     }
 
 }

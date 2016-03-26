@@ -1,8 +1,43 @@
 namespace spice {
     
     activity SUP7BP1 {
-        label "";
-        brief "";
+        label "Develop a documentation management strategy";
+        brief "SUP.7.BP1: Develop a documentation management strategy. Develop a documentation management strategy which addresses where, when and what should be documented during the life cycle of the product/service.";
+    }
+
+    activity SUP7BP2 {
+        label "Establish standards for documentation";
+        brief "SUP.7.BP2: Establish standards for documentation. Establish standards for developing, modifying and maintaining documentation.";
+    }
+
+    activity SUP7BP3 {
+        label "Specify documentation requirements";
+        brief "SUP.7.BP3: Specify documentation requirements. Specify requirements for documentation such as title, date, identifier, version history, author(s), reviewer, authorizer, outline of contents, purpose, and distribution list.";
+    }
+
+    activity SUP7BP4 {
+        label "Identify the relevant documentation to be produced";
+        brief "SUP.7.BP4: Identify the relevant documentation to be produced. For any given development life cycle, identify the documentation to be produced.";
+    }
+
+    activity SUP7BP5 {
+        label "Develop documentation";
+        brief "SUP.7.BP5: Develop documentation. Develop documentation at required process points according to established standards and policy, ensuring the content and purpose is reviewed and approved as appropriate.";
+    }
+
+    activity SUP7BP6 {
+        label "Check documentation";
+        brief "SUP.7.BP6: Check documentation. Review documentation before distribution, and authorize documentation as appropriate before distribution or release.";
+    }
+
+    activity SUP7BP7 {
+        label "Distribute documentation";
+        brief "SUP.7.BP7: Distribute documentation. Distribute documentation according to determined modes of distribution via appropriate media to all affected parties, confirming delivery of documentation, where necessary.";
+    }
+
+    activity SUP7BP8 {
+        label "Maintain documentation";
+        brief "SUP.7.BP8: Maintain documentation. Maintain documentation in accordance with the determined documentation strategy.";
     }
 
 }
