@@ -65,6 +65,7 @@ activity maintainCustomerRelation {
 activity develop {
     label "develop";
     responsible developer;
+    set mantis_issue(Assigned,null);
     subactivities
         mantis_technicalPreview,
         mantis_reportIssueSolved;

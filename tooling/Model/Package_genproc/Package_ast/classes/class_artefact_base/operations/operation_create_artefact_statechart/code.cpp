@@ -46,23 +46,26 @@ for (std::set<std::string>::iterator it = nodes.begin(); it != nodes.end(); it++
 
 for (std::vector<artefact_transition>::const_iterator it = state_changes.begin(); it != state_changes.end(); it++)
 {
-    std::string connection;
-    connection = (*it).getSource()
-        + " -> "
-        + (*it).getDestination()
-        + "["
-        +  text_standards
-        + "tooltip=\""
-        + (*it).getElement()->getBrief()
-        + "\", label=\""
-        + (*it).getElement()->breakApart((*it).getElement()->getLabel());
-        if (!(*it).getGuard().empty())
-            connection += std::string("\\n[") + (*it).getGuard() + "]";
-        connection += "\", URL=\""
-        + (*it).getElement()->getHtmlFilename()
-        + "\", fontcolor=\"#177445\", color=\"#177445 \"];";
-    
-    fputs(connection.c_str(),gfile);
+    if ((*it).getDestination() != "null")
+    {
+        std::string connection;
+        connection = (*it).getSource()
+            + " -> "
+            + (*it).getDestination()
+            + "["
+            +  text_standards
+            + "tooltip=\""
+            + (*it).getElement()->getBrief()
+            + "\", label=\""
+            + (*it).getElement()->breakApart((*it).getElement()->getLabel());
+            if (!(*it).getGuard().empty())
+                connection += std::string("\\n[") + (*it).getGuard() + "]";
+            connection += "\", URL=\""
+            + (*it).getElement()->getHtmlFilename()
+            + "\", fontcolor=\"#177445\", color=\"#177445 \"];";
+        
+        fputs(connection.c_str(),gfile);
+    }
 }
 
 
