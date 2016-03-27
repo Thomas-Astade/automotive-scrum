@@ -1,0 +1,38 @@
+namespace spice {
+    
+    activity MAN5BP1 {
+        label "Establish risk management scope";
+        brief "MAN.5.BP1: Establish risk management scope. Determine the scope of risk management to be performed for the project, in accordance with organizational risk management policies.";
+    }
+
+    activity MAN5BP2 {
+        label "Define risk management strategies";
+        brief "MAN.5.BP2: Define risk management strategies. Define appropriate strategies to identify risks, mitigate risks and set acceptability levels for each risk or set of risks, both at the project and organizational level.";
+    }
+
+    activity MAN5BP3 {
+        label "Identify risks";
+        brief "MAN.5.BP3: Identify risks. Identify risks to the project both initially within the project strategy and as they develop during the conduct of the project, continuously looking for risk factors at any occurrence of technical or managerial decisions.";
+    }
+
+    activity MAN5BP4 {
+        label "Analyze risks";
+        brief "MAN.5.BP4: Analyze risks. Analyze risks to determine the priority in which to apply resources to mitigate these risks.";
+    }
+
+    activity MAN5BP5 {
+        label "Define risk treatment actions";
+        brief "MAN.5.BP5: Define risk treatment actions. For each risk (or set of risks) define, perform and track the selected actions to keep/reduce the risks to acceptable level.";
+    }
+
+    activity MAN5BP6 {
+        label "Monitor risks";
+        brief "MAN5.BP6: Monitor risks. For each risk (or set of risks) define measures (e.g. metrics) to determine changes in the status of a risk and to evaluate the progress of the of mitigation activities. Apply and assess these risk measures.";
+    }
+
+    activity MAN5BP7 {
+        label "Take corrective action";
+        brief "MAN.5.BP7: Take corrective action. When expected progress in risk mitigation is not achieved, take appropriate corrective action to reduce or avoid the impact of risk.";
+    }
+
+}

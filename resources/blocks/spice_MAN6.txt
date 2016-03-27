@@ -1,0 +1,58 @@
+namespace spice {
+    
+    activity MAN6BP1 {
+        label "Establish organizational commitment for measurement";
+        brief "MAN.6.BP1: Establish organizational commitment for measurement. A commitment of management and staff to measurement is established and communicated to the organizational unit.";
+    }
+
+    activity MAN6BP2 {
+        label "Develop measurement strategy";
+        brief "MAN.6.BP2: Develop measurement strategy. Define an appropriate measurement strategy to identify, perform and evaluate measurement activities and results, based on organizational and project needs.";
+    }
+
+    activity MAN6BP3 {
+        label "Identify measurement information needs";
+        brief "MAN.6.BP3: Identify measurement information needs. Identify the measurement information needs of organizational and management processes.";
+    }
+
+    activity MAN6BP4 {
+        label "Specify measures";
+        brief "MAN.6.BP4: Specify measures. Identify and develop an appropriate set of measures based on measurement information needs.";
+    }
+
+    activity MAN6BP5 {
+        label "Perform measurement activities";
+        brief "MAN.6.BP5: Perform measurement activities. Identify and perform measurements activities.";
+    }
+
+    activity MAN6BP6 {
+        label "Retrieve measurement data";
+        brief "MAN.6.BP6: Retrieve measurement data. Collect and store data of both base and derived measures, including any context information necessary to verify, understand, or evaluate the data.";
+    }
+
+    activity MAN6BP7 {
+        label "Analyze measures";
+        brief "MAN.6.BP7: Analyze measures. Analyze and interpret measurement data and develop information products.";
+    }
+
+    activity MAN6BP8 {
+        label "Use measurement information for decision-making";
+        brief "MAN.6.BP8: Use measurement information for decision-making. Make accurate and current measurement information accessible for any decision-making processes for which it is relevant.";
+    }
+
+    activity MAN6BP9 {
+        label "Communicate measures";
+        brief "MAN.6.BP9: Communicate measures. Disseminate measurement information to all affected parties who will be using them and collect feedback to evaluate appropriateness for intended use.";
+    }
+
+    activity MAN6BP10 {
+        label "Evaluate information products and measurement activities";
+        brief "MAN.6.BP10: Evaluate information products and measurement activities. Evaluate information products and measurement activities against the identified information needs and measurement strategy. Identify potential improvements.";
+    }
+
+    activity MAN6BP11 {
+        label "Communicate potential improvements";
+        brief "MAN.6.BP11: Communicate potential improvements. Communicate to the affected people the identified potential improvements concerning the processes they are involved in.";
+    }
+
+}

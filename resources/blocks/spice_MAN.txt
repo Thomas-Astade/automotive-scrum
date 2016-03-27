@@ -1,0 +1,34 @@
+include resources/blocks/spice_MAN3.txt;
+include resources/blocks/spice_MAN5.txt;
+include resources/blocks/spice_MAN6.txt;
+
+namespace spice {
+    
+    activity MAN {
+        label "Management Process Group";
+         subactivities  
+            MAN3,MAN5,MAN6; 
+    }
+ 
+    activity MAN3 {
+        label "Project Management";
+        brief "MAN.3: The purpose of the Project Management Process is to identify, establish, and control the activities and resources necessary for a project to produce a product, in the context of the project's requirements and constraints.";
+         subactivities  
+            MAN3BP1,MAN3BP2,MAN3BP3,MAN3BP4,MAN3BP5,MAN3BP6,MAN3BP7,MAN3BP8,MAN3BP9,MAN3BP10; 
+    }
+    
+    activity MAN5 {
+        label "Risk Management";
+        brief "MAN.5: The purpose of the Risk Management Process is to identify, analyze, treat and monitor the risks continuously.";
+         subactivities  
+            MAN5BP1,MAN5BP2,MAN5BP3,MAN5BP4,MAN5BP5,MAN5BP6,MAN5BP7; 
+    }
+    
+    activity MAN6 {
+        label "Measurement";
+        brief "MAN.6: The purpose of the Measurement Process is to collect and analyze data relating to the products developed and processes implemented within the organization and its projects, to support effective management of the processes and to objectively demonstrate the quality of the products.";
+         subactivities  
+            MAN6BP1,MAN6BP2,MAN6BP3,MAN6BP4,MAN6BP5,MAN6BP6,MAN6BP7,MAN6BP8,MAN6BP9,MAN6BP10,MAN6BP11; 
+    }
+
+}

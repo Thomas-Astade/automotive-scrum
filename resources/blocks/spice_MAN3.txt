@@ -1,0 +1,53 @@
+namespace spice {
+    
+    activity MAN3BP1 {
+        label "Define the scope of work";
+        brief "MAN.3.BP1: Define the scope of work. Identify the project's goals, motivation and boundaries.";
+    }
+
+    activity MAN3BP2 {
+        label "Define project life cycle";
+        brief "MAN.3.BP2: Define project life cycle. Define the life cycle for the project, which is appropriate to the scope, context, magnitude and complexity of the project.";
+    }
+
+    activity MAN3BP3 {
+        label "Evaluate feasibility of the project";
+        brief "MAN.3.BP3: Evaluate feasibility of the project. Evaluate the feasibility of achieving the goals of the project in terms of technical feasibility within constraints with respect to time, project estimates, and available resources.";
+    }
+
+    activity MAN3BP4 {
+        label "Define, monitor and adjust project activities";
+        brief "MAN.3.BP4: Define, monitor and adjust project activities. Define, monitor and adjust project activities and their dependencies according to defined project life cycle and estimations. Adjust activities and their dependencies as required.";
+    }
+
+    activity MAN3BP5 {
+        label "Determine, monitor und adjust project estimates and resources";
+        brief "MAN.3.BP5: Determine, monitor und adjust project estimates and resources. Define, maintain, and adjust project estimates of effort and resources based on project's goals, project risks, motivation and boundaries.";
+    }
+
+    activity MAN3BP6 {
+        label "Ensure required skills, knowledge, and experience";
+        brief "MAN.3.BP6: Ensure required skills, knowledge, and experience. Identify the required skills, knowledge, and experience for the project and make sure the selected individuals and teams either have or acquire these in time.";
+    }
+
+    activity MAN3BP7 {
+        label "Identify, monitor and adjust project interfaces and agreed commitments";
+        brief "MAN.3.BP7: Identify, monitor and adjust project interfaces and agreed commitments. Identify and agree interfaces of the project with other (sub-) projects, organizational units and other affected stakeholders and monitor agreed commitments.";
+    }
+
+    activity MAN3BP8 {
+        label "Define, monitor and adjust project schedule";
+        brief "MAN.3.BP8: Define, monitor and adjust project schedule. Allocate resources to activities, and schedule each activity of the whole project. The schedule has to be kept continuously updated during lifetime of the project.";
+    }
+
+    activity MAN3BP9 {
+        label "Ensure consistency";
+        brief "MAN.3.BP9: Ensure consistency. Ensure that estimates, activities, schedules, plans, interfaces, and commitments for the project are consistent across affected parties.";
+    }
+
+    activity MAN3BP10 {
+        label "Review and report progress of the project";
+        brief "MAN.3.BP10: Review and report progress of the project. Regularly review and report the status of the project and the fulfillment of activities against estimated effort and duration to all affected parties. Prevent recurrence of problems identified.";
+    }
+
+}
