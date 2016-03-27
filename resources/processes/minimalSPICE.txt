@@ -20,11 +20,19 @@ role projectManager {
     text md/project_manager.md;
 }
 
+role processManager {
+    label "process manager";
+    brief "The process manager is responsible to write down, version and visualize the process.";
+    text md/project_manager.md;
+}
+
 process process {
     label "minimal SPICE";    
     responsible projectManager;
     repository git;
-    subactivities projectManagement;
+    subactivities
+        projectManagement,
+        processDescription;
     text  md/minimalSPICE/process.md;
 }
 
@@ -64,6 +72,14 @@ activity projectManagement {
         spice_MAN3BP7,
         riskManagement,
         projectPlanning;
+}
+
+activity processDescription {
+    label "Process description";
+    brief "this activity describes the need of a detailed, revisioned and reviewed process description.";
+    responsible processManager;
+    subactivities
+        spice_SUP10BP1;
 }
 
 activity riskManagement {
