@@ -2,7 +2,7 @@
 std::string h;
 
 for (std::vector<std::string>::iterator it = current_namespace.begin(); it != current_namespace.end(); it++)
-    h += (*it) + "-";
+    h += (*it) + "_";
 
 h += identifier;
 
