@@ -44,7 +44,7 @@ namespace spice {
         label "System Qualification Test";
         brief "SYS.5: The purpose of the System Qualification Test Process is to ensure that the integrated system is tested to provide evidence for compliance with the system requirements and that the system is ready for delivery.";
          subactivities  
-            SYS5BP1,SYS5BP2,SYS5BP3,SYS5BP4,SYS5BP5; 
+            SYS5BP1,SYS5BP2,SYS5BP3,SYS5BP4,SYS5BP5,SYS5BP6,SYS5BP7; 
     }
     
  

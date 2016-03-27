@@ -1,5 +1,6 @@
 include resources/blocks/overview.txt;
 include resources/processes/minimalMantis.txt;
+include resources/processes/minimalSPICE.txt;
 
 artefact pingPong {
     label "ping pong";
@@ -56,7 +57,7 @@ page impressum {
 
 page processes {
     label "Processes";
-    subpages demo,minimalMantis_minimalMantis;
+    subpages demo,minimalMantis_minimalMantis,minimalSPICE_process;
     text md/processes.md;
 }
 
@@ -157,7 +158,7 @@ artefact delivery {
 
 repository git {
     label "git";
-    contains requirementsFolder;
+    contains requirementsFolder, delivery;
 }
 
 repository mantis {

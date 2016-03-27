@@ -1,0 +1,31 @@
+namespace minimalSPICE {
+
+include resources/blocks/spice_SWE1.txt;
+include resources/blocks/spice_SWE2.txt;
+include resources/blocks/spice_SWE3.txt;
+include resources/blocks/spice_SWE4.txt;
+include resources/blocks/spice_SWE5.txt;
+
+include resources/blocks/spice_SUP7.txt;
+include resources/blocks/spice_SUP8.txt;
+include resources/blocks/spice_SUP9.txt;
+include resources/blocks/spice_SUP10.txt;
+
+include resources/blocks/spice_MAN3.txt;
+include resources/blocks/spice_MAN5.txt;
+
+role projectManager {
+    label "project manager";
+    brief "the process manager is the overall responsible for a project";
+    text md/project_manager.md;
+}
+
+process process {
+    label "minimal SPICE";    
+    responsible projectManager;
+    subactivities spice_SWE1BP1;
+
+    text  md/minimalSPICE/process.md;
+}
+
+}
