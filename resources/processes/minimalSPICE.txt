@@ -53,6 +53,7 @@ artefact scopeOfWorkDefinition {
 activity projectManagement {
     label "Project management";
     brief "All the administrative work, which has to be done.";
+    create projectPlan;
     subactivities spice_MAN3BP1;
 }
 
