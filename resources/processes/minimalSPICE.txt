@@ -16,16 +16,48 @@ include resources/blocks/spice_MAN5.txt;
 
 role projectManager {
     label "project manager";
-    brief "the process manager is the overall responsible for a project";
+    brief "The process manager is the overall responsible for a project";
     text md/project_manager.md;
 }
 
 process process {
     label "minimal SPICE";    
     responsible projectManager;
-    subactivities spice_SWE1BP1;
-
+    repository git;
+    subactivities projectManagement;
     text  md/minimalSPICE/process.md;
+}
+
+repository git {
+    label "git";
+    contains projectManagementFolder;
+}
+
+folder projectManagementFolder {
+    label "Project management";
+    brief "Contains project management specific files.";
+    contains projectPlan;
+}
+
+artefact projectPlan {
+    label "Project plan";
+    brief "The project plan contains all general information about the project.";
+    contains scopeOfWorkDefinition;
+}
+
+artefact scopeOfWorkDefinition {
+    label "scope of work definition";
+    brief "the scope of the work for the project is defined.";
+}
+
+activity projectManagement {
+    label "Project management";
+    brief "All the administrative work, which has to be done.";
+    subactivities spice_MAN3BP1;
+}
+
+extend activity spice_MAN3BP1 {
+    create minimalSPICE_scopeOfWorkDefinition;
 }
 
 }
