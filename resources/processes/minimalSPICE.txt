@@ -54,7 +54,36 @@ activity projectManagement {
     label "Project management";
     brief "All the administrative work, which has to be done.";
     create projectPlan;
-    subactivities spice_MAN3BP1;
+    subactivities
+        spice_MAN3BP1,
+        spice_MAN3BP2,
+        spice_MAN3BP3,
+        spice_MAN3BP4,
+        spice_MAN3BP5,
+        spice_MAN3BP6,
+        spice_MAN3BP7,
+        riskManagement,
+        projectPlanning;
+}
+
+activity riskManagement {
+    label "Risk management";
+    subactivities
+        spice_MAN5BP1,
+        spice_MAN5BP2,
+        spice_MAN5BP3,
+        spice_MAN5BP4,
+        spice_MAN5BP5,
+        spice_MAN5BP6,
+        spice_MAN5BP7;
+}
+
+activity projectPlanning {
+    label "Project planning";
+    subactivities
+        spice_MAN3BP8,
+        spice_MAN3BP9,
+        spice_MAN3BP10;
 }
 
 extend activity spice_MAN3BP1 {
