@@ -1,6 +1,7 @@
 //~~ void create_activity_breakdown(std::ofstream& outfile, const std::string& outpath) [graphics_creator] ~~
 const I_element* e = dynamic_cast<const I_element*>(this);
 const parent_owner* p = dynamic_cast<const parent_owner*>(this);
+const subpage_owner* s = dynamic_cast<const subpage_owner*>(this);
 
 FILE *gfile;
 std::string linkname = e->getFullIdentifier() + "_activity_breakdown";
@@ -16,7 +17,12 @@ if(!(gfile = popen(command.c_str(), "w")))
 fputs("digraph activity_breakdown {\n", gfile);
 fputs("rankdir=\"LR\";\n", gfile);
 
-if (p)
+int i = 3;
+
+if ((s==0) || (!s->hasSubpages()))
+    i=4;
+
+while (p && (i-- > 0))
 {
     const graphics_creator* g = dynamic_cast<const graphics_creator*>(p->getParent());
     if (g)
@@ -24,6 +30,10 @@ if (p)
         g->insert_child_nodes(gfile);
         fputs(p->getParent()->get_graph_node(false).c_str(),gfile);
     }
+    else 
+        i = 0;
+
+    p = dynamic_cast<const parent_owner*>(p->getParent());
 }
 
 fputs(e->get_graph_node(true).c_str(),gfile);
