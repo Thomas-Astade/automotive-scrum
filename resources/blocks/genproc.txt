@@ -1,2 +1,9 @@
 namespace genproc {
+  activity processDescription {
+      label "Process description";
+      brief "this activity describes the need of a detailed, revisioned and reviewed process description.";
+      responsible $0;
+      subactivities
+          spice_SUP10BP1;
+  }
 }
