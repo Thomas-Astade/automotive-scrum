@@ -1,12 +1,12 @@
 //~~ std::string getFullPath(unsigned int level = 0xffff) [I_element] ~~
 if (level > getNamespaceLevel())
     level = getNamespaceLevel();
-    
+
 std::string ret;
 
-for (int i = getNamespaceLevel()-1; level > 0; i--, level--)
+for (unsigned int i = 0; i < level; i++)
 {
-    ret = m_namespace[i] + "_" + ret;
+    ret += m_namespace[i] + "_";
 }
 
 return ret;

@@ -4,9 +4,9 @@ if (level > current_namespace.size())
     
 std::string ret;
 
-for (int i = current_namespace.size()-1; level > 0; i--, level--)
+for (unsigned int i = 0; i < level; i++)
 {
-    ret = current_namespace[i] + "_" + ret;
+    ret += current_namespace[i] + "_";
 }
 
 return ret;
