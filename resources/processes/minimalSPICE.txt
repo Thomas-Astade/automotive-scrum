@@ -14,15 +14,19 @@ include resources/blocks/spice_SUP10.txt;
 include resources/blocks/spice_MAN3.txt;
 include resources/blocks/spice_MAN5.txt;
 
-role projectManager {
-    label "project manager";
-    brief "The process manager is the overall responsible for a project";
-    text md/project_manager.md;
-}
-
 role processManager {
     label "process manager";
     brief "The process manager is responsible to write down, version and visualize the process.";
+    text md/project_manager.md;
+}
+
+include resources/blocks/genproc.txt(
+    processManager
+);
+
+role projectManager {
+    label "project manager";
+    brief "The process manager is the overall responsible for a project";
     text md/project_manager.md;
 }
 
@@ -32,7 +36,7 @@ process process {
     repository git;
     subactivities
         projectManagement,
-        processDescription;
+        genproc_processDescription;
     text  md/minimalSPICE/process.md;
 }
 
@@ -72,14 +76,6 @@ activity projectManagement {
         spice_MAN3BP7,
         riskManagement,
         projectPlanning;
-}
-
-activity processDescription {
-    label "Process description";
-    brief "this activity describes the need of a detailed, revisioned and reviewed process description.";
-    responsible processManager;
-    subactivities
-        spice_SUP10BP1;
 }
 
 activity riskManagement {
