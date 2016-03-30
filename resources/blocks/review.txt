@@ -6,7 +6,6 @@ artefact topic {
 artefact comment {
     label "comment";
     brief "Can ether be a finding or only the notification, that there are no findings.";
-    responsible $2; 
 }
 
 activity schedule {
@@ -17,6 +16,7 @@ activity schedule {
 
 activity addComment {
     label "add comment";
+    responsible $2; 
     transform $1;
     create comment;
     set topic(new,null);
