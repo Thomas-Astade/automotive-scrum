@@ -45,8 +45,14 @@ process process {
     subactivities
         projectManagement,
         genproc_processDescription,
-        continiousIntegration;
+        continiousIntegration,
+        common;
     text  md/minimalSPICE/process.md;
+}
+
+activity common {
+    brief "Some general work, to be done by every team member.";
+    contains lifecycle_comment;
 }
 
 repository jenkins {
