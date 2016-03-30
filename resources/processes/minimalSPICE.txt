@@ -66,7 +66,7 @@ repository git {
 folder projectManagementFolder {
     label "Project management";
     brief "Contains project management specific files.";
-    contains projectPlan;
+    contains spice_projectPlan;
 }
 
 folder processManagementFolder {
