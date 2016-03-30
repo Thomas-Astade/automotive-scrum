@@ -70,6 +70,7 @@ repository forum {
 
 folder projectReviews {
     label "project specific reviews";
+    contains lifecycle_topic;
 }
 
 folder projectManagementFolder {
@@ -106,6 +107,10 @@ artefact projectLifeCycleDefinition {
 
 extend activity spice_MAN3BP2 {
     create minimalSPICE_projectLifeCycleDefinition;
+}
+
+namespace lifecycle {
+    include  resources/blocks/review.txt(minimalSPICE_projectManager,minimalSPICE_projectLifeCycleDefinition);
 }
 
 activity continiousIntegration {
