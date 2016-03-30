@@ -109,9 +109,6 @@ artefact scopeOfWorkDefinition {
 
 extend activity spice_MAN3BP1 {
     create minimalSPICE_scopeOfWorkDefinition;
-    subactivities
-        lifecycle_schedule,
-        lifecycle_close;
 }
 
 artefact projectLifeCycleDefinition {
@@ -121,6 +118,9 @@ artefact projectLifeCycleDefinition {
 
 extend activity spice_MAN3BP2 {
     create minimalSPICE_projectLifeCycleDefinition;
+    subactivities
+        lifecycle_schedule,
+        lifecycle_close;
 }
 
 namespace lifecycle {
