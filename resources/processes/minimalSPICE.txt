@@ -14,15 +14,20 @@ include resources/blocks/spice_SUP10.txt;
 include resources/blocks/spice_MAN3.txt;
 include resources/blocks/spice_MAN5.txt;
 
+include resources/blocks/genproc.txt(
+    processManager,
+    jenkins
+);
+
 role processManager {
     label "process manager";
     brief "The process manager is responsible to write down, version and visualize the process.";
     text md/project_manager.md;
 }
 
-include resources/blocks/genproc.txt(
-    processManager
-);
+role jenkins {
+    label "Jenkins";
+}
 
 role projectManager {
     label "project manager";
@@ -36,7 +41,8 @@ process process {
     repository git;
     subactivities
         projectManagement,
-        genproc_processDescription;
+        genproc_processDescription,
+        continiousIntegration;
     text  md/minimalSPICE/process.md;
 }
 
@@ -68,6 +74,13 @@ artefact projectPlan {
 artefact scopeOfWorkDefinition {
     label "scope of work definition";
     brief "the scope of the work for the project is defined.";
+}
+
+activity continiousIntegration {
+    label "continious integration";
+     responsible jenkins;
+     subactivities
+        genproc_createprocessView;
 }
 
 activity projectManagement {
