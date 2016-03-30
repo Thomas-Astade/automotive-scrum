@@ -1,0 +1,9 @@
+namespace spice {
+
+    artefact changeManagementPlan {
+        label "Change management plan";
+        brief "08-28 Change management plan";
+        text md/spice/ChangeManagementPlan.md;
+    }
+
+}
