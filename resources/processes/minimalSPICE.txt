@@ -57,7 +57,7 @@ process process {
 
 activity common {
     brief "Some general work, to be done by every team member.";
-    contains lifecycle_comment;
+    subactivities lifecycle_comment;
 }
 
 repository jenkins {
