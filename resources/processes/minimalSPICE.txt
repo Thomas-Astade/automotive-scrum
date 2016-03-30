@@ -16,7 +16,7 @@ include resources/blocks/spice_MAN5.txt;
 
 include resources/blocks/genproc.txt(
     processManager,
-    jenkins
+    jenkinsRole
 );
 
 role processManager {
@@ -25,7 +25,7 @@ role processManager {
     text md/project_manager.md;
 }
 
-role jenkins {
+role jenkinsRole {
     label "Jenkins";
 }
 
@@ -38,12 +38,19 @@ role projectManager {
 process process {
     label "minimal SPICE";    
     responsible projectManager;
-    repository git;
+    repository git,jenkins;
     subactivities
         projectManagement,
         genproc_processDescription,
         continiousIntegration;
     text  md/minimalSPICE/process.md;
+}
+
+repository jenkins {
+    label "Jenkins";
+    brief "Jenkins, as a buils server, archives the build artefacts.";
+    contains
+        genproc_processView;
 }
 
 repository git {
