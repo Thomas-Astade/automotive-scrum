@@ -92,8 +92,7 @@ extend artefact spice_projectPlan {
 
 artefact scopeOfWorkDefinition {
     label "scope of work definition";
-    brief "
-    The scope of the work for the project is defined.";
+    brief "The scope of the work for the project is defined.";
 }
 
 extend activity spice_MAN3BP1 {
