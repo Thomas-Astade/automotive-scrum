@@ -38,6 +38,11 @@ role projectManager {
     text md/project_manager.md;
 }
 
+role productManager {
+    label "product manager";
+    brief "The responsible to represent the customer inside the project.";
+}
+
 process process {
     label "minimal SPICE";    
     responsible projectManager;
@@ -116,7 +121,10 @@ extend activity spice_MAN3BP2 {
 }
 
 namespace lifecycle {
-    include  resources/blocks/review.txt(minimalSPICE_projectManager,minimalSPICE_projectLifeCycleDefinition);
+    include  resources/blocks/review.txt(
+        minimalSPICE_projectManager,
+        minimalSPICE_projectLifeCycleDefinition,
+        minimalSPICE_productManager);
 }
 
 activity continiousIntegration {
