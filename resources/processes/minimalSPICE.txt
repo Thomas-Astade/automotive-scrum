@@ -75,9 +75,7 @@ folder processManagementFolder {
     contains genproc_processSources;
 }
 
-artefact projectPlan {
-    label "Project plan";
-    brief "The project plan contains all general information about the project.";
+extend artefact projectPlan {
     contains scopeOfWorkDefinition;
 }
 
