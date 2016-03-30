@@ -76,12 +76,28 @@ folder processManagementFolder {
 }
 
 extend artefact spice_projectPlan {
-    contains scopeOfWorkDefinition;
+    contains 
+        scopeOfWorkDefinition,
+        projectLifeCycleDefinition;
 }
 
 artefact scopeOfWorkDefinition {
     label "scope of work definition";
-    brief "the scope of the work for the project is defined.";
+    brief "
+    The scope of the work for the project is defined.";
+}
+
+extend activity spice_MAN3BP1 {
+    create minimalSPICE_scopeOfWorkDefinition;
+}
+
+artefact projectLifeCycleDefinition {
+    label "project life cycle definition";
+    brief "Define the life cycle for the project, which is appropriate to the scope, context, magnitude and complexity of the project.";
+}
+
+extend activity spice_MAN3BP2 {
+    create minimalSPICE_projectLifeCycleDefinition;
 }
 
 activity continiousIntegration {
@@ -126,10 +142,6 @@ activity projectPlanning {
         spice_MAN3BP8,
         spice_MAN3BP9,
         spice_MAN3BP10;
-}
-
-extend activity spice_MAN3BP1 {
-    create minimalSPICE_scopeOfWorkDefinition;
 }
 
 }
