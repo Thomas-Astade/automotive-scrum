@@ -147,15 +147,22 @@ activity projectManagement {
     transform genproc_processView;
     create spice_projectPlan;
     subactivities
-        spice_MAN3BP1,
-        spice_MAN3BP2,
-        spice_MAN3BP3,
+        projectSetup,
         spice_MAN3BP4,
         spice_MAN3BP5,
         spice_MAN3BP6,
         spice_MAN3BP7,
         riskManagement,
         projectPlanning;
+}
+
+activity projectSetup {
+    label "Project setup";
+    brief "all activities to setup the process (the startup activities).";
+    subactivities
+        spice_MAN3BP1,
+        spice_MAN3BP2,
+        spice_MAN3BP3;
 }
 
 activity riskManagement {
