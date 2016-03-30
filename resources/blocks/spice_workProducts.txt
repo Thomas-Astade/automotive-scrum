@@ -6,4 +6,10 @@ namespace spice {
         text md/spice/ChangeManagementPlan.md;
     }
 
+    artefact projectPlan {
+        label "Project plan";
+        brief "08-12 Project plan";
+        text md/spice/ProjectPlan.md;
+    }
+    
 }
