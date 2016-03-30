@@ -11,18 +11,18 @@ artefact comment {
 activity schedule {
     label "schedule review";
     responsible $0; 
-    set topic[null,new];
+    set topic(null,new);
 }
 
 activity addComment {
     label "add comment";
     transform $1;
     create comment;
-    set topic[new,null];
+    set topic(new,null);
 }
 
 activity close {
     label "close reviev";
     responsible $0; 
-    set topic[new,closed];
+    set topic(new,closed);
 }
