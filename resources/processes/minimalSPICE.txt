@@ -41,7 +41,7 @@ role projectManager {
 process process {
     label "minimal SPICE";    
     responsible projectManager;
-    repository git,jenkins;
+    repository git,jenkins,forum;
     subactivities
         projectManagement,
         genproc_processDescription,
@@ -61,6 +61,15 @@ repository git {
     contains 
         projectManagementFolder,
         processManagementFolder;
+}
+
+repository forum {
+    brief "Just a standard forum software running on a server.";
+    contains projectReviews;
+}
+
+folder projectReviews {
+    label "project specific reviews";
 }
 
 folder projectManagementFolder {
