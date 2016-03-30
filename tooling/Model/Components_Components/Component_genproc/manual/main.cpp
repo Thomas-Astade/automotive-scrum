@@ -35,9 +35,8 @@ namespace ascii = boost::spirit::ascii;
 /* This structure is used by main to communicate with parse_opt. */
 struct Arguments
 {
-    Arguments(): verbose(false), beautify(false) {}
+    Arguments(): verbose(false) {}
     bool verbose;
-    bool beautify;
     std::vector<std::string> file_names;
 };
 
@@ -599,9 +598,9 @@ bool load(const std::string& filename)
 
 void handleLoad(const boost::spirit::unused_type& name, const boost::spirit::unused_type& it, bool& pass)
 {
-    ast::parameters::activateParameters();
+    ast::parameters::activateParameters(arguments.verbose);
     pass = load(loadFileName);
-    ast::parameters::deactivateParameters();
+    ast::parameters::deactivateParameters(arguments.verbose);
 }
 
 const char *argp_program_version =
@@ -613,7 +612,6 @@ const char *argp_program_bug_address =
 static struct argp_option options[] =
 {
   {"verbose", 'v', 0,            0, "verbose info aboout parsing."},
-  {"beautify",'b', 0,            0, "output the parsed text in a beautified form."},
   {"input"   ,'i', "file",       0, "the input file (May be set multiple times)."},
   {0}
 };
@@ -624,9 +622,6 @@ static error_t parse_opt (int key, char *arg, struct argp_state *state)
 
     switch (key)
     {
-    case 'b':
-        arguments->beautify = true;
-        break;
     case 'v':
         arguments->verbose = true;
         break;
@@ -679,26 +674,16 @@ int main (int argc, char **argv)
         }
     }
 
-    if (arguments.beautify)
-    {
-        for (std::vector<ast::root_element>::iterator it = ast_data.begin(); it != ast_data.end(); it++)
-        {
-            (*it).dump();
-        }
+    try {
+        ast::I_element::init_link_all();
+        ast::I_element::generate_all("/srv/automotive-scrum");
     }
-    else
+    catch(std::string e)
     {
-        try {
-            ast::I_element::init_link_all();
-            ast::I_element::generate_all("/srv/automotive-scrum");
-        }
-        catch(std::string e)
-        {
-            std::cerr   << "logical error: "
-                        << e
-                        << std::endl;
-            return -1;
-        }
+        std::cerr   << "logical error: "
+                    << e
+                    << std::endl;
+        return -1;
     }
 
     return 0;

@@ -1,8 +1,11 @@
-//~~ void deactivateParameters() [parameters] ~~
+//~~ void deactivateParameters(bool dump) [parameters] ~~
 currentParameters.clear();
 
 if (!callStack.empty())
-{
+     callStack.pop_back();
+
+if (!callStack.empty())
     currentParameters = callStack.back();
-    callStack.pop_back();
-}
+
+if (dump)
+    dump_parameters("end:   ");
