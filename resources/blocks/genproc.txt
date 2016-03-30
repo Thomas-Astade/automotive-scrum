@@ -12,6 +12,7 @@ namespace genproc {
     artefact processSources {
         label "Process sources";
         brief "A definition of all process steps in a special DSL.";
+        contains spice_changeManagementPlan;
     }
   
 }
