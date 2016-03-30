@@ -14,6 +14,8 @@ include resources/blocks/spice_SUP10.txt;
 include resources/blocks/spice_MAN3.txt;
 include resources/blocks/spice_MAN5.txt;
 
+include resources/blocks/spice_workProducts.txt;
+
 include resources/blocks/genproc.txt(
     processManager,
     jenkinsRole
