@@ -3,7 +3,14 @@ namespace spice {
     activity SUP10BP1 {
         label "Develop a change request management strategy";
         brief "SUP.10.BP1: Develop a change request management strategy. Develop a change request management strategy, including change request activities, a status model for the change requests, analysis criteria, and responsibilities for performing these activities. Interfaces to affected parties are defined and maintained.";
+        create changeManagementPlan;
     }
+
+artefact changeManagementPlan {
+    label "Change management plan";
+    brief "08-28 Change management plan";
+    text md/spice/ChangeManagementPlan.md;
+}
 
     activity SUP10BP2 {
         label "Identify and record the change requests";
