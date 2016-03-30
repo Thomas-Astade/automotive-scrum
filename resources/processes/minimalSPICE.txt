@@ -51,6 +51,12 @@ folder projectManagementFolder {
     contains projectPlan;
 }
 
+folder processManagementFolder {
+    label "Process management";
+    brief "Contains process management specific files.";
+    contains genproc_processSources;
+}
+
 artefact projectPlan {
     label "Project plan";
     brief "The project plan contains all general information about the project.";
