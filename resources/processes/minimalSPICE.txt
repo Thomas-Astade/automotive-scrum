@@ -130,6 +130,10 @@ namespace lifecycle {
         minimalSPICE_productManager);
 }
 
+extend artefact lifecycle_topic {
+    label "project life cycle definition review";
+}
+
 activity continiousIntegration {
     label "continious integration";
      responsible jenkins;
