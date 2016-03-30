@@ -6,12 +6,6 @@ namespace spice {
         create changeManagementPlan;
     }
 
-artefact changeManagementPlan {
-    label "Change management plan";
-    brief "08-28 Change management plan";
-    text md/spice/ChangeManagementPlan.md;
-}
-
     activity SUP10BP2 {
         label "Identify and record the change requests";
         brief "SUP.10.BP2: Identify and record the change requests. Each change request is uniquely identified, described, and recorded according to the strategy, including the initiator and reason of the change request.";
