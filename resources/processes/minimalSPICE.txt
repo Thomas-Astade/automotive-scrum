@@ -42,7 +42,9 @@ process process {
 
 repository git {
     label "git";
-    contains projectManagementFolder;
+    contains 
+        projectManagementFolder,
+        processManagementFolder;
 }
 
 folder projectManagementFolder {
