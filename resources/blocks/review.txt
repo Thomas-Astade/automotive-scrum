@@ -1,0 +1,28 @@
+artefact topic {
+    label "review topic";
+    contains comment;
+}
+
+artefact comment {
+    label "comment";
+    brief "Can ether be a finding or only the notification, that there are no findings.";
+}
+
+activity schedule {
+    label "schedule review";
+    responsible $0; 
+    set topic[null,new];
+}
+
+activity addComment {
+    label "add comment";
+    transform $1;
+    create comment;
+    set topic[new,null];
+}
+
+activity close {
+    label "close reviev";
+    responsible $0; 
+    set topic[new,closed];
+}
