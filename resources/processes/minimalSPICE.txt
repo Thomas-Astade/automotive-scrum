@@ -57,6 +57,7 @@ process process {
 }
 
 activity customerCommunication {
+    label "customer communication";
     brief "This activity summorizes all neccessary communacation and agreement with the customer.";
     responsible productManager;
     subactivities lifecycle_addComment;
