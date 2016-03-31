@@ -46,7 +46,7 @@ if((*it).getElement())
         fputs(node.c_str(),gfile);
     }
 
-    if ((*it).getDestination()!="null")
+    if (((*it).getDestination()!="null") && ((*it).getSource() != (*it).getDestination()))
     {
         connection = getFullIdentifier()
             + " -> "
