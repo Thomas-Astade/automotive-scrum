@@ -20,7 +20,7 @@ activity addComment {
     responsible $2; 
     transform $1;
     create comment;
-    set topic(started,started);
+    set topic(started,null);
 }
 
 activity close {
