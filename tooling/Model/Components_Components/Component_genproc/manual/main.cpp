@@ -474,7 +474,9 @@ struct process_description
                         > SC;
         
         filename        = +qi::char_("a-zA-Z_/.0-9");
-        space           = *(qi::lit(' ') | qi::lit('\n') | qi::lit('\t'));
+        space           = *(qi::lit(' ') | qi::lit('\n') | qi::lit('\t') |
+                            (qi::lit("//") > *qi::print >> qi::lit('\n'))
+                           );
 
         artefactExtend.name("the requested artefact is not found.");
         activityExtend.name("the requested activity is not found.");
