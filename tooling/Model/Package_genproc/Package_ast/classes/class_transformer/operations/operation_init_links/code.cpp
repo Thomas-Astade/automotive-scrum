@@ -68,3 +68,15 @@ for (std::vector<transition>::iterator it = m_transitions.begin(); it != m_trans
         }
     }
 }
+
+for (std::vector<artefact_base*>::iterator it_create = m_create.begin(); it_create != m_create.end(); it_create++)
+{
+    for (std::vector<transition>::iterator it = m_transitions.begin(); it != m_transitions.end(); it++)
+    if ((*it).getElement())
+    {
+        (*it_create)->add_needed((*it).getElement());
+        dynamic_cast<artefact_base*>((*it).getElement())->add_dependency(dynamic_cast<const I_element*>(*it_create));
+    }
+}
+
+
