@@ -41,6 +41,7 @@ role projectManager {
 role productManager {
     label "product manager";
     brief "The responsible to represent the customer inside the project.";
+    text md/minimalSPICE/productManager.md;
 }
 
 process process {
@@ -51,13 +52,15 @@ process process {
         projectManagement,
         genproc_processDescription,
         continiousIntegration,
-        common;
+        customerCommunication;
     text  md/minimalSPICE/process.md;
 }
 
-activity common {
-    brief "Some general work, to be done by every team member.";
+activity customerCommunication {
+    brief "This activity summorizes all neccessary communacation and agreement with the customer.";
+    responsible productManager;
     subactivities lifecycle_addComment;
+    text md/minimalSPICE/productManager.md;
 }
 
 repository jenkins {
