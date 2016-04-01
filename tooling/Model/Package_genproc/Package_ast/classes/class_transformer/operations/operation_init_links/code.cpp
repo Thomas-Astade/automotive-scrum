@@ -85,7 +85,7 @@ for (std::vector<artefact_base*>::iterator it_trans = m_transform.begin(); it_tr
     for (std::vector<transition>::iterator it = m_transitions.begin(); it != m_transitions.end(); it++)
     if ((*it).getElement())
     {
-        dynamic_cast<artefact_base*>((*it).getElement())->>add_needed(dynamic_cast<const I_element*>(*it_trans));
+        dynamic_cast<artefact_base*>((*it).getElement())->add_needed(dynamic_cast<const I_element*>(*it_trans));
         (*it_trans)->add_dependency((*it).getElement());
 
     }
