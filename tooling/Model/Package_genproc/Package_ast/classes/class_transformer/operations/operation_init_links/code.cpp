@@ -80,3 +80,14 @@ for (std::vector<artefact_base*>::iterator it_create = m_create.begin(); it_crea
 }
 
 
+for (std::vector<artefact_base*>::iterator it_trans = m_transform.begin(); it_trans != m_transform.end(); it_trans++)
+{
+    for (std::vector<transition>::iterator it = m_transitions.begin(); it != m_transitions.end(); it++)
+    if ((*it).getElement())
+    {
+        dynamic_cast<artefact_base*>((*it).getElement())->>add_needed(dynamic_cast<const I_element*>(*it_trans));
+        (*it_trans)->add_dependency((*it).getElement());
+
+    }
+}
+
