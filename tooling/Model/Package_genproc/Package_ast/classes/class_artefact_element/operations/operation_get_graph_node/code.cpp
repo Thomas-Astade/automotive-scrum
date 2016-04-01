@@ -1,4 +1,7 @@
 //~~ std::string get_graph_node(bool isSelected) [artefact_element] ~~
+if (!state_changes.empty())
+    return get_graph_node(isSelected,"");
+
 std::string ret;
 std::string fc;
 
