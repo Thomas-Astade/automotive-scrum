@@ -11,6 +11,7 @@ artefact comment {
 activity schedule {
     label "schedule review";
     responsible $0; 
+    tool forumTool;
     transform $1;
     set topic(null,started);
 }
@@ -18,6 +19,7 @@ activity schedule {
 activity addComment {
     label "add comment";
     responsible $2; 
+    tool forumTool;
     transform $1;
     create comment;
     set topic(started,started);
@@ -26,5 +28,6 @@ activity addComment {
 activity close {
     label "close reviev";
     responsible $0; 
+    tool forumTool;
     set topic(started,closed);
 }

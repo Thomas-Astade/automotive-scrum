@@ -78,9 +78,16 @@ repository git {
         processManagementFolder;
 }
 
+tool forumTool {
+    label "Mantis";
+    text md/mantis/mantis_tool.md; 
+}
+
 repository forum {
+    label "Mantis";
     brief "Just a standard forum software running on a server.";
     contains projectReviews;
+    text md/mantis/mantis_tool.md; 
 }
 
 folder projectReviews {
