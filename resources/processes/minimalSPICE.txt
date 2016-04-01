@@ -24,7 +24,6 @@ include resources/blocks/genproc.txt(
 role processManager {
     label "process manager";
     brief "The process manager is responsible to write down, version and visualize the process.";
-    text md/project_manager.md;
 }
 
 role jenkinsRole {
@@ -53,7 +52,8 @@ process process {
         genproc_processDescription,
         continiousIntegration,
         customerCommunication;
-    text  md/minimalSPICE/process.md;
+    text md/minimalSPICE/process.md,
+         md/minimalSPICE/spice.md;
 }
 
 activity customerCommunication {
