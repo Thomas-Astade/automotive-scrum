@@ -29,5 +29,3 @@ if (t != 0)
             p->addImpliciteTool(t);
     }
 }
-
-warn_no_parent();

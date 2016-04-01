@@ -1,18 +1,18 @@
 namespace minimalSPICE {
 
-include resources/blocks/spice_SWE1.txt;
-include resources/blocks/spice_SWE2.txt;
-include resources/blocks/spice_SWE3.txt;
-include resources/blocks/spice_SWE4.txt;
-include resources/blocks/spice_SWE5.txt;
+//include resources/blocks/spice_SWE1.txt;
+//include resources/blocks/spice_SWE2.txt;
+//include resources/blocks/spice_SWE3.txt;
+//include resources/blocks/spice_SWE4.txt;
+//include resources/blocks/spice_SWE5.txt;
 
-include resources/blocks/spice_SUP7.txt;
-include resources/blocks/spice_SUP8.txt;
-include resources/blocks/spice_SUP9.txt;
+//include resources/blocks/spice_SUP7.txt;
+//include resources/blocks/spice_SUP8.txt;
+//include resources/blocks/spice_SUP9.txt;
 include resources/blocks/spice_SUP10.txt;
 
 include resources/blocks/spice_MAN3.txt;
-include resources/blocks/spice_MAN5.txt;
+//include resources/blocks/spice_MAN5.txt;
 
 include resources/blocks/spice_workProducts.txt;
 
@@ -163,7 +163,6 @@ activity projectManagement {
         spice_MAN3BP5,
         spice_MAN3BP6,
         spice_MAN3BP7,
-        riskManagement,
         projectPlanning;
 }
 
@@ -174,18 +173,6 @@ activity projectSetup {
         spice_MAN3BP1,
         spice_MAN3BP2,
         spice_MAN3BP3;
-}
-
-activity riskManagement {
-    label "Risk management";
-    subactivities
-        spice_MAN5BP1,
-        spice_MAN5BP2,
-        spice_MAN5BP3,
-        spice_MAN5BP4,
-        spice_MAN5BP5,
-        spice_MAN5BP6,
-        spice_MAN5BP7;
 }
 
 activity projectPlanning {
