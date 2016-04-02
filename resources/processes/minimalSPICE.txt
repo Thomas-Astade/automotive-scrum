@@ -14,12 +14,19 @@ include resources/blocks/spice_SUP10.txt;
 include resources/blocks/spice_MAN3.txt;
 //include resources/blocks/spice_MAN5.txt;
 
-include resources/blocks/spice_workProducts.txt;
-
 include resources/blocks/genproc.txt(
     processManager,
     jenkinsRole
 );
+
+artefact projectPlan {
+    label "Project plan";
+    brief "08-12 Project plan";
+    contains 
+        scopeOfWorkDefinition,
+        projectLifeCycleDefinition;
+    text md/spice/ProjectPlan.md;
+}
 
 role processManager {
     label "process manager";
@@ -98,19 +105,13 @@ folder projectReviews {
 folder projectManagementFolder {
     label "Project management";
     brief "Contains project management specific files.";
-    contains spice_projectPlan;
+    contains projectPlan;
 }
 
 folder processManagementFolder {
     label "Process management";
     brief "Contains process management specific files.";
     contains genproc_processSources;
-}
-
-extend artefact spice_projectPlan {
-    contains 
-        scopeOfWorkDefinition,
-        projectLifeCycleDefinition;
 }
 
 artefact scopeOfWorkDefinition {
@@ -156,13 +157,9 @@ activity projectManagement {
     label "Project management";
     brief "All the administrative work, which has to be done.";
     transform genproc_processView;
-    create spice_projectPlan;
+    create projectPlan;
     subactivities
         projectSetup,
-        spice_MAN3BP4,
-        spice_MAN3BP5,
-        spice_MAN3BP6,
-        spice_MAN3BP7,
         projectPlanning;
 }
 

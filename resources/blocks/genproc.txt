@@ -4,6 +4,16 @@ namespace genproc {
         brief "A command line tool that compiles process sources into a human readable form (a website).";
     }
 
+    artefact changeManagementPlan {
+        label "Change management plan";
+        brief "08-28 Change management plan";
+        text md/spice/ChangeManagementPlan.md;
+    }
+
+    extend activity spice_SUP10BP1 {
+        create genproc_changeManagementPlan;
+    }
+
     activity processDescription {
       label "create process description";
       brief "This activity describes the need of a detailed, revisioned and reviewed process description.";
@@ -15,7 +25,7 @@ namespace genproc {
     
     activity createprocessView {
         label "create process view";
-        brief "This activity creates a human readable process description (a website).";
+        brief "This activity creates a human readable process description (this website).";
         responsible $1;
         tool genproc;
         transform processSources; 
@@ -31,7 +41,7 @@ namespace genproc {
     artefact processSources {
         label "Process sources";
         brief "A definition of all process steps in a special DSL.";
-        contains spice_changeManagementPlan;
+        contains changeManagementPlan;
     }
   
 }
