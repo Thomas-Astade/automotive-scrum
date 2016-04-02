@@ -416,17 +416,21 @@ struct process_description
 
         parameterlist   = Ob
                         > space
-                        > ref_identifier[add_parameter]
+                        > (ref_identifier | text)[add_parameter]
                         > space
-                        > *(qi::lit(',') > space > ref_identifier)[add_parameter]
+                        > *(qi::lit(',') > space > (ref_identifier | text))[add_parameter]
                         > space
                         > Cb;
 
         parameterUse    = qi::lit('$') > qi::uint_;
 
-        label           = qi::lit("label") > space > qi::lit('"')
+        text            = qi::lit('"')
                         > *(qi::alnum | qi::char_(" ,.;:_<>|~!§$%&/()=?{[]}'-"))
-                        >  qi::lit('"')
+                        >  qi::lit('"');
+
+        label           = qi::lit("label") 
+                        > space 
+                        > text
                         > space
                         > SC;
                         
@@ -442,9 +446,9 @@ struct process_description
                         > space
                         > SC;
                         
-        brief           = qi::lit("brief") > space > qi::lit('"')
-                        > *(qi::alnum | qi::char_(" ,.;:_<>|~!§$%&/()=?{[]}'-"))
-                        >  qi::lit('"')
+        brief           = qi::lit("brief") 
+                        > space
+                        > text
                         > space
                         > SC;
                         
@@ -546,6 +550,7 @@ struct process_description
     qi::rule<Iterator, std::string()> responsibleRole;
     qi::rule<Iterator, std::string()> usedTool;
     qi::rule<Iterator, std::string()> brief;
+    qi::rule<Iterator, std::string()> text;
     qi::rule<Iterator> transitionGuard;
     qi::rule<Iterator, std::string()> transitionGuardString;
     qi::rule<Iterator> space;
