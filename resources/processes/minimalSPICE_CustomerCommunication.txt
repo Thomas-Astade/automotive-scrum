@@ -1,0 +1,13 @@
+activity customerCommunication {
+    label "customer communication";
+    brief "This activity summorizes all neccessary communacation and agreement with the customer.";
+    responsible productManager;
+    subactivities 
+        lifecycle_addComment,
+        spice_SUP10BP2;
+    text md/minimalSPICE/productManager.md;
+}
+
+extend activity spice_SUP10BP2 {
+    subactivities CR_mantis_createIssue;
+}

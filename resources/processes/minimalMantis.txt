@@ -1,11 +1,28 @@
 namespace minimalMantis {
 
-include resources/blocks/mantis.txt;
+include resources/blocks/mantis.txt(mantisTool);
 
+tool mantisTool {
+    label "Mantis";
+    text md/mantis/mantis_tool.md,
+        md/mantis/guidelines.md; 
+}
+
+repository mantisRepository {
+    label "Mantis database";
+    contains issues;
+    text md/mantis/mantis_tool.md; 
+}
+
+folder issues {
+    label "issues";
+    contains mantis_issue;
+}
+        
 process minimalMantis {
     label "minimal Mantis";    
     responsible projectManager;
-    repository mantis_repository;
+    repository mantisRepository;
     subactivities maintainCustomerRelation,
         develop,
         teamLeading,
@@ -56,10 +73,9 @@ activity maintainCustomerRelation {
     brief "Get in contact with the customer(s) and fetch their requirements and bug reports";
     responsible productManager;
     subactivities  
-        mantis_createBugReport, 
+        mantis_createIssue, 
         mantis_getFeedback,
-        mantis_effortReview,
-        mantis_createFeatureRequest;
+        mantis_effortReview;
 }
 
 activity develop {

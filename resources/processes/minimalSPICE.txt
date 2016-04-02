@@ -19,8 +19,9 @@ include resources/blocks/genproc.txt(
 );
 
 include resources/processes/minimalSPICE_MAN3.txt;
+include resources/processes/minimalSPICE_CustomerCommunication.txt;
 
-//****************************************************
+//*****************************************************************
 
 role processManager {
     label "process manager";
@@ -57,14 +58,6 @@ process process {
          md/minimalSPICE/spice.md;
 }
 
-activity customerCommunication {
-    label "customer communication";
-    brief "This activity summorizes all neccessary communacation and agreement with the customer.";
-    responsible productManager;
-    subactivities lifecycle_addComment;
-    text md/minimalSPICE/productManager.md;
-}
-
 repository jenkins {
     label "Jenkins";
     brief "Jenkins, as a buils server, archives the build artefacts.";
@@ -79,9 +72,46 @@ repository git {
         processManagementFolder;
 }
 
-tool forumTool {
+tool mantisTool {
     label "Mantis";
+    text md/mantis/mantis_tool.md,
+        md/mantis/guidelines.md; 
+}
+
+namespace CR {
+    include resources/blocks/mantis.txt(mantisTool);
+}
+
+extend artefact CR_mantis_issue {
+    label "change request";
+}
+
+namespace PR {
+    include resources/blocks/mantis.txt(mantisTool);
+}
+
+extend artefact PR_mantis_issue {
+    label "problem report";
+}
+
+repository mantisRepository {
+    label "Mantis database";
+    contains CRfolder, PRfolder;
     text md/mantis/mantis_tool.md; 
+}
+
+folder CRfolder {
+    label "changes requests";
+    contains CR_mantis_issue;
+}
+        
+folder PRfolder {
+    label "problem reports";
+    contains PR_mantis_issue;
+}
+        
+tool forumTool {
+    label "phpBB";
 }
 
 repository forum {

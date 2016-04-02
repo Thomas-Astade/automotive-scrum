@@ -1,6 +1,13 @@
 namespace overview {
     include resources/blocks/git.txt;
-    include resources/blocks/mantis.txt;
+    include resources/blocks/mantis.txt(mantisTool);
+
+    tool mantisTool {
+        label "Mantis";
+        text md/mantis/mantis_tool.md,
+            md/mantis/guidelines.md; 
+    }
+
     page buildingBlocks {
         label "building blocks";
         subpages git_workWithGit, workWithMantis, workWithSpice;
@@ -9,12 +16,11 @@ namespace overview {
     activity workWithMantis {
         label "work with Mantis";
         subactivities 
-            mantis_createBugReport,
             mantis_technicalPreview,
             mantis_effortReview,
             mantis_planning,
             mantis_reportIssueSolved,
-            mantis_createFeatureRequest,
+            mantis_createIssue,
             mantis_issueTest,
             mantis_getFeedback;
     }

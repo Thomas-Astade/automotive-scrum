@@ -2,6 +2,7 @@ SUP.10 Change Request Management
 --------------------------------
 
 * [SUP.10.BP1: Develop a change request management strategy.](minimalSPICE_spice_SUP10BP1.html)
+* [SUP.10.BP2: Identify and record the change requests.](minimalSPICE_spice_SUP10BP2.html)
 
 
 MAN.3 Project Management
