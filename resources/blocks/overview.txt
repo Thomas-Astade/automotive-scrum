@@ -25,7 +25,6 @@ namespace overview {
     include resources/blocks/spice_SWE.txt;
     include resources/blocks/spice_SUP.txt;
     include resources/blocks/spice_MAN.txt;
-    include resources/blocks/spice_workProducts.txt;
     
     activity workWithSpice {
         subactivities spice_ACQ, spice_SPL, spice_SYS, spice_SWE, spice_SUP, spice_MAN;
