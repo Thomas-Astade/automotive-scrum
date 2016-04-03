@@ -2,6 +2,17 @@ include resources/blocks/spice_MAN3.txt;
 
 //*****************************************
 
+extend activity spice_MAN3BP1 {
+    create minimalSPICE_scopeOfWorkDefinition;
+}
+
+extend activity spice_MAN3BP2 {
+    create minimalSPICE_projectLifeCycleDefinition, minimalSPICE_lifecycle_topic;
+    subactivities
+        lifecycle_schedule,
+        lifecycle_close;
+}
+
 artefact projectPlan {
     label "Project plan";
     brief "08-12 Project plan";
@@ -25,10 +36,6 @@ folder projectManagementFolder {
 artefact scopeOfWorkDefinition {
     label "scope of work definition";
     brief "The scope of the work for the project is defined.";
-}
-
-extend activity spice_MAN3BP1 {
-    create minimalSPICE_scopeOfWorkDefinition;
 }
 
 activity projectManagement {
@@ -61,13 +68,6 @@ activity projectPlanning {
 artefact projectLifeCycleDefinition {
     label "project life cycle definition";
     brief "Define the life cycle for the project, which is appropriate to the scope, context, magnitude and complexity of the project.";
-}
-
-extend activity spice_MAN3BP2 {
-    create minimalSPICE_projectLifeCycleDefinition;
-    subactivities
-        lifecycle_schedule,
-        lifecycle_close;
 }
 
 namespace lifecycle {
