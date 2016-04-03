@@ -51,7 +51,7 @@ activity issueTest {
     label $1 + " test";    
     tool $0;
     set issue(Resolved,Closed)[issue is solved];
-    set issue(Resolved,Assigned)[isue is not solved];
+    set issue(Resolved,Assigned)[issue is not solved];
     text md/mantis/issueTest.md;
 }
 
