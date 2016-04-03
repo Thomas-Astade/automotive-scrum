@@ -8,6 +8,7 @@ namespace spice {
     activity MAN3BP2 {
         label "Define project life cycle";
         brief "MAN.3.BP2: Define project life cycle. Define the life cycle for the project, which is appropriate to the scope, context, magnitude and complexity of the project.";
+        text md/spice/projectLifeCycle.md;
     }
 
     activity MAN3BP3 {
