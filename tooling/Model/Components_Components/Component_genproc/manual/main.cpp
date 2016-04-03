@@ -555,7 +555,7 @@ struct process_description
     qi::rule<Iterator, std::string()> ref_identifier;
     qi::rule<Iterator, std::string()> name_identifier;
     qi::rule<Iterator, std::string()> filename;
-    qi::rule<Iterator, std::string()> label;
+    qi::rule<Iterator> label;
     qi::rule<Iterator, std::string()> responsibleRole;
     qi::rule<Iterator, std::string()> usedTool;
     qi::rule<Iterator, std::string()> brief;
