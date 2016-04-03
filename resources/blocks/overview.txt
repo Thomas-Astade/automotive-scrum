@@ -2,7 +2,7 @@ namespace overview {
     include resources/blocks/git.txt;
 
     namespace mantis {
-        include resources/blocks/mantis.txt(mantisTool);
+        include resources/blocks/mantis.txt(mantisTool,"issue");
     }
 
     tool mantisTool {

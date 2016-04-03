@@ -198,6 +198,7 @@ struct process_description
                           name_space_begin |
                           name_space_end | 
                           do_include |
+                          comment |
                           (qi::lit("process") >  space > processElement);
         
         homeElement     = OB
@@ -488,10 +489,12 @@ struct process_description
                         > space
                         > SC;
         
+        comment         = qi::lit("//") 
+                        > *(qi::alnum | qi::char_(" ,.;:_<>|~!§$%&/()*=?{[]}'-")) 
+                        > qi::lit('\n');
+
         filename        = +qi::char_("a-zA-Z_/.0-9");
-        space           = *(qi::lit(' ') | qi::lit('\n') | qi::lit('\t') |
-                            (qi::lit("//") > *(qi::alnum | qi::char_(" ,.;:_<>|~!§$%&/()*=?{[]}'-")) > qi::lit('\n'))
-                           );
+        space           = *(qi::lit(' ') | qi::lit('\n') | qi::lit('\t') | comment);
 
         artefactExtend.name("the requested artefact is not found.");
         activityExtend.name("the requested activity is not found.");
@@ -524,6 +527,7 @@ struct process_description
     qi::rule<Iterator, ast::transition()> transition;
     qi::rule<Iterator, ast::parameters()> parameterUse;
     qi::rule<Iterator> name_space_begin;
+    qi::rule<Iterator> comment;
     qi::rule<Iterator> parameterlist;
     qi::rule<Iterator> name_space_end;
     qi::rule<Iterator> do_include;

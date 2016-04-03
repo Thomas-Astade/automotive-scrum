@@ -1,5 +1,8 @@
+//  $0 - The issue tracker
+//  $1 - The issue type name
+
 artefact issue {
-    label "issue";
+    label $1;
     text md/mantis/issue.md;
 }
 

@@ -79,19 +79,11 @@ tool mantisTool {
 }
 
 namespace CR {
-    include resources/blocks/mantis.txt(mantisTool);
-}
-
-extend artefact CR_issue {
-    label "change request";
+    include resources/blocks/mantis.txt(mantisTool,"change request");
 }
 
 namespace PR {
-    include resources/blocks/mantis.txt(mantisTool);
-}
-
-extend artefact PR_issue {
-    label "problem report";
+    include resources/blocks/mantis.txt(mantisTool,"problem report");
 }
 
 repository mantisRepository {

@@ -1,7 +1,7 @@
 namespace minimalMantis {
 
 namespace mantis {
-    include resources/blocks/mantis.txt(mantisTool);
+    include resources/blocks/mantis.txt(mantisTool,"issue");
 }
 
 tool mantisTool {

@@ -1,3 +1,9 @@
+//  $0 - responsible role for scheduling the review
+//  $1 - The reviewed artefact
+//  $2 - responsible reviewer
+//  $3 - name of the review
+
+
 artefact topic {
     label $3 + " review";
     contains comment;
