@@ -431,16 +431,18 @@ struct process_description
 
         parameterUse    = qi::lit('$') > qi::uint_;
 
-        text            = qi::lit('"')
-                        > *(qi::alnum | qi::char_(" ,.;:_<>|~!§$%&/()=?{[]}'-"))
-                        >  qi::lit('"');
+        text            = parameterUse 
+                        | 
+                        (qi::lit('"')
+                            > *(qi::alnum | qi::char_(" ,.;:_<>|~!§$%&/()=?{[]}'-"))
+                            >  qi::lit('"')
+                        );
 
         label           = qi::lit("label") 
-                        > space 
+                        > space
                         > text[set_label]
                         > space
-                        > *(qi::lit('+') > space > text[add_label])
-                        > space
+                        > *(qi::lit('+') > space > text[add_label] > space)
                         > SC;
                         
         responsibleRole = qi::lit("responsible") 

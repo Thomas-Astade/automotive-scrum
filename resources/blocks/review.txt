@@ -1,15 +1,15 @@
 artefact topic {
-    label "review topic";
+    label $3 + " review";
     contains comment;
 }
 
 artefact comment {
-    label "comment";
+    label $3 + " comment";
     brief "Can ether be a finding or only the notification, that there are no findings.";
 }
 
 activity schedule {
-    label "schedule review";
+    label "schedule " + $3 + " review";
     responsible $0; 
     tool forumTool;
     transform $1;
@@ -17,7 +17,7 @@ activity schedule {
 }
 
 activity addComment {
-    label "add comment";
+    label "add " + $3 + " comment";
     responsible $2; 
     tool forumTool;
     transform $1;
@@ -26,7 +26,7 @@ activity addComment {
 }
 
 activity close {
-    label "close reviev";
+    label "close " + $3 + " review";
     responsible $0; 
     tool forumTool;
     set topic(started,closed);

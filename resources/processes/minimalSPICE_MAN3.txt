@@ -74,10 +74,7 @@ namespace lifecycle {
     include  resources/blocks/review.txt(
         minimalSPICE_projectManager,
         minimalSPICE_projectLifeCycleDefinition,
-        minimalSPICE_productManager);
-}
-
-extend artefact lifecycle_topic {
-    label "project life cycle definition review";
+        minimalSPICE_productManager,
+        "project life cycle");
 }
 
