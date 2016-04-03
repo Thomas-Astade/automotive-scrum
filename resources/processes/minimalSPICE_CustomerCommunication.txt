@@ -9,5 +9,5 @@ activity customerCommunication {
 }
 
 extend activity spice_SUP10BP2 {
-    subactivities CR_mantis_createIssue;
+    subactivities CR_createIssue;
 }

@@ -82,7 +82,7 @@ namespace CR {
     include resources/blocks/mantis.txt(mantisTool);
 }
 
-extend artefact CR_mantis_issue {
+extend artefact CR_issue {
     label "change request";
 }
 
@@ -90,7 +90,7 @@ namespace PR {
     include resources/blocks/mantis.txt(mantisTool);
 }
 
-extend artefact PR_mantis_issue {
+extend artefact PR_issue {
     label "problem report";
 }
 
@@ -102,12 +102,12 @@ repository mantisRepository {
 
 folder CRfolder {
     label "changes requests";
-    contains CR_mantis_issue;
+    contains CR_issue;
 }
         
 folder PRfolder {
     label "problem reports";
-    contains PR_mantis_issue;
+    contains PR_issue;
 }
         
 tool forumTool {

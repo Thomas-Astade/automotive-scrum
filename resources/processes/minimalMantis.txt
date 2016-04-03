@@ -1,6 +1,8 @@
 namespace minimalMantis {
 
-include resources/blocks/mantis.txt(mantisTool);
+namespace mantis {
+    include resources/blocks/mantis.txt(mantisTool);
+}
 
 tool mantisTool {
     label "Mantis";

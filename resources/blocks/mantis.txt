@@ -1,65 +1,61 @@
-namespace mantis {
+artefact issue {
+    label "issue";
+    text md/mantis/issue.md;
+}
 
-    artefact issue {
-        label "issue";
-        text md/mantis/issue.md;
-    }
-    
-    activity technicalPreview {
-        label "technical preview";
-        brief "This activity is to check and preview entered bug issues. There should be also a first effort estimation.";
-        tool $0;
-        set issue(New,Acknowledged)[info is formally ok];
-        set issue(New,Feedback)[info is missing];
-        set issue(New,Closed)[duplicate];
-        text md/mantis/technicalPreview.md;
-    }
+activity technicalPreview {
+    label "technical preview";
+    brief "This activity is to check and preview entered bug issues. There should be also a first effort estimation.";
+    tool $0;
+    set issue(New,Acknowledged)[info is formally ok];
+    set issue(New,Feedback)[info is missing];
+    set issue(New,Closed)[duplicate];
+    text md/mantis/technicalPreview.md;
+}
 
-    activity effortReview {
-        label "effort review";
-        brief "This activity is to decide, if the issue shall be considered to be done.";
-        tool $0;
-        set issue(Acknowledged,Confirmed)[spend the estimated effort];
-        set issue(Acknowledged,Closed)[to much effort];
-        text md/mantis/effortReview.md;
-   }
+activity effortReview {
+    label "effort review";
+    brief "This activity is to decide, if the issue shall be considered to be done.";
+    tool $0;
+    set issue(Acknowledged,Confirmed)[spend the estimated effort];
+    set issue(Acknowledged,Closed)[to much effort];
+    text md/mantis/effortReview.md;
+}
 
-    activity planning {
-        label "planning";
-        brief "This activity is during team planning, when an issue is assigned to a person";    
-        tool $0;
-        set issue(Confirmed,Assigned);
-        text md/mantis/planning.md;
-    }
+activity planning {
+    label "planning";
+    brief "This activity is during team planning, when an issue is assigned to a person";    
+    tool $0;
+    set issue(Confirmed,Assigned);
+    text md/mantis/planning.md;
+}
 
-    activity reportIssueSolved {
-        label "report issue solved";
-        tool $0;
-        set issue(Assigned,Resolved);
-        text md/mantis/reportIssueSolved.md;
-    }
+activity reportIssueSolved {
+    label "report issue solved";
+    tool $0;
+    set issue(Assigned,Resolved);
+    text md/mantis/reportIssueSolved.md;
+}
 
-    activity createIssue {
-        label "create issue";
-        tool $0;
-        set issue(null,New);
-        text md/mantis/guidelines.md; 
-     }
-    
-    activity issueTest {
-        label "issue test";    
-        tool $0;
-        set issue(Resolved,Closed)[issue is solved];
-        set issue(Resolved,Assigned)[isue is not solved];
-        text md/mantis/issueTest.md;
-    }
+activity createIssue {
+    label "create issue";
+    tool $0;
+    set issue(null,New);
+    text md/mantis/guidelines.md; 
+ }
 
-    activity getFeedback {
-        label "get feedback";    
-        tool $0;
-        set issue(Feedback,Closed)[no additional info];
-        set issue(Feedback,New)[new info assigned];
-        text md/mantis/getFeedback.md;
-    }
-    
+activity issueTest {
+    label "issue test";    
+    tool $0;
+    set issue(Resolved,Closed)[issue is solved];
+    set issue(Resolved,Assigned)[isue is not solved];
+    text md/mantis/issueTest.md;
+}
+
+activity getFeedback {
+    label "get feedback";    
+    tool $0;
+    set issue(Feedback,Closed)[no additional info];
+    set issue(Feedback,New)[new info assigned];
+    text md/mantis/getFeedback.md;
 }

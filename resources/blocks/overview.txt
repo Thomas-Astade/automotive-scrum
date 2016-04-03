@@ -1,6 +1,9 @@
 namespace overview {
     include resources/blocks/git.txt;
-    include resources/blocks/mantis.txt(mantisTool);
+
+    namespace mantis {
+        include resources/blocks/mantis.txt(mantisTool);
+    }
 
     tool mantisTool {
         label "Mantis";
