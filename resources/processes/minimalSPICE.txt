@@ -48,7 +48,7 @@ role productManager {
 process process {
     label "minimal SPICE";    
     responsible projectManager;
-    repository git,jenkins,forum;
+    repository git,jenkins,forum,mantisRepository;
     subactivities
         projectManagement,
         genproc_processDescription,
