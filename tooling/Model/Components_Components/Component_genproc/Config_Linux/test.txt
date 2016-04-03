@@ -3,7 +3,7 @@ include resources/processes/minimalMantis.txt;
 include resources/processes/minimalSPICE.txt;
 
 artefact pingPong {
-    label "ping pong";
+    label "ping" + " pong";
     brief "just some brief description of this node, which cannot make any sense, because it's only an example.";
 }
 

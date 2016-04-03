@@ -57,6 +57,13 @@ void set_label(const std::string& name, const boost::spirit::unused_type& it, bo
         e->set_label(name);
 }
 
+void add_label(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
+{
+    ast::label_owner* e = dynamic_cast<ast::label_owner*>(&ast::I_element::get_last());
+    if (e)
+        e->add_label(name);
+}
+
 void set_role(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
 {
     ast::role_owner* e = dynamic_cast<ast::role_owner*>(&ast::I_element::get_last());
@@ -205,7 +212,7 @@ struct process_description
                         > space
                         > OB
                         > space
-                        > -label[set_label]
+                        > -label
                         > space
                         > -subpagelist
                         > space
@@ -222,7 +229,7 @@ struct process_description
         activityContent = space
                         > OB
                         > space
-                        > -label[set_label]
+                        > -label
                         > space
                         > -brief[set_brief]
                         > space
@@ -250,7 +257,7 @@ struct process_description
         artefactContent = space
                         > OB
                         > space
-                        > -label[set_label]
+                        > -label
                         > space
                         > -brief[set_brief]
                         > space
@@ -269,7 +276,7 @@ struct process_description
           folderContent = space
                         > OB
                         > space
-                        > -label[set_label]
+                        > -label
                         > space
                         > -brief[set_brief]
                         > space
@@ -288,7 +295,7 @@ struct process_description
       repositoryContent = space
                         > OB
                         > space
-                        > -label[set_label]
+                        > -label
                         > space
                         > -brief[set_brief]
                         > space
@@ -302,7 +309,7 @@ struct process_description
                         > space
                         > OB
                         > space
-                        > -label[set_label]
+                        > -label
                         > space
                         > -brief[set_brief]
                         > space
@@ -314,7 +321,7 @@ struct process_description
                         > space
                         > OB
                         > space
-                        > -label[set_label]
+                        > -label
                         > space
                         > -brief[set_brief]
                         > space
@@ -326,7 +333,7 @@ struct process_description
                         > space
                         > OB
                         > space
-                        > -label[set_label]
+                        > -label
                         > space
                         > responsibleRole[set_role]
                         > space
@@ -430,7 +437,9 @@ struct process_description
 
         label           = qi::lit("label") 
                         > space 
-                        > text
+                        > text[set_label]
+                        > space
+                        > *(qi::lit('+') > space > text[add_label])
                         > space
                         > SC;
                         
