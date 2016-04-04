@@ -85,16 +85,11 @@ namespace lifecycle {
         "project life cycle");
 }
 
-artefact feasibilityOfTheProject {
-    label "feasibility of the project";
-    brief "Evaluate the feasibility of achieving the goals of the project in terms of technical feasibility within constraints with respect to time, project estimates, and available resources.";
-}
-
 namespace feasibility {
     include  resources/blocks/review.txt(
         minimalSPICE_projectManager,
-        minimalSPICE_feasibilityOfTheProject,
+        minimalSPICE_projectPlan,
         minimalSPICE_developer,
-        "feasibility of the project");
+        "feasibility");
 }
 
