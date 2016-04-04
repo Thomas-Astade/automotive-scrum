@@ -679,8 +679,10 @@ int main (int argc, char **argv)
     {
         try
         {
+            ast::source_element::Load_begin(*it);
             if (!load(*it))
                 return -1;
+            ast::source_element::Load_end();
         }
         catch(const qi::expectation_failure<pos_iterator_type> e)
         {
