@@ -8,7 +8,7 @@ artefact issue {
 
 activity technicalPreview {
     label "technical preview of " + $1;
-    brief "This activity is to check and preview entered bug issues. There should be also a first effort estimation.";
+    brief "This activity is to check and preview entered issue. There should be also a first effort estimation.";
     tool $0;
     set issue(New,Acknowledged)[info is formally ok];
     set issue(New,Feedback)[info is missing];
