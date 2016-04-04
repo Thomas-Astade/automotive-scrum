@@ -7,7 +7,9 @@ activity customerCommunication {
         spice_SUP10BP2,
         spice_SUP9BP2,
         PR_getFeedback,
-        CR_getFeedback;
+        CR_getFeedback,
+        PR_effortReview,
+        CR_effortReview;
     text md/minimalSPICE/productManager.md;
 }
 
