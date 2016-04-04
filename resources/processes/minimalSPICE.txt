@@ -45,6 +45,11 @@ role productManager {
     text md/minimalSPICE/productManager.md;
 }
 
+role developer {
+    label "Developer";
+    brief "Responsible for the technical aspects of the project.";
+}
+
 process process {
     label "minimal SPICE";    
     responsible projectManager;
