@@ -27,6 +27,7 @@
 #include "artefact_transition.h"
 #include "tool_element.h"
 #include "parameters.h"
+#include "source_element.h"
 
 namespace classic = boost::spirit::classic;
 namespace qi = boost::spirit::qi;
@@ -621,7 +622,9 @@ bool load(const std::string& filename)
 void handleLoad(const boost::spirit::unused_type& name, const boost::spirit::unused_type& it, bool& pass)
 {
     ast::parameters::activateParameters(arguments.verbose);
+    ast::source_element::Load_begin(loadFileName);
     pass = load(loadFileName);
+    ast::source_element::Load_end();
     ast::parameters::deactivateParameters(arguments.verbose);
 }
 
