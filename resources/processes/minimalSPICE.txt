@@ -58,7 +58,8 @@ process process {
         projectManagement,
         genproc_processDescription,
         continiousIntegration,
-        customerCommunication;
+        customerCommunication,
+        develop;
     text md/minimalSPICE/process.md,
          md/minimalSPICE/spice.md;
 }
