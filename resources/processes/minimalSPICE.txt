@@ -63,6 +63,20 @@ process process {
          md/minimalSPICE/spice.md;
 }
 
+activity develop {
+    label "Develop";
+    responsible developer;
+    subactivities technicalReviews;
+}
+
+activity technicalReviews {
+    label "Technical reviews";
+    subactivities 
+        feasibility_addComment,
+        PR_technicalPreview,
+        CR_technicalPreview;
+}
+
 repository jenkins {
     label "Jenkins";
     brief "Jenkins, as a buils server, archives the build artefacts.";
