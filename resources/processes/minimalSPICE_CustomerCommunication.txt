@@ -17,6 +17,6 @@ namespace PR {
 }
 
 extend activity spice_SUP10BP2 {
-    subactivities CR_createIssue;
     create CR_issue;
+    subactivities CR_createIssue;
 }
