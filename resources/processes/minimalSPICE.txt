@@ -78,14 +78,6 @@ tool mantisTool {
         md/mantis/guidelines.md; 
 }
 
-namespace CR {
-    include resources/blocks/mantis.txt(mantisTool,"change request");
-}
-
-namespace PR {
-    include resources/blocks/mantis.txt(mantisTool,"problem report");
-}
-
 repository mantisRepository {
     label "Mantis database";
     contains CRfolder, PRfolder;
