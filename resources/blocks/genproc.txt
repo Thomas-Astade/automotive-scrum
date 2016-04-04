@@ -10,6 +10,10 @@ namespace genproc {
         text md/spice/ProblemManagementPlan.md;
     }
 
+    extend activity spice_SUP9BP1 {
+        create genproc_problemManagementPlan;
+    }
+
     artefact changeManagementPlan {
         label "Change management plan";
         brief "08-28 Change management plan";
@@ -26,6 +30,7 @@ namespace genproc {
       responsible $0;
       create processSources;
       subactivities
+        spice_SUP9BP1,
         spice_SUP10BP1;
     }
     
