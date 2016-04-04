@@ -8,6 +8,15 @@ activity customerCommunication {
     text md/minimalSPICE/productManager.md;
 }
 
+namespace CR {
+    include resources/blocks/mantis.txt(mantisTool,"change request");
+}
+
+namespace PR {
+    include resources/blocks/mantis.txt(mantisTool,"problem report");
+}
+
 extend activity spice_SUP10BP2 {
     subactivities CR_createIssue;
+    create CR_issue;
 }
