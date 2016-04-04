@@ -1,9 +1,14 @@
+SUP.9 Problem Resolution Management
+-----------------------------------
+
+* [SUP.9.BP1: Develop a problem resolution management strategy.](minimalSPICE_spice_SUP9BP1.html)
+* [SUP.9.BP2: Identify and record the problem.](minimalSPICE_spice_SUP9BP2.html)
+
 SUP.10 Change Request Management
 --------------------------------
 
 * [SUP.10.BP1: Develop a change request management strategy.](minimalSPICE_spice_SUP10BP1.html)
 * [SUP.10.BP2: Identify and record the change requests.](minimalSPICE_spice_SUP10BP2.html)
-
 
 MAN.3 Project Management
 ------------------------
