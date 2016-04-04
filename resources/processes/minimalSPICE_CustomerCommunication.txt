@@ -23,6 +23,6 @@ extend activity spice_SUP10BP2 {
 }
 
 extend activity spice_SUP9BP2 {
-    create CR_issue;
+    create PR_issue;
     subactivities PR_createIssue;
 }
