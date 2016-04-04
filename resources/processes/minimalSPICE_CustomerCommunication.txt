@@ -4,7 +4,8 @@ activity customerCommunication {
     responsible productManager;
     subactivities 
         lifecycle_addComment,
-        spice_SUP10BP2;
+        spice_SUP10BP2,
+        spice_SUP9BP2;
     text md/minimalSPICE/productManager.md;
 }
 
@@ -19,4 +20,9 @@ namespace PR {
 extend activity spice_SUP10BP2 {
     create CR_issue;
     subactivities CR_createIssue;
+}
+
+extend activity spice_SUP9BP2 {
+    create CR_issue;
+    subactivities PR_createIssue;
 }
