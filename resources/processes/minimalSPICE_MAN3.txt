@@ -13,6 +13,13 @@ extend activity spice_MAN3BP2 {
         lifecycle_close;
 }
 
+extend activity spice_MAN3BP3 {
+    create minimalSPICE_feasibility_topic;
+    subactivities
+        feasibility_schedule,
+        feasibility_close;
+}
+
 artefact projectPlan {
     label "Project plan";
     brief "08-12 Project plan";
