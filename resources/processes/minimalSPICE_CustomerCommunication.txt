@@ -5,7 +5,9 @@ activity customerCommunication {
     subactivities 
         lifecycle_addComment,
         spice_SUP10BP2,
-        spice_SUP9BP2;
+        spice_SUP9BP2,
+        PR_getFeedback,
+        CR_getFeedback;
     text md/minimalSPICE/productManager.md;
 }
 
