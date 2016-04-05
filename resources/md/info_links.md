@@ -28,6 +28,8 @@ git
   <http://www.git-scm.com/book/en/v1/Getting-Started>
 * levels of git:
   <http://development.rc.ucl.ac.uk/training/carpentry/assets/distributed_concepts_all.png>
+* Here you find a documentation
+  <https://git-scm.com/doc>
 
 
 scrum
