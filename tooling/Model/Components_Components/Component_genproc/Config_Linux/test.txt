@@ -36,15 +36,17 @@ activity doPong {
 }
 
 @home {
-    subpages processes,
-        impressum, 
-        example;
+    subpages
+        impressum,
+        processes,
+        example,
+        overview_buildingBlocks,
+        overview_links;
     text md/home.md;
 }
 
 page example {
     label "how it is done";
-    subpages overview_buildingBlocks, overview_links;
     text md/example_begin.md, 
         test.txt, 
         md/example_end.md;

@@ -1,4 +1,4 @@
-//~~ void generate_body(std::ofstream& file) [I_element] ~~
+//~~ void generate_body(std::ofstream& file, const std::string& outpath) [I_element] ~~
 file << "<div>"
      << getType()
      << " "

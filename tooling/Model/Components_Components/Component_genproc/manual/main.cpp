@@ -33,6 +33,8 @@ namespace classic = boost::spirit::classic;
 namespace qi = boost::spirit::qi;
 namespace ascii = boost::spirit::ascii;
 
+char outpath[] = "/srv/automotive-scrum";
+
 /* This structure is used by main to communicate with parse_opt. */
 struct Arguments
 {
@@ -622,7 +624,7 @@ bool load(const std::string& filename)
 void handleLoad(const boost::spirit::unused_type& name, const boost::spirit::unused_type& it, bool& pass)
 {
     ast::parameters::activateParameters(arguments.verbose);
-    ast::source_element::Load_begin(loadFileName);
+    ast::source_element::Load_begin(loadFileName,outpath);
     pass = load(loadFileName);
     ast::source_element::Load_end();
     ast::parameters::deactivateParameters(arguments.verbose);
@@ -679,7 +681,7 @@ int main (int argc, char **argv)
     {
         try
         {
-            ast::source_element::Load_begin(*it);
+            ast::source_element::Load_begin((*it),outpath);
             if (!load(*it))
                 return -1;
             ast::source_element::Load_end();
@@ -703,7 +705,7 @@ int main (int argc, char **argv)
 
     try {
         ast::I_element::init_link_all();
-        ast::I_element::generate_all("/srv/automotive-scrum");
+        ast::I_element::generate_all(outpath);
     }
     catch(std::string e)
     {
