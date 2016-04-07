@@ -12,7 +12,7 @@ Maybe at this point there are already some design ideas. So don't hesitate to wr
 
 If the issue can not be understood, it shall be transfered to "Feedback" to gather the missing information.
 
-It could even be, that the preview cannot be completed, because a prove of concept must be done beforehand.
+It could even be, that the preview cannot be completed, because a proof of concept must be done beforehand.
 In this case a separate issue shall be created, to do the prove of concept.
 
 When the preview is done, the issue should contain:
