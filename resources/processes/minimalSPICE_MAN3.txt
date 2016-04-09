@@ -37,7 +37,9 @@ folder projectReviews {
 folder projectManagementFolder {
     label "Project management";
     brief "Contains project management specific files.";
-    contains projectPlan;
+    contains 
+        projectPlan,
+        litData;
 }
 
 artefact scopeOfWorkDefinition {
