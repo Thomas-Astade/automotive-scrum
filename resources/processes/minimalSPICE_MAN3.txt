@@ -86,7 +86,7 @@ artefact litData {
     brief "the planning datea for all single working package";
 }
 
-extend artefact spice_MAN3BP4 {
+extend activity spice_MAN3BP4 {
     tool lit;
     create litData;
 }
