@@ -67,9 +67,25 @@ activity projectSetup {
 activity projectPlanning {
     label "Project planning";
     subactivities
+        spice_MAN3BP4,
         spice_MAN3BP8,
         spice_MAN3BP9,
         spice_MAN3BP10;
+}
+
+tool lit {
+    label "lit";
+    brief "lit is an ope source planning tool for small projects";
+}
+
+artefact litData {
+    label "Lit planning data";
+    brief "the planning datea for all single working package";
+}
+
+extend artefact spice_MAN3BP4 {
+    tool lit;
+    create litData;
 }
 
 artefact projectLifeCycleDefinition {
