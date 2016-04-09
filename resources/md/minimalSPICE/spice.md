@@ -16,4 +16,5 @@ MAN.3 Project Management
 * [MAN.3.BP1: Define the scope of work.](minimalSPICE_spice_MAN3BP1.html)
 * [MAN.3.BP2: Define project life cycle.](minimalSPICE_spice_MAN3BP2.html)
 * [MAN.3.BP3: Evaluate feasibility of the project.](minimalSPICE_spice_MAN3BP3.html)
+* [MAN.3.BP4: Define, monitor and adjust project activities.](minimalSPICE_spice_MAN3BP4.html)
 
