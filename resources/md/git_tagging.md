@@ -62,6 +62,8 @@ v1.4
 The -m specifies a tagging message, which is stored with the tag. If you don’t specify a message for an annotated tag, Git launches your editor so you can type it in.
 
 You can see the tag data along with the commit that was tagged by using the git show command:
+
+~~~~~
 $ git show v1.4
 tag v1.4
 Tagger: Ben Straub &lt;ben@straub.cc&gt;
@@ -74,13 +76,15 @@ Author: Scott Chacon &lt;schacon@gee-mail.com&gt;
 Date:   Mon Mar 17 21:52:11 2008 -0700
 
     changed the version number
+~~~~~
 
 That shows the tagger information, the date the commit was tagged, and the annotation message before showing the commit information.
 
 
 Lightweight Tags
+----------------
 
- Another way to tag commits is with a lightweight tag. This is basically the commit checksum stored in a file – no other information is kept. To create a lightweight tag, don’t supply the -a, -s, or -m option:
+Another way to tag commits is with a lightweight tag. This is basically the commit checksum stored in a file – no other information is kept. To create a lightweight tag, don’t supply the -a, -s, or -m option:
 $ git tag v1.4-lw
 $ git tag
 v0.1
