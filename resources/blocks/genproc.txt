@@ -41,7 +41,8 @@ namespace genproc {
       create processSources;
       subactivities
         spice_SUP9BP1,
-        spice_SUP10BP1;
+        spice_SUP10BP1,
+        spice_SUP8BP1;
     }
     
     activity createprocessView {
