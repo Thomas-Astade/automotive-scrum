@@ -3,6 +3,7 @@ namespace spice {
     activity SUP8BP1 {
         label "Develop a configuration management strategy";
         brief "SUP.8.BP1: Develop a configuration management strategy. Develop a configuration management strategy, including responsibilities and resources; tools and repositories; the identification of the configuration items and their naming conventions; access rights; the history of configuration items and baselines including required/optional baselines, naming conventions, methods for branching, merging and building baselines and procedures for their release/approval.";
+        text md/spice/SUP8BP1.md;
     }
 
     activity SUP8BP2 {
