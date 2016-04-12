@@ -2,6 +2,7 @@ SUP.8 Configuration Management
 ------------------------------
 
 * [SUP.8.BP1: Develop a configuration management strategy.](minimalSPICE_spice_SUP8BP1.html)
+* [SUP.8.BP2: Identify configuration items.](minimalSPICE_spice_SUP8BP2.html)
 
 SUP.9 Problem Resolution Management
 -----------------------------------
