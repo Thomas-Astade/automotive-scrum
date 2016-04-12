@@ -4,6 +4,12 @@ namespace genproc {
         brief "A command line tool that compiles process sources into a human readable form (a website).";
     }
     
+    artefact configurationManagementPlan {
+        label "Configuration management plan";
+        brief "08-04 Configuration management plan";
+        text md/spice/ConfigurationManagementPlan.md;
+    }
+
     artefact problemManagementPlan {
         label "Problem management plan";
         brief "08-27 Problem management plan";
@@ -54,7 +60,8 @@ namespace genproc {
         brief "A definition of all process steps in a special DSL.";
         contains 
             changeManagementPlan,
-            problemManagementPlan;
+            problemManagementPlan,
+            configurationManagementPlan;
     }
   
 }
