@@ -11,7 +11,7 @@ namespace genproc {
     }
 
     extend activity spice_SUP8BP1 {
-        create configurationManagementPlan;
+        create genproc_configurationManagementPlan;
     }
 
     artefact problemManagementPlan {
