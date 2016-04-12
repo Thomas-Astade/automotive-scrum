@@ -4,6 +4,15 @@ namespace genproc {
         brief "A command line tool that compiles process sources into a human readable form (a website).";
     }
     
+    artefact configurationItems {
+        label "configuration items";
+        brief "Here all configuration items are described.";
+    }
+
+    extend activity spice_SUP8BP2 {
+        create genproc_configurationItems;
+    }
+
     artefact configurationManagementPlan {
         label "Configuration management plan";
         brief "08-04 Configuration management plan";
@@ -42,7 +51,8 @@ namespace genproc {
       subactivities
         spice_SUP9BP1,
         spice_SUP10BP1,
-        spice_SUP8BP1;
+        spice_SUP8BP1,
+        spice_SUP8BP2;
     }
     
     activity createprocessView {
@@ -66,7 +76,8 @@ namespace genproc {
         contains 
             changeManagementPlan,
             problemManagementPlan,
-            configurationManagementPlan;
+            configurationManagementPlan,
+            configurationItems;
     }
   
 }
