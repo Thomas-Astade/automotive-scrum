@@ -43,11 +43,7 @@ clean:
 	rm -f $(TARGET) *.o .depend
 
 run:	$(TARGET)
-	cp ../../../../../resources/style.css /srv/automotive-scrum
-	./$(TARGET) -i test.txt
-
-beautify:	$(TARGET)
-	./$(TARGET) -b -i test.txt
+	./$(TARGET) -i resources/main.txt
 
 rebuild:	clean build
 
