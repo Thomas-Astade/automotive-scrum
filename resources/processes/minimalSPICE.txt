@@ -71,14 +71,6 @@ activity configurationManagement {
         spice_SUP8BP6;
 }
 
-namespace PM {
-    include resources/blocks/baseline.txt(projectManager,PRfolder,git,"project managemen");
-}
-
-extend activity spice_SUP8BP6 {
-    subactivities PM_doBaseline;
-}
-
 activity develop {
     label "Develop";
     responsible developer;
