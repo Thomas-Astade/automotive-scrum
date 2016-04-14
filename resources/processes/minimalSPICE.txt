@@ -57,11 +57,18 @@ process process {
     subactivities
         projectManagement,
         genproc_processDescription,
-        continiousIntegration,
+        configurationManagement,
         customerCommunication,
         develop;
     text md/minimalSPICE/process.md,
          md/minimalSPICE/spice.md;
+}
+
+activity configurationManagement {
+    label "Configuration Management";
+    subactivities
+        continiousIntegration,
+        spice_SUP8BP6;
 }
 
 activity develop {
