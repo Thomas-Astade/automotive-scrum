@@ -35,7 +35,7 @@ folder projectReviews {
 }
 
 namespace PM {
-    include resources/blocks/baseline.txt(projectManager,PRfolder,git,"project managemen");
+    include resources/blocks/baseline.txt(projectManager,projectManagementFolder,gitCM,"project management");
 }
 
 extend activity spice_SUP8BP6 {
