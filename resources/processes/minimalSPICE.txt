@@ -95,6 +95,11 @@ repository jenkins {
         genproc_processView;
 }
 
+tool gitCM {
+    label "git";
+    text md/git_tagging.md;
+}
+
 repository git {
     label "git";
     contains 
