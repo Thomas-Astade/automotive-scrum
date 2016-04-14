@@ -34,12 +34,21 @@ folder projectReviews {
     contains lifecycle_topic;
 }
 
+namespace PM {
+    include resources/blocks/baseline.txt(projectManager,PRfolder,git,"project managemen");
+}
+
+extend activity spice_SUP8BP6 {
+    subactivities PM_doBaseline;
+}
+
 folder projectManagementFolder {
     label "Project management";
     brief "Contains project management specific files.";
     contains 
         projectPlan,
-        litData;
+        litData,
+        PM_baseline;
 }
 
 artefact scopeOfWorkDefinition {
