@@ -95,6 +95,13 @@ void add_subpage(const std::string& name, const boost::spirit::unused_type& it, 
         e->add_subpage_ID(name);
 }
 
+void add_relation(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
+{
+    ast::artefact_base* e = dynamic_cast<ast::artefact_base*>(&ast::I_element::get_last());
+    if (e)
+        e->add_relation_ID(name);
+}
+
 void add_text(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
 {
     ast::text_owner* e = dynamic_cast<ast::text_owner*>(&ast::I_element::get_last());
@@ -267,6 +274,8 @@ struct process_description
                         > space
                         > -subArtifacts
                         > space
+                        > -relations
+                        > space
                         > -textfilelist
                         > space
                         > CB;
@@ -379,6 +388,13 @@ struct process_description
                         > ref_identifier[add_subpage]
                         > space
                         > *(qi::lit(',') > space > ref_identifier)[add_subpage]
+                        > qi::lit(';');
+                        
+        relations       = qi::lit("relations")
+                        > space
+                        > ref_identifier[add_relation]
+                        > space
+                        > *(qi::lit(',') > space > ref_identifier)[add_relation]
                         > qi::lit(';');
                         
         textfilelist    = qi::lit("text")
@@ -538,6 +554,7 @@ struct process_description
     qi::rule<Iterator> subpagelist;
     qi::rule<Iterator> subActivities;
     qi::rule<Iterator> subArtifacts;
+    qi::rule<Iterator> relations;
     qi::rule<Iterator> repositories;
     qi::rule<Iterator> textfilelist;
     qi::rule<Iterator> createlist;
