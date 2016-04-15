@@ -5,7 +5,6 @@
 
 artefact baseline {
     label $3 + " baseline";
-    contains comment;
 }
 
 activity doBaseline {

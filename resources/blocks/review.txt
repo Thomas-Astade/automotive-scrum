@@ -7,6 +7,7 @@
 artefact topic {
     label $3 + " review";
     contains comment;
+    relations $1;
 }
 
 artefact comment {
