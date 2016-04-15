@@ -110,7 +110,8 @@ namespace lifecycle {
         minimalSPICE_projectManager,
         minimalSPICE_projectLifeCycleDefinition,
         minimalSPICE_productManager,
-        "project life cycle");
+        "project life cycle",
+        minimalSPICE_PM_baseline);
 }
 
 namespace feasibility {
@@ -118,6 +119,7 @@ namespace feasibility {
         minimalSPICE_projectManager,
         minimalSPICE_projectPlan,
         minimalSPICE_developer,
-        "feasibility");
+        "feasibility",
+        minimalSPICE_PM_baseline);
 }
 

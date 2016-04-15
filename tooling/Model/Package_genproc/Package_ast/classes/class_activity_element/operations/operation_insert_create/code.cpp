@@ -14,6 +14,8 @@ for (std::vector<artefact_base*>::const_iterator it = c.begin(); it != c.end(); 
     
     fputs(connection.c_str(),gfile);
     
+    (*it)->insert_relations(gfile,true,(*it)->getFullIdentifier());
+    
     const parent_owner* p = dynamic_cast<const parent_owner*>(*it);
     if (p)
     {

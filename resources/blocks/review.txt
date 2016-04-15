@@ -2,12 +2,13 @@
 //  $1 - The reviewed artefact
 //  $2 - responsible reviewer
 //  $3 - name of the review
+//  $4 - baseline
 
 
 artefact topic {
     label $3 + " review";
     contains comment;
-    relations $1;
+    relations $1,$4;
 }
 
 artefact comment {
@@ -19,7 +20,6 @@ activity schedule {
     label "schedule " + $3 + " review";
     responsible $0; 
     tool forumTool;
-    transform $1;
     set topic(null,started);
 }
 
@@ -27,7 +27,6 @@ activity addComment {
     label "add " + $3 + " comment";
     responsible $2; 
     tool forumTool;
-    transform $1;
     create comment;
     set topic(started,started);
 }

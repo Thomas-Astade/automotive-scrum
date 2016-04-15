@@ -19,6 +19,12 @@ if((*it).getElement())
 
     if (((*it).getDestination()!="null") && ((*it).getSource() != (*it).getDestination()))
     {
+        if ((*it).getSource()=="null")
+        {
+            artefact_base* a = dynamic_cast<artefact_base*>((*it).getElement());
+            if (a)
+                a->insert_relations(gfile,true,(*it).getElement()->getFullIdentifier() + "_" + (*it).getDestination());
+        }
         connection = getFullIdentifier()
             + " -> "
             + (*it).getElement()->getFullIdentifier() + "_" + (*it).getDestination()
@@ -37,6 +43,9 @@ if((*it).getElement())
 
     if ((*it).getSource()!="null")
     {
+        artefact_base* a = dynamic_cast<artefact_base*>((*it).getElement());
+        if (a)
+            a->insert_relations(gfile,false,(*it).getElement()->getFullIdentifier() + "_" + (*it).getSource());
         connection = (*it).getElement()->getFullIdentifier() + "_" + (*it).getSource()
             + " -> "
             + getFullIdentifier()
