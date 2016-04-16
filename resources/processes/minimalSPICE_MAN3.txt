@@ -1,6 +1,6 @@
 include resources/blocks/spice_MAN3.txt;
 
-//*****************************************
+//******************************************
 
 extend activity spice_MAN3BP1 {
     create minimalSPICE_scopeOfWorkDefinition;
