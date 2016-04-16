@@ -104,7 +104,8 @@ repository git {
     label "git";
     contains 
         projectManagementFolder,
-        processManagementFolder;
+        processManagementFolder,
+        PM_baseline;
 }
 
 tool mantisTool {

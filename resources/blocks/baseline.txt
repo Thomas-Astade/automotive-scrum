@@ -5,6 +5,7 @@
 
 artefact baseline {
     label $3 + " baseline";
+    relations $1;
 }
 
 activity doBaseline {

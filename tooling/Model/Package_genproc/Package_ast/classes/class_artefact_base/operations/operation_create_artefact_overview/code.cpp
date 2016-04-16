@@ -20,7 +20,7 @@ fputs("rankdir=\"LR\";\n", gfile);
 
 fputs(e->get_graph_node(true).c_str(),gfile);
 
-insert_relations(gfile, true, e->getFullIdentifier());
+insert_relations(gfile, false, e->getFullIdentifier());
 insert_related(gfile, true, e->getFullIdentifier());
 
 for (std::set<const I_element*>::const_iterator it = m_creator.begin(); it != m_creator.end(); it++)
