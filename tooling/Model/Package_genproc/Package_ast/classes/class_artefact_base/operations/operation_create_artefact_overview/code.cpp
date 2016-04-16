@@ -27,13 +27,12 @@ for (std::set<const I_element*>::const_iterator it = m_creator.begin(); it != m_
 {
     fputs((*it)->get_graph_node(false).c_str(),gfile);
     std::string connection;
+
     connection = (*it)->getFullIdentifier()
         + " -> "
         + e->getFullIdentifier()
-        + "[arrowhead=\"vee\", arrowtail=\"none\", dir=\"both\", "
-        +  text_standards
-        + "fontcolor=\"#072551\", color=\"#7B1E00\", label=\"create\"];";
-    
+        + arrow_create();
+
     fputs(connection.c_str(),gfile);
 }
     
@@ -44,9 +43,7 @@ for (std::set<const I_element*>::const_iterator it = m_user.begin(); it != m_use
     connection = e->getFullIdentifier()
         + " -> "
         + (*it)->getFullIdentifier()
-        + "[arrowhead=\"vee\", arrowtail=\"none\", dir=\"both\", "
-        +  text_standards
-        + "fontcolor=\"#072551\", color=\"#7B1E00\", label=\"transform\"];";
+        + arrow_transform();
     
     fputs(connection.c_str(),gfile);
 }

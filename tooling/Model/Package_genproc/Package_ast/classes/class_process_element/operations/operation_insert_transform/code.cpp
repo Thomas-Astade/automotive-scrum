@@ -8,9 +8,7 @@ for (std::vector<artefact_base*>::const_iterator it = c.begin(); it != c.end(); 
     connection = getFullIdentifier()
         + " -> "
         + (*it)->getFullIdentifier()
-        + "[arrowhead=\"none\", arrowtail=\"vee\", dir=\"both\", "
-        +  text_standards
-        + "fontcolor=\"#072551\", color=\"#7B1E00\", label=\"transform\"];";
+        + arrow_transform();
     
     fputs(connection.c_str(),gfile);
 }

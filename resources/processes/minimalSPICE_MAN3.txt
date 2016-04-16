@@ -31,7 +31,9 @@ artefact projectPlan {
 
 folder projectReviews {
     label "project specific reviews";
-    contains lifecycle_topic;
+    contains 
+        lifecycle_topic,
+        feasibility_topic;
 }
 
 namespace PM {
