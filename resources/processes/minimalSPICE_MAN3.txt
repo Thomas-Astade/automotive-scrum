@@ -49,7 +49,8 @@ folder projectManagementFolder {
     brief "Contains project management specific files.";
     contains 
         projectPlan,
-        litData;
+        litData,
+        stakeholderRequirements;
 }
 
 artefact scopeOfWorkDefinition {
