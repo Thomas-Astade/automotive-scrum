@@ -3,14 +3,22 @@ activity customerCommunication {
     brief "This activity summorizes all neccessary communacation and agreement with the customer.";
     responsible productManager;
     subactivities 
-        lifecycle_addComment,
-        spice_SUP10BP2,
-        spice_SUP9BP2,
-        PR_getFeedback,
-        CR_getFeedback,
+        understandStakeholder,    
         PR_effortReview,
         CR_effortReview;
     text md/minimalSPICE/productManager.md;
+}
+
+activity understandStakeholder {
+    label "understand stakeholder";
+    brief "This activity is to transport the stakeholder wishes to the development team.";
+    subactivities 
+        lifecycle_addComment,
+        spice_SYS1BP1,        
+        spice_SUP10BP2,
+        spice_SUP9BP2,
+        PR_getFeedback,
+        CR_getFeedback;
 }
 
 namespace CR {

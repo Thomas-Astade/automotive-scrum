@@ -19,6 +19,7 @@ include resources/blocks/genproc.txt(
 );
 
 include resources/processes/minimalSPICE_MAN3.txt;
+include resources/processes/minimalSPICE_SYS1.txt;
 include resources/processes/minimalSPICE_CustomerCommunication.txt;
 
 //*****************************************************************
