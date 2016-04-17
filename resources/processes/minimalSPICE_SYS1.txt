@@ -2,4 +2,12 @@ include resources/blocks/spice_SYS1.txt;
 
 //******************************************
 
+artefact stakeholderRequirements {
+    label "Stakeholder requirements";
+    brief "17-03 Stakeholder requirements";
+    text md/spice/StakeholderRequirements.md;
+}
 
+extend activity spice_SYS1BP1 {
+    create minimalSPICE_stakeholderRequirements;
+}
