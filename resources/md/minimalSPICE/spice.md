@@ -1,7 +1,8 @@
 SYS.1 Requirements Elicitation
 ------------------------------
 
-* [SUP.1.BP1: Obtain stakeholder requirements and requests.](minimalSPICE_spice_SYS1BP1.html)
+* [SYS.1.BP1: Obtain stakeholder requirements and requests.](minimalSPICE_spice_SYS1BP1.html)
+* [SYS.1.BP4: Establish stakeholder requirements baseline.](minimalSPICE_spice_SYS1BP4.html)
 
 SUP.8 Configuration Management
 ------------------------------
