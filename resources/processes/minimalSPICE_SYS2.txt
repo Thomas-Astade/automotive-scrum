@@ -6,16 +6,3 @@ role systemEngineer {
     label "system engineer";
     brief "The system engineer has the technical responsibility for the total system.";
 }
-
-namespace stakeholderReq { 
-     include resources/blocks/baseline.txt(productManager,requirementsFolder,gitCM,"stakeholder requirements"); 
-} 
-
-namespace stakeholderReq {
-    include  resources/blocks/review.txt(
-        minimalSPICE_productManager,
-        minimalSPICE_stakeholderRequirements,
-        minimalSPICE_systemEngineer,
-        "stakeholder requirements",
-        minimalSPICE_PM_baseline);
-}
