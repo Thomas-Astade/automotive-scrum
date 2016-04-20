@@ -61,9 +61,16 @@ process process {
         genproc_processDescription,
         configurationManagement,
         customerCommunication,
-        develop;
+        develop,
+        requirementsManagement;
     text md/minimalSPICE/process.md,
          md/minimalSPICE/spice.md;
+}
+
+activity requirementsManagement {
+    label "requirements management";
+    brief "All actions which belong o the equirements.";
+    contains stakeholderReq_addComment;
 }
 
 activity configurationManagement {
