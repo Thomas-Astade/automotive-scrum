@@ -14,7 +14,7 @@ namespace stakeholderReq {
 namespace stakeholderReq {
     include  resources/blocks/review.txt(
         minimalSPICE_productManager,
-        minimalSPICE_stakeholderRequirements ,
+        minimalSPICE_stakeholderRequirements,
         minimalSPICE_systemEngineer,
         "stakeholder requirements",
         minimalSPICE_PM_baseline);
