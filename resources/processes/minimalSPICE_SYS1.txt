@@ -18,7 +18,7 @@ namespace stakeholderReq {
         minimalSPICE_stakeholderRequirements,
         minimalSPICE_systemEngineer,
         "stakeholder requirements",
-        minimalSPICE_PM_baseline);
+        minimalSPICE_stakeholderReq_baseline);
 }
 
 extend activity spice_SYS1BP1 {
