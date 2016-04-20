@@ -105,9 +105,9 @@ repository git {
     label "git";
     contains 
         projectManagementFolder,
-        PM_baseline,
         processManagementFolder,
-        technicalFolder;
+        technicalFolder,
+        metaData;
 }
 
 tool mantisTool {
@@ -120,6 +120,23 @@ repository mantisRepository {
     label "Mantis database";
     contains CRfolder, PRfolder;
     text md/mantis/mantis_tool.md; 
+}
+
+folder metaData {
+    label "meta data";
+    brief "The git repository meta data."
+    contains tags, branches;
+}
+
+folder tags {
+    label "tags";
+    brief "In this folder git stores the tags (baselines).";
+    contains PM_baseline;
+}
+
+folder branches {
+    label "branches";
+    brief "In this folder git stores the branches (development lines).";
 }
 
 folder technicalFolder {
