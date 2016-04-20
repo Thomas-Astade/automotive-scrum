@@ -105,8 +105,9 @@ repository git {
     label "git";
     contains 
         projectManagementFolder,
+        PM_baseline,
         processManagementFolder,
-        PM_baseline;
+        technicalFolder;
 }
 
 tool mantisTool {
@@ -121,6 +122,16 @@ repository mantisRepository {
     text md/mantis/mantis_tool.md; 
 }
 
+folder technicalFolder {
+    label "technical";
+    contains requirementsFolder;
+}
+
+folder requirementsFolder {
+    label "requirements";
+    contains stakeholderRequirements;
+}
+        
 folder CRfolder {
     label "changes requests";
     contains CR_issue;
