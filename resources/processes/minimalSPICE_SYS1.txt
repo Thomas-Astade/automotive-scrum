@@ -8,6 +8,19 @@ artefact stakeholderRequirements {
     text md/spice/StakeholderRequirements.md;
 }
 
+namespace stakeholderReq { 
+     include resources/blocks/baseline.txt(productManager,requirementsFolder,gitCM,"stakeholder requirements"); 
+} 
+
+namespace stakeholderReq {
+    include  resources/blocks/review.txt(
+        minimalSPICE_productManager,
+        minimalSPICE_stakeholderRequirements,
+        minimalSPICE_systemEngineer,
+        "stakeholder requirements",
+        minimalSPICE_PM_baseline);
+}
+
 extend activity spice_SYS1BP1 {
     create minimalSPICE_stakeholderRequirements;
 }
