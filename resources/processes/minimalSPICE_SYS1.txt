@@ -24,6 +24,7 @@ namespace stakeholderReq {
 folder requirementReviews {
     label "requirement reviews";
     brief "A folder that contains all requirement reviews.";
+    contains stakeholderReq_topic;
 }
 
 extend activity spice_SYS1BP1 {
