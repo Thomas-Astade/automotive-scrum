@@ -4,7 +4,7 @@ FILE *gfile;
 std::string linkname = e->getFullIdentifier() + "_process_overview";
 std::string filename = outpath + "/" + linkname;
 
-std::string command("neato ");
+std::string command("dot ");
 command += "-Tpng -o " + filename + ".png ";
 command += "-Tcmapx -o " + filename + ".cmapx";
 
@@ -12,8 +12,8 @@ if(!(gfile = popen(command.c_str(), "w")))
     throw(command);
 
 fputs("digraph process_overview {\n", gfile);
-fputs("overlap=false\n", gfile);
-//fputs("rankdir=\"UD\";\n", gfile);
+//fputs("overlap=false\n", gfile);
+fputs("rankdir=\"UD\";\n", gfile);
 
 fputs(e->get_graph_node(true).c_str(),gfile);
 insert_role(gfile);
