@@ -216,12 +216,13 @@ activity generateDocumentation {
     label "generate documentation";
     brief "compiles a documentation view in html.";
     tool doxygene;
-    transform linkedRequirements;
+    transform linkedRequirements,projectPlan;
     create projectDocumentation;
 }
 
 artefact projectDocumentation {
     label "projet documentation";
+    brief "A html site containing all project relevant documentation.";
 }
 
 activity continiousIntegration {
