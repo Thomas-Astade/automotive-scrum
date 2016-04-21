@@ -56,6 +56,7 @@ process process {
     label "minimal SPICE";    
     responsible projectManager;
     repository git,jenkins,forum,mantisRepository;
+    create projectDocumentation;
     subactivities
         projectManagement,
         genproc_processDescription,
@@ -63,7 +64,6 @@ process process {
         customerCommunication,
         develop,
         requirementsManagement;
-    create projectDocumentation;
     text md/minimalSPICE/process.md,
          md/minimalSPICE/spice.md;
 }
