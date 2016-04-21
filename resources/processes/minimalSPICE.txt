@@ -102,7 +102,7 @@ repository jenkins {
     brief "Jenkins, as a buils server, archives the build artefacts.";
     contains
         genproc_processView,
-        linkedRequirements;
+        linkRequirements;
 }
 
 tool gitCM {
