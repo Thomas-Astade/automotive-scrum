@@ -26,7 +26,9 @@ artefact projectPlan {
     contains 
         scopeOfWorkDefinition,
         projectLifeCycleDefinition;
-    text md/spice/ProjectPlan.md;
+    text 
+        md/spice/ProjectPlan.md,
+        md/minimalSPICE/markdown.txt;
 }
 
 folder projectReviews {
