@@ -208,14 +208,14 @@ folder processManagementFolder {
     contains genproc_processSources;
 }
 
-tool doxygene {
-    label "Doxygene";
+tool doxygen {
+    label "Doxygen";
 }
 
 activity generateDocumentation {
     label "generate documentation";
     brief "compiles a documentation view in html.";
-    tool doxygene;
+    tool doxygen;
     transform linkedRequirements,projectPlan;
     create projectDocumentation;
 }
