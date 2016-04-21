@@ -55,8 +55,8 @@ role developer {
 process process {
     label "minimal SPICE";    
     responsible projectManager;
-    repository git,jenkins,forum,mantisRepository;
     create projectDocumentation;
+    repository git,jenkins,forum,mantisRepository;
     subactivities
         projectManagement,
         genproc_processDescription,
