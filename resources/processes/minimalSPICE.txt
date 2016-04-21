@@ -209,7 +209,7 @@ folder processManagementFolder {
 
 activity continiousIntegration {
     label "continious integration";
-     responsible jenkins;
+     responsible jenkinsRole;
      subactivities
         genproc_createprocessView,
         linkRequirements;
