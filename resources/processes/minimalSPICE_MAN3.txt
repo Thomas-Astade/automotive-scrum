@@ -28,7 +28,7 @@ artefact projectPlan {
         projectLifeCycleDefinition;
     text 
         md/spice/ProjectPlan.md,
-        md/minimalSPICE/markdown.txt;
+        md/minimalSPICE/markdown.md;
 }
 
 folder projectReviews {
