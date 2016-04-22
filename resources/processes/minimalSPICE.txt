@@ -137,7 +137,9 @@ activity linkRequirements {
     label "link requirements";
     brief "an automated activity that adds backward links into markdown files";
     tool linkTool;
-    transform stakeholderRequirements;
+    transform 
+        stakeholderReq_baseline,
+        stakeholderRequirements;
     create linkedRequirements;
 }
 
@@ -219,7 +221,6 @@ activity generateDocumentation {
     brief "compiles a documentation view in html.";
     tool doxygen;
     transform 
-        stakeholderReq_baseline,
         linkedRequirements,
         PM_baseline,
         projectPlan;
