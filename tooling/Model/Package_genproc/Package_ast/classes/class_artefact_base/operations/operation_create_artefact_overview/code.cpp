@@ -1,5 +1,5 @@
 //~~ void create_artefact_overview(std::ofstream& outfile, const std::string& outpath) [artefact_base] ~~
-if (m_creator.empty() && m_user.empty())
+if (m_creator.empty() && m_user.empty() && m_related.empty() && m_relation.empty())
     return;
 
 const I_element* e = dynamic_cast<const I_element*>(this);
