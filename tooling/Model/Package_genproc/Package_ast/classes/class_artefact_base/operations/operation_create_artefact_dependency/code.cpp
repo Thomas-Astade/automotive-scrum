@@ -19,6 +19,8 @@ fputs("digraph artefact_dependency {\n", gfile);
 fputs("rankdir=\"LR\";\n", gfile);
 
 insert_dependencies(gfile);
+insert_relations(gfile, false, e->getFullIdentifier());
+insert_related(gfile, true, e->getFullIdentifier());
 fputs(e->get_graph_node(true).c_str(),gfile);
 
 fputs("}\n",gfile);
