@@ -509,7 +509,7 @@ struct process_description
                         > SC;
         
         comment         = qi::lit("//") 
-                        > *(qi::alnum | qi::char_(" ,.;:_<>|~!§$%&/()*=?{[]}'-\"")) 
+                        > *(qi::alnum | qi::char_("\" ,.;:_<>|~!§$%&/()*=?{[]}'-")) 
                         > qi::lit('\n');
 
         filename        = +qi::char_("a-zA-Z_/.0-9");
