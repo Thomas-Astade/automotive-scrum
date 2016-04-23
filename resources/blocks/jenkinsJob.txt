@@ -3,13 +3,14 @@
 //  $2 - parent folder
 //  $3 - source artefact;
 //  $4 - target artefact label;
+//  $5 - job maintainance responsible
 
 // expects a role: "jenkinsRole"
 
 // ********************************
 
 extend activity $1 {
-    subactivities run;
+    subactivities run,maintainScript; 
 }
 
 extend folder $2 {
@@ -19,6 +20,12 @@ extend folder $2 {
 folder jobFolder {
     label $0;
     contains script, resultArtefact;
+}
+
+activity maintainScript {
+    label "maintain '" + $0 + "' script";
+    responsible $5;
+    create script;
 }
 
 artefact script {
