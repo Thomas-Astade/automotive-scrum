@@ -17,9 +17,6 @@ namespace overview {
         brief "Jenkins is an automation engine with an unparalleled plugin ecosystem to support all of your favorite tools in your delivery pipelines, whether your goal is continuous integration, automated testing, or continuous delivery.";
     }
     
-    role jenkinsMaintainer {
-    }
-
     folder working {
         label "working directory";
     }
@@ -30,10 +27,10 @@ namespace overview {
     include resources/blocks/jenkinsJob.txt (
         "test",
         workWithJenkins,
+        workWithJenkins,
         working,
         jenkinsSource,
-        "work product",
-        jenkinsMaintainer
+        "work product"
     );
 
     namespace mantis {

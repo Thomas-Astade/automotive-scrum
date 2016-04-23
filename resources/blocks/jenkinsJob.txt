@@ -1,30 +1,36 @@
 //  $0 - job name (label)
-//  $1 - parent activity
-//  $2 - parent folder
-//  $3 - source artefact;
-//  $4 - target artefact label;
-//  $5 - job maintainance responsible
+//  $1 - integration activity
+//  $2 - maintain activity
+//  $3 - parent folder
+//  $4 - source artefact;
+//  $5 - target artefact label;
 
 // expects a role: "jenkinsRole"
 
 // ********************************
 
 extend activity $1 {
-    subactivities run,maintainScript; 
+    subactivities run; 
 }
 
-extend folder $2 {
+extend folder $3 {
     contains jobFolder;
+}
+
+extend activity $2 {
+    subactivities maintainScript; 
 }
 
 folder jobFolder {
     label $0;
-    contains script, resultArtefact;
+    contains 
+        script,
+        resultArtefact,
+        resultReport;
 }
 
 activity maintainScript {
     label "maintain '" + $0 + "' script";
-    responsible $5;
     create script;
 }
 
@@ -34,15 +40,21 @@ artefact script {
 }
 
 artefact resultArtefact {
-    label $4;
+    label $5;
+}
+
+artefact resultReport {
+    label " build report for " + $5;
 }
 
 activity run {
     label "run " + $0;
     brief "the Job is executed and produces the artefacts.";
     responsible jenkinsRole;
-    transform $3,script;
-    create resultArtefact;
+    transform $4,script;
+    create 
+        resultArtefact,
+        resultReport;
 }
 
 
