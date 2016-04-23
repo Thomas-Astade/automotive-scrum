@@ -101,7 +101,7 @@ repository jenkins {
     label "Jenkins";
     brief "Jenkins, as a buils server, archives the build artefacts.";
     contains
-        genproc_processView,
+        genproc_PV_jobFolder,
         linkedRequirements,
         projectDocumentation;
 }

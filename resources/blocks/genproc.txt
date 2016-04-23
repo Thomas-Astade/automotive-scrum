@@ -68,6 +68,7 @@ namespace genproc {
       responsible $0;
       create processSources;
       subactivities
+        PV_maintainScript,
         spice_SUP9BP1,
         spice_SUP10BP1,
         spice_SUP8BP1,

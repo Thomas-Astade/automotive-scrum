@@ -62,7 +62,7 @@ artefact scopeOfWorkDefinition {
 activity projectManagement {
     label "Project management";
     brief "All the administrative work, which has to be done.";
-    transform genproc_processView;
+    transform genproc_PV_resultArtefact;
     create projectPlan;
     subactivities
         projectSetup,
