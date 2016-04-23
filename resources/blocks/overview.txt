@@ -1,5 +1,36 @@
 namespace overview {
     include resources/blocks/git.txt;
+    
+    activity workWithJenkins {
+        label "work with Jenkins";
+    }
+
+    repository jenkins {
+        label "Jenkins";
+        brief "Jenkins, as a buils server, archives the build artefacts.";
+        contains
+            working;
+    }
+
+    role jenkinsRole {
+        label "Jenkins";
+        brief "Jenkins is an automation engine with an unparalleled plugin ecosystem to support all of your favorite tools in your delivery pipelines, whether your goal is continuous integration, automated testing, or continuous delivery.";
+    }
+    
+    folder working {
+        label "working directory";
+    }
+
+    artefact jenkinsSource {
+    }
+
+    include resources/blocks/jenkinsJob.txt (
+        "test",
+        workWithJenkins,
+        working,
+        jenkinsSource,
+        "work product"
+    );
 
     namespace mantis {
         include resources/blocks/mantis.txt(mantisTool,"issue");
@@ -13,7 +44,7 @@ namespace overview {
 
     page buildingBlocks {
         label "building blocks";
-        subpages git_workWithGit, workWithMantis, workWithSpice;
+        subpages git_workWithGit, workWithMantis, workWithSpice, workWithJenkins;
     }
 
     activity workWithMantis {

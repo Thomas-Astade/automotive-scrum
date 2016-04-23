@@ -1,0 +1,41 @@
+//  $0 - job name (label)
+//  $1 - parent activity
+//  $2 - parent folder
+//  $3 - source artefact;
+//  $4 - target artefact label;
+
+// expects a role: "jenkinsRole"
+
+// ********************************
+
+extend activity $1 {
+    subactivities run;
+}
+
+extend folder $2 {
+    contains jobFolder;
+}
+
+folder jobFolder {
+    label $0;
+    contains script, resultArtefact;
+}
+
+artefact script {
+    label $0 + " script";
+    brief "this is a Jenkins script. A configuration, that contains all necessary information to do the job.";
+}
+
+artefact resultArtefact {
+    label $4;
+}
+
+activity run {
+    label "run " + $0;
+    brief "the Job is executed and produces the artefacts.";
+    responsible jenkinsRole;
+    transform $3,script;
+    create resultArtefact;
+}
+
+
