@@ -1,5 +1,6 @@
 //~~ void deactivateParameters(bool dump) [parameters] ~~
 currentParameters.clear();
+futureParameters.clear();
 
 if (!callStack.empty())
      callStack.pop_back();

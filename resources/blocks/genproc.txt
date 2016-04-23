@@ -1,5 +1,24 @@
+//  $0 - process responsible
+
 namespace genproc {
 
+    namespace PV {    
+        include resources/blocks/jenkinsJob.txt (
+            "create process view",
+            processSources,
+            "process view",
+            genproc
+        );
+    }
+    
+    extend activity PV_run {
+        brief "This activity creates a human readable process description (this website).";
+    }
+    
+    extend artefact PV_resultArtefact {
+        brief "A human readable process description (a website).";
+    }
+    
     tool genproc {
         brief "A command line tool that compiles process sources into a human readable form (a website).";
     }
@@ -55,21 +74,6 @@ namespace genproc {
         spice_SUP8BP2;
     }
     
-    activity createprocessView {
-        label "create process view";
-        brief "This activity creates a human readable process description (this website).";
-        responsible $1;
-        tool genproc;
-        transform processSources; 
-        create processView; 
-
-    }
-    
-    artefact processView {
-        label "process view";
-        brief "A human readable process description (a website).";
-    }
-    
     artefact processSources {
         label "Process sources";
         brief "A definition of all process steps in a special DSL.";
@@ -79,5 +83,4 @@ namespace genproc {
             configurationManagementPlan,
             configurationItems;
     }
-  
 }

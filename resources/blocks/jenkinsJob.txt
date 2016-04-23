@@ -1,25 +1,11 @@
 //  $0 - job name (label)
-//  $1 - integration activity
-//  $2 - maintain activity
-//  $3 - parent folder
-//  $4 - source artefact;
-//  $5 - target artefact label;
+//  $1 - source artefact
+//  $2 - target artefact label
+//  $3 - used tool
 
 // expects a role: "jenkinsRole"
 
 // ********************************
-
-extend activity $1 {
-    subactivities run; 
-}
-
-extend folder $3 {
-    contains jobFolder;
-}
-
-extend activity $2 {
-    subactivities maintainScript; 
-}
 
 folder jobFolder {
     label $0;
@@ -40,18 +26,19 @@ artefact script {
 }
 
 artefact resultArtefact {
-    label $5;
+    label $2;
 }
 
 artefact resultReport {
-    label " build report for " + $5;
+    label " build report for " + $2;
 }
 
 activity run {
     label "run " + $0;
     brief "the Job is executed and produces the artefacts.";
     responsible jenkinsRole;
-    transform $4,script;
+    tool $3;
+    transform $1,script;
     create 
         resultArtefact,
         resultReport;

@@ -14,8 +14,7 @@ include resources/blocks/spice_SUP10.txt;
 //include resources/blocks/spice_MAN5.txt;
 
 include resources/blocks/genproc.txt(
-    processManager,
-    jenkinsRole
+    processManager
 );
 
 include resources/processes/minimalSPICE_MAN3.txt;
@@ -236,7 +235,7 @@ activity continiousIntegration {
     label "continious integration";
      responsible jenkinsRole;
      subactivities
-        genproc_createprocessView,
+        genproc_PV_run,
         linkRequirements,
         generateDocumentation;
 }

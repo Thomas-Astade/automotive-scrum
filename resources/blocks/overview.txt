@@ -3,6 +3,7 @@ namespace overview {
     
     activity workWithJenkins {
         label "work with Jenkins";
+        subactivities maintainScript,run; 
     }
 
     repository jenkins {
@@ -19,18 +20,20 @@ namespace overview {
     
     folder working {
         label "working directory";
-    }
+        contains jobFolder;
+   }
 
     artefact jenkinsSource {
     }
 
+    tool aTool {
+    }
+
     include resources/blocks/jenkinsJob.txt (
         "test",
-        workWithJenkins,
-        workWithJenkins,
-        working,
         jenkinsSource,
-        "work product"
+        "work product",
+        aTool
     );
 
     namespace mantis {
