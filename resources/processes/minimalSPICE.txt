@@ -84,6 +84,7 @@ activity develop {
     label "Develop";
     responsible developer;
     subactivities
+        stakeholderReq_maintainScript,
         technicalReviews,
         PR_reportIssueSolved,
         CR_reportIssueSolved;
