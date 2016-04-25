@@ -26,6 +26,9 @@ namespace overview {
     artefact jenkinsSource {
     }
 
+    artefact jenkinsBaseline {
+    }
+
     tool aTool {
     }
 
@@ -33,7 +36,8 @@ namespace overview {
         "test",
         jenkinsSource,
         "work product",
-        aTool
+        aTool,
+        jenkinsBaseline
     );
 
     namespace mantis {
