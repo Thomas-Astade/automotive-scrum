@@ -2,6 +2,10 @@
 
 namespace genproc {
 
+    namespace PV { 
+         include resources/blocks/baseline.txt(processManager,processSources,gitCM,"process management"); 
+    } 
+
     namespace PV {    
         include resources/blocks/jenkinsJob.txt (
             "create process view",
