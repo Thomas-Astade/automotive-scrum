@@ -2,6 +2,7 @@
 //  $1 - source artefact
 //  $2 - target artefact label
 //  $3 - used tool
+//  $4 - baseline
 
 // expects a role: "jenkinsRole"
 
@@ -21,8 +22,9 @@ activity maintainScript {
 }
 
 artefact script {
-    label $0 + " script";
+    label "'" + $0 + "' script";
     brief "this is a Jenkins script. A configuration, that contains all necessary information to do the job.";
+    relations $4;
 }
 
 artefact resultArtefact {
