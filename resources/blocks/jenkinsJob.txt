@@ -32,11 +32,11 @@ artefact resultArtefact {
 }
 
 artefact resultReport {
-    label " build report for " + $2;
+    label " build report for '" + $2 +"'";
 }
 
 activity run {
-    label "run " + $0;
+    label "run '" + $0 + "'";
     brief "the Job is executed and produces the artefacts.";
     responsible jenkinsRole;
     tool $3;
