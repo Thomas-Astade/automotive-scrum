@@ -13,6 +13,10 @@ namespace genproc {
         );
     }
     
+    extend activity spice_SUP8BP6 {
+        subactivities genproc_PV_doBaseline;
+    }
+    
     extend activity PV_run {
         brief "This activity creates a human readable process description (this website).";
     }
