@@ -165,7 +165,8 @@ folder tags {
     brief "In this folder git stores the tags (baselines).";
     contains 
         PM_baseline,
-        stakeholderReq_baseline;
+        stakeholderReq_baseline,
+        genproc_PV_baseline;
 }
 
 folder branches {
