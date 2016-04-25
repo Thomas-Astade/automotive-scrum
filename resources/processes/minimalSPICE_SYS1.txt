@@ -11,7 +11,15 @@ artefact stakeholderRequirements {
 }
 
 namespace stakeholderReq { 
-     include resources/blocks/baseline.txt(productManager,requirementsFolder,gitCM,"stakeholder requirements"); 
+    include resources/blocks/baseline.txt(productManager,requirementsFolder,gitCM,"stakeholder requirements"); 
+    
+    include resources/blocks/jenkinsJob.txt (
+        "link requirements",
+        requirementsFolder,
+        "linked requirements",
+        linkTool,
+        baseline
+    );
 } 
 
 namespace stakeholderReq {
