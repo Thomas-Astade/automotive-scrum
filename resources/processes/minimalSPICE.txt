@@ -213,8 +213,24 @@ activity generateDocumentation {
 }
 
 artefact projectDocumentation {
-    label "projet documentation";
+    label "project documentation";
     brief "A html site containing all project relevant documentation.";
+}
+
+artefact projectDocumentationScript {
+    label "project documentation script";
+}
+
+artefact projectDocumentationLog {
+    label "project documentation log";
+}
+
+folder projectDocumentationFolder { 
+    label "project documentation"; 
+    contains  
+        projectDocumentationScript, 
+        projectDocumentation, 
+        projectDocumentationLog; 
 }
 
 activity continiousIntegration {
