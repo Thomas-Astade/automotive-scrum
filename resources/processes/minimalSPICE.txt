@@ -87,7 +87,8 @@ activity develop {
         stakeholderReq_maintainScript,
         technicalReviews,
         PR_reportIssueSolved,
-        CR_reportIssueSolved;
+        CR_reportIssueSolved,
+        maintainGenerateDocumentationScript;
 }
 
 activity technicalReviews {
@@ -211,6 +212,11 @@ activity generateDocumentation {
         projectPlan;
     create projectDocumentation;
 }
+
+activity maintainGenerateDocumentationScript { 
+    label "maintain 'generateDocumentation' script"; 
+    create projectDocumentationScript; 
+} 
 
 artefact projectDocumentation {
     label "project documentation";
