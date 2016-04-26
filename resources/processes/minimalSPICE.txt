@@ -225,7 +225,7 @@ artefact projectDocumentation {
 
 artefact projectDocumentationScript {
     label "project documentation script";
-    relations PM_baseline, stakeholderReq_baseline;
+    relations PM_baseline;
 }
 
 artefact projectDocumentationLog {
