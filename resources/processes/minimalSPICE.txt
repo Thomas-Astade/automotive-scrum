@@ -208,8 +208,8 @@ activity generateDocumentation {
     tool doxygen;
     transform 
         stakeholderReq_resultArtefact,
-        PM_baseline,
-        projectPlan;
+        projectPlan,
+        projectDocumentationScript;
     create projectDocumentation;
 }
 
@@ -225,6 +225,7 @@ artefact projectDocumentation {
 
 artefact projectDocumentationScript {
     label "project documentation script";
+    relations PM_baseline, stakeholderReq_baseline;
 }
 
 artefact projectDocumentationLog {
