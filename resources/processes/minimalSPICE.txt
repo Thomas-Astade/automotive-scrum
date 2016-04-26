@@ -214,7 +214,7 @@ activity generateDocumentation {
 }
 
 activity maintainGenerateDocumentationScript { 
-    label "maintain 'generateDocumentation' script"; 
+    label "maintain 'project documentation' script"; 
     create projectDocumentationScript; 
 } 
 
