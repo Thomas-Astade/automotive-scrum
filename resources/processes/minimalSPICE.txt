@@ -104,7 +104,7 @@ repository jenkins {
     contains
         genproc_PV_jobFolder,
         stakeholderReq_jobFolder,
-        projectDocumentation;
+        projectDocumentationFolder;
 }
 
 tool gitCM {
