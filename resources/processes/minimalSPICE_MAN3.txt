@@ -111,7 +111,7 @@ artefact projectLifeCycleDefinition {
 namespace lifecycle {
     include  resources/blocks/review.txt(
         minimalSPICE_projectManager,
-        minimalSPICE_projectLifeCycleDefinition,
+        minimalSPICE_projectPlanViev,
         minimalSPICE_productManager,
         "project life cycle",
         minimalSPICE_PM_baseline);
@@ -120,7 +120,7 @@ namespace lifecycle {
 namespace feasibility {
     include  resources/blocks/review.txt(
         minimalSPICE_projectManager,
-        minimalSPICE_projectPlan,
+        minimalSPICE_projectPlanViev,
         minimalSPICE_developer,
         "feasibility",
         minimalSPICE_PM_baseline);
