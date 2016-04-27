@@ -1,6 +1,6 @@
 /*
  * genproc is a tool for website generation. A content management system, specialized to process descriptions.
- * Copyright (C) 2005-2016 Thomas Spitzer
+ * Copyright (C) 2016 Thomas Spitzer
  *
  * genproc is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
