@@ -210,12 +210,12 @@ activity generateDocumentation {
         stakeholderReq_resultArtefact,
         projectPlan,
         projectDocumentationScript;
-    create projectDocumentation;
+    create projectDocumentation,projectPlanViev;
 }
 
 activity maintainGenerateDocumentationScript { 
     label "maintain 'project documentation' script"; 
-    create projectDocumentationScript,projectPlanViev; 
+    create projectDocumentationScript; 
 } 
 
 artefact projectPlanViev {
