@@ -210,7 +210,7 @@ activity generateDocumentation {
         stakeholderReq_resultArtefact,
         projectPlan,
         projectDocumentationScript;
-    create projectDocumentation,projectPlanViev;
+    create projectDocumentation,projectPlanViev,reqirementView;
 }
 
 activity maintainGenerateDocumentationScript { 
@@ -223,10 +223,15 @@ artefact projectPlanViev {
     brief "A generated view (human readable form) of the project plan.";
 }
 
+artefact reqirementView {
+    label "requirement view";
+    brief "A website that contains all requirements bidirectional linked.";
+}
+
 artefact projectDocumentation {
     label "project documentation";
     brief "A html site containing all project relevant documentation.";
-    contains projectPlanViev;
+    contains projectPlanViev,reqirementView;
 }
 
 artefact projectDocumentationScript {
