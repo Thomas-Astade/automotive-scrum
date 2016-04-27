@@ -215,12 +215,18 @@ activity generateDocumentation {
 
 activity maintainGenerateDocumentationScript { 
     label "maintain 'project documentation' script"; 
-    create projectDocumentationScript; 
+    create projectDocumentationScript,projectPlanViev; 
 } 
+
+artefact projectPlanViev {
+    label "project plan view";
+    brief "A generated view (human readable form) of the project plan.";
+}
 
 artefact projectDocumentation {
     label "project documentation";
     brief "A html site containing all project relevant documentation.";
+    contains projectPlanViev;
 }
 
 artefact projectDocumentationScript {
