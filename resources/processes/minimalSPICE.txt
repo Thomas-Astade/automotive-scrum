@@ -173,7 +173,7 @@ folder requirementsFolder {
     label "requirements";
     contains 
         stakeholderRequirements,
-        systemRequirements;
+        SystemRequirements;
 }
         
 folder CRfolder {
