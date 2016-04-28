@@ -171,7 +171,9 @@ folder technicalFolder {
 
 folder requirementsFolder {
     label "requirements";
-    contains stakeholderRequirements;
+    contains 
+        stakeholderRequirements,
+        systemRequirements;
 }
         
 folder CRfolder {
