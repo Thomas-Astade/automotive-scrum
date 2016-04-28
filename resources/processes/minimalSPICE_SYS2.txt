@@ -6,3 +6,7 @@ role systemEngineer {
     label "system engineer";
     brief "The system engineer has the technical responsibility for the total system.";
 }
+
+extend activity spice_SYS2BP1 {
+    role systemEngineer;
+}
