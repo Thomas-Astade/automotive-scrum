@@ -70,7 +70,11 @@ process process {
 activity requirementsManagement {
     label "requirements management";
     brief "All actions which belong o the equirements.";
-    subactivities stakeholderReq_addComment, stakeholderReq_schedule, stakeholderReq_close;
+    subactivities 
+        stakeholderReq_addComment, 
+        stakeholderReq_schedule, 
+        stakeholderReq_close,
+        spice_SYS2BP1;
 }
 
 activity configurationManagement {
