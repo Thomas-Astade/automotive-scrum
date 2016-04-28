@@ -10,3 +10,15 @@ role systemEngineer {
 extend activity spice_SYS2BP1 {
     role systemEngineer;
 }
+
+artefact SystemRequirements {
+    label "System requirements specification";
+    brief "17-12 System requirements specification";
+    text 
+        md/spice/SystemRequirements.md, 
+        md/minimalSPICE/extended_markdown.md;
+}
+
+extend activity spice_SYS2BP1 {
+    create SystemRequirements;
+}
