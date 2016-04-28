@@ -8,7 +8,7 @@ role systemEngineer {
 }
 
 extend activity spice_SYS2BP1 {
-    role systemEngineer;
+    responsible systemEngineer;
 }
 
 artefact SystemRequirements {
