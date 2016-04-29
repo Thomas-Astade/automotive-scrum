@@ -37,3 +37,6 @@ namespace systemReq {
         minimalSPICE_systemReq_baseline);
 }
 
+extend activity spice_SUP8BP6 {
+    subactivities systemReq_doBaseline;
+}
