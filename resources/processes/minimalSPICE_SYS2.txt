@@ -21,4 +21,19 @@ artefact SystemRequirements {
 
 extend activity spice_SYS2BP1 {
     create SystemRequirements;
+    subactivities 
+        systemReq_schedule,
+        systemReq_close;
 }
+
+namespace systemReq {
+    include resources/blocks/baseline.txt(systemEngineer,requirementsFolder,gitCM,"system requirements"); 
+    
+    include  resources/blocks/review.txt(
+        minimalSPICE_systemEngineer,
+        minimalSPICE_reqirementView,
+        minimalSPICE_developer,
+        "system requirements",
+        minimalSPICE_systemReq_baseline);
+}
+

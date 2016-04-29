@@ -100,7 +100,8 @@ activity technicalReviews {
     subactivities 
         feasibility_addComment,
         PR_technicalPreview,
-        CR_technicalPreview;
+        CR_technicalPreview,
+        systemReq_addComment;
 }
 
 repository jenkins {
@@ -156,6 +157,7 @@ folder tags {
     contains 
         PM_baseline,
         stakeholderReq_baseline,
+        systemReq_baseline,
         genproc_PV_baseline;
 }
 
