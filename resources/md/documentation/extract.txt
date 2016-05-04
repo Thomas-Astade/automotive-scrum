@@ -1,0 +1,31 @@
+//  $0 - extract type (label)
+// 
+
+artefact data {
+    label $0 + " data";
+}
+
+tool extractor {
+    label $0 + " extractor";
+}
+
+folder jobFolder {
+    label "extract " + $0 + " data";
+    contains 
+        resultArtefact;
+}
+
+artefact resultArtefact {
+    label "extracted " + $0 + " data";
+    text md/minimalSPICE/extended_markdown.md; 
+}
+
+activity run {
+    label "run 'extract " + $0 + " data'";
+    brief "the Job is executed and produces the artefacts (the extracted data).";
+    tool extractor;
+    transform data;
+    create 
+        resultArtefact;
+}
+

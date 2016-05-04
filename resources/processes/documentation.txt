@@ -1,0 +1,132 @@
+namespace documentation {
+
+tool doxygen {
+    label "Doxygen";
+}
+
+folder doxygenFolder {
+    label "generate documentation";
+    contains 
+        generatedDocu;
+}
+
+artefact generatedDocu {
+    label "Doxigen generated documentation";
+    brief "A huge website containing all information, linked in a clever way.";
+}
+
+activity runDoxygen {
+    label "run 'generate documentation'";
+    brief "the Job is executed and produces Doxygen documentation.";
+    tool doxygen;
+    transform source;
+    create 
+        generatedDocu;
+}
+
+role jenkinsRole {
+    label "Jenkins";
+    brief "Jenkins is an automation engine with an unparalleled plugin ecosystem to support all of your favorite tools in your delivery pipelines, whether your goal is continuous integration, automated testing, or continuous delivery.";
+}
+
+repository jenkins {
+    label "Jenkins";
+    brief "Jenkins, as a buils server, archives the build artefacts.";
+    contains 
+        doors_jobFolder, 
+        rhapsody_jobFolder,
+        tempo_jobFolder,
+        git_jobFolder,
+        doxygenFolder; 
+}
+
+repository doors {
+    label "Doors";
+    brief "Doors is a tool for requirement management by IBM.";
+    contains doors_data;
+}
+
+repository rhapsody {
+    label "Rhapsody";
+    brief "Rhapsody is a tool for designing software architecture by IBM.";
+    contains rhapsody_data;
+}
+
+repository tempo {
+    label "Tempo";
+    brief "Tempo is a tool for testing.";
+    contains tempo_data;
+}
+
+repository git {
+    label "Git";
+    brief "Git is a CM tool.";
+    contains 
+        git_data,
+        source,
+        docFiles;
+}
+
+artefact source {
+    label "Source code";
+    brief "The hand written source code.";
+}
+
+artefact docFiles {
+    label "Documantation files";
+    brief "Hand written documentation";
+    text md/minimalSPICE/markdown.md; 
+}
+
+
+process process {
+    label "documentation";    
+    responsible jenkinsRole;
+    repository 
+        jenkins,
+        doors,
+        rhapsody,
+        tempo,
+        git;
+    subactivities
+        continiousIntegration;
+    text 
+        md/documentation/process.md;
+}
+
+activity continiousIntegration {
+    label "continious integration";
+    responsible jenkinsRole;
+    subactivities 
+        doors_run,
+        rhapsody_run,
+        tempo_run,
+        git_run,
+        runDoxygen;
+}
+
+namespace doors { 
+    include md/documentation/extract.txt(
+        "Doors"
+    );
+} 
+
+namespace rhapsody { 
+    include md/documentation/extract.txt(
+        "Archirecture"
+    );
+} 
+
+namespace tempo { 
+    include md/documentation/extract.txt(
+        "Testcase"
+    );
+} 
+
+namespace git { 
+    include md/documentation/extract.txt(
+        "Release"
+    );
+} 
+
+}
