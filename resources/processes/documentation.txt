@@ -4,6 +4,56 @@ tool doxygen {
     label "Doxygen";
 }
 
+tool linkTool {
+    label "link tool";
+    brief "The tool reads extended markdown and converts the files to properly linked markdown files";
+}
+
+activity generateLinkage {
+    label "generate linkage";
+    tool linkTool;
+    transform 
+        doors_resultArtefact,
+        rhapsody_resultArtefact,
+        tempo_resultArtefact,
+        source;
+    create 
+        doorsDataLinked,
+        rhapsodyDataLinked,
+        tempoDataLinked,
+        sourceLinkage;
+}
+
+artefact doorsDataLinked {
+    label "linked Doors data";
+    brief "A markdown file, where all requirements, testcases, architecture details and source lines are linked properly.";
+}
+
+artefact rhapsodyDataLinked {
+    label "linked architecture data";
+    brief "A markdown file, where all requirements, testcases, architecture details and source lines are linked properly.";
+}
+
+artefact tempoDataLinked {
+    label "linked testcases";
+     brief "A markdown file, where all requirements, testcases, architecture details and source lines are linked properly.";
+}
+
+artefact sourceLinkage {
+    label "linked source code";
+    brief "A markdown file, where all requirements, testcases, architecture details and source lines are linked properly.";
+}
+
+
+folder linkageFolder {
+    label "generate linkage";
+    contains 
+        doorsDataLinked,
+        rhapsodyDataLinked,
+        tempoDataLinked,
+        sourceLinkage;
+}
+
 folder doxygenFolder {
     label "generate documentation";
     contains 
@@ -19,7 +69,14 @@ activity runDoxygen {
     label "run 'generate documentation'";
     brief "the Job is executed and produces Doxygen documentation.";
     tool doxygen;
-    transform source;
+    transform 
+        doorsDataLinked,
+        rhapsodyDataLinked,
+        tempoDataLinked,
+        sourceLinkage,
+        source,
+        docFiles,
+        git_resultArtefact;
     create 
         generatedDocu;
 }
@@ -37,7 +94,8 @@ repository jenkins {
         rhapsody_jobFolder,
         tempo_jobFolder,
         git_jobFolder,
-        doxygenFolder; 
+        doxygenFolder,
+        linkageFolder; 
 }
 
 repository doors {
@@ -59,8 +117,8 @@ repository tempo {
 }
 
 repository git {
-    label "Git";
-    brief "Git is a CM tool.";
+    label "CM";
+    brief "A CM tool.";
     contains 
         git_data,
         source,
@@ -102,7 +160,8 @@ activity continiousIntegration {
         rhapsody_run,
         tempo_run,
         git_run,
-        runDoxygen;
+        runDoxygen,
+        generateLinkage;
 }
 
 namespace doors { 
@@ -128,5 +187,9 @@ namespace git {
         "Release"
     );
 } 
+
+extend artefact git_data {
+    brief "The release note information comes from commit messages and branch info.";
+}
 
 }
