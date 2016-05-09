@@ -22,7 +22,7 @@ activity schedule {
     responsible $0; 
     tool forumTool;
     set topic(null,started);
-    subactivities spice_SUP4BP1;
+    subactivities spice_SUP4BP1, spice_SUP4BP3;
 }
 
 activity addComment {
@@ -31,6 +31,7 @@ activity addComment {
     tool forumTool;
     create comment;
     set topic(started,started);
+    subactivities spice_SUP4BP2, spice_SUP4BP4, spice_SUP4BP5;
 }
 
 activity close {
@@ -38,4 +39,5 @@ activity close {
     responsible $0; 
     tool forumTool;
     set topic(started,closed);
+    subactivities spice_SUP4BP6, spice_SUP4BP7, spice_SUP4BP8;
 }
