@@ -72,7 +72,8 @@ activity requirementsManagement {
     brief "All actions which belong o the equirements.";
     subactivities 
         spice_SYS1BP1, 
-        spice_SYS2BP1;
+        spice_SYS2BP1;,
+        spice_SWE1BP1
 }
 
 extend activity spice_SYS1BP1 {
