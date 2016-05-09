@@ -14,7 +14,6 @@ activity understandStakeholder {
     brief "This activity is to transport the stakeholder wishes to the development team.";
     subactivities 
         lifecycle_addComment,
-        spice_SYS1BP1,        
         spice_SUP10BP2,
         spice_SUP9BP2,
         PR_getFeedback,
