@@ -1,6 +1,6 @@
 namespace minimalSPICE {
 
-//include resources/blocks/spice_SWE1.txt;
+include resources/blocks/spice_SWE1.txt;
 //include resources/blocks/spice_SWE2.txt;
 //include resources/blocks/spice_SWE3.txt;
 //include resources/blocks/spice_SWE4.txt;
