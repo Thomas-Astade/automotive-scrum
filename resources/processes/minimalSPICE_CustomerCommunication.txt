@@ -3,15 +3,13 @@ activity customerCommunication {
     brief "This activity summorizes all neccessary communacation and agreement with the customer.";
     responsible productManager;
     subactivities 
-        understandStakeholder,    
+        spice_SYS1BP2,    
         PR_effortReview,
         CR_effortReview;
     text md/minimalSPICE/productManager.md;
 }
 
-activity understandStakeholder {
-    label "understand stakeholder";
-    brief "This activity is to transport the stakeholder wishes to the development team.";
+extend activity spice_SYS1BP2 {
     subactivities 
         lifecycle_addComment,
         spice_SUP10BP2,
