@@ -74,6 +74,7 @@ activity requirementsManagement {
         stakeholderReq_addComment, 
         stakeholderReq_schedule, 
         stakeholderReq_close,
+        spice_SYS1BP1, 
         spice_SYS2BP1;
 }
 
