@@ -4,6 +4,7 @@
 //  $3 - name of the review
 //  $4 - baseline
 
+include resources/blocks/spice_SUP4.txt;
 
 artefact topic {
     label $3 + " review";
@@ -21,6 +22,7 @@ activity schedule {
     responsible $0; 
     tool forumTool;
     set topic(null,started);
+    subactivities SUP4BP1;
 }
 
 activity addComment {
