@@ -22,7 +22,7 @@ activity schedule {
     responsible $0; 
     tool forumTool;
     set topic(null,started);
-    subactivities SUP4BP1;
+    subactivities spice_SUP4BP1;
 }
 
 activity addComment {
