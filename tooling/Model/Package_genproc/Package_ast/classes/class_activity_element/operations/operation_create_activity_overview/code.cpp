@@ -22,6 +22,7 @@ insert_tool(gfile);
 insert_create(gfile);
 insert_transform(gfile);
 insert_specializes(gfile);
+insert_specialized(gfile);
 insert_states(gfile);
 
 fputs("}\n",gfile);

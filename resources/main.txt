@@ -1,7 +1,7 @@
 //include resources/processes/documentation.txt;
+include resources/processes/minimalSPICE.txt;
 include resources/blocks/overview.txt;
 include resources/processes/minimalMantis.txt;
-include resources/processes/minimalSPICE.txt;
 
 @home {
     subpages
