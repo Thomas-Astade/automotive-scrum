@@ -6,7 +6,7 @@ include resources/processes/minimalMantis.txt;
 @home {
     subpages
         impressum,
-        processes;
+        processes,
         overview_buildingBlocks,
         overview_links;
     text md/home.md;
