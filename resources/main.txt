@@ -7,8 +7,8 @@ include resources/processes/minimalMantis.txt;
     subpages
         impressum,
         processes;
-//        overview_buildingBlocks,
-//        overview_links;
+        overview_buildingBlocks,
+        overview_links;
     text md/home.md;
 }
 
