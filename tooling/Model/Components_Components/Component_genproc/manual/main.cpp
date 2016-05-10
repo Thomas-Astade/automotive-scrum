@@ -142,6 +142,13 @@ void add_create(const std::string& name, const boost::spirit::unused_type& it, b
         e->add_create_ID(name);
 }
 
+void add_specialize(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
+{
+    ast::activity_element* e = dynamic_cast<ast::activity_element*>(&ast::I_element::get_last());
+    if (e)
+        e->add_specialize_ID(name);
+}
+
 void add_transform(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
 {
     ast::transformer* e = dynamic_cast<ast::transformer*>(&ast::I_element::get_last());
@@ -270,6 +277,8 @@ struct process_description
                         > -transformlist
                         > space
                         > -createlist
+                        > space
+                        > -specializelist
                         > space
                         > *(transition[add_transition] > space)
                         > -subActivities
@@ -432,6 +441,14 @@ struct process_description
                         > space
                         > SC;
                         
+        specializelist  = qi::lit("specialize")
+                        > space
+                        > ref_identifier[add_specialize]
+                        > space
+                        > *(qi::lit(',') > space > ref_identifier)[add_specialize]
+                        > space
+                        > SC;
+                        
         transformlist   = qi::lit("transform")
                         > space
                         > ref_identifier[add_transform]
@@ -577,6 +594,7 @@ struct process_description
     qi::rule<Iterator> repositories;
     qi::rule<Iterator> textfilelist;
     qi::rule<Iterator> createlist;
+    qi::rule<Iterator> specializelist;
     qi::rule<Iterator> transformlist;
     qi::rule<Iterator> activityExtend;
     qi::rule<Iterator> activityContent;

@@ -38,6 +38,7 @@ namespace spice {
     activity SUP4BP8 {
         label "Identify and record problems";
         brief "SUP.4.BP8: Identify and record problems. Identify and record the problems detected during the reviews according to the established mechanism.";
+        specialize spice_SUP9BP2;
     }
 
 }

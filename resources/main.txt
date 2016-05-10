@@ -6,9 +6,9 @@ include resources/processes/minimalSPICE.txt;
 @home {
     subpages
         impressum,
-        processes,
-        overview_buildingBlocks,
-        overview_links;
+        processes;
+//        overview_buildingBlocks,
+//        overview_links;
     text md/home.md;
 }
 
@@ -21,7 +21,7 @@ page processes {
     label "Processes";
     subpages 
         minimalMantis_minimalMantis,
-//        documentation_process,
+//        documentation_process;
         minimalSPICE_process;
     text md/processes.md;
 }
