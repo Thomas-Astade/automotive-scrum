@@ -28,11 +28,13 @@ namespace spice {
     activity SUP4BP6 {
         label "Determine actions for review results";
         brief "SUP.4.BP6: Determine actions for review results. Analyze the review results, propose actions for resolution and determine the priority for actions.";
+        specialize spice_MAN3BP4;
     }
 
     activity SUP4BP7 {
         label "Track actions for review results";
         brief "SUP.4.BP7: Track actions for review results. Track actions for resolution of identified problems in a review to closure.";
+        specialize spice_MAN3BP4;
     }
 
     activity SUP4BP8 {
