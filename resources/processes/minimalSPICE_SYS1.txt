@@ -38,6 +38,10 @@ namespace stakeholderReq {
         minimalSPICE_stakeholderReq_baseline);
 }
 
+extend activity stakeholderReq_schedule {
+    specialize spice_SYS1BP3;
+}
+
 folder requirementReviews {
     label "requirement reviews";
     brief "A folder that contains all requirement reviews.";
