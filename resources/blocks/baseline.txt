@@ -13,4 +13,5 @@ activity doBaseline {
     tool $2;
     transform $1;
     create baseline;
+    specialize spice_SUP8BP6;
 }
