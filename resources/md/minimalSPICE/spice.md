@@ -3,6 +3,7 @@ SYS.1 Requirements Elicitation
 
 * [SYS.1.BP1: Obtain stakeholder requirements and requests.](minimalSPICE_spice_SYS1BP1.html)
 * [SYS.1.BP2: Understand stakeholder expectations.](minimalSPICE_spice_SYS1BP2.html)
+* [SYS.1.BP3: Agree on requirements.](minimalSPICE_spice_SYS1BP3.html)
 * [SYS.1.BP4: Establish stakeholder requirements baseline.](minimalSPICE_spice_SYS1BP4.html)
 
 SYS.2 System Requirements Analysis
