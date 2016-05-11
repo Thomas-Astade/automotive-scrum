@@ -34,7 +34,7 @@ namespace spice {
     activity SUP4BP7 {
         label "Track actions for review results";
         brief "SUP.4.BP7: Track actions for review results. Track actions for resolution of identified problems in a review to closure.";
-        specialize spice_MAN3BP4;
+        specialize spice_MAN3BP10;
     }
 
     activity SUP4BP8 {
