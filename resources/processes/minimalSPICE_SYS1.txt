@@ -50,7 +50,7 @@ extend activity spice_SYS1BP1 {
     create minimalSPICE_stakeholderRequirements;
 }
 
-extend activity spice_SUP8BP6 {
+extend activity spice_SYS1BP2 {
     subactivities SYS1BP4;
 }
 
