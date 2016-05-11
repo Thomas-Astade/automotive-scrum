@@ -7,10 +7,6 @@ role systemEngineer {
     brief "The system engineer has the technical responsibility for the total system.";
 }
 
-extend activity spice_SYS2BP1 {
-    responsible systemEngineer;
-}
-
 artefact SystemRequirements {
     label "System requirements specification";
     brief "17-12 System requirements specification";
@@ -20,8 +16,10 @@ artefact SystemRequirements {
 }
 
 extend activity spice_SYS2BP1 {
+    responsible systemEngineer;
     create SystemRequirements;
     subactivities 
+        systemReq_doBaseline,
         systemReq_schedule,
         systemReq_close;
 }
@@ -35,8 +33,4 @@ namespace systemReq {
         minimalSPICE_developer,
         "system requirements",
         minimalSPICE_systemReq_baseline);
-}
-
-extend activity spice_SUP8BP6 {
-    subactivities systemReq_doBaseline;
 }
