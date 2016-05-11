@@ -48,6 +48,7 @@ folder requirementReviews {
 
 extend activity spice_SYS1BP1 {
     create minimalSPICE_stakeholderRequirements;
+    subactivities SYS1BP3;
 }
 
 extend activity spice_SYS1BP2 {
