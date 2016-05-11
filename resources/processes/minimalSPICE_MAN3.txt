@@ -42,10 +42,6 @@ namespace PM {
     include resources/blocks/baseline.txt(projectManager,projectManagementFolder,gitCM,"project management");
 }
 
-extend activity spice_SUP8BP6 {
-    subactivities PM_doBaseline;
-}
-
 folder projectManagementFolder {
     label "Project management";
     brief "Contains project management specific files.";
@@ -73,6 +69,7 @@ activity projectSetup {
     label "Project setup";
     brief "all activities to setup the process (the startup activities).";
     subactivities
+        PM_doBaseline,
         spice_MAN3BP1,
         spice_MAN3BP2,
         spice_MAN3BP3;
