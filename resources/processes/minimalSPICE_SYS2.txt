@@ -18,6 +18,9 @@ artefact SystemRequirements {
 extend activity spice_SYS2BP1 {
     responsible systemEngineer;
     create SystemRequirements;
+    transform
+        stakeholderReq_baseline,
+        reqirementView;
     subactivities 
         systemReq_doBaseline,
         systemReq_schedule,
