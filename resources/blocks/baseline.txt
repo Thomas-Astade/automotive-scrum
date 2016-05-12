@@ -2,6 +2,7 @@
 //  $1 - The baselined artefact
 //  $2 - baselining tool
 //  $3 - name of the baseline
+//  $4 - the general activity
 
 artefact baseline {
     label $3 + " baseline";
@@ -13,5 +14,5 @@ activity doBaseline {
     tool $2;
     transform $1;
     create baseline;
-    specialize spice_SUP8BP6;
+    specialize $4;
 }
