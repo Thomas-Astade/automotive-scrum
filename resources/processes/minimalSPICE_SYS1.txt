@@ -11,7 +11,7 @@ artefact stakeholderRequirements {
 }
 
 namespace stakeholderReq { 
-    include resources/blocks/baseline.txt(productManager,requirementsFolder,gitCM,"stakeholder requirements"); 
+    include resources/blocks/baseline.txt(productManager,requirementsFolder,gitCM,"stakeholder requirements",spice_SYS1BP4); 
     
     include resources/blocks/jenkinsJob.txt (
         "link requirements",
@@ -56,9 +56,7 @@ extend activity spice_SYS1BP1 {
 }
 
 extend activity spice_SYS1BP2 {
-    subactivities SYS1BP4;
-}
-
-extend activity spice_SYS1BP4 {
-    subactivities stakeholderReq_doBaseline;
+    subactivities 
+        SYS1BP4,
+        stakeholderReq_doBaseline;
 }
