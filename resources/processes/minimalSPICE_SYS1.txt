@@ -56,7 +56,6 @@ extend activity spice_SYS1BP1 {
 }
 
 extend activity spice_SYS1BP2 {
-    subactivities 
-        SYS1BP4,
+    subactivities
         stakeholderReq_doBaseline;
 }
