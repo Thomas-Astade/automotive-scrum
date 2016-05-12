@@ -7,7 +7,9 @@ extend activity spice_MAN3BP1 {
 }
 
 extend activity spice_MAN3BP2 {
-    create minimalSPICE_projectLifeCycleDefinition, minimalSPICE_lifecycle_topic;
+    create 
+        minimalSPICE_projectLifeCycleDefinition, 
+        minimalSPICE_lifecycle_topic;
     subactivities
         lifecycle_schedule,
         lifecycle_close;
@@ -39,7 +41,7 @@ folder projectReviews {
 }
 
 namespace PM {
-    include resources/blocks/baseline.txt(projectManager,projectManagementFolder,gitCM,"project management");
+    include resources/blocks/baseline.txt(projectManager,projectManagementFolder,gitCM,"project management",spice_SUP8BP6);
 }
 
 folder projectManagementFolder {
