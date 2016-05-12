@@ -29,7 +29,7 @@ extend activity spice_SYS2BP1 {
 }
 
 namespace systemReq {
-    include resources/blocks/baseline.txt(systemEngineer,requirementsFolder,gitCM,"system requirements"); 
+    include resources/blocks/baseline.txt(systemEngineer,requirementsFolder,gitCM,"system requirements",spice_SUP8BP6); 
     
     include  resources/blocks/review.txt(
         minimalSPICE_systemEngineer,
