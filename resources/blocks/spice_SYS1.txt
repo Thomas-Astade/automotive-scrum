@@ -19,6 +19,7 @@ namespace spice {
     activity SYS1BP4 {
         label "Establish stakeholder requirements baseline";
         brief "SYS.1.BP4: Establish stakeholder requirements baseline. Formalize the stakeholder's requirements and establish them as a baseline for project use and monitoring against stakeholder needs. The supplier should determine the requirements not stated by the stakeholder but necessary for specified and intended use and include them in the baseline.";
+        specialize spice_SUP8BP6;
     }
 
     activity SYS1BP5 {
