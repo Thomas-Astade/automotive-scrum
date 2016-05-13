@@ -16,6 +16,7 @@ fputs("overlap=false\n", gfile);
 
 fputs(get_graph_node(true).c_str(),gfile);
 for (std::set<activity_element*>::iterator it = direct_activities.begin(); it != direct_activities.end(); it++)
+if (!(*it)->isAbstract())
 {
     fputs((*it)->get_graph_node(false).c_str(),gfile);
     std::string connection;
@@ -27,6 +28,7 @@ for (std::set<activity_element*>::iterator it = direct_activities.begin(); it !=
 }
 
 for (std::set<activity_element*>::iterator it = indirect_activities.begin(); it != indirect_activities.end(); it++)
+if (!(*it)->isAbstract())
 {
     fputs((*it)->get_graph_node(false).c_str(),gfile);
     std::string connection;
