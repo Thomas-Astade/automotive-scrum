@@ -1,5 +1,9 @@
 namespace simpleSPICE { 
-    
+
+//*****************************************************************
+include resources/processes/simpleSPICE/SYS1.txt;
+//*****************************************************************
+  
 activity workWithSpice {
     label "Automotive SPICE";
     brief "Automotive SPICE: Process Reference Model, Process Assessment Model, Version 3.0";    
@@ -14,9 +18,13 @@ role projectManager {
 
 process process {
     label "simple SPICE";    
-    responsible projectManager;
-    subactivities workWithSpice;
-    text md/simpleSPICE/process.md;
+    responsible 
+        projectManager;
+    subactivities 
+        workWithSpice,
+        representCustomer;
+    text md/simpleSPICE/process.md,
+         md/simpleSPICE/spice.md;
 }
 
 //*****************************************************************
