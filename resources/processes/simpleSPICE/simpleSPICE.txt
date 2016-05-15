@@ -1,0 +1,31 @@
+namespace simpleSPICE { 
+    
+activity workWithSpice {
+    label "Automotive SPICE";
+    brief "Automotive SPICE: Process Reference Model, Process Assessment Model, Version 3.0";    
+    subactivities spice_ACQ, spice_SPL, spice_SYS, spice_SWE, spice_SUP, spice_MAN;
+}
+
+role projectManager {
+    label "project manager";
+    brief "The process manager is the overall responsible for a project";
+    text md/project_manager.md;
+}
+
+process process {
+    label "simple SPICE";    
+    responsible projectManager;
+    subactivities workWithSpice;
+    text md/simpleSPICE/process.md;
+}
+
+//*****************************************************************
+include resources/blocks/spice_ACQ.txt;
+include resources/blocks/spice_SPL.txt;
+include resources/blocks/spice_SYS.txt;
+include resources/blocks/spice_SWE.txt;
+include resources/blocks/spice_SUP.txt;
+include resources/blocks/spice_MAN.txt;
+//*****************************************************************
+
+}
