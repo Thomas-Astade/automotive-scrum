@@ -2,6 +2,7 @@ namespace simpleSPICE {
 
 //*****************************************************************
 include resources/processes/simpleSPICE/SYS1.txt;
+include resources/processes/simpleSPICE/SUB8.txt;
 //*****************************************************************
   
 activity workWithSpice {
@@ -22,7 +23,8 @@ process process {
         projectManager;
     subactivities 
         workWithSpice,
-        representCustomer;
+        representCustomer,
+        describeProcess;
     text md/simpleSPICE/process.md,
          md/simpleSPICE/spice.md;
 }
