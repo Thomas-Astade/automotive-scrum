@@ -9,7 +9,7 @@ role productManager {
      brief "This activity is representing the customer inside the project team.";
      responsible productManager;
      subactivities
-         ObtainStakeholderRequirements;
+         CreatetakeholderRequirementsDocument;
  }
 
  artefact stakeholderRequirements {
@@ -20,8 +20,8 @@ role productManager {
          md/simpleSPICE/extended_markdown.md;
  }
 
- activity ObtainStakeholderRequirements {
-     label "Obtain stakeholder requirements and requests";
+ activity CreatetakeholderRequirementsDocument {
+     label "Create stakeholder requirements document";
      create
          stakeholderRequirements;
      specialize 
