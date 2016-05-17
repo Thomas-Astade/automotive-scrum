@@ -1,0 +1,29 @@
+role productManager {
+     label "product manager";
+     brief "The responsible to represent the customer inside the project.";
+     text md/simpleSPICE/productManager.md;
+ }
+
+ activity representCustomer {
+     label "represent customer";
+     brief "This activity is representing the customer inside the project team.";
+     responsible productManager;
+     subactivities
+         ObtainStakeholderRequirements;
+ }
+
+ artefact stakeholderRequirements {
+     label "Stakeholder requirements";
+     brief "17-03 Stakeholder requirements";
+     text 
+         md/spice/StakeholderRequirements.md, 
+         md/simpleSPICE/extended_markdown.md;
+ }
+
+ activity ObtainStakeholderRequirements {
+     label "Obtain stakeholder requirements and requests";
+     create
+         stakeholderRequirements;
+     specialize 
+         spice_SYS1BP1;
+ }
