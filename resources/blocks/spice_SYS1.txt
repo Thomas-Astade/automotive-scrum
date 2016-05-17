@@ -9,6 +9,7 @@ namespace spice {
     activity SYS1BP2 {
         label "Understand stakeholder expectations";
         brief "SYS.1.BP2: Understand stakeholder expectations. Ensure that both supplier and customer understand each requirement in the same way.";
+        text md/spice/SYS1BP2.md;
     }
 
     activity SYS1BP3 {
