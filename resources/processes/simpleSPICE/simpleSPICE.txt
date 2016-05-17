@@ -2,7 +2,7 @@ namespace simpleSPICE {
 
 //*****************************************************************
 include resources/processes/simpleSPICE/SYS1.txt;
-include resources/processes/simpleSPICE/SUB8.txt;
+include resources/processes/simpleSPICE/SUP8.txt;
 //*****************************************************************
   
 activity workWithSpice {
