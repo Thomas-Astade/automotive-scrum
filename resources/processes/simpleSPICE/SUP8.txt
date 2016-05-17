@@ -1,5 +1,5 @@
 role processManager {
-     label "product manager";
+     label "process manager";
      brief "The responsible to develop and document a spice complient process.";
  }
 
