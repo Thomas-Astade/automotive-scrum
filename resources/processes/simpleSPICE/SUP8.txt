@@ -3,6 +3,10 @@ role processManager {
      brief "The responsible to develop and document a spice complient process.";
  }
 
+tool genproc { 
+    brief "A command line tool that compiles process sources into a human readable form (this website)."; 
+} 
+
  activity describeProcess {
      label "describe process";
      brief "This activity is to develop and document a spice complient process.";
