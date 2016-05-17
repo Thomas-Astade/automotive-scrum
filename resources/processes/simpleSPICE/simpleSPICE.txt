@@ -5,7 +5,7 @@ include resources/processes/simpleSPICE/SYS1.txt;
 include resources/processes/simpleSPICE/SUP8.txt;
 //*****************************************************************
   
-activity workWithSpice {
+activity AutomotiveSPICE {
     label "Automotive SPICE";
     brief "Automotive SPICE: Process Reference Model, Process Assessment Model, Version 3.0";    
     subactivities spice_ACQ, spice_SPL, spice_SYS, spice_SWE, spice_SUP, spice_MAN;
@@ -22,7 +22,7 @@ process process {
     responsible 
         projectManager;
     subactivities 
-        workWithSpice,
+        AutomotiveSPICE,
         representCustomer,
         describeProcess;
     text md/simpleSPICE/process.md,
