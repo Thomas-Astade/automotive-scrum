@@ -1,0 +1,10 @@
+role processManager {
+     label "product manager";
+     brief "The responsible to develop and document a spice complient process.";
+ }
+
+ activity describeProcess {
+     label "describe process";
+     brief "This activity is to develop and document a spice complient process.";
+     responsible processManager;
+ }
