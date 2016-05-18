@@ -6,5 +6,7 @@ role jenkinsRole {
 activity continiousIntegration {
     label "continious integration";
     responsible jenkinsRole;
-    specialize spice_SWE5;
+    specialize 
+        spice_SWE4, 
+        spice_SWE5;
 }
