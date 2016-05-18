@@ -1,14 +1,21 @@
 repository git {
     label "git";
     contains 
-        processManagementFolder
+        processManagementFolder,
+        projectManagementFolder,
         metaData;
 }
 
 folder processManagementFolder {
     label "Process management";
     brief "Contains process management specific files.";
-    contains genproc_processSources;
+}
+
+folder projectManagementFolder {
+    label "Project management";
+    brief "Contains project management specific files.";
+    contains 
+        projectPlan;
 }
 
 folder metaData {
