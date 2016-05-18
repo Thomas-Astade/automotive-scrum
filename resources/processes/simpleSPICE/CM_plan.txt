@@ -1,0 +1,28 @@
+repository git {
+    label "git";
+    contains 
+        processManagementFolder
+        metaData;
+}
+
+folder processManagementFolder {
+    label "Process management";
+    brief "Contains process management specific files.";
+    contains genproc_processSources;
+}
+
+folder metaData {
+    label "meta data";
+    brief "The git repository meta data.";
+    contains tags, branches;
+}
+
+folder tags {
+    label "tags";
+    brief "In this folder git stores the tags (baselines).";
+}
+
+folder branches {
+    label "branches";
+    brief "In this folder git stores the branches (development lines).";
+}
