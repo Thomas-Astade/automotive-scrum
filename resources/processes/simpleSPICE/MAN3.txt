@@ -1,0 +1,5 @@
+activity projectManagement { 
+    label "Project Management"; 
+    brief "The purpose of the Project Management Process is to identify, establish, and control the activities and resources necessary for a project to produce a product, in the context of the project’s requirements and constraints."; 
+    specializes spice_MAN3;
+}    
