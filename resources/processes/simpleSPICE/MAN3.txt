@@ -4,7 +4,8 @@ activity projectManagement {
     specialize 
         spice_MAN3;
     subactivities 
-        createScopeOfWorkDefinitien;
+        createScopeOfWorkDefinitien,
+        createProjectLifeCycleDefinition;
 }    
 
 activity createScopeOfWorkDefinitien  {
@@ -14,6 +15,15 @@ activity createScopeOfWorkDefinitien  {
         scopeOfWorkDefinition;
     specialize 
         spice_MAN3BP1;
+}
+
+activity createProjectLifeCycleDefinition  {
+    label "create project life cycle definition";
+    brief "Define project life cycle. Define the life cycle for the project, which is appropriate to the scope, context, magnitude and complexity of the project.";
+    create 
+        projectLifeCycleDefinition;
+    specialize 
+        spice_MAN3BP2;
 }
 
 
