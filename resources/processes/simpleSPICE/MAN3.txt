@@ -42,9 +42,13 @@ artefact projectPlan {
 artefact scopeOfWorkDefinition {
     label "scope of work definition";
     brief "The scope of the work for the project is defined.";
+     text 
+        md/simpleSPICE/markdown.md;
 }
 
 artefact projectLifeCycleDefinition {
     label "project life cycle definition";
     brief "Define the life cycle for the project, which is appropriate to the scope, context, magnitude and complexity of the project.";
+     text 
+        md/simpleSPICE/markdown.md;
 }
