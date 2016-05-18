@@ -7,4 +7,5 @@ MAN.3 Project Management
 ------------------------
 
 * [MAN.3.BP1: Define the scope of work.](simpleSPICE_spice_MAN3BP1.html)
+* [MAN.3.BP2: Define project life cycle.](simpleSPICE_spice_MAN3BP2.html)
 
