@@ -3,6 +3,7 @@ namespace simpleSPICE {
 //*****************************************************************
 include resources/processes/simpleSPICE/SYS1.txt;
 include resources/processes/simpleSPICE/SUP8.txt;
+include resources/processes/simpleSPICE/MAN3.txt;
 //*****************************************************************
   
 activity AutomotiveSPICE {
@@ -23,6 +24,7 @@ process process {
         projectManager;
     subactivities 
         AutomotiveSPICE,
+        projectManagement,
         representCustomer,
         describeProcess;
     text md/simpleSPICE/process.md,
