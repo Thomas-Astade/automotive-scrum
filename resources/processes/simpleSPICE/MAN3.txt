@@ -3,3 +3,30 @@ activity projectManagement {
     brief "The purpose of the Project Management Process is to identify, establish, and control the activities and resources necessary for a project to produce a product, in the context of the project's requirements and constraints."; 
     specialize spice_MAN3;
 }    
+
+activity createScopeOfWorkDefinitien  {
+    label "create scope of work definition";
+    create scopeOfWorkDefinition;
+}
+
+
+artefact projectPlan {
+    label "Project plan";
+    brief "08-12 Project plan";
+    contains 
+        scopeOfWorkDefinition,
+        projectLifeCycleDefinition;
+    text 
+        md/spice/ProjectPlan.md,
+        md/simpleSPICE/markdown.md;
+}
+
+artefact scopeOfWorkDefinition {
+    label "scope of work definition";
+    brief "The scope of the work for the project is defined.";
+}
+
+artefact projectLifeCycleDefinition {
+    label "project life cycle definition";
+    brief "Define the life cycle for the project, which is appropriate to the scope, context, magnitude and complexity of the project.";
+}
