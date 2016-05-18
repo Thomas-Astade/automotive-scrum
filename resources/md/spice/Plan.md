@@ -6,7 +6,7 @@ As appropriate to the application and purpose:
 - dentifies what objectives or goals there are to be satisfied
 - stablishes the options and approach for satisfying the objectives, or goals
 - dentification of the plan owner
-- ncludes:
+- Includes:
     - the objective and scope of what is to be accomplished
     - assumptions made
     - constraints
