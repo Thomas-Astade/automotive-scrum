@@ -35,6 +35,7 @@ artefact projectPlan {
         projectLifeCycleDefinition;
     text 
         md/spice/ProjectPlan.md,
+        md/spice/Plan.md,
         md/simpleSPICE/markdown.md;
 }
 
