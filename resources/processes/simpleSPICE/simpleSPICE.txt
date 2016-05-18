@@ -24,6 +24,8 @@ process process {
     label "simple SPICE";    
     responsible 
         projectManager;
+    repository 
+        git;
     subactivities 
         AutomotiveSPICE,
         describeProcess,
