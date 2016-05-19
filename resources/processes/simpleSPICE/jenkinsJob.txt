@@ -9,6 +9,14 @@
 
 // ********************************
 
+extend repository jenkins {
+    contains jobFolder;
+}
+
+extend activity continiousIntegration {
+    subactivities run;
+}
+
 folder jobFolder {
     label $0;
     contains 
@@ -39,7 +47,6 @@ artefact resultReport {
 activity run {
     label "run '" + $0 + "'";
     brief "the Job is executed and produces the artefacts.";
-    responsible jenkinsRole;
     tool $3;
     transform $1,script;
     create 
