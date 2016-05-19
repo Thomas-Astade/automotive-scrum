@@ -8,6 +8,16 @@ repository jenkins {
     brief "Jenkins, as a buils server, archives the build artefacts.";
 }
 
+namespace docu {
+    include resources/processes/simpleSPICE/jenkoinsJob.txt(
+        "project documentation",
+        projectPlan,
+        "project documentation view",
+        doxygen,
+        projectBaseline
+    )
+}
+
 activity continiousIntegration {
     label "continious integration";
     responsible jenkinsRole;
