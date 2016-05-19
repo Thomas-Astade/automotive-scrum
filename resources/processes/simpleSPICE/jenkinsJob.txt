@@ -4,7 +4,8 @@
 //  $3 - used tool
 //  $4 - baseline
 
-// expects a role: "jenkinsRole"
+// expects a repository jenkins 
+// expects a top activity continiousIntegration 
 
 // ********************************
 
