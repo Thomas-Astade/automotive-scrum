@@ -15,7 +15,7 @@ namespace docu {
         "project documentation view",
         doxygen,
         projectBaseline
-    )
+    );
 }
 
 activity continiousIntegration {
