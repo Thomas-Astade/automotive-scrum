@@ -31,6 +31,8 @@ folder metaData {
 folder tags {
     label "tags";
     brief "In this folder git stores the tags (baselines).";
+    contains
+        pp_baseline;
 }
 
 folder branches {
