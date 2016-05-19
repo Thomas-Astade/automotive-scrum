@@ -48,3 +48,15 @@ folder branches {
     label "branches";
     brief "In this folder git stores the branches (development lines).";
 }
+
+folder technicalFolder {
+    label "technical";
+    contains requirementsFolder;
+}
+
+folder requirementsFolder {
+    label "requirements";
+    contains 
+        stakeholderRequirements;
+}
+
