@@ -17,7 +17,8 @@ role productManager {
      brief "17-03 Stakeholder requirements";
      text 
          md/spice/StakeholderRequirements.md,
-         md/spice/requirementSpecification.md, 
+         md/spice/requirementSpecification.md,
+         md/spice/verificationCriteria.md,
          md/simpleSPICE/extended_markdown.md;
  }
 
