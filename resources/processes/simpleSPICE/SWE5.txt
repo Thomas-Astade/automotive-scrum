@@ -10,6 +10,8 @@ tool doxygen {
 activity continiousIntegration {
     label "continious integration";
     responsible jenkinsRole;
+    subactivities
+        docu_run;
     specialize 
         spice_SWE4, 
         spice_SWE5;
