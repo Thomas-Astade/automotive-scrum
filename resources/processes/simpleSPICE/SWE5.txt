@@ -27,7 +27,7 @@ namespace docu {
         projectPlan,
         "project documentation view",
         doxygen,
-        projectBaseline
+        pp_baseline
     );
     
 }
