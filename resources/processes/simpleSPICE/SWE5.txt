@@ -9,6 +9,13 @@ repository jenkins {
 }
 
 namespace docu {
+    
+    include resources/processes/simpleSPICE/baseline.txt(
+        "project plan",
+        projectPlan,
+        createProjectPlan
+    );
+    
     include resources/processes/simpleSPICE/jenkinsJob.txt(
         "project documentation",
         projectPlan,
@@ -16,6 +23,7 @@ namespace docu {
         doxygen,
         projectBaseline
     );
+
 }
 
 activity continiousIntegration {
