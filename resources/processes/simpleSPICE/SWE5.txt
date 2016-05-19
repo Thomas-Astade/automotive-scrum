@@ -8,6 +8,14 @@ repository jenkins {
     brief "Jenkins, as a buils server, archives the build artefacts.";
 }
 
+activity continiousIntegration {
+    label "continious integration";
+    responsible jenkinsRole;
+    specialize 
+        spice_SWE4, 
+        spice_SWE5;
+}
+
 namespace docu {
     
     include resources/processes/simpleSPICE/baseline.txt(
@@ -24,12 +32,4 @@ namespace docu {
         projectBaseline
     );
 
-}
-
-activity continiousIntegration {
-    label "continious integration";
-    responsible jenkinsRole;
-    specialize 
-        spice_SWE4, 
-        spice_SWE5;
 }
