@@ -17,6 +17,15 @@ activity createScopeOfWorkDefinitien  {
         spice_MAN3BP1;
 }
 
+activity createResourcePlan  {
+    label "create resource plan";
+    brief "Define the recources. This includes resources to accomplish plan objectives.";
+    create 
+        resourcePlan;
+    text 
+        md/createResourcePlan.md,
+}
+
 activity createProjectLifeCycleDefinition  {
     label "create project life cycle definition";
     brief "Define project life cycle. Define the life cycle for the project, which is appropriate to the scope, context, magnitude and complexity of the project.";
@@ -30,13 +39,19 @@ activity createProjectLifeCycleDefinition  {
 artefact projectPlan {
     label "Project plan";
     brief "08-12 Project plan";
-    contains 
+    contains
+        resourcePlan,
         scopeOfWorkDefinition,
         projectLifeCycleDefinition;
     text 
         md/spice/ProjectPlan.md,
         md/spice/Plan.md,
         md/simpleSPICE/markdown.md;
+}
+
+artefact resourcePlan {
+    label "resource plan";
+    brief "The resource plan includes resources to accomplish plan objectives";
 }
 
 artefact scopeOfWorkDefinition {
