@@ -26,7 +26,7 @@ namespace pp {
     include resources/processes/simpleSPICE/baseline.txt(
         "project plan",
         projectPlan,
-        createProjectPlan
+        spice_SUP8BP6
     );
 }
     
