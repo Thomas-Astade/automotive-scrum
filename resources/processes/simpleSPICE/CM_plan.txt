@@ -3,6 +3,7 @@ repository git {
     contains 
         processManagementFolder,
         projectManagementFolder,
+        technicalFolder,
         metaData;
 }
 
