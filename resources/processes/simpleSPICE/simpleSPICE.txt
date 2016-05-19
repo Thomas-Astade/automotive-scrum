@@ -25,7 +25,8 @@ process process {
     responsible 
         projectManager;
     repository 
-        git;
+        git,
+        jenkins;
     subactivities 
         AutomotiveSPICE,
         describeProcess,
