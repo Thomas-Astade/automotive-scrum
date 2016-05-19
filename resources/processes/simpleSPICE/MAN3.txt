@@ -23,7 +23,8 @@ activity createResourcePlan  {
     create 
         resourcePlan;
     text 
-        md/createResourcePlan.md,
+        md/resourcePlan.md,
+        md/createResourcePlan.md;
 }
 
 activity createProjectLifeCycleDefinition  {
@@ -52,6 +53,8 @@ artefact projectPlan {
 artefact resourcePlan {
     label "resource plan";
     brief "The resource plan includes resources to accomplish plan objectives";
+    text 
+        md/resourcePlan.md;
 }
 
 artefact scopeOfWorkDefinition {
