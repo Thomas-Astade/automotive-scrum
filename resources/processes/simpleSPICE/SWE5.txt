@@ -9,7 +9,7 @@ repository jenkins {
 }
 
 namespace docu {
-    include resources/processes/simpleSPICE/jenkoinsJob.txt(
+    include resources/processes/simpleSPICE/jenkinsJob.txt(
         "project documentation",
         projectPlan,
         "project documentation view",
