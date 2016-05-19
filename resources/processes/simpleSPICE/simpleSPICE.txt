@@ -1,11 +1,11 @@
 namespace simpleSPICE { 
 
 //*****************************************************************
+include resources/processes/simpleSPICE/CM_plan.txt;
 include resources/processes/simpleSPICE/SYS1.txt;
 include resources/processes/simpleSPICE/SUP8.txt;
 include resources/processes/simpleSPICE/MAN3.txt;
 include resources/processes/simpleSPICE/SWE5.txt;
-include resources/processes/simpleSPICE/CM_plan.txt;
 //*****************************************************************
   
 activity AutomotiveSPICE {
