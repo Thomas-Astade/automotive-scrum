@@ -6,6 +6,8 @@ role jenkinsRole {
 repository jenkins {
     label "Jenkins";
     brief "Jenkins, as a buils server, archives the build artefacts.";
+    contains
+        docu_jobFolder;
 }
 
 tool doxygen {
