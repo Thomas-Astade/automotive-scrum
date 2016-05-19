@@ -14,13 +14,22 @@ activity createProjectPlan {
     subactivities 
         createScopeOfWorkDefinitien,
         createProjectLifeCycleDefinition,
-        createResourcePlan;
+        createResourcePlan,
+        pp_doBaseline;
     text 
         md/spice/ProjectPlan.md,
         md/spice/Plan.md,
         md/simpleSPICE/markdown.md;
 }
 
+namespace pp {
+    include resources/processes/simpleSPICE/baseline.txt(
+        "project plan",
+        projectPlan,
+        createProjectPlan
+    );
+}
+    
 activity createScopeOfWorkDefinitien  {
     label "create scope of work definition";
     brief "Define the scope of work. Identify the project's goals, motivation and boundaries.";
