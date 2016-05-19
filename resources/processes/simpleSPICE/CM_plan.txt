@@ -20,6 +20,8 @@ tool gitTool {
 folder processManagementFolder {
     label "Process management";
     brief "Contains process management specific files.";
+    contains
+        processSources;
 }
 
 folder projectManagementFolder {
