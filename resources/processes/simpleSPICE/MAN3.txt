@@ -28,6 +28,8 @@ activity createScopeOfWorkDefinitien  {
         scopeOfWorkDefinition;
     specialize 
         spice_MAN3BP1;
+     text 
+        md/simpleSPICE/markdown.md;
 }
 
 activity createResourcePlan  {
@@ -37,7 +39,8 @@ activity createResourcePlan  {
         resourcePlan;
     text 
         md/resourcePlan.md,
-        md/createResourcePlan.md;
+        md/createResourcePlan.md,
+        md/simpleSPICE/markdown.md;
 }
 
 activity createProjectLifeCycleDefinition  {
@@ -47,6 +50,8 @@ activity createProjectLifeCycleDefinition  {
         projectLifeCycleDefinition;
     specialize 
         spice_MAN3BP2;
+     text 
+        md/simpleSPICE/markdown.md;
 }
 
 
@@ -67,7 +72,8 @@ artefact resourcePlan {
     label "resource plan";
     brief "The resource plan includes resources to accomplish plan objectives";
     text 
-        md/resourcePlan.md;
+        md/resourcePlan.md,
+        md/simpleSPICE/markdown.md;
 }
 
 artefact scopeOfWorkDefinition {
