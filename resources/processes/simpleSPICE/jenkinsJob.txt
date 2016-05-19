@@ -1,8 +1,9 @@
-//  $0 - job name (label)
-//  $1 - source artefact
-//  $2 - target artefact label
-//  $3 - used tool
-//  $4 - baseline
+//  $0 - namespace
+//  $1 - job name (label)
+//  $2 - source artefact
+//  $3 - target artefact label
+//  $4 - used tool
+//  $5 - baseline
 
 // expects a repository jenkins 
 // expects a top activity continiousIntegration 
@@ -10,12 +11,14 @@
 // ********************************
 
 extend repository jenkins {
-    contains jobFolder;
+    contains $0 + "_" + jobFolder;
 }
 
 extend activity continiousIntegration {
-    subactivities run;
+    subactivities $0 + "_" + run;
 }
+
+namespace $0 {
 
 folder jobFolder {
     label $0;
@@ -26,32 +29,32 @@ folder jobFolder {
 }
 
 activity maintainScript {
-    label "maintain '" + $0 + "' script";
+    label "maintain '" + $1 + "' script";
     create script;
 }
 
 artefact script {
-    label "'" + $0 + "' script";
+    label "'" + $1 + "' script";
     brief "this is a Jenkins script. A configuration, that contains all necessary information to do the job.";
-    relations $4;
+    relations $5;
 }
 
 artefact resultArtefact {
-    label $2;
+    label $3;
 }
 
 artefact resultReport {
-    label " build report for '" + $2 +"'";
+    label " build report for '" + $3 +"'";
 }
 
 activity run {
-    label "run '" + $0 + "'";
+    label "run '" + $1 + "'";
     brief "the Job is executed and produces the artefacts.";
-    tool $3;
-    transform $1,script;
+    tool $4;
+    transform $2,script;
     create 
         resultArtefact,
         resultReport;
 }
-
+}
 
