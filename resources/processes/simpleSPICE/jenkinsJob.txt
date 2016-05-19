@@ -1,0 +1,49 @@
+//  $0 - job name (label)
+//  $1 - source artefact
+//  $2 - target artefact label
+//  $3 - used tool
+//  $4 - baseline
+
+// expects a role: "jenkinsRole"
+
+// ********************************
+
+folder jobFolder {
+    label $0;
+    contains 
+        script,
+        resultArtefact,
+        resultReport;
+}
+
+activity maintainScript {
+    label "maintain '" + $0 + "' script";
+    create script;
+}
+
+artefact script {
+    label "'" + $0 + "' script";
+    brief "this is a Jenkins script. A configuration, that contains all necessary information to do the job.";
+    relations $4;
+}
+
+artefact resultArtefact {
+    label $2;
+}
+
+artefact resultReport {
+    label " build report for '" + $2 +"'";
+}
+
+activity run {
+    label "run '" + $0 + "'";
+    brief "the Job is executed and produces the artefacts.";
+    responsible jenkinsRole;
+    tool $3;
+    transform $1,script;
+    create 
+        resultArtefact,
+        resultReport;
+}
+
+
