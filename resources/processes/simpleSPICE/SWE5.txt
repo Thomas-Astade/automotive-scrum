@@ -3,13 +3,6 @@ role jenkinsRole {
     brief "Jenkins is an automation engine with an unparalleled plugin ecosystem to support all of your favorite tools in your delivery pipelines, whether your goal is continuous integration, automated testing, or continuous delivery.";
 }
 
-repository jenkins {
-    label "Jenkins";
-    brief "Jenkins, as a buils server, archives the build artefacts.";
-    contains
-        docu_jobFolder;
-}
-
 tool doxygen {
     label "Doxygen";
 }
