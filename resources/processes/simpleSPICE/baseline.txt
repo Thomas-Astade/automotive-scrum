@@ -2,13 +2,6 @@
 //  $1 - The baselined artefact
 //  $2 - the general activity
 
-// expect a folder tags
-// expect a tool git
-
-//extend folder tags {
-//    contains baseline;
-//}
-
 artefact baseline {
     label $0 + " baseline";
 }
