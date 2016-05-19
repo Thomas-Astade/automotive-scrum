@@ -8,6 +8,10 @@ repository jenkins {
     brief "Jenkins, as a buils server, archives the build artefacts.";
 }
 
+tool doxygen {
+    label "Doxygen";
+}
+
 activity continiousIntegration {
     label "continious integration";
     responsible jenkinsRole;
