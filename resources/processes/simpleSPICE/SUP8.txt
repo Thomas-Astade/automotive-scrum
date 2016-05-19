@@ -11,5 +11,7 @@ tool genproc {
      label "describe process";
      brief "This activity is to develop and document a spice complient process.";
      responsible processManager;
-     specialize spice_SUP8;
+     specialize 
+          spice_SUP8,
+          spice_SWE4BP1;
  }
