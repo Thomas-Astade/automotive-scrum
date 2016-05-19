@@ -4,9 +4,22 @@ activity projectManagement {
     specialize 
         spice_MAN3;
     subactivities 
-        createScopeOfWorkDefinitien,
-        createProjectLifeCycleDefinition;
+        createProjectPlan;
 }    
+
+activity createProjectPlan {
+    label "create project plan";
+    create 
+        projectPlan;
+    subactivities 
+        createScopeOfWorkDefinitien,
+        createProjectLifeCycleDefinition,
+        createResourcePlan;
+    text 
+        md/spice/ProjectPlan.md,
+        md/spice/Plan.md,
+        md/simpleSPICE/markdown.md;
+}
 
 activity createScopeOfWorkDefinitien  {
     label "create scope of work definition";
