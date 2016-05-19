@@ -1,0 +1,8 @@
+role developer {
+    label "Developer";
+}
+
+activity develop {
+    label "Develop";
+    specialize spice_SWE3;
+}
