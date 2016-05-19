@@ -18,12 +18,6 @@ activity continiousIntegration {
 
 namespace docu {
     
-    include resources/processes/simpleSPICE/baseline.txt(
-        "project plan",
-        projectPlan,
-        createProjectPlan
-    );
-    
     include resources/processes/simpleSPICE/jenkinsJob.txt(
         "project documentation",
         projectPlan,
