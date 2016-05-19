@@ -4,5 +4,15 @@ role developer {
 
 activity develop {
     label "Develop";
-    specialize spice_SWE3;
+    responsible developer;
+    specialize 
+        spice_SWE3;
+    subactivities
+        maintainJenkinsScripts;
+}
+
+activity maintainJenkinsScripts {
+    label "maintain Jenkins Scripts";
+    subactivities
+        docu_maintainScript;
 }
