@@ -1,0 +1,24 @@
+//  $0 - responsible role for doing the baseline
+//  $1 - The baselined artefact
+//  $2 - baselining tool
+//  $3 - name of the baseline
+//  $4 - the general activity
+
+// expect a folder tags
+
+extend folder tags {
+    contains baseline;
+}
+
+artefact baseline {
+    label $3 + " baseline";
+}
+
+activity doBaseline {
+    label "do a " + $3 + " baseline";
+    responsible $0; 
+    tool $2;
+    transform $1;
+    create baseline;
+    specialize $4;
+}
