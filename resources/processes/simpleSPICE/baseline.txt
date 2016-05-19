@@ -8,7 +8,7 @@ artefact baseline {
 
 activity doBaseline {
     label "do a " + $0 + " baseline";
-    tool git;
+    tool gitTool;
     transform $1;
     create baseline;
     specialize $2;
