@@ -6,6 +6,10 @@ repository git {
         metaData;
 }
 
+tool gitTool {
+    label "git";
+}
+
 folder processManagementFolder {
     label "Process management";
     brief "Contains process management specific files.";
