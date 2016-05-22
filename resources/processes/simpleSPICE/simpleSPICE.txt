@@ -23,7 +23,17 @@ tool linkTool {
 
 repository mantisRepository {
     label "Mantis database";
+    contains CRfolder, PRfolder;
     text md/mantis/mantis_tool.md; 
+}
+
+folder CRfolder {
+    label "changes requests";
+    contains sr_issue;
+}
+        
+folder PRfolder {
+    label "problem reports";
 }
 
 activity AutomotiveSPICE {
