@@ -28,7 +28,22 @@ activity CreateStakeholderRequirementsDocument {
         stakeholderRequirements;
     specialize 
         spice_SYS1BP1,spice_SYS1BP2,spice_SYS1BP3;
+    subactivities 
+        sr_createIssue,
+        sr_doBaseline;
 }
 
-namespace sr {include resources/blocks/mantis.txt(mantisRepository, "Stakeholder requirements change request");}
+namespace sr {
+    include resources/blocks/mantis.txt(mantisTool, "Stakeholder requirements change request");
 
+    include resources/processes/simpleSPICE/baseline.txt(
+        "Stakeholder requirements",
+        stakeholderRequirements,
+        spice_SYS1BP4
+    );
+}
+
+extend activity sr_createIssue {
+    specialize 
+        spice_SYS1BP5;
+}

@@ -42,7 +42,8 @@ folder tags {
     label "tags";
     brief "In this folder git stores the tags (baselines).";
     contains
-        pp_baseline;
+        pp_baseline,
+        sr_baseline;
 }
 
 folder branches {
