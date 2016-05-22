@@ -29,3 +29,6 @@ activity CreateStakeholderRequirementsDocument {
     specialize 
         spice_SYS1BP1,spice_SYS1BP2,spice_SYS1BP3;
 }
+
+namespace sr {include resources/blocks/mantis.txt(mantisRepository, "Stakeholder requirements change request");}
+

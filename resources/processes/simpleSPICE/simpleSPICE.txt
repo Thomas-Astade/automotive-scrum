@@ -8,7 +8,24 @@ include resources/processes/simpleSPICE/MAN3.txt;
 include resources/processes/simpleSPICE/SWE3.txt;
 include resources/processes/simpleSPICE/SWE5.txt;
 //*****************************************************************
-  
+
+tool mantisTool {
+    label "Mantis";
+    text md/mantis/mantis_tool.md,
+        md/mantis/guidelines.md; 
+}
+
+tool linkTool {
+    label "link tool";
+    brief "This small toll can parse requirement descriptions in markdown and add backward links.";
+    text md/minimalSPICE/extended_markdown.md; 
+}
+
+repository mantisRepository {
+    label "Mantis database";
+    text md/mantis/mantis_tool.md; 
+}
+
 activity AutomotiveSPICE {
     label "Automotive SPICE";
     brief "Automotive SPICE: Process Reference Model, Process Assessment Model, Version 3.0";    
@@ -27,7 +44,8 @@ process process {
         projectManager;
     repository 
         git,
-        jenkins;
+        jenkins,
+        mantisRepository;
     subactivities 
         AutomotiveSPICE,
         describeProcess,

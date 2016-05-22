@@ -1,5 +1,5 @@
 //  $0 - The issue tracker
-//  $1 - The issue type name
+//  $1 - The issue type name (the label)
 
 artefact issue {
     label $1;
