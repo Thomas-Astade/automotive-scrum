@@ -7,16 +7,18 @@ tool genproc {
     brief "A command line tool that compiles process sources into a human readable form (this website)."; 
 } 
 
- activity describeProcess {
-     label "describe process";
-     brief "This activity is to develop and document a spice complient process.";
-     responsible processManager;
-     create
-          processSources;
-     specialize 
-          spice_SUP8,
-          spice_SWE4BP1;
- }
+activity describeProcess {
+    label "describe process";
+    brief "This activity is to develop and document a spice complient process.";
+    responsible 
+        processManager;
+    create
+        processSources;
+    specialize 
+        spice_SUP8,
+        spice_SWE4BP1,
+        spice_SUP7BP2;
+}
 
 artefact processSources {
      label "process sources";

@@ -14,5 +14,6 @@ activity develop {
 activity maintainJenkinsScripts {
     label "maintain Jenkins Scripts";
     subactivities
-        docu_maintainScript;
+        docu_maintainScript,
+        link_maintainScript;
 }

@@ -47,8 +47,8 @@ namespace sr {
     );
 }
 
-extend artefact docu_script {
-    relations sr_baseline;
+extend activity docu_run {
+    transform link_resultArtefact;
 }
 
 extend activity sr_createIssue {

@@ -14,7 +14,8 @@ activity continiousIntegration {
         spice_SWE4, 
         spice_SWE5;
     subactivities
-        docu_run;
+        docu_run,
+        link_run;
 }
 
 namespace docu {
@@ -29,7 +30,20 @@ namespace docu {
     
 }
 
-extend activity docu_run {
-    specialize 
-        spice_SUP7BP2;
+namespace link {
+    
+    include resources/processes/simpleSPICE/jenkinsJob.txt(
+        "Link Requierements",
+        stakeholderRequirements,
+        "Linked Requirements",
+        linkTool,
+        sr_baseline
+    );
+    
 }
+
+extend artefact link_resultArtefact {
+    text
+        md/simpleSPICE/markdown.md;
+}
+
