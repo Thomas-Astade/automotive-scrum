@@ -1,0 +1,15 @@
+role systemEngineer {
+    label "system engineer";
+    brief "The system engineer has the technical responsibility for all project details.";
+}
+
+activity systemEngineering {
+    label "system engineering";
+    brief "This activity includes all technical planning activities.";
+    responsible systemEngineer;
+    subactivities
+        sr_technicalPreview,
+        sr_reportIssueSolved;
+}
+
+
