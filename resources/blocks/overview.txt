@@ -64,7 +64,7 @@ namespace overview {
             mantis_reportIssueSolved,
             mantis_createIssue,
             mantis_issueTest,
-            mantis_getFeedback;
+            mantis_feedback;
     }
 
     include resources/blocks/spice_ACQ.txt;

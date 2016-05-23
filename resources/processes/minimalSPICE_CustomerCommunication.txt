@@ -14,8 +14,8 @@ extend activity spice_SYS1BP2 {
         lifecycle_addComment,
         spice_SUP10BP2,
         spice_SUP9BP2,
-        PR_getFeedback,
-        CR_getFeedback;
+        PR_feedback,
+        CR_feedback;
 }
 
 namespace CR {

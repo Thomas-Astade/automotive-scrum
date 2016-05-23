@@ -4,7 +4,8 @@ activity projectManagement {
     specialize 
         spice_MAN3;
     subactivities 
-        createProjectPlan;
+        createProjectPlan,
+        planWorkPackages;
 }    
 
 activity createProjectPlan {
@@ -98,3 +99,13 @@ artefact projectLifeCycleDefinition {
      text 
         md/simpleSPICE/markdown.md;
 }
+
+activity planWorkPackages {
+    label "plan work packages";
+    brief "plan and control each work package and create a time planning.";
+    specialize 
+        spice_MAN3BP4;
+    subactivities
+        sr_planning;
+}
+

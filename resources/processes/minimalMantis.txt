@@ -76,7 +76,7 @@ activity maintainCustomerRelation {
     responsible productManager;
     subactivities  
         mantis_createIssue, 
-        mantis_getFeedback,
+        mantis_feedback,
         mantis_effortReview;
 }
 

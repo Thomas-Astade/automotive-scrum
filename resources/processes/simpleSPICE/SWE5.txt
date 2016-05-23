@@ -29,4 +29,7 @@ namespace docu {
     
 }
 
-
+extend activity docu_run {
+    specialize 
+        spice_SUP7BP2;
+}

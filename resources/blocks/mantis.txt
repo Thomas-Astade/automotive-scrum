@@ -7,7 +7,7 @@ artefact issue {
 }
 
 activity technicalPreview {
-    label "technical preview of " + $1;
+    label "do technical preview of " + $1;
     brief "This activity is to check and preview entered issue. There should be also a first effort estimation.";
     tool $0;
     set issue(New,Acknowledged)[info is formally ok];
@@ -17,7 +17,7 @@ activity technicalPreview {
 }
 
 activity effortReview {
-    label "effort review of " + $1;
+    label "do effort review of " + $1;
     brief "This activity is to decide, if the issue shall be considered to be done.";
     tool $0;
     set issue(Acknowledged,Confirmed)[spend the estimated effort];
@@ -26,7 +26,7 @@ activity effortReview {
 }
 
 activity planning {
-    label "planning of " + $1;
+    label "do planning of " + $1;
     brief "This activity is during team planning, when an issue is assigned to a person";    
     tool $0;
     set issue(Confirmed,Assigned);
@@ -55,8 +55,8 @@ activity issueTest {
     text md/mantis/issueTest.md;
 }
 
-activity getFeedback {
-    label "get feedback for " + $1;    
+activity feedback {
+    label "give feedback for " + $1;    
     tool $0;
     set issue(Feedback,Closed)[no additional info];
     set issue(Feedback,New)[new info assigned];

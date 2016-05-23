@@ -30,7 +30,11 @@ activity CreateStakeholderRequirementsDocument {
         spice_SYS1BP1,spice_SYS1BP2,spice_SYS1BP3;
     subactivities 
         sr_createIssue,
-        sr_doBaseline;
+        sr_doBaseline,
+        sr_feedback,
+        sr_effortReview;
+    text
+        md/simpleSPICE/createStakeholderRequirements.md;
 }
 
 namespace sr {
@@ -41,6 +45,10 @@ namespace sr {
         stakeholderRequirements,
         spice_SYS1BP4
     );
+}
+
+extend artefact docu_script {
+    relations sr_baseline;
 }
 
 extend activity sr_createIssue {

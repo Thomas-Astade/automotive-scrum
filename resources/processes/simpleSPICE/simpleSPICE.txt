@@ -2,11 +2,12 @@ namespace simpleSPICE {
 
 //*****************************************************************
 include resources/processes/simpleSPICE/CM_plan.txt;
-include resources/processes/simpleSPICE/SYS1.txt;
+include resources/processes/simpleSPICE/SWE5.txt;
 include resources/processes/simpleSPICE/SUP8.txt;
+include resources/processes/simpleSPICE/SYS1.txt;
+include resources/processes/simpleSPICE/SYS2.txt;
 include resources/processes/simpleSPICE/MAN3.txt;
 include resources/processes/simpleSPICE/SWE3.txt;
-include resources/processes/simpleSPICE/SWE5.txt;
 //*****************************************************************
 
 tool mantisTool {
@@ -61,6 +62,7 @@ process process {
         describeProcess,
         projectManagement,
         representCustomer,
+        systemEngineering,
         develop,
         continiousIntegration;
     text md/simpleSPICE/process.md,
