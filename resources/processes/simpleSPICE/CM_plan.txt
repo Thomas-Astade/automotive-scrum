@@ -60,6 +60,7 @@ folder technicalFolder {
 folder requirementsFolder {
     label "requirements";
     contains 
-        stakeholderRequirements;
+        stakeholderRequirements,
+        systemRequirements;
 }
 

@@ -9,7 +9,28 @@ activity systemEngineering {
     responsible systemEngineer;
     subactivities
         sr_technicalPreview,
-        sr_reportIssueSolved;
+        sr_reportIssueSolved,
+        CreateSystemRequirementsDocument;
+}
+
+artefact systemRequirements {
+    label "System requirements specification";
+    brief "17-12 System requirements specification";
+    text 
+        md/spice/SystemRequirements.md, 
+        md/spice/requirementSpecification.md,
+        md/spice/verificationCriteria.md,
+        md/simpleSPICE/extended_markdown.md;
+}
+
+activity CreateSystemRequirementsDocument {
+    label "Create system requirements document";
+    transform
+        docu_resultArtefact;
+    create
+        systemRequirements;
+    specialize 
+        spice_SYS2BP1,spice_SYS2BP2;
 }
 
 

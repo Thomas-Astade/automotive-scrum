@@ -42,6 +42,13 @@ namespace link {
     
 }
 
+extend activity link_run {
+    transform
+        systemRequirements;
+    specialize 
+        spice_SYS2BP6; 
+}
+
 extend artefact link_resultArtefact {
     text
         md/simpleSPICE/markdown.md;

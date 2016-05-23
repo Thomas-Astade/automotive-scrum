@@ -17,7 +17,7 @@ activity technicalPreview {
 }
 
 activity effortReview {
-    label "do effort review of " + $1;
+    label "do effort review of '" + $1 + "'";
     brief "This activity is to decide, if the issue shall be considered to be done.";
     tool $0;
     set issue(Acknowledged,Confirmed)[spend the estimated effort];
@@ -26,7 +26,7 @@ activity effortReview {
 }
 
 activity planning {
-    label "do planning of " + $1;
+    label "do planning of '" + $1 + "'";
     brief "This activity is during team planning, when an issue is assigned to a person";    
     tool $0;
     set issue(Confirmed,Assigned);
@@ -34,21 +34,21 @@ activity planning {
 }
 
 activity reportIssueSolved {
-    label "report " + $1 + " solved";
+    label "report '" + $1 + "' solved";
     tool $0;
     set issue(Assigned,Resolved);
     text md/mantis/reportIssueSolved.md;
 }
 
 activity createIssue {
-    label "create  " + $1;
+    label "create  '" + $1 + "'";
     tool $0;
     set issue(null,New);
     text md/mantis/guidelines.md; 
  }
 
 activity issueTest {
-    label $1 + " test";    
+    label "'" + $1 + "' test";    
     tool $0;
     set issue(Resolved,Closed)[issue is solved];
     set issue(Resolved,Assigned)[issue is not solved];
@@ -56,7 +56,7 @@ activity issueTest {
 }
 
 activity feedback {
-    label "give feedback for " + $1;    
+    label "give feedback for '" + $1 + "'";    
     tool $0;
     set issue(Feedback,Closed)[no additional info];
     set issue(Feedback,New)[new info assigned];
