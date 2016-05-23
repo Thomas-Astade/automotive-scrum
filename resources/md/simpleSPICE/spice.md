@@ -6,10 +6,13 @@ SYS.1 Requirements Elicitation
 * [SYS.1.BP3: Agree on requirements.](simpleSPICE_spice_SYS1BP3.html)
 * [SYS.1.BP4: Establish stakeholder requirements baseline.](simpleSPICE_spice_SYS1BP4.html)
 * [SYS.1.BP5: Manage stakeholder requirements changes.](simpleSPICE_spice_SYS1BP5.html)
+* [SYS.1.BP6: Establish customer-supplier query communication mechanism.](simpleSPICE_spice_SYS1BP6.html)
 
 SYS.2 System Requirements Analysis
 ------------------------------
 
+* [SYS.2.BP1: Specify system requirements.](simpleSPICE_spice_SYS2BP1.html)
+* [SYS.2.BP2: Structure system requirements.](simpleSPICE_spice_SYS2BP2.html)
 * [SYS.2.BP6: Establish bidirectional traceability.](simpleSPICE_spice_SYS2BP6.html)
 
 SUP.7 Documentation

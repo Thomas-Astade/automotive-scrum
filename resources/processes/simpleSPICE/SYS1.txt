@@ -27,7 +27,7 @@ activity CreateStakeholderRequirementsDocument {
     create
         stakeholderRequirements;
     specialize 
-        spice_SYS1BP1,spice_SYS1BP2,spice_SYS1BP3;
+        spice_SYS1BP1,spice_SYS1BP2,spice_SYS1BP3,spice_SYS1BP6;
     subactivities 
         sr_createIssue,
         sr_doBaseline,
