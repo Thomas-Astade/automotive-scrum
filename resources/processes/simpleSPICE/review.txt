@@ -1,0 +1,33 @@
+//  $0 - The reviewed artefact
+//  $1 - name of the review
+//  $2 - baseline
+
+artefact topic {
+    label "'" + $1 + "' review";
+    contains comment;
+    relations $0,$2;
+}
+
+artefact comment {
+    label "'" + $1 + "' comment";
+    brief "Can ether be a finding or only the notification, that there are no findings.";
+}
+
+activity schedule {
+    label "schedule '" + $1 + "' review";
+    tool forumTool;
+    set topic(null,started);
+}
+
+activity addComment {
+    label "add '" + $1 + "' comment";
+    tool forumTool;
+    create comment;
+    set topic(started,started);
+}
+
+activity close {
+    label "close '" + $1 + "' review";
+    tool forumTool;
+    set topic(started,closed);
+}

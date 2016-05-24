@@ -4,7 +4,7 @@
 //  $3 - name of the review
 //  $4 - baseline
 
-include resources/blocks/spice_SUP4.txt($3);
+include resources/blocks/spice_SUP4.txt;
 
 artefact topic {
     label $3 + " review";

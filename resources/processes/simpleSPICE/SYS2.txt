@@ -31,6 +31,22 @@ activity CreateSystemRequirementsDocument {
         systemRequirements;
     specialize 
         spice_SYS2BP1,spice_SYS2BP2;
+    subactivities
+        syr_doBaseline,
+        syr_schedule,
+        syr_close;
 }
 
+namespace syr {
+    include resources/processes/simpleSPICE/baseline.txt(
+        "system requirements",
+        systemRequirements,
+        spice_SUP8BP6
+    ); 
+    
+    include  resources/processes/simpleSPICE/review.txt(
+        docu_resultArtefact,
+        "system requirements",
+        syr_baseline);
+}
 
