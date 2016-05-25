@@ -8,6 +8,7 @@ namespace spice {
     activity SYS2BP2 {
         label "Structure system requirements";
         brief "SYS.2.BP2: Structure system requirements. Structure the system requirements in the system requirements specification by e.g. grouping to project relevant clusters, sorting in a logical order for the project, categorizing based on relevant criteria for the project, prioritizing according to stakeholder needs.";
+        text md/spice/SYS2BP2.md;
     }
 
     activity SYS2BP3 {

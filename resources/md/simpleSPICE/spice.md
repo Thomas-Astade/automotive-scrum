@@ -13,6 +13,8 @@ SYS.2 System Requirements Analysis
 
 * [SYS.2.BP1: Specify system requirements.](simpleSPICE_spice_SYS2BP1.html)
 * [SYS.2.BP2: Structure system requirements.](simpleSPICE_spice_SYS2BP2.html)
+* [SYS.2.BP3: Analyze system requirements.](simpleSPICE_spice_SYS2BP3.html)
+* [SYS.2.BP4: Analyze the impact on the operating environment.](simpleSPICE_spice_SYS2BP4.html)
 * [SYS.2.BP6: Establish bidirectional traceability.](simpleSPICE_spice_SYS2BP6.html)
 
 SUP.7 Documentation

@@ -50,6 +50,11 @@ namespace syr {
         syr_baseline);
 }
 
+extend activity syr_schedule {
+    specialize
+        spice_SYS2BP3,spice_SYS2BP4;
+}
+
 extend artefact link_script {
     relations systemRequirements;
 }
