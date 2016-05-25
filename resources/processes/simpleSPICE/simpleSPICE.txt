@@ -61,7 +61,8 @@ process process {
     repository 
         git,
         jenkins,
-        mantisRepository;
+        mantisRepository,
+        forum;
     subactivities 
         AutomotiveSPICE,
         describeProcess,

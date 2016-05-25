@@ -50,3 +50,7 @@ namespace syr {
         syr_baseline);
 }
 
+extend artefact link_script {
+    relations systemRequirements;
+}
+
