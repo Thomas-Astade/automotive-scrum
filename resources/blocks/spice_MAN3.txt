@@ -19,6 +19,7 @@ namespace spice {
     activity MAN3BP4 {
         label "Define, monitor and adjust project activities";
         brief "MAN.3.BP4: Define, monitor and adjust project activities. Define, monitor and adjust project activities and their dependencies according to defined project life cycle and estimations. Adjust activities and their dependencies as required.";
+        text md/spice/MAN3BP4.md;
     }
 
     activity MAN3BP5 {
