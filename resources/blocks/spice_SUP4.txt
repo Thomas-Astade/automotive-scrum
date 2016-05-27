@@ -13,6 +13,7 @@ namespace spice {
     activity SUP4BP3 {
         label "Prepare joint review";
         brief "SUP.4.BP3: Prepare joint review. Collect, plan, prepare and distribute review material as appropriate in preparation for the review.";
+        text md/spice/SUP4BP3.md;
     }
 
     activity SUP4BP4 {

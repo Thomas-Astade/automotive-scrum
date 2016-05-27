@@ -16,6 +16,8 @@ artefact comment {
 activity schedule {
     label "schedule '" + $1 + "' review";
     tool forumTool;
+    specialize 
+        spice_SUP4BP3;
     set topic(null,started);
 }
 

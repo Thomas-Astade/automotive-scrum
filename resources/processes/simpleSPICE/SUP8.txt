@@ -17,6 +17,8 @@ activity describeProcess {
     specialize 
         spice_SUP8,
         spice_SWE4BP1,
+        spice_SUP4BP1,
+        spice_SUP4BP2,
         spice_SUP7BP2;
 }
 
