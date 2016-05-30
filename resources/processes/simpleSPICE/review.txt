@@ -25,6 +25,8 @@ activity schedule {
 activity addComment {
     label "add '" + $1 + "' comment";
     tool forumTool;
+    specialize 
+        spice_SUP4BP5;
     create comment;
     set topic(started,started);
 }
@@ -32,5 +34,9 @@ activity addComment {
 activity close {
     label "close '" + $1 + "' review";
     tool forumTool;
+    specialize 
+        spice_SUP4BP6,
+        spice_SUP4BP7,
+        spice_SUP4BP8;
     set topic(started,closed);
 }
