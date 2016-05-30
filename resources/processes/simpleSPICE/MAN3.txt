@@ -1,3 +1,14 @@
+tool lit {
+    label "lit";
+    brief "lit is an ope source planning tool for small projects";
+    text md/lit.md;
+}
+
+artefact litData {
+    label "Lit planning data";
+    brief "the planning datea for all single working package";
+}
+
 activity projectManagement { 
     label "Project Management"; 
     brief "The purpose of the Project Management Process is to identify, establish, and control the activities and resources necessary for a project to produce a product, in the context of the project's requirements and constraints."; 
@@ -103,6 +114,8 @@ artefact projectLifeCycleDefinition {
 activity planWorkPackages {
     label "plan work packages";
     brief "plan and control each work package and create a time planning.";
+    tool lit;
+    create litData;
     specialize 
         spice_MAN3BP4;
     subactivities
