@@ -38,7 +38,8 @@ folder projectManagementFolder {
     label "Project management";
     brief "Contains project management specific files.";
     contains 
-        projectPlan;
+        projectPlan,
+        litData;
 }
 
 folder metaData {
