@@ -25,9 +25,9 @@ activity schedule {
 activity addComment {
     label "add '" + $1 + "' comment";
     tool forumTool;
+    create comment;
     specialize 
         spice_SUP4BP5;
-    create comment;
     set topic(started,started);
 }
 
