@@ -7,6 +7,13 @@ tool lit {
 artefact litData {
     label "Lit planning data";
     brief "the planning datea for all single working package";
+    contains
+        workPackage;
+}
+
+artefact workPackage {
+    label "work package";
+    brief "An organisatoric artefact that defines a certain ammound of work, the due date and an estimated effort.";
 }
 
 activity projectManagement { 
