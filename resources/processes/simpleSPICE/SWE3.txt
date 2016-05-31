@@ -8,7 +8,15 @@ activity develop {
     specialize 
         spice_SWE3;
     subactivities
-        maintainJenkinsScripts;
+        maintainJenkinsScripts,
+        technicalReviews;
+}
+
+activity technicalReviews {
+    label "technical reviews";
+    brief "Developers have to do some techical reviews.";
+    subactivities
+        pp_addComment;
 }
 
 activity maintainJenkinsScripts {
