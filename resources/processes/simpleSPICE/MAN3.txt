@@ -34,7 +34,9 @@ activity createProjectPlan {
         createScopeOfWorkDefinitien,
         createProjectLifeCycleDefinition,
         createResourcePlan,
-        pp_doBaseline;
+        pp_doBaseline,
+        pp_schedule,
+        pp_close;
     text 
         md/spice/ProjectPlan.md,
         md/spice/Plan.md,
