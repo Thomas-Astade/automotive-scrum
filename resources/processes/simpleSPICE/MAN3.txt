@@ -56,7 +56,12 @@ namespace pp {
         baseline 
     );
 }
-    
+
+extend activity pp_schedule {
+    specialize 
+        spice_MAN3BP3;
+}
+
 activity createScopeOfWorkDefinitien  {
     label "create scope of work definition";
     brief "Define the scope of work. Identify the project's goals, motivation and boundaries.";
