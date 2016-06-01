@@ -70,3 +70,18 @@ extend artefact link_script {
         syr_baseline;
 }
 
+activity createSystemTestPlan {
+    label "create system test plan";
+    create systemTestPlan;
+}
+
+artefact systemTestPlan {
+    label "system test plan";
+    contains verificationCriteria;
+}
+
+artefact verificationCriteria {
+    label "Verification Criteria";
+    brief "17-50 Verification Criteria";
+    text md/spice/VerificationCriteria.md;
+}
