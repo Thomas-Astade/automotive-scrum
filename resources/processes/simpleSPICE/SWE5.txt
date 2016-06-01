@@ -31,6 +31,8 @@ namespace docu {
 }
 
 activity createSystemRequirementsView {
+    label "create system requirements view";
+    transform link_resultArtefact;
     create systemRequirementsView;
 }
 
