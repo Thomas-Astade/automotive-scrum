@@ -3,6 +3,7 @@ namespace spice {
     activity SYS3BP1 {
         label "Develop system architectural design";
         brief "SYS.3.BP1: Develop system architectural design. Develop and document the system architectural design that specifies the elements of the system with respect to functional and non-functional system requirements.";
+        text md/spice/SYS3BP1.md;
     }
 
     activity SYS3BP2 {
