@@ -66,6 +66,8 @@ extend activity syr_schedule {
 }
 
 extend artefact link_script {
-    relations systemRequirements;
+    relations 
+        systemRequirements,
+        syr_baseline;
 }
 
