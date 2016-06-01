@@ -6,6 +6,7 @@ include resources/processes/simpleSPICE/SWE5.txt;
 include resources/processes/simpleSPICE/SUP8.txt;
 include resources/processes/simpleSPICE/SYS1.txt;
 include resources/processes/simpleSPICE/SYS2.txt;
+include resources/processes/simpleSPICE/SYS3.txt;
 include resources/processes/simpleSPICE/MAN3.txt;
 include resources/processes/simpleSPICE/SWE3.txt;
 //*****************************************************************
