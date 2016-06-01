@@ -10,7 +10,8 @@ activity systemEngineering {
     subactivities
         sr_technicalPreview,
         sr_reportIssueSolved,
-        CreateSystemRequirementsDocument;
+        CreateSystemRequirementsDocument,
+        CreateSystemArchitectureDocument;
 }
 
 artefact systemRequirements {
