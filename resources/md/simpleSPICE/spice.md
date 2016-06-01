@@ -15,6 +15,7 @@ SYS.2 System Requirements Analysis
 * [SYS.2.BP2: Structure system requirements.](simpleSPICE_spice_SYS2BP2.html)
 * [SYS.2.BP3: Analyze system requirements.](simpleSPICE_spice_SYS2BP3.html)
 * [SYS.2.BP4: Analyze the impact on the operating environment.](simpleSPICE_spice_SYS2BP4.html)
+* [SYS.2.BP5: Develop verification criteria.](simpleSPICE_spice_SYS2BP5.html)
 * [SYS.2.BP6: Establish bidirectional traceability.](simpleSPICE_spice_SYS2BP6.html)
 
 SYS.3 System Architectural Design
