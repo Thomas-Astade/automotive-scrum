@@ -6,7 +6,7 @@ include resources/blocks/spice_SWE1.txt;
 //include resources/blocks/spice_SWE4.txt;
 //include resources/blocks/spice_SWE5.txt;
 
-//include resources/blocks/spice_SUP7.txt;
+include resources/blocks/spice_SUP2.txt;
 include resources/blocks/spice_SUP8.txt;
 include resources/blocks/spice_SUP9.txt;
 include resources/blocks/spice_SUP10.txt;
