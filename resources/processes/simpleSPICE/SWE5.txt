@@ -31,7 +31,7 @@ namespace docu {
 }
 
 activity createSystemRequirementsView {
-    creates systemRequirementsView;
+    create systemRequirementsView;
 }
 
 extend activity docu_run {
