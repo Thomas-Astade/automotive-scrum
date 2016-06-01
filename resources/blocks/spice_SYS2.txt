@@ -25,7 +25,7 @@ namespace spice {
         label "Develop verification criteria";
         brief "SYS.2.BP5: Develop verification criteria. Develop the verification criteria for each system requirement that define the qualitative and quantitative measures for the verification of a requirement.";
         specialize 
-            SUP2BP2;
+            spice_SUP2BP2;
         text md/spice/SYS2BP5.md;
     }
 
