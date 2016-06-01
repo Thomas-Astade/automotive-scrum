@@ -55,7 +55,7 @@ namespace syr {
     ); 
     
     include  resources/processes/simpleSPICE/review.txt(
-        docu_resultArtefact,
+        systemRequirementsView,
         "system requirements",
         syr_baseline);
 }
