@@ -56,9 +56,20 @@ process process {
         representCustomer,
         systemEngineering,
         develop,
-        continiousIntegration;
+        continiousIntegration,
+        systemTest;
     text md/simpleSPICE/process.md,
          md/simpleSPICE/spice.md;
+}
+
+role testEngineer {
+    label "test engineer";
+    brief "responsible to plan and organize all test activities.";
+}
+
+activity systemTest {
+    label "system test";
+     responsible testEngineer;
 }
 
 //*****************************************************************
