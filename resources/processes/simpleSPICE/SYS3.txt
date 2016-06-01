@@ -18,5 +18,5 @@ artefact systemArchitecturalDesign {
 }
 
 extend activity link_run {
-    transform softwareArchitecturalDesign;
+    transform systemArchitecturalDesign;
 }
