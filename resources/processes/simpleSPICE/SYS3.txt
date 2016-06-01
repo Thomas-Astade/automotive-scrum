@@ -3,14 +3,14 @@ activity CreateSystemArchitectureDocument {
     transform
         systemRequirementsView;
     create
-        softwareArchitecturalDesign;
+        systemArchitecturalDesign;
     specialize 
         spice_SYS3BP1;
 }
 
-artefact softwareArchitecturalDesign {
-    label "Software architectural design";
-    brief "04-04 Software architectural design";
+artefact systemArchitecturalDesign {
+    label "System architectural design";
+    brief "04-06 System architectural design";
     text 
         md/spice/SystemArchitecturalDesign.md, 
         md/spice/Design.md, 
