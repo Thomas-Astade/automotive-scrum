@@ -69,7 +69,9 @@ role testEngineer {
 
 activity systemTest {
     label "system test";
-     responsible testEngineer;
+    responsible testEngineer;
+    subactivities
+        createSystemTestPlan;
 }
 
 //*****************************************************************
