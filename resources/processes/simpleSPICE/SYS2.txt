@@ -75,6 +75,8 @@ activity createSystemTestPlan {
     transform 
         systemRequirementsView;
     create systemTestPlan;
+    specialize 
+        spice_SYS2BP5;
     text 
         md/spice/requirementSpecification.md,
         md/spice/verificationCriteria.md,
