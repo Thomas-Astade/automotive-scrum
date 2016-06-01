@@ -20,3 +20,9 @@ artefact systemArchitecturalDesign {
 extend activity link_run {
     transform systemArchitecturalDesign;
 }
+
+extend artefact link_script {
+    relations 
+        systemArchitecturalDesign;
+}
+
