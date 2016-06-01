@@ -1,7 +1,7 @@
 activity CreateSystemArchitectureDocument {
     label "Create system architecture document";
     transform
-        systemRequirements;
+        systemRequirementsView;
     create
         softwareArchitecturalDesign;
     specialize 
