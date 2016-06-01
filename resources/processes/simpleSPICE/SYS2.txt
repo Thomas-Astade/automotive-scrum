@@ -24,6 +24,15 @@ artefact systemRequirements {
         md/simpleSPICE/extended_markdown.md;
 }
 
+artefact systemRequirementsView {
+    label "System requirements specification view";
+    brief "this is the part of the documentation which contains the system specification";
+}
+
+extend artefact docu_resultArtefact {
+    contains systemRequirementsView;
+}
+
 activity CreateSystemRequirementsDocument {
     label "Create system requirements document";
     transform
