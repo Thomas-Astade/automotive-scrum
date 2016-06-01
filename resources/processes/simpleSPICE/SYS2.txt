@@ -83,5 +83,7 @@ artefact systemTestPlan {
 artefact verificationCriteria {
     label "Verification Criteria";
     brief "17-50 Verification Criteria";
-    text md/spice/VerificationCriteria.md;
+    text 
+        md/spice/requirementSpecification.md,
+        md/spice/VerificationCriteria.md;
 }
