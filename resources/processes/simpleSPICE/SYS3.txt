@@ -16,3 +16,7 @@ artefact softwareArchitecturalDesign {
         md/spice/Design.md, 
         md/simpleSPICE/extended_markdown.md;
 }
+
+extend activity link_run {
+    transform softwareArchitecturalDesign;
+}
