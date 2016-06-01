@@ -72,18 +72,27 @@ extend artefact link_script {
 
 activity createSystemTestPlan {
     label "create system test plan";
+    transform 
+        systemRequirementsView;
     create systemTestPlan;
+    text 
+        md/spice/requirementSpecification.md,
+        md/spice/verificationCriteria.md,
+        md/simpleSPICE/extended_markdown.md;
 }
 
 artefact systemTestPlan {
     label "system test plan";
     contains verificationCriteria;
+    text 
+        md/spice/requirementSpecification.md,
+        md/spice/verificationCriteria.md,
+        md/simpleSPICE/extended_markdown.md;
 }
 
 artefact verificationCriteria {
     label "Verification Criteria";
     brief "17-50 Verification Criteria";
     text 
-        md/spice/requirementSpecification.md,
-        md/spice/VerificationCriteria.md;
+        md/spice/verificationCriteria.md;
 }
