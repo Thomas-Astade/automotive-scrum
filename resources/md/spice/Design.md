@@ -5,6 +5,6 @@
 - Identifies the required product/system elements
 - Identifies the relationship between the elements
 - Consideration is given to:
-   - any required performance characteristics
-   - any required interfaces
-   - any required security characteristics
+    - any required performance characteristics
+    - any required interfaces
+    - any required security characteristics
