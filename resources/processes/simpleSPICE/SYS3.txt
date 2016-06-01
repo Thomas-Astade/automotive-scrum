@@ -10,6 +10,7 @@ artefact softwareArchitecturalDesign {
     label "Software architectural design";
     brief "04-04 Software architectural design";
     text 
+        md/spice/SystemArchitecturalDesign.md, 
         md/spice/Design.md, 
         md/simpleSPICE/extended_markdown.md;
 }
