@@ -67,7 +67,9 @@ folder branches {
 
 folder technicalFolder {
     label "technical";
-    contains requirementsFolder;
+    contains 
+        requirementsFolder,
+        architectureFolder;
 }
 
 folder requirementsFolder {
@@ -75,5 +77,11 @@ folder requirementsFolder {
     contains 
         stakeholderRequirements,
         systemRequirements;
+}
+
+folder architectureFolder {
+    label "architecture";
+    contains 
+        softwareArchitecturalDesign;
 }
 
