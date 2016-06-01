@@ -1,6 +1,6 @@
 activity CreateSystemArchitectureDocument {
     label "Create system architecture document";
-    creates
+    create
         softwareArchitecturalDesign;
     specialize 
         spice_SYS3BP1;
