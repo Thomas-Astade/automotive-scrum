@@ -37,13 +37,16 @@ OBJS	:= $(notdir $(SOURCES:.cpp=.o))
 build:	$(TARGET)
 
 install:	build
-	install -s $(TARGET) $(prefix)/bin
+	install -s $(TARGET) ~/genproc/
+	cp ../../../../../resources/style.css ~/genproc/html/
+	cp ../../../../../resources/md/example_* ~/genproc
+	cp ./*.png ~/genproc/
 
 clean:
 	rm -f $(TARGET) *.o .depend
 
 run:	$(TARGET)
-	./$(TARGET) -i resources/main.txt
+	./$(TARGET) -i resources/main.txt -o /srv/automotive-scrum
 
 rebuild:	clean build
 

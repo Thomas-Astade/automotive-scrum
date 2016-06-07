@@ -52,7 +52,7 @@ namespace classic = boost::spirit::classic;
 namespace qi = boost::spirit::qi;
 namespace ascii = boost::spirit::ascii;
 
-char outpath[] = "/srv/automotive-scrum";
+char* outpath = "./html";
 
 /* This structure is used by main to communicate with parse_opt. */
 struct Arguments
@@ -694,6 +694,7 @@ static struct argp_option options[] =
 {
   {"verbose", 'v', 0,            0, "verbose info aboout parsing."},
   {"input"   ,'i', "file",       0, "the input file (May be set multiple times)."},
+  {"output"  ,'o', "folder",     0, "the output folder (default: ./html)."},
   {0}
 };
 
@@ -708,6 +709,9 @@ static error_t parse_opt (int key, char *arg, struct argp_state *state)
         break;
     case 'i':
         arguments->file_names.push_back(arg);
+        break;
+    case 'o':
+        outpath = arg;
         break;
 
     default:
