@@ -40,6 +40,6 @@ artefact SystemRequirementsAllocation {
 }
 
 extend activity link_run {
-    transform systemArchitecturalDesign;
+    transform SystemRequirementsAllocation;
 }
 
