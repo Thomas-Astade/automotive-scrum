@@ -6,11 +6,15 @@ artefact topic {
     label "'" + $1 + "' review";
     contains comment;
     relations $0,$2;
+    text  
+        md/spice/ReviewRecord.md;  
 }
 
 artefact comment {
     label "'" + $1 + "' comment";
     brief "Can ether be a finding or only the notification, that there are no findings.";
+    text  
+        md/spice/ReviewRecord.md;  
 }
 
 activity schedule {
@@ -29,6 +33,8 @@ activity addComment {
     specialize 
         spice_SUP4BP5;
     set topic(started,started);
+    text  
+        md/spice/ReviewRecord.md;  
 }
 
 activity close {
