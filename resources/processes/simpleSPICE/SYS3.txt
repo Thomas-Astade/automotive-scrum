@@ -12,6 +12,8 @@ activity CreateSystemArchitectureDocument {
 
 activity LinkRequirementsToDesign {
     label "Link Requirements to Design";
+    create
+        SystemRequirementsAllocation;
     specialize 
         spice_SYS3BP2;
     text 
