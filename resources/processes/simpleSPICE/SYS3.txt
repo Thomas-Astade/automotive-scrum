@@ -17,8 +17,8 @@ activity LinkRequirementsToDesign {
     specialize 
         spice_SYS3BP2;
     text 
-        md/simpleSPICE/extended_markdown.md,
-        md/spice/TracabilityRecord.md;
+        md/spice/TracabilityRecord.md,
+        md/simpleSPICE/extended_markdown.md;
 }
 
 artefact systemArchitecturalDesign {
@@ -35,7 +35,8 @@ artefact SystemRequirementsAllocation {
     label "System requirements allocation";
     brief "a detailed linkage between design elements and the corresponding requirements.";
     text 
-        md/spice/TracabilityRecord.md;
+        md/spice/TracabilityRecord.md,
+        md/simpleSPICE/extended_markdown.md;
 }
 
 extend activity link_run {
