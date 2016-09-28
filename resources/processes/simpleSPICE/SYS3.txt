@@ -6,6 +6,16 @@ activity CreateSystemArchitectureDocument {
         systemArchitecturalDesign;
     specialize 
         spice_SYS3BP1;
+    subactivities 
+        LinkRequirementsToDesign;
+}
+
+activity LinkRequirementsToDesign {
+    label "Link Requirements to Design";
+    specialize 
+        spice_SYS3BP2;
+    text 
+        md/simpleSPICE/extended_markdown.md;
 }
 
 artefact systemArchitecturalDesign {
