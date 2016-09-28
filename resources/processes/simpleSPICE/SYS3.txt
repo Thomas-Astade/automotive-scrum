@@ -17,7 +17,8 @@ activity LinkRequirementsToDesign {
     specialize 
         spice_SYS3BP2;
     text 
-        md/simpleSPICE/extended_markdown.md;
+        md/simpleSPICE/extended_markdown.md,
+        md/spice/TracabilityRecord.md;
 }
 
 artefact systemArchitecturalDesign {
