@@ -10,15 +10,9 @@ role systemEngineer {
 artefact SystemRequirements {
     label "System requirements specification";
     brief "17-12 System requirements specification";
-    contains SystemRequirementsAllocation;
     text 
         md/spice/SystemRequirements.md, 
         md/minimalSPICE/extended_markdown.md;
-}
-
-artefact SystemRequirementsAllocation {
-    label "System requirements allocation";
-    brief "a detailed linkage between design elements and the corresponding requirements.";
 }
 
 extend activity spice_SYS2BP1 {
