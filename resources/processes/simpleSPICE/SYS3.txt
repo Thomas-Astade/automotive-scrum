@@ -33,6 +33,8 @@ artefact systemArchitecturalDesign {
 artefact SystemRequirementsAllocation {
     label "System requirements allocation";
     brief "a detailed linkage between design elements and the corresponding requirements.";
+    text 
+        md/spice/TracabilityRecord.md;
 }
 
 extend activity link_run {
