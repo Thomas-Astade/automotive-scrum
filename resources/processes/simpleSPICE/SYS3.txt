@@ -8,7 +8,8 @@ activity CreateSystemArchitectureDocument {
         spice_SYS3BP1;
     subactivities 
         LinkRequirementsToDesign,
-        defineSytemInterfaces;
+        defineSytemInterfaces,
+        describeDynamicSystemBehaviour;
 }
 
 activity LinkRequirementsToDesign {
@@ -16,10 +17,18 @@ activity LinkRequirementsToDesign {
     create
         SystemRequirementsAllocation;
     specialize 
-        spice_SYS3BP2;
+        spice_SYS3BP2,
+        spice_SYS3BP6;
     text 
         md/spice/TracabilityRecord.md,
         md/simpleSPICE/extended_markdown.md;
+}
+
+activity describeDynamicSystemBehaviour {
+    label "Describe dynamic system behaviour";
+    tool trace2uml;
+    specialize 
+        spice_SYS3BP4;
 }
 
 activity defineSytemInterfaces {
