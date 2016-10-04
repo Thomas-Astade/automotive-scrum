@@ -27,6 +27,8 @@ activity LinkRequirementsToDesign {
 activity describeDynamicSystemBehaviour {
     label "Describe dynamic system behaviour";
     tool trace2uml;
+    create
+        SystemDynamicBehaviour;
     specialize 
         spice_SYS3BP4;
 }
@@ -46,7 +48,8 @@ artefact systemArchitecturalDesign {
     brief "04-06 System architectural design";
     contains 
         SystemRequirementsAllocation,
-        SystemInterfaceDescription;
+        SystemInterfaceDescription,
+        SystemDynamicBehaviour;
     text 
         md/spice/SystemArchitecturalDesign.md, 
         md/spice/Design.md, 
@@ -56,6 +59,10 @@ artefact systemArchitecturalDesign {
 artefact SystemInterfaceDescription {
     label "System Interface description";
     brief "A description of all system interfaces.";
+}
+
+artefact SystemDynamicBehaviour {
+    label "System dynamic behaviour";
 }
 
 artefact SystemRequirementsAllocation {
