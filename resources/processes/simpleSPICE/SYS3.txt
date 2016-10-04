@@ -28,6 +28,8 @@ activity defineSytemInterfaces {
         SystemInterfaceDescription;
     specialize 
         spice_SYS3BP3;
+    text 
+        md/simpleSPICE/extended_markdown.md;
 }
 
 artefact systemArchitecturalDesign {
