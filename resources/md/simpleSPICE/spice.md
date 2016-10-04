@@ -24,6 +24,7 @@ SYS.3 System Architectural Design
 * [SYS.3.BP1: Develop system architectural design.](simpleSPICE_spice_SYS3BP1.html)
 * [SYS.3.BP2: Allocate system requirements.](simpleSPICE_spice_SYS3BP2.html)
 * [SYS.3.BP3: Define interfaces of system elements.](simpleSPICE_spice_SYS3BP3.html)
+* [SYS.3.BP4: Describe  dynamic  behavior.](simpleSPICE_spice_SYS3BP4.html)
 
 SUP.4 Joint Review
 ------------------
