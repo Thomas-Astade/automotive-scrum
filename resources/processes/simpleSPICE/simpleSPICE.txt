@@ -11,6 +11,11 @@ include resources/processes/simpleSPICE/MAN3.txt;
 include resources/processes/simpleSPICE/SWE3.txt;
 //*****************************************************************
 
+tool trace2uml {
+    label "Trace2UML";
+    brief "tool to generate graphical sequence diagrams";
+}
+
 tool mantisTool {
     label "Mantis";
     text md/mantis/mantis_tool.md,
