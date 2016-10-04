@@ -19,6 +19,7 @@ namespace spice {
     activity SYS3BP4 {
         label "Describe dynamic behavior";
         brief "SYS.3.BP4: Describe dynamic behavior. Evaluate and document the dynamic behavior of the interaction between system elements.";
+        text md/spice/SYS3BP4.md;
     }
 
     activity SYS3BP5 {
