@@ -44,6 +44,7 @@ artefact systemArchitecturalDesign {
 
 artefact SystemInterfaceDescription {
     label "System Interface description";
+    brief "A description of all system interfaces.";
 }
 
 artefact SystemRequirementsAllocation {
