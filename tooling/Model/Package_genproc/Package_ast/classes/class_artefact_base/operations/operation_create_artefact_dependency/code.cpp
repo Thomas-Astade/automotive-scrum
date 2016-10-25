@@ -29,7 +29,9 @@ create_headline(outfile, "Artefact dependency");
 
 outfile << "<IMG SRC=\""
         << linkname
-        << ".png\" USEMAP=\"#artefact_dependency\" />"
+        << ".png\" USEMAP=\"#artefact_dependency\" title=\"Artefact dependency of artefact: "
+        << e->getLabel()
+        << "\" />"
         << std::endl;
 
 pclose(gfile);
