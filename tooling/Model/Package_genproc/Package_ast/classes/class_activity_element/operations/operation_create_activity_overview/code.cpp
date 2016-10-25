@@ -31,7 +31,9 @@ create_headline(outfile, "Activity overview");
 
 outfile << "<IMG SRC=\""
         << linkname
-        << ".png\" USEMAP=\"#activity_overview\" />"
+        << ".png\" USEMAP=\"#activity_overview\" title=\"Activity overview of activity: "
+        << e->getLabel()
+        << "\" />"
         << std::endl;
 
 pclose(gfile);
