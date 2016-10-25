@@ -30,7 +30,7 @@ outfile << "<IMG SRC=\""
         << linkname
         << ".png\" USEMAP=\"#process_overview\" title=\"Process overview of process: "
         << e->getLabel()
-        << "\" alt=\"spem diagram of a process overview: 
+        << "\" alt=\"spem diagram of a process overview: " 
         << e->getLabel()
         << "\" />"
         << std::endl;
