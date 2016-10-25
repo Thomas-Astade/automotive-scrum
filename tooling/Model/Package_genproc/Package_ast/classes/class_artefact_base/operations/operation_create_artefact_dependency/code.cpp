@@ -31,7 +31,7 @@ outfile << "<IMG SRC=\""
         << linkname
         << ".png\" USEMAP=\"#artefact_dependency\" title=\"Artefact dependency of artefact: "
         << e->getLabel()
-        << "\" alt=\"spem diagram of artefact: "
+        << "\" alt=\"spem diagram of artefact dependency: "
         << e->getLabel()
         << "\" />"
         << std::endl;
