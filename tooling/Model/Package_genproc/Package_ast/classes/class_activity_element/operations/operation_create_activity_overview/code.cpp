@@ -33,6 +33,8 @@ outfile << "<IMG SRC=\""
         << linkname
         << ".png\" USEMAP=\"#activity_overview\" title=\"Activity overview of activity: "
         << e->getLabel()
+        << "\" alt=\"spem diagram of the activity overview: "
+        << e->getLabel()
         << "\" />"
         << std::endl;
 
