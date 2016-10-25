@@ -47,6 +47,8 @@ outfile << "<IMG SRC=\""
         << linkname
         << ".png\" USEMAP=\"#role_overview\" title=\"Role overview of role: "
         << I_element::getLabel()
+        << "\" alt=\"spem diagram of role: "
+        << I_element::getLabel()
         << "\" />"
         << std::endl;
 
