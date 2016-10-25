@@ -47,7 +47,7 @@ outfile << "<IMG SRC=\""
         << linkname
         << ".png\" USEMAP=\"#activity_breakdown\" title=\"Activity break down of activity: "
         << e->getLabel()
-        << "\" alt=\"spem diagram of an activity breakdown: "
+        << "\" alt=\"spem diagram of the activity breakdown: "
         << e->getLabel()
         << "\" />"
         << std::endl;
