@@ -55,7 +55,9 @@ create_headline(outfile, "Artefact break down");
 
 outfile << "<IMG SRC=\""
         << linkname
-        << ".png\" USEMAP=\"#artefact_breakdown\" />"
+        << ".png\" USEMAP=\"#artefact_breakdown\" title=\"Artefact break down of artefact: "
+        << e->getLabel()
+        << "\" />"
         << std::endl;
 
 pclose(gfile);
