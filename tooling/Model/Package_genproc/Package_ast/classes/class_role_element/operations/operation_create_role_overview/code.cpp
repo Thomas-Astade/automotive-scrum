@@ -45,7 +45,9 @@ create_headline(outfile, "Role overview");
 
 outfile << "<IMG SRC=\""
         << linkname
-        << ".png\" USEMAP=\"#role_overview\" />"
+        << ".png\" USEMAP=\"#role_overview\" title=\"Role overview of role: "
+        << getLabel()
+        << "\" />"
         << std::endl;
 
 pclose(gfile);
