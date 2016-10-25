@@ -57,6 +57,8 @@ outfile << "<IMG SRC=\""
         << linkname
         << ".png\" USEMAP=\"#artefact_breakdown\" title=\"Artefact break down of artefact: "
         << e->getLabel()
+        << "\" alt=\"spem diagram of the artefact breakdown: "
+        << e->getLabel()
         << "\" />"
         << std::endl;
 
