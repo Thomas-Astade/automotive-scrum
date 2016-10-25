@@ -28,7 +28,9 @@ create_headline(outfile, "Process overview");
 
 outfile << "<IMG SRC=\""
         << linkname
-        << ".png\" USEMAP=\"#process_overview\" />"
+        << ".png\" USEMAP=\"#process_overview\" title=\"Process overview of process: "
+        << e->getLabel()
+        << "\" />"
         << std::endl;
 
 pclose(gfile);
