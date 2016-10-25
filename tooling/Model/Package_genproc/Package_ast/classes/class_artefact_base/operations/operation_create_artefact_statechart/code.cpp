@@ -77,7 +77,7 @@ outfile << "<IMG SRC=\""
         << linkname
         << ".png\" USEMAP=\"#artefact_states\" title=\"Artefact state chart of artefact: "
         << e->getLabel()
-        << "\" alt=\"spem diagram of artefact states: "
+        << "\" alt=\"state diagram of artefact: "
         << e->getLabel()
         << "\" />"
         << std::endl;
