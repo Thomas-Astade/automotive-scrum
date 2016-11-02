@@ -14,7 +14,7 @@ for (std::map<std::string,I_element*>::iterator it = object_list.begin(); it != 
     ofs << "<loc>http://automotive-scrum.org/"
         << (*it).second->getHtmlFilename()
         << "</loc>" << std::endl;
-    ofs << "/<url>" << std::endl;
+    ofs << "</url>" << std::endl;
 
 }
 
