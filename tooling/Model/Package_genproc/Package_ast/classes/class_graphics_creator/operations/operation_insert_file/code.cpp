@@ -15,7 +15,7 @@ while(fgets(buff, sizeof(buff), pFile)!=NULL)
 while (obuf.find("id=\"node")!=std::string::npos)
 {
     int p1 = obuf.find("id=\"node");
-    int p2 = obuf.find("\"",p1);
+    int p2 = obuf.find("\"",p1+6);
     obuf.erase(p1,2+p2-p1);
 }
 
