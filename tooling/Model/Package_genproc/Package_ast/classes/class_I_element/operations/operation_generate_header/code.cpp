@@ -14,7 +14,7 @@ file << "<td>" << std::endl;
 file << "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" width=\"100%\">" << std::endl;
 file << "<tr>" << std::endl;
 file << "<td>" << std::endl;
-file << "<div><img src=\"automotive_scrum_logo_small.png\"></div>" << std::endl;
+file << "<div><img src=\"automotive_scrum_logo_small.png\" alt=\"logo\"></div>" << std::endl;
 file << "</td>" << std::endl;
 file << "<td>" << std::endl;
 file << "<p class=\"header\"> </p>" << std::endl;
