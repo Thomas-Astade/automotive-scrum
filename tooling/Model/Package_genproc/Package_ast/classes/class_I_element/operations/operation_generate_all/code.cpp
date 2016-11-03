@@ -32,6 +32,12 @@ for (std::map<std::string,I_element*>::iterator it = object_list.begin(); it != 
         << buffer
         << "1</lastmod>" << std::endl;
         
+    ofs.precision(2);
+    
+    ofs << "<priority>"
+        << (*it).second->getPriority()
+        << "</priority>" << std::endl;
+        
     ofs << "</url>" << std::endl;
 }
 
