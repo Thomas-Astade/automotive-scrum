@@ -1,5 +1,5 @@
 //~~ void generate_header(std::ofstream& file) [I_element] ~~
-file << "<!DOCTYPE>" << std::endl;
+file << "<!DOCTYPE html>" << std::endl;
 file << "<html lang=\"en\">" << std::endl;
 file << "<head>" << std::endl;
 file << "<title>" << getType() << " " << getLabel() << "</title>" << std::endl;
