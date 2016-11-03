@@ -52,7 +52,7 @@ namespace classic = boost::spirit::classic;
 namespace qi = boost::spirit::qi;
 namespace ascii = boost::spirit::ascii;
 
-char* outpath = "./html";
+const char* outpath = "./html";
 
 /* This structure is used by main to communicate with parse_opt. */
 struct Arguments

@@ -15,7 +15,7 @@ char buffer[80];
 time (&rawtime);
 timeinfo = localtime(&rawtime);
 
-strftime(buffer,80,"%Y-%m_%d",timeinfo);
+strftime(buffer,80,"%F",timeinfo);
 
 ofs << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" << std::endl;
 ofs << "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">" << std::endl;
