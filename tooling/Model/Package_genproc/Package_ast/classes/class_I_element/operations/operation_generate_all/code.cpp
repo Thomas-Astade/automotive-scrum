@@ -30,7 +30,7 @@ for (std::map<std::string,I_element*>::iterator it = object_list.begin(); it != 
         
     ofs << "<lastmod>"
         << buffer
-        << "1</lastmod>" << std::endl;
+        << "</lastmod>" << std::endl;
         
     ofs.precision(2);
     
