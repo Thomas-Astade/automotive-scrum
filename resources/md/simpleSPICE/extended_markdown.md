@@ -2,7 +2,7 @@ Extended Markdown
 =================
 
 Extended Markdown is a special format (actually a DSL), used in this process for tracability.
-While the file is 100% markdown complaint, there are some additional tags to identify relations (links).
+While the file is 100% markdown compliant, there are some additional tags to identify relations (links).
 
 Because this links can be easily identified by text searches, a small helper (script) is able to collect all links and add 
 the corresponding backward links.

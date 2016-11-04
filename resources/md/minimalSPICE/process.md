@@ -1,7 +1,7 @@
 Minimal SPICE
 =============
 
-This is intended to define a minimal SPICE complaint process. 
+This is intended to define a minimal SPICE compliant process. 
 It shall contain all activities and work products, but shall only work with open source tools
 and with minimal effort.
 

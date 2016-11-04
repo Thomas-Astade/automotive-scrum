@@ -1,6 +1,6 @@
 role processManager {
      label "process manager";
-     brief "The responsible to develop and document a spice complaint process.";
+     brief "The responsible to develop and document a spice compliant process.";
  }
 
 tool genproc { 
@@ -9,7 +9,7 @@ tool genproc {
 
 activity describeProcess {
     label "describe process";
-    brief "This activity is to develop and document a spice complaint process.";
+    brief "This activity is to develop and document a spice compliant process.";
     responsible 
         processManager;
     create
