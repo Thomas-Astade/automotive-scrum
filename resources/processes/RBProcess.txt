@@ -1,5 +1,40 @@
 namespace RBProcess {
 
+namespace bootloader {
+    include resources/blocks/dev_basic.txt(
+         Bootloader
+    );
+}
+
+namespace bootmanager {
+    include resources/blocks/dev_basic.txt(
+         BootManager
+    );
+}
+
+namespace bootloaderUpdater {
+    include resources/blocks/dev_basic.txt(
+         BootloaderUpdater
+    );
+}
+
+namespace rte {
+    include resources/blocks/dev_basic.txt(
+         RTE
+    );
+}
+
+namespace stub {
+    include resources/blocks/dev_basic.txt(
+         stub
+    );
+}
+
+namespace blackbox {
+    include resources/blocks/dev_basic.txt(
+         BlackBox
+    );
+}
 
 //*****************************************************************
 
@@ -15,20 +50,31 @@ role projectManager {
     text md/project_manager.md;
 }
 
-activity integration {
+activity develop {
+    subactivities
+         bootloader_develop,
+         bootmanager_develop,
+         bootloaderUpdater_develop,
+         rte_develop,
+         blackbox_develop;
 }
 
 process process {
     label "RBProcess";    
     responsible projectManager;
+    repository integrity, jenkins;
     subactivities
-        integration;
+        develop;
     text md/RBProcess/process.md;
 }
 
 repository jenkins {
     label "Jenkins";
     brief "Jenkins, as a buils server, archives the build artefacts.";
+}
+
+repository integrity {
+    label "PTC Integrity";
 }
 
 

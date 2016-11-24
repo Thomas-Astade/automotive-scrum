@@ -1,4 +1,22 @@
+//  $0 - discipline e.g.Bootloader
+
+
+
+activity develop {
+    label "develop " + $0;
+    subactivities
+         writeSource;
+}
+
+
+activity writeSource {
+    label "write " + $0 + " sources";
+    brief "Write the source file to generate toe functionality";
+    create sourcecode;
+}
+
+
 artefact sourcecode {
-    label "source code";
+    label $0 + " source code";
 }
 
