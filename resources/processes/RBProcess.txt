@@ -1,0 +1,35 @@
+namespace RBProcess {
+
+
+//*****************************************************************
+
+
+role jenkinsRole {
+    label "Jenkins";
+    brief "Jenkins is an automation engine with an unparalleled plugin ecosystem to support all of your favorite tools in your delivery pipelines, whether your goal is continuous integration, automated testing, or continuous delivery.";
+}
+
+role projectManager {
+    label "project manager";
+    brief "The process manager is the overall responsible for a project";
+    text md/project_manager.md;
+}
+
+activity integration {
+}
+
+process process {
+    label "RBProcess";    
+    responsible projectManager;
+    subactivities
+        integration;
+    text md/RBProcess/process.md;
+}
+
+repository jenkins {
+    label "Jenkins";
+    brief "Jenkins, as a buils server, archives the build artefacts.";
+}
+
+
+}

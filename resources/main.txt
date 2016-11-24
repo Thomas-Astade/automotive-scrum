@@ -1,8 +1,9 @@
 include resources/processes/simpleSPICE/simpleSPICE.txt;
-//include resources/processes/documentation.txt;
+include resources/processes/documentation.txt;
 include resources/processes/minimalSPICE.txt;
 include resources/blocks/overview.txt;
 include resources/processes/minimalMantis.txt;
+include resources/processes/RBProcess.txt;
 
 @home {
     subpages
@@ -22,7 +23,8 @@ page processes {
     label "Processes";
     subpages 
         minimalMantis_minimalMantis,
-//        documentation_process;
+        documentation_process,
+        RBProcess_process,
         minimalSPICE_process,
         simpleSPICE_process;
     text md/processes.md;
