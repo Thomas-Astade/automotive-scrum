@@ -38,6 +38,16 @@ namespace blackbox {
 
 //*****************************************************************
 
+folder developmentBuilds {
+    label "development builds";
+    contains 
+         bootloader_build,
+         bootmanager_build,
+         bootloaderUpdater_build,
+         rte_build,
+         stub_build,
+         blackbox_build;
+} 
 
 role jenkinsRole {
     label "Jenkins";
@@ -56,6 +66,7 @@ activity develop {
          bootmanager_develop,
          bootloaderUpdater_develop,
          rte_develop,
+         stub_develop,
          blackbox_develop;
 }
 
@@ -71,10 +82,18 @@ process process {
 repository jenkins {
     label "Jenkins";
     brief "Jenkins, as a buils server, archives the build artefacts.";
+    contains developmentBuilds;
 }
 
 repository integrity {
     label "PTC Integrity";
+    contains 
+         bootloader_data,
+         bootmanager_data,
+         bootloaderUpdater_data,
+         rte_data,
+         stub_data,
+         blackbox_data;
 }
 
 

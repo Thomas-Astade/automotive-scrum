@@ -1,22 +1,77 @@
 //  $0 - discipline e.g.Bootloader
 
-
+role developer {
+    label $0 + " developer";
+    brief "The responsible developer for a sub project";
+}
 
 activity develop {
     label "develop " + $0;
+    responsible developer;
     subactivities
-         writeSource;
+         writeSource,
+         developmentBuild,
+         developUnitTest,
+         runUnitTest;
 }
 
+activity developUnitTest {
+    label "develop unit test for " + $0;
+    responsible developer;
+    create unitTest;
+}
+
+activity runUnitTest {
+    label "run unit test for " + $0;
+    responsible jenkinsRole;
+    transform unitTest, sourcecode;
+    create unitTestReport;
+}
+
+folder build {
+    label $0 + " build";
+    brief "This is a subfolder that contains build results";
+    contains developmentBinary, unitTestReport;
+}
+
+folder data {
+    label $0 + " data";
+    brief "This is a subfolder that contains a sub project";
+    contains sources;
+}
+
+folder sources {
+    label $0 + " sources folder";
+    brief "This is a subfolder that contains the sources of the sub project";
+    contains sourcecode, unitTest;
+}
 
 activity writeSource {
     label "write " + $0 + " sources";
-    brief "Write the source file to generate toe functionality";
+    brief "Write the source file to generate the functionality";
     create sourcecode;
 }
 
+activity developmentBuild {
+    label $0 + " development build";
+    brief "sources are build during development.";
+    responsible jenkinsRole;
+    create developmentBinary;
+}
+
+artefact developmentBinary{
+    label $0 + " development binary";
+}
 
 artefact sourcecode {
     label $0 + " source code";
+}
+
+artefact unitTest {
+    label $0 + " unit test code";
+}
+
+artefact unitTestReport {
+    label $0 + " unit test report";
 }
 
