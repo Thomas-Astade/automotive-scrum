@@ -12,7 +12,8 @@ activity develop {
          writeSource,
          developmentBuild,
          developUnitTest,
-         runUnitTest;
+         runUnitTest,
+         baseline;
 }
 
 activity developUnitTest {
@@ -56,7 +57,25 @@ activity developmentBuild {
     label $0 + " development build";
     brief "sources are build during development.";
     responsible jenkinsRole;
+    transform sourcecode;
     create developmentBinary;
+}
+
+activity baseline {
+    label "baseline " + $0;
+    transform sourcecode, unitTestReport, developmentBinary;
+    create releaseBaseline;
+}
+
+artefact releaseBaseline{
+    label $0 + " release baseline";
+    contains releaseLabel;
+    relations data;
+}
+
+artefact releaseLabel{
+    label $0 + " release label";
+    brief "the label is identically to to release number";
 }
 
 artefact developmentBinary{

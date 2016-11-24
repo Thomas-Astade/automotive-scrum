@@ -54,6 +54,27 @@ role jenkinsRole {
     brief "Jenkins is an automation engine with an unparalleled plugin ecosystem to support all of your favorite tools in your delivery pipelines, whether your goal is continuous integration, automated testing, or continuous delivery.";
 }
 
+role integrator {
+    label "Integrator";
+    brief "This role is responsible to integrate all releases of the sub domains";
+}
+
+artefact pdx {
+    label "PDX container";
+}
+
+activity integrate {
+    responsible integrator;
+    transform
+         bootloader_releaseBaseline,
+         bootmanager_releaseBaseline,
+         bootloaderUpdater_releaseBaseline,
+         rte_releaseBaseline,
+         stub_releaseBaseline,
+         blackbox_releaseBaseline;
+    create pdx;
+}
+
 role projectManager {
     label "project manager";
     brief "The process manager is the overall responsible for a project";
@@ -67,7 +88,8 @@ activity develop {
          bootloaderUpdater_develop,
          rte_develop,
          stub_develop,
-         blackbox_develop;
+         blackbox_develop,
+         integrate;
 }
 
 process process {
@@ -87,7 +109,13 @@ repository jenkins {
 
 repository integrity {
     label "PTC Integrity";
-    contains 
+    contains
+         bootloader_releaseBaseline,
+         bootmanager_releaseBaseline,
+         bootloaderUpdater_releaseBaseline,
+         rte_releaseBaseline,
+         stub_releaseBaseline,
+         blackbox_releaseBaseline,
          bootloader_data,
          bootmanager_data,
          bootloaderUpdater_data,
