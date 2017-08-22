@@ -76,7 +76,7 @@ process process {
 
 activity requirementsManagement {
     label "requirements management";
-    brief "All actions which belong o the equirements.";
+    brief "All actions which belong to the requirements.";
     subactivities 
         spice_SYS1BP1, 
         spice_SYS2BP1,

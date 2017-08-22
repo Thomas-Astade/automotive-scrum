@@ -46,7 +46,7 @@ clean:
 	rm -f $(TARGET) *.o .depend
 
 run:	$(TARGET)
-	./$(TARGET) -i resources/main.txt -o /srv/automotive-scrum
+	./$(TARGET) -i resources/main.txt -o ~/html
 
 rebuild:	clean build
 
