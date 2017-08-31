@@ -523,6 +523,7 @@ struct process_description
                         > space
                         > ref_identifier[add_source]
                         > C
+                        > space
                         > ref_identifier[add_destination]
                         > space
                         > Cb;
