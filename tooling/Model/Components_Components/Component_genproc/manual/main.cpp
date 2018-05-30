@@ -490,7 +490,7 @@ struct process_description
         text            = parameterUse 
                         | 
                         (qi::lit('"')
-                            > *(qi::alnum | qi::char_(" ,.;:_<>|~!§$%&/()=?{[]}'-"))
+                            > *(qi::alnum | qi::char_("äöüßÄÖÜ ,.;:_<>|~!§$%&/()=?{[]}'-"))
                             >  qi::lit('"')
                         );
 
