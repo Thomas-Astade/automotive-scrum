@@ -5,9 +5,9 @@ for (std::vector<artefact_base*>::const_iterator it = c.begin(); it != c.end(); 
 {
     fputs((*it)->get_graph_node(false).c_str(),gfile);
     std::string connection;
-    connection = getFullIdentifier()
+    connection = (*it)->getFullIdentifier()
         + " -> "
-        + (*it)->getFullIdentifier()
+        + getFullIdentifier()
         + arrow_transform();
     
     fputs(connection.c_str(),gfile);
