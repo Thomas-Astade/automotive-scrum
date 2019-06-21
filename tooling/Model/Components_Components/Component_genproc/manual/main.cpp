@@ -47,6 +47,7 @@
 #include "tool_element.h"
 #include "parameters.h"
 #include "source_element.h"
+#include "File_creator.h"
 
 namespace classic = boost::spirit::classic;
 namespace qi = boost::spirit::qi;
@@ -763,6 +764,7 @@ int main (int argc, char **argv)
     }
 
     try {
+        ast::File_creator().create(outpath);
         ast::I_element::init_link_all();
         ast::I_element::generate_all(outpath);
     }

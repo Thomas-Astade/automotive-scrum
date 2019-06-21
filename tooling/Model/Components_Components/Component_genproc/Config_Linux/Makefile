@@ -28,13 +28,41 @@ HEADERS	:= $(wildcard ../auto/*.h ../manual/*.h)
 # objects go into current directory
 OBJS	:= $(notdir $(SOURCES:.cpp=.o))
 
+HEADERS += ../auto/folder.png.h
+HEADERS += ../auto/folder_selected.png.h
+HEADERS += ../auto/repository.png.h
+HEADERS += ../auto/repository_selected.png.h
+HEADERS += ../auto/role.png.h
+HEADERS += ../auto/tool.png.h
+
+../auto/folder.png.h: ../../../../../resources/Folder_small.png
+	../../Component_bin2c/Config_Linux/bin2c $< $@ 
+
+../auto/folder_selected.png.h: ../../../../../resources/Folder_selected_small.png
+	../../Component_bin2c/Config_Linux/bin2c $< $@ 
+
+../auto/repository.png.h: ../../../../../resources/repository_small.png
+	../../Component_bin2c/Config_Linux/bin2c $< $@ 
+
+../auto/repository_selected.png.h: ../../../../../resources/repository_selected_small.png
+	../../Component_bin2c/Config_Linux/bin2c $< $@ 
+
+../auto/role.png.h: ../../../../../resources/actor_klein.png
+	../../Component_bin2c/Config_Linux/bin2c $< $@ 
+
+../auto/tool.png.h: ../../../../../resources/tools_small.png
+	../../Component_bin2c/Config_Linux/bin2c $< $@ 
+
+../../Component_bin2c/Config_Linux/bin2c:
+	make -C ../../Component_bin2c/Config_Linux/ TARGET=bin2c
+
 %.o:	../auto/%.cpp
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(if $(findstring $(notdir $@),$(TRACE_LIST)),-D_TRACE_ -include Trace2UML.h,) -c -o $@ $<
 
 %.o:	../manual/%.cpp
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(if $(findstring $(notdir $@),$(TRACE_LIST)),-D_TRACE_ -include Trace2UML.h,) -c -o $@ $<
 
-build:	$(TARGET)
+build:	../../Component_bin2c/Config_Linux/bin2c  $(TARGET)
 
 install:	build
 	install -s $(TARGET) ~/genproc/
@@ -50,10 +78,10 @@ run:	$(TARGET)
 
 rebuild:	clean build
 
-$(TARGET):	.depend $(OBJS)
+$(TARGET): .depend $(OBJS)
 	$(CXX) -o $@ $(OBJS) $(LDFLAGS)
 
-.depend:	Makefile $(SOURCES) $(HEADERS)
+.depend: ../../Component_bin2c/Config_Linux/bin2c $(SOURCES) $(HEADERS)
 	$(CXX) -M $(CPPFLAGS) $(CXXFLAGS) $(SOURCES) >$@
 
 -include .depend

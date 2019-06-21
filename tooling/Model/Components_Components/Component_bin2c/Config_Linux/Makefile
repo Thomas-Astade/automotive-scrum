@@ -38,7 +38,7 @@ clean:
 
 rebuild:	clean build
 
-$(TARGET):	.depend $(OBJS)
+$(TARGET): .depend $(OBJS)
 	$(CXX) -o $@ $(OBJS) $(LDFLAGS)
 
 .depend:	Makefile $(SOURCES) $(HEADERS)
