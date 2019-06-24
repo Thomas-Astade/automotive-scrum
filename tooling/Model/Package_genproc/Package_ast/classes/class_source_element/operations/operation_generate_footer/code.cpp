@@ -4,7 +4,7 @@ file << "</td>" << std::endl;
 file << "</tr>" << std::endl;
 file << "<tr class=\"footer\">" << std::endl;
 file << "<td class=\"footer\">" << std::endl;
-file << "<p>Copyright (c) Thomas Spitzer<p>" << std::endl;
+file << "<p>Copyright (c) " << root_element::copyright << "<p>" << std::endl;
 
 file << "</td>" << std::endl;
 file << "</tr>" << std::endl;
