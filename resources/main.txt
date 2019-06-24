@@ -6,6 +6,7 @@ include resources/processes/minimalMantis.txt;
 include resources/processes/RBProcess.txt;
 
 @home {
+    copyright "Thomas Spitzer"
     subpages
         impressum,
         processes,

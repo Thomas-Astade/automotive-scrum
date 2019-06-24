@@ -108,6 +108,11 @@ void set_brief(const std::string& name, const boost::spirit::unused_type& it, bo
         e->set_brief(name);
 }
 
+void setCopyright(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
+{
+    ast::root_element::copyright = name;
+}
+
 void add_subpage(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
 {
     ast::subpage_owner* e = dynamic_cast<ast::subpage_owner*>(&ast::I_element::get_last());
@@ -239,6 +244,8 @@ struct process_description
                           (qi::lit("process") >  space > processElement);
         
         homeElement     = OB
+                        > space
+                        > -copyright[setCopyright]
                         > space
                         > subpagelist
                         > space
@@ -529,6 +536,10 @@ struct process_description
                         > space
                         > Cb;
                         
+        copyright       = qi::lit("copyright")
+                        > space
+                        > text;
+                         
         transitionGuardString
                         = (qi::lit('[')
                         > *(qi::alnum | qi::char_(" ,.;:_<>|~!§$%&/()=?{}'"))
@@ -619,6 +630,7 @@ struct process_description
     qi::rule<Iterator,ast::process_element()> processElement;
     qi::rule<Iterator, std::string()> ref_identifier;
     qi::rule<Iterator, std::string()> name_identifier;
+    qi::rule<Iterator, std::string()> copyright;
     qi::rule<Iterator, std::string()> filename;
     qi::rule<Iterator> label;
     qi::rule<Iterator, std::string()> responsibleRole;
