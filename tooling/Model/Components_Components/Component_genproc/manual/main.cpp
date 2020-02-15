@@ -778,6 +778,7 @@ int main (int argc, char **argv)
     try {
         ast::File_creator().create(outpath);
         ast::I_element::init_link_all();
+        ast::I_element::generateConfigurationManagementPlan(outpath);
         ast::I_element::generate_all(outpath);
     }
     catch(std::string e)

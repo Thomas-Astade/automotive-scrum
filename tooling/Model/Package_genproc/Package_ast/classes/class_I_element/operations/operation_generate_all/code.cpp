@@ -5,7 +5,7 @@ for (std::map<std::string,I_element*>::iterator it = object_list.begin(); it != 
 }
 
 std::ofstream ofs;
-std::string fullName = outpath+"/sitemap.xml";
+std::string fullName = outpath + "/sitemap.xml";
 ofs.open (fullName.c_str(), std::ofstream::out);
 
 time_t rawtime;
