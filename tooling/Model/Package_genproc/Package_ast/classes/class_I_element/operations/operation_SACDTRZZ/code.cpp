@@ -19,11 +19,11 @@ for (std::set<process_element*>::iterator it = processes.begin(); it != processe
     std::ofstream ofs;
     std::string fullName = outpath + "/ConfigurationManagementPlan_" + (*it)->getFullIdentifier() + ".md";
     ofs.open (fullName.c_str(), std::ofstream::out);
-    ofs << "Configuration Management Plan" << std::endl;
-    ofs << "=============================" << std::endl << std::endl;
     ofs << "-------------------------------------------------" << std::endl;
-    ofs << "ConfigurationItem                                            Content                                           Path    " << std::endl;
-    ofs << "------------------------------------------------------------ ------------------------------------------------- --------" << std::endl;
+    ofs << "ConfigurationItem                                                                                                  Content                                           Path    " << std::endl;
+    ofs << "------------------------------------------------------------------------------------------------------------------ ------------------------------------------------- --------------------------------------------------------------------" << std::endl;
+
+    std::map<std::string, artefact_element*> usedArtefacts;
 
     for (std::map<std::string,I_element*>::iterator it2 = object_list.begin(); it2 != object_list.end(); it2++)
     {
@@ -37,11 +37,17 @@ for (std::set<process_element*>::iterator it = processes.begin(); it != processe
                 process_element* process = dynamic_cast<process_element*>(artefact->getProcess());
                 if (process == *it)
                 {
-                    artefact->insertToConfigurationPlan(ofs,60,50);
+                    std::string index(artefact->I_element::getLabel());
+                    std::transform(index.begin(), index.end(),index.begin(), ::toupper);
+                    usedArtefacts[index] = artefact;
                 }
-            }
+           }
         }
-      
+     }
+     
+    for (std::map<std::string,artefact_element*>::iterator it2 = usedArtefacts.begin(); it2 != usedArtefacts.end(); it2++)
+    {
+        (*it2).second->insertToConfigurationPlan(ofs,114,50);
     }
     
     ofs << "-----------------------------------------" << std::endl << std::endl;
