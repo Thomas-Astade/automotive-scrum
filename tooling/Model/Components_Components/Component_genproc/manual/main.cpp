@@ -61,6 +61,7 @@ struct Arguments
     Arguments(): verbose(false) {}
     bool verbose;
     std::vector<std::string> file_names;
+    std::set<std::string> targetFiles;
 };
 
 Arguments arguments;
@@ -692,7 +693,7 @@ bool load(const std::string& filename)
 void handleLoad(const boost::spirit::unused_type& name, const boost::spirit::unused_type& it, bool& pass)
 {
     ast::parameters::activateParameters(arguments.verbose);
-    ast::source_element::Load_begin(loadFileName,outpath);
+    ast::source_element::Load_begin(loadFileName,outpath,arguments.targetFiles.empty());
     pass = load(loadFileName);
     ast::source_element::Load_end();
     ast::parameters::deactivateParameters(arguments.verbose);
@@ -709,6 +710,7 @@ static struct argp_option options[] =
   {"verbose", 'v', 0,            0, "verbose info aboout parsing."},
   {"input"   ,'i', "file",       0, "the input file (May be set multiple times)."},
   {"output"  ,'o', "folder",     0, "the output folder (default: ./html)."},
+  {"generate",'g', "file",       0, "specify a file to generate (use this to generate only parts of the model)"},
   {0}
 };
 
@@ -726,6 +728,9 @@ static error_t parse_opt (int key, char *arg, struct argp_state *state)
         break;
     case 'o':
         outpath = arg;
+        break;
+    case 'g':
+        arguments->targetFiles.insert(arg);
         break;
 
     default:
@@ -753,7 +758,7 @@ int main (int argc, char **argv)
     {
         try
         {
-            ast::source_element::Load_begin((*it),outpath);
+            ast::source_element::Load_begin((*it),outpath,arguments.targetFiles.empty());
             if (!load(*it))
                 return -1;
             ast::source_element::Load_end();
@@ -776,10 +781,11 @@ int main (int argc, char **argv)
     }
 
     try {
-        ast::File_creator().create(outpath);
+        if (arguments.targetFiles.empty())
+            ast::File_creator().create(outpath);
         ast::I_element::init_link_all();
         ast::I_element::generateConfigurationManagementPlan(outpath);
-        ast::I_element::generate_all(outpath);
+        ast::I_element::generate_all(outpath, arguments.targetFiles);
     }
     catch(std::string e)
     {

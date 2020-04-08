@@ -1,7 +1,13 @@
-//~~ void generate_all(const std::string& outpath) [I_element] ~~
+//~~ void generate_all(const std::string& outpath, const std::set<std::string>& filenames) [I_element] ~~
+unsigned int count = 0;
+
 for (std::map<std::string,I_element*>::iterator it = object_list.begin(); it != object_list.end(); it++)
 {
-    (*it).second->generate(outpath);
+    if (filenames.empty() || (filenames.find((*it).second->getHtmlFilename())!=filenames.end()))
+    {
+        (*it).second->generate(outpath);
+        count++;
+    }
 }
 
 std::ofstream ofs;
@@ -41,7 +47,10 @@ for (std::map<std::string,I_element*>::iterator it = object_list.begin(); it != 
     ofs << "</url>" << std::endl;
 }
 
-std::cout << "created " << object_list.size() << " elements." << std::endl;
+if (count == 1)
+    std::cout << "created " << count << " element." << std::endl;
+else
+    std::cout << "created " << count << " elements." << std::endl;
 
 ofs << "</urlset>" << std::endl;
 
