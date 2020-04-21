@@ -22,6 +22,7 @@ activity maintainScript {
 artefact script {
     label "'" + $0 + "' script";
     brief "this is a Jenkins script. A configuration, that contains all necessary information to do the job.";
+    gate c;
     relations $4;
 }
 

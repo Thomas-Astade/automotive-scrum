@@ -54,6 +54,7 @@ process process {
         jenkins,
         mantisRepository,
         forum;
+    gates a,b,c,d,e,f;
     subactivities 
         AutomotiveSPICE,
         describeProcess,

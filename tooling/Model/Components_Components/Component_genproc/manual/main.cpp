@@ -128,6 +128,13 @@ void add_gate(const std::string& name, const boost::spirit::unused_type& it, boo
         e->add_gate(name);
 }
 
+void artefact_add_gate(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
+{
+    ast::artefact_element* e = dynamic_cast<ast::artefact_element*>(&ast::I_element::get_last());
+    if (e)
+        e->add_gate(name);
+}
+
 void add_relation(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
 {
     ast::artefact_base* e = dynamic_cast<ast::artefact_base*>(&ast::I_element::get_last());
@@ -316,6 +323,8 @@ struct process_description
                         > space
                         > -brief[set_brief]
                         > space
+                        > -gate
+                        > space
                         > -subArtifacts
                         > space
                         > -relations
@@ -434,6 +443,11 @@ struct process_description
                         > ref_identifier[add_gate]
                         > space
                         > *(qi::lit(',') > space > ref_identifier)[add_gate]
+                        > qi::lit(';');
+                        
+        gate            = qi::lit("gate")
+                        > space
+                        > ref_identifier[artefact_add_gate]
                         > qi::lit(';');
                         
         subArtifacts    = qi::lit("contains")
@@ -620,6 +634,7 @@ struct process_description
     qi::rule<Iterator> subpagelist;
     qi::rule<Iterator> subActivities;
     qi::rule<Iterator> gates;
+    qi::rule<Iterator> gate;
     qi::rule<Iterator> subArtifacts;
     qi::rule<Iterator> relations;
     qi::rule<Iterator> repositories;

@@ -23,6 +23,22 @@ fputs(e->get_graph_node(true).c_str(),gfile);
 insert_relations(gfile, false, e->getFullIdentifier());
 insert_related(gfile, true, e->getFullIdentifier());
 
+if (!processGate.empty())
+{
+    std::string connection;
+
+    connection = "{rank = same; " + processGate + "; " + e->getFullIdentifier() + ";}\n";
+    fputs(connection.c_str(),gfile);
+
+    connection = processGate + "[shape=circle, style=filled, color=red, fillcolor=red];\n"
+        + processGate
+        + " -> "
+        + e->getFullIdentifier()
+        + "[arrowhead=\"none\", arrowtail=\"none\", dir=\"both\"];";
+
+    fputs(connection.c_str(),gfile);
+}
+
 for (std::set<const I_element*>::const_iterator it = m_creator.begin(); it != m_creator.end(); it++)
 {
     fputs((*it)->get_graph_node(false).c_str(),gfile);
