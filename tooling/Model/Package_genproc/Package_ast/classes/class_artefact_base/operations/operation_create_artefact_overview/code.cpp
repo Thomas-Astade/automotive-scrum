@@ -30,7 +30,7 @@ if (!processGate.empty())
     connection = "{rank = same; " + processGate + "; " + e->getFullIdentifier() + ";}\n";
     fputs(connection.c_str(),gfile);
 
-    connection = processGate + "[shape=circle, style=filled, color=red, fillcolor=red];\n"
+    connection = processGate + "[shape=circle, style=filled, color=black, fillcolor=red];\n"
         + processGate
         + " -> "
         + e->getFullIdentifier()

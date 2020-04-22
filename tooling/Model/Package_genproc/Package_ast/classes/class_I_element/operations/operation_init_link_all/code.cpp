@@ -4,3 +4,6 @@ for (std::map<std::string,I_element*>::iterator it = object_list.begin(); it != 
     
 for (std::map<std::string,I_element*>::iterator it = object_list.begin(); it != object_list.end(); it++)
     (*it).second->init_implicite_members();
+    
+for (std::map<std::string,I_element*>::iterator it = object_list.begin(); it != object_list.end(); it++)
+    (*it).second->assignGates();
