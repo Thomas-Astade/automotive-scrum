@@ -732,7 +732,7 @@ void handleLoad(const boost::spirit::unused_type& name, const boost::spirit::unu
 }
 
 const char *argp_program_version =
-"genproc 0.1";
+"genproc 0.2";
 
 const char *argp_program_bug_address =
 "<thomas@automotive-scrum.org>";
