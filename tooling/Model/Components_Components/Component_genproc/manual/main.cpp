@@ -18,7 +18,6 @@
 */
 
 #include <stdio.h>
-#include <argp.h>
 #include <fstream>
 #include <map>
 #include <vector>
@@ -58,7 +57,7 @@ const char* outpath = "./html";
 /* This structure is used by main to communicate with parse_opt. */
 struct Arguments
 {
-    Arguments(): verbose(false) {}
+    Arguments(): verbose(false){}
     bool verbose;
     std::vector<std::string> file_names;
     std::set<std::string> targetFiles;
@@ -731,55 +730,70 @@ void handleLoad(const boost::spirit::unused_type& name, const boost::spirit::unu
     ast::parameters::deactivateParameters(arguments.verbose);
 }
 
-const char *argp_program_version =
-"genproc 0.2";
-
-const char *argp_program_bug_address =
-"<thomas@automotive-scrum.org>";
-
-static struct argp_option options[] =
+void printUsage()
 {
-  {"verbose", 'v', 0,            0, "verbose info aboout parsing."},
-  {"input"   ,'i', "file",       0, "the input file (May be set multiple times)."},
-  {"output"  ,'o', "folder",     0, "the output folder (default: ./html)."},
-  {"generate",'g', "file",       0, "specify a file to generate (use this to generate only parts of the model)"},
-  {0}
-};
-
-static error_t parse_opt (int key, char *arg, struct argp_state *state)
-{
-    Arguments* arguments = (Arguments*) state->input;
-
-    switch (key)
-    {
-    case 'v':
-        arguments->verbose = true;
-        break;
-    case 'i':
-        arguments->file_names.push_back(arg);
-        break;
-    case 'o':
-        outpath = arg;
-        break;
-    case 'g':
-        arguments->targetFiles.insert(arg);
-        break;
-
-    default:
-        return ARGP_ERR_UNKNOWN;
-    }
-    return 0;
+    printf("%s\n","Usage: genproc [OPTION...]");
+    printf("%s\n","genproc -- A program to generate process descriptions.");
+    printf("%s\n","");
+    printf("%s\n","  -g, --generate=file        specify a file to generate (use this to generate");
+    printf("%s\n","                             only parts of the model)");
+    printf("%s\n","  -i, --input=file           the input file (May be set multiple times).");
+    printf("%s\n","  -o, --output=folder        the output folder (default: ./html).");
+    printf("%s\n","  -v, --verbose              verbose info aboout parsing.");
+    printf("%s\n","  -?, --help                 Give this help list");
 }
 
-static char doc[] =
-"genproc -- A program to generate process descriptions.";
-
-static struct argp argp = {options, parse_opt, 0, doc};
+std::vector<std::string> tokens;
+void parseArgs(int argc, char **argv, Arguments& args)
+{
+    if (argc <= 1)
+    {
+        printUsage();
+        exit(0);
+    }
+    for (int i = 1; i < argc; i++)
+    {
+        std::string s(argv[i]);
+        int pos = s.find("=");
+        if (pos == -1)
+            tokens.push_back(s);
+        else
+        {
+            tokens.push_back(s.substr(0,pos));
+            tokens.push_back(s.substr(pos+1));
+        }
+        tokens.push_back(" ");
+    }
+    for (unsigned int i = 0; i < tokens.size()-1; i++)
+    {
+        if ((tokens[i] == "-?") || (tokens[i] == "--help"))
+        {
+            printUsage();
+            exit(0);
+        }
+        else if ((tokens[i] == "-v") || (tokens[i] == "--verbose"))
+        {
+            args.verbose = true;
+        }
+        else if ((tokens[i] == "-i") || (tokens[i] == "--input"))
+        {
+            args.targetFiles.insert(tokens[i+1]);
+        }
+        else if ((tokens[i] == "-o") || (tokens[i] == "--output"))
+        {
+            outpath = tokens[i+1].c_str();
+        }
+        else if ((tokens[i] == "-g") || (tokens[i] == "--generate"))
+        {
+            args.targetFiles.insert(tokens[i+1]);
+        }
+    }
+    exit(0);
+}
 
 int main (int argc, char **argv)
 {
-    /* Where the magic happens */
-    argp_parse (&argp, argc, argv, 0, 0, &arguments);
+    parseArgs(argc, argv, arguments);
 
     if (arguments.file_names.empty())
     {
