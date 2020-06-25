@@ -762,8 +762,8 @@ void parseArgs(int argc, char **argv, Arguments& args)
             tokens.push_back(s.substr(0,pos));
             tokens.push_back(s.substr(pos+1));
         }
-        tokens.push_back(" ");
     }
+    tokens.push_back(" ");
     for (unsigned int i = 0; i < tokens.size()-1; i++)
     {
         if ((tokens[i] == "-?") || (tokens[i] == "--help"))
@@ -777,7 +777,7 @@ void parseArgs(int argc, char **argv, Arguments& args)
         }
         else if ((tokens[i] == "-i") || (tokens[i] == "--input"))
         {
-            args.targetFiles.insert(tokens[i+1]);
+            args.file_names.push_back(tokens[i+1]);
         }
         else if ((tokens[i] == "-o") || (tokens[i] == "--output"))
         {
@@ -788,7 +788,6 @@ void parseArgs(int argc, char **argv, Arguments& args)
             args.targetFiles.insert(tokens[i+1]);
         }
     }
-    exit(0);
 }
 
 int main (int argc, char **argv)
