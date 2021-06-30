@@ -94,6 +94,13 @@ void set_role(const std::string& name, const boost::spirit::unused_type& it, boo
         e->set_role(name);
 }
 
+void set_participant(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
+{
+    ast::role_owner* e = dynamic_cast<ast::role_owner*>(&ast::I_element::get_last());
+    if (e)
+        e->set_participant(name);
+}
+
 void set_tool(const std::string& name, const boost::spirit::unused_type& it, bool& pass)
 {
     ast::role_owner* e = dynamic_cast<ast::role_owner*>(&ast::I_element::get_last());
@@ -293,6 +300,8 @@ struct process_description
                         > -brief[set_brief]
                         > space
                         > -responsibleRole[set_role]
+                        > space
+                        > -participantRole[set_participant]
                         > space
                         > -usedTool[set_tool]
                         > space
@@ -545,6 +554,12 @@ struct process_description
                         > space
                         > SC;
                         
+        participantRole = qi::lit("participant") 
+                        > space
+                        > ref_identifier
+                        > space
+                        > SC;
+                        
         usedTool        = qi::lit("tool") 
                         > space
                         > ref_identifier
@@ -610,6 +625,7 @@ struct process_description
         CB.name("'}' expected.");
         subActivities.name("\"subactivities\" expected.");
         responsibleRole.name("\"responsible\" expected.");
+        participantRole.name("\"participant\" expected.");
         statePair.name("\"state pair\" expected.");
         
         OB              = qi::lit("{");
@@ -666,6 +682,7 @@ struct process_description
     qi::rule<Iterator, std::string()> filename;
     qi::rule<Iterator> label;
     qi::rule<Iterator, std::string()> responsibleRole;
+    qi::rule<Iterator, std::string()> participantRole;
     qi::rule<Iterator, std::string()> usedTool;
     qi::rule<Iterator, std::string()> brief;
     qi::rule<Iterator, std::string()> text;
