@@ -301,7 +301,7 @@ struct process_description
                         > space
                         > -responsibleRole[set_role]
                         > space
-                        > -participantRole[set_participant]
+                        > -participantRole
                         > space
                         > -usedTool[set_tool]
                         > space
@@ -556,8 +556,9 @@ struct process_description
                         
         participantRole = qi::lit("participant") 
                         > space
-                        > ref_identifier
+                        > ref_identifier[set_participant]
                         > space
+                        > *(qi::lit(',') > space > ref_identifier)[set_participant]
                         > SC;
                         
         usedTool        = qi::lit("tool") 
