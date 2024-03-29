@@ -11,15 +11,8 @@ GERMANY
 
 Contact
 
-Telephone: +49 6162/969710<br>
 E-Mail: <thomas@automotive-scrum.org><br>
 Internetaddress: <http://automotive-scrum.org><br>
-
-VAT number
-----------
-
-VAT indentification number in accorance with section 27 a of the German VAT act<br>
-DE235713445
 
 Person responsible for content in accordance with 55 Abs. 2 RStV
 ----------------------------------------------------------------
