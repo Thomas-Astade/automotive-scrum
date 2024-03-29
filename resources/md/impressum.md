@@ -5,8 +5,8 @@ Information in accordance with section 5 TMG
 --------------------------------------------
 
 Thomas Spitzer<br>
-Am Hollergraben 12<br>
-64853 Otzberg<br>
+Karlstraße 45a<br>
+64283 Darmstadt<br>
 GERMANY
 
 Contact
@@ -26,8 +26,8 @@ Person responsible for content in accordance with 55 Abs. 2 RStV
 
 
 Thomas Spitzer<br>
-Am Hollergraben 12<br>
-64853 Otzberg<br>
+Karlstraße 45a<br>
+64283 Darmstadt<br>
 GERMANY
 
 Disclaimer
